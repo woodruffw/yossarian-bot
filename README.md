@@ -9,6 +9,7 @@ An entertaining IRC bot.
 * Public and private messages between users (through the bot)
 * UrbanDictionary queries
 * Wolfram|Alpha queries
+* ...and more!
 
 ## Running the bot
 

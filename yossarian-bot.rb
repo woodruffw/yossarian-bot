@@ -29,11 +29,11 @@ bot = Cinch::Bot.new do
 	end
 
 	on :message, /[.!:]bots/ do |m|
-		m.reply "Reporting in! Use !help for commands. [Ruby/Cinch]"
+		m.reply "Reporting in! Use !help for commands."
 	end
 
 	on :message, "!author" do |m|
-		m.reply "Author: cpt_yossarian"
+		m.reply "Author: cpt_yossarian (woodruffw)"
 	end
 
 	on :message, "!botver" do |m|
@@ -41,7 +41,7 @@ bot = Cinch::Bot.new do
 	end
 
 	on :message, "!src" do |m|
-		m.reply "TBA"
+		m.reply "https://github.com/woodruffw/yossarian-bot"
 	end
 
 	on :message, "!c22" do |m|
