@@ -61,7 +61,7 @@ bot = Cinch::Bot.new do
 	end
 
 	on :message, /!wa (.+)/ do |m, query|
-		m.reply wolfram_alpha(query)
+		m.reply "#{m.user.nick}: #{wolfram_alpha(query)}"
 	end
 	
 	on :message, /(http(s)?:\/\/[^ \t]*)/ do |m, link|
