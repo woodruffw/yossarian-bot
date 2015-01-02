@@ -29,7 +29,7 @@ bot = Cinch::Bot.new do
 	end
 
 	on :message, /[.!:]bots/ do |m|
-		m.reply "Reporting in! Use !help for commands."
+		m.reply "Reporting in! [Ruby] Use !help for commands."
 	end
 
 	on :message, "!author" do |m|
