@@ -76,7 +76,13 @@ end
 
 def wolfram_alpha(query)
 	Wolfram.appid = ENV['WOLFRAM_ALPHA_APPID_KEY']
-	return Wolfram.fetch(query).pods[1].plaintext.gsub(/\r\n/, '')
+	result = Wolfram.fetch(query).pods[1]
+
+	if result == nil
+		return "Wolfram|Alpha has nothing for #{query}"
+	else
+		return result.plaintext.gsub(/\r\n/, '')
+	end
 end
 
 def link_title(link)
