@@ -9,10 +9,11 @@ require 'open-uri'
 require 'json'
 require 'nokogiri'
 require 'wolfram'
+require 'wunderground'
 
 def list_help
 	return "Available commands: !help, !bots, !author, !botver, !src, !c22, " +
-		"!fortune, !pmsg, !ud, !wa. For more info on each, try !help <cmd>."
+		"!fortune, !pmsg, !ud, !wa, !w. For more info on each, try !help <cmd>."
 end
 
 def cmd_help(cmd)
@@ -37,6 +38,8 @@ def cmd_help(cmd)
 		return "!ud <phrase> - search UrbanDictionary for <phrase>."
 	when /^(!)?wa/
 		return "!wa <query> - ask Wolfram|Alpha about <query>."
+	when /^(!)?w/
+		return "!w <location> - get weather for <location> from Wunderground."
 	else
 		return "#{cmd}: unknown command."
 	end
@@ -100,6 +103,21 @@ def wolfram_alpha(query)
 		return "Wolfram|Alpha has nothing for #{query}"
 	else
 		return result.plaintext.gsub(/\r\n/, '')
+	end
+end
+
+def weather(location)
+	wu = Wunderground.new(ENV['WUNDERGROUND_API_KEY'])
+	hash = wu.conditions_for(location)
+
+	unless hash['current_observation'] == nil
+		loc = hash['current_observation']['display_location']['full']
+		weather = hash['current_observation']['weather']
+		temp = hash['current_observation']['temperature_string']
+
+		return "Current temperature in #{loc} is #{temp} and #{weather}."
+	else
+		return "Bad weather query for #{location}."
 	end
 end
 

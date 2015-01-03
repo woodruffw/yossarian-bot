@@ -9,12 +9,18 @@ An entertaining IRC bot.
 * Public and private messages between users (through the bot)
 * UrbanDictionary queries
 * Wolfram|Alpha queries
+* Weather updates
 * ...and more!
 
 ## Running the bot
 
 ### Dependencies:
-`yossarian-bot` depends on the `cinch`, `json`, `nokogiri`, and `wolfram` gems.
+`yossarian-bot` depends on the `cinch`, `json`, `nokogiri`, `wolfram` and
+`wunderground` gems.
+
+You must also have API keys for the Wolfram Alpha and Weather Underground
+APIs, exported to `WOLFRAM_ALPHA_APPID_KEY` and `WUNDERGROUND_API_KEY` 
+respectively.
 
 Additionally, the `fortune` utility must be present in order for Unix fortunes
 to work correctly.
@@ -42,6 +48,7 @@ $ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2'
 * `!pmsg <user> <message>` - Private message the given user.
 * `!ud <word>` - Look up the given word on UrbanDictionary.
 * `!wa <query>` - Ask Wolfram|Alpha about something.
+* `!w <location>` - Get the weather from Wunderground.
 
 In addition to these commands, `yossarian-bot` also matches all HTTP[S] links
 and messages the title of the linked HTML page.
