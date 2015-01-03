@@ -13,7 +13,7 @@
 require 'cinch'
 require_relative 'yossarian-helpers'
 
-BOT_VERSION = 0.1
+BOT_VERSION = 0.2
 
 bot = Cinch::Bot.new do
 	configure do |c|
@@ -24,8 +24,12 @@ bot = Cinch::Bot.new do
 		c.channels = ARGV[1].split(',')
 	end
 
-	on :message, "!help" do |m|
-		User(m.user.nick).send list_help
+	on :message, /^[.!:]help$/ do |m|
+		User(m.user.nick).send(list_help, true)
+	end
+
+	on :message, /^[.!:]help (.+)/ do |m, cmd|
+		User(m.user.nick).send(cmd_help(cmd), true)
 	end
 
 	on :message, /^[.!:]bots/ do |m|

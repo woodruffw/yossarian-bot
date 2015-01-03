@@ -11,17 +11,35 @@ require 'nokogiri'
 require 'wolfram'
 
 def list_help
-	return "Available commands:\n" +
-		"!help - print this list\n" +
-		"!bots - report in\n" +
-		"!author - print the author\n" +
-		"!botver - print the bot version\n" +
-		"!src - link the bot\'s source code\n" +
-		"!c22 - random Catch-22 quote\n" +
-		"!fortune - print a fortune from the fortune DB\n" +
-		"!pmsg <user> <message> - send <message> to <user> through the bot\n" +
-		"!ud <word> - fetch <word>'s UrbanDictionary definition\n" +
-		"!wa <query> - ask Wolfram|Alpha a question"
+	return "Available commands: !help, !bots, !author, !botver, !src, !c22, " +
+		"!fortune, !pmsg, !ud, !wa. For more info on each, try !help <cmd>."
+end
+
+def cmd_help(cmd)
+	case cmd
+	when /^(!)?help/
+		return "!help [cmd] - List general help or help on <cmd>."
+	when /^(!)?bots/
+		return "!bots - report self as bot."
+	when /^(!)?author/
+		return "!author - the author of yossarian-bot."
+	when /^(!)?botver/
+		return "!botver - the version of yossarian-bot."
+	when /^(!)?src/
+		return "!src - a link to yossarian-bot\'s source."
+	when /^(!)?c22/
+		return "!c22 - message a random Catch-22 quote."
+	when /^(!)?fortune/
+		return "!fortune - message a random Unix fortune."
+	when /^(!)?pmsg/
+		return "!pmsg <user> <message> - message <user> with <message> through yossarian-bot"
+	when /^(!)?ud/
+		return "!ud <phrase> - search UrbanDictionary for <phrase>."
+	when /^(!)?wa/
+		return "!wa <query> - ask Wolfram|Alpha about <query>."
+	else
+		return "#{cmd}: unknown command."
+	end
 end
 
 def random_quote
