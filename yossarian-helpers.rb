@@ -30,7 +30,7 @@ def random_quote
 		"Just because you're paranoid doesn't mean they aren't after you.",
 		"Anything worth dying for is certainly worth living for.",
 		"Insanity is contagious.",
-		"It doesn't make a damned bit of difference who wins the war to someone who's dead",
+		"It doesn't make a damned bit of difference who wins the war to someone who's dead.",
 		"It doesn't make sense. It isn't even good grammar.",
 		"The country was in peril; he was jeopardizing his traditional rights of freedom and independence by daring to exercise them.",
 		"I want to keep my dreams, even bad ones, because without them, I might have nothing all night long.",
