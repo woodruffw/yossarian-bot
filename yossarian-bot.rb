@@ -60,7 +60,7 @@ bot = Cinch::Bot.new do
 		m.reply "#{m.user.nick}: #{define_word(word)}"
 	end
 
-	on :message, /!wa (.+)/ do |m, query|
+	on :message, /^!wa (.+)/ do |m, query|
 		m.reply "#{m.user.nick}: #{wolfram_alpha(query)}"
 	end
 	
