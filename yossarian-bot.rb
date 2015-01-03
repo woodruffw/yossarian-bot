@@ -44,7 +44,7 @@ bot = Cinch::Bot.new do
 		m.reply "yossarian-bot version #{BOT_VERSION}"
 	end
 
-	on :message, "!s(ou)?rc" do |m|
+	on :message, /^!s(ou)?rc/ do |m|
 		m.reply "https://github.com/woodruffw/yossarian-bot"
 	end
 
