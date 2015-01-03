@@ -6,7 +6,6 @@ An entertaining IRC bot.
 ## Features:
 * Unix fortunes (`fortune` must be present)
 * Catch-22 quotes
-* Public and private messages between users (through the bot)
 * UrbanDictionary queries
 * Wolfram|Alpha queries
 * Weather updates

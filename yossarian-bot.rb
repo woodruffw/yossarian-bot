@@ -13,7 +13,7 @@
 require 'cinch'
 require_relative 'yossarian-helpers'
 
-BOT_VERSION = 0.2
+BOT_VERSION = 0.3
 
 bot = Cinch::Bot.new do
 	configure do |c|
