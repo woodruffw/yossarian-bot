@@ -28,7 +28,7 @@ bot = Cinch::Bot.new do
 		User(m.user.nick).send list_help
 	end
 
-	on :message, /[.!:]bots/ do |m|
+	on :message, /^[.!:]bots/ do |m|
 		m.reply "Reporting in! [Ruby] Use !help for commands."
 	end
 
@@ -52,11 +52,11 @@ bot = Cinch::Bot.new do
 		m.reply `fortune`.gsub(/\n/, ' ')
 	end
 
-	on :message, /!pmsg (.+?) (.+)/ do |m, user, msg|
+	on :message, /^!pmsg (.+?) (.+)/ do |m, user, msg|
 		User(user).send "#{user}: #{msg} (#{m.user.nick})"
 	end
 
-	on :message, /!ud (.+)/ do |m, word|
+	on :message, /^!ud (.+)/ do |m, word|
 		m.reply "#{m.user.nick}: #{define_word(word)}"
 	end
 
