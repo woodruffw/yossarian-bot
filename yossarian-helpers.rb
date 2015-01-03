@@ -19,7 +19,7 @@ def list_help
 		"!src - link the bot\'s source code\n" +
 		"!c22 - random Catch-22 quote\n" +
 		"!fortune - print a fortune from the fortune DB\n" +
-		"!pmsg <user> <message> - same as !msg, but private\n" +
+		"!pmsg <user> <message> - send <message> to <user> through the bot\n" +
 		"!ud <word> - fetch <word>'s UrbanDictionary definition\n" +
 		"!wa <query> - ask Wolfram|Alpha a question"
 end
