@@ -13,7 +13,7 @@ require 'wunderground'
 
 def list_help
 	return "Available commands: !help, !bots, !author, !botver, !src, !c22, " +
-		"!fortune, !pmsg, !ud, !wa, !w. For more info on each, try !help <cmd>."
+		"!fortune, !pmsg, !ud, !wa, !w, !g. For more info on each, try !help <cmd>."
 end
 
 def cmd_help(cmd)
@@ -40,6 +40,8 @@ def cmd_help(cmd)
 		return "!wa <query> - ask Wolfram|Alpha about <query>."
 	when /^(!)?w/
 		return "!w <location> - get weather for <location> from Wunderground."
+	when /^(!)?g/
+		return "!g <search> - get the first Google result for <search>."
 	else
 		return "#{cmd}: unknown command."
 	end
@@ -90,7 +92,7 @@ def define_word(word)
 		return "No definition for #{word}."
 	else
 		list = hash['list'][0]
-		return list['definition'][0..255].gsub(/\r\n/, '') +
+		return list['definition'][0..255].gsub(/[\r\n]/, '') +
 			"... link: " + list['permalink']
 	end
 end
@@ -102,7 +104,7 @@ def wolfram_alpha(query)
 	if result == nil
 		return "Wolfram|Alpha has nothing for #{query}"
 	else
-		return result.plaintext.gsub(/\r\n/, '')
+		return result.plaintext.gsub(/[\t\r\n]/, '')
 	end
 end
 
@@ -114,14 +116,27 @@ def weather(location)
 		loc = hash['current_observation']['display_location']['full']
 		weather = hash['current_observation']['weather']
 		temp = hash['current_observation']['temperature_string']
-
 		return "Current temperature in #{loc} is #{temp} and #{weather}."
 	else
 		return "Bad weather query for #{location}."
 	end
 end
 
+def google(search)
+	url = URI.encode("https://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=large&safe=active&q=#{search}")
+	hash = JSON.parse(open(url).string)
+
+	unless hash['responseData']['results'].empty?
+		site = hash['responseData']['results'][0]['url']
+		content = hash['responseData']['results'][0]['content'].gsub(/([\t\r\n])|(<(\/)?b>)/, '')
+		content = content.gsub(/&amp;/, '&')
+		return "#{site}: #{content}"
+	else
+		return "No Google results for #{search}."
+	end
+end
+
 def link_title(link)
 	html = Nokogiri::HTML(open(link))
-	return html.css('title').text.gsub(/^[ \t\r\n]*/, '')
+	return html.css('title').text.gsub(/[\t\r\n]/, '')
 end

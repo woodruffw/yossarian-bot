@@ -10,6 +10,7 @@ An entertaining IRC bot.
 * UrbanDictionary queries
 * Wolfram|Alpha queries
 * Weather updates
+* Google searches
 * ...and more!
 
 ## Running the bot
@@ -49,6 +50,7 @@ $ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2'
 * `!ud <word>` - Look up the given word on UrbanDictionary.
 * `!wa <query>` - Ask Wolfram|Alpha about something.
 * `!w <location>` - Get the weather from Wunderground.
+* `!g <search>` - Search Google.
 
 In addition to these commands, `yossarian-bot` also matches all HTTP[S] links
 and messages the title of the linked HTML page.
