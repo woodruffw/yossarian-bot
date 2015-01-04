@@ -75,6 +75,10 @@ bot = Cinch::Bot.new do
 	on :message, /^!g (.+)/ do |m, search|
 		m.reply "#{m.user.nick}: #{google(search)}"
 	end
+
+	on :message, /^!rot13 (.+)/ do |m, msg|
+		m.reply "#{m.user.nick}: #{rot13(msg)}"
+	end
 	
 	on :message, /(http(s)?:\/\/[^ \t]*)/ do |m, link|
 		title = link_title(link)

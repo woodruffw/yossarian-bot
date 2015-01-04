@@ -50,6 +50,7 @@ $ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2'
 * `!wa <query>` - Ask Wolfram|Alpha about something.
 * `!w <location>` - Get the weather from Wunderground.
 * `!g <search>` - Search Google.
+* `!rot13 <message>` - "encrypt" a message with the ROT-13 cipher.
 
 In addition to these commands, `yossarian-bot` also matches all HTTP[S] links
 and messages the title of the linked HTML page.

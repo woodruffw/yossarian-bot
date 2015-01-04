@@ -12,8 +12,9 @@ require 'wolfram'
 require 'wunderground'
 
 def list_help
-	return "Available commands: !help, !bots, !author, !botver, !src, !c22, " +
-		"!fortune, !pmsg, !ud, !wa, !w, !g. For more info on each, try !help <cmd>."
+	return "Available commands: !bots, !author, !botver, !src, !c22, " +
+		"!fortune, !pmsg, !ud, !wa, !w, !g, !rot13. For more info on each, " +
+		"try !help <cmd>."
 end
 
 def cmd_help(cmd)
@@ -42,6 +43,8 @@ def cmd_help(cmd)
 		return "!w <location> - get weather for <location> from Wunderground."
 	when /^(!)?g/
 		return "!g <search> - get the first Google result for <search>."
+	when /^(!)?rot13/
+		return "!rot13 <message> - use the ROT-13 cipher on <message>."
 	else
 		return "#{cmd}: unknown command."
 	end
@@ -135,6 +138,10 @@ def google(search)
 	else
 		return "No Google results for #{search}."
 	end
+end
+
+def rot13(msg)
+	return msg.tr("a-z", "n-za-m").tr("A-Z", "N-ZA-M")
 end
 
 def link_title(link)
