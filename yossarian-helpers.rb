@@ -132,8 +132,8 @@ def google(search)
 	unless hash['responseData']['results'].empty?
 		site = hash['responseData']['results'][0]['url']
 		content = hash['responseData']['results'][0]['content'].gsub(/([\t\r\n])|(<(\/)?b>)/, '')
-		content = content.gsub(/&amp;/, '&')
-		content = content.gsub(/&quot;/, '\'')
+		content.gsub!(/&amp;/, '&')
+		content.gsub!(/&quot;/, '\'')
 		return "#{site}: #{content}"
 	else
 		return "No Google results for #{search}."
