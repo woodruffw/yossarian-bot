@@ -141,7 +141,7 @@ def google(search)
 end
 
 def rot13(msg)
-	return msg.tr("a-z", "n-za-m").tr("A-Z", "N-ZA-M")
+	return msg.tr("A-Ma-mN-Zn-z", "N-Zn-zA-Ma-m")
 end
 
 def link_title(link)
