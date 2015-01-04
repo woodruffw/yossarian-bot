@@ -90,7 +90,6 @@ bot = Cinch::Bot.new do
 	on :ctcp, "VERSION" do |m|
 		m.reply "yossarian-bot version #{BOT_VERSION}"
 	end
-
 end
 
 bot.start
