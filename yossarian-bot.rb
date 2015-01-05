@@ -11,9 +11,21 @@
 #  http://opensource.org/licenses/MIT
 
 require 'cinch'
+require 'optparse'
 require_relative 'yossarian-helpers'
 
 BOT_VERSION = 0.3
+
+options = {}
+
+OptionParser.new do |opts|
+	opts.banner = "Usage: $0 <irc server> <channels> [options]"
+
+	options['links'] = true
+	opts.on('-n', '--no-link-titles', 'Do not title links.') do |n|
+		options['links'] = false
+	end
+end.parse!
 
 bot = Cinch::Bot.new do
 	configure do |c|
@@ -80,10 +92,12 @@ bot = Cinch::Bot.new do
 		m.reply "#{m.user.nick}: #{rot13(msg)}"
 	end
 	
-	on :message, /(http(s)?:\/\/[^ \t]*)/ do |m, link|
-		title = link_title(link)
-		unless title.empty?
-			m.reply "Title: \"#{title}\""
+	if options['links']
+		on :message, /(http(s)?:\/\/[^ \t]*)/ do |m, link|
+			title = link_title(link)
+			unless title.empty?
+				m.reply "Title: \"#{title}\""
+			end
 		end
 	end
 
