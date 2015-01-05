@@ -13,8 +13,8 @@ require 'wunderground'
 
 def list_help
 	return "Available commands: !bots, !author, !botver, !src, !c22, " +
-		"!fortune, !pmsg, !ud, !wa, !w, !g, !rot13. For more info on each, " +
-		"try !help <cmd>."
+		"!fortune, !pmsg, !ud, !wa, !w, !g, !rot13, !8ball. For more info " +
+		"on each, try !help <cmd>."
 end
 
 def cmd_help(cmd)
@@ -45,6 +45,8 @@ def cmd_help(cmd)
 		return "!g <search> - get the first Google result for <search>."
 	when /^(!)?rot13/
 		return "!rot13 <message> - use the ROT-13 cipher on <message>."
+	when /^(!)?8ball/
+		return "!8ball <question> - ask the Magic 8 Ball a question."
 	else
 		return "#{cmd}: unknown command."
 	end
@@ -142,6 +144,31 @@ end
 
 def rot13(msg)
 	return msg.tr("A-Ma-mN-Zn-z", "N-Zn-zA-Ma-m")
+end
+
+def random_8ball
+	[
+		"It is certain.",
+		"It is decidedly so.",
+		"Without a doubt.",
+		"Yes definitely.",
+		"You may rely on it.",
+		"As I see it, yes.",
+		"Most likely.",
+		"Outlook good.",
+		"Yes.",
+		"Signs point to yes.",
+		"Reply hazy, try again.",
+		"Ask again later.",
+		"Better not tell you now.",
+		"Cannot predict now.",
+		"Concentrate and ask again.",
+		"Don't count on it.",
+		"My reply is no.",
+		"My sources say no.",
+		"Outlook not so good.",
+		"Very doubtful."
+	].sample
 end
 
 def link_title(link)

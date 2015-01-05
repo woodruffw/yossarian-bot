@@ -91,6 +91,10 @@ bot = Cinch::Bot.new do
 	on :message, /^!rot13 (.+)/ do |m, msg|
 		m.reply "#{m.user.nick}: #{rot13(msg)}"
 	end
+
+	on :message, /^!8ball (.+)?$/ do |m, question|
+		m.reply "#{m.user.nick}: #{random_8ball}"
+	end
 	
 	if options['links']
 		on :message, /(http(s)?:\/\/[^ \t]*)/ do |m, link|
