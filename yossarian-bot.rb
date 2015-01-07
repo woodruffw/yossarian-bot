@@ -73,7 +73,7 @@ bot = Cinch::Bot.new do
 	end
 
 	on :message, /^!ud (.+)/ do |m, word|
-		m.reply "#{m.user.nick}: #{define_word(word)}"
+		m.reply "#{m.user.nick}: #{urban_dict(word)}"
 	end
 
 	on :message, /^!wa (.+)/ do |m, query|
@@ -94,6 +94,10 @@ bot = Cinch::Bot.new do
 
 	on :message, /^!8ball (.+)?$/ do |m, question|
 		m.reply "#{m.user.nick}: #{random_8ball}"
+	end
+
+	on :message, /^!define ([a-zA-Z]+)/ do |m, word|
+		m.reply "#{m.user.nick}: #{define_word(word)}"
 	end
 	
 	if options['links']

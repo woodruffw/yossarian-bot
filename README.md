@@ -15,12 +15,21 @@ An entertaining IRC bot.
 ## Running the bot
 
 ### Dependencies:
-`yossarian-bot` depends on the `cinch`, `json`, `nokogiri`, `wolfram` and
-`wunderground` gems.
+`yossarian-bot` depends on the `cinch`, `json`, `nokogiri`, `wolfram`,
+`wunderground`, and `xml` gems.
 
-You must also have API keys for the Wolfram Alpha and Weather Underground
-APIs, exported to `WOLFRAM_ALPHA_APPID_KEY` and `WUNDERGROUND_API_KEY` 
-respectively.
+To install them:
+
+```bash
+$ sudo gem install cinch json nokogiri wolfram wunderground libxml-ruby
+```
+
+`yossarian-bot` also requires API keys for several services. Make sure that
+they are exported to the environment as follows:
+
+* Wolfram|Alpha - `WOLFRAM_ALPHA_APPID_KEY`
+* Weather Underground - `WUNDERGROUND_API_KEY`
+* Merriam-Webster - `MERRIAM_WEBSTER_API_KEY`
 
 Additionally, the `fortune` utility must be present in order for Unix fortunes
 to work correctly.
@@ -52,6 +61,7 @@ $ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2'
 * `!g <search>` - Search Google.
 * `!rot13 <message>` - "encrypt" a message with the ROT-13 cipher.
 * `!8ball <question>` - ask the Magic 8 Ball a question.
+* `!define <word>` - get the Merriam-Webster definiton of a word.
 
 In addition to these commands, `yossarian-bot` also matches all HTTP[S] links
 and messages the title of the linked HTML page.

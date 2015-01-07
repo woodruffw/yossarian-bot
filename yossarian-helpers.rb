@@ -10,11 +10,12 @@ require 'json'
 require 'nokogiri'
 require 'wolfram'
 require 'wunderground'
+require 'xml'
 
 def list_help
 	return "Available commands: !bots, !author, !botver, !src, !c22, " +
-		"!fortune, !pmsg, !ud, !wa, !w, !g, !rot13, !8ball. For more info " +
-		"on each, try !help <cmd>."
+		"!fortune, !pmsg, !ud, !wa, !w, !g, !rot13, !8ball, !define. " +
+		"For more info on each, try !help <cmd>."
 end
 
 def cmd_help(cmd)
@@ -47,6 +48,8 @@ def cmd_help(cmd)
 		return "!rot13 <message> - use the ROT-13 cipher on <message>."
 	when /^(!)?8ball/
 		return "!8ball <question> - ask the Magic 8 Ball a question."
+	when /^(!)?define/
+		return "!define <word> - get the Merrian-Webster definition of <word>."
 	else
 		return "#{cmd}: unknown command."
 	end
@@ -89,7 +92,7 @@ def random_quote
 	].sample
 end
 
-def define_word(word)
+def urban_dict(word)
 	query = URI.encode(word)
 	data = Net::HTTP.get(URI("http://api.urbandictionary.com/v0/define?term=#{query}"))
 	hash = JSON.parse(data)
@@ -168,6 +171,22 @@ def random_8ball
 		"Outlook not so good.",
 		"Very doubtful."
 	].sample
+end
+
+def define_word(word)
+	if ENV.has_key?('MERRIAM_WEBSTER_API_KEY')
+		url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/#{word}?key=#{ENV['MERRIAM_WEBSTER_API_KEY']}"
+		doc = XML::Parser.string(open(url).string).parse
+		definition = doc.find_first('entry/def[1]/dt[1]').to_s.gsub(/(<(\/)?[A-Za-z0-9_-]+>)|(:)/, '')
+
+		if definition.empty?
+			return "No defintion for #{word}."
+		else
+			return "#{word}: #{definition}."
+		end
+	else
+		return 'Internal bot error (missing API key).'
+	end
 end
 
 def link_title(link)
