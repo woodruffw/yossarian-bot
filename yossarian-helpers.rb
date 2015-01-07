@@ -106,27 +106,35 @@ def urban_dict(word)
 end
 
 def wolfram_alpha(query)
-	Wolfram.appid = ENV['WOLFRAM_ALPHA_APPID_KEY']
-	result = Wolfram.fetch(query).pods[1]
+	if ENV.has_key?('WOLFRAM_ALPHA_APPID_KEY')
+		Wolfram.appid = ENV['WOLFRAM_ALPHA_APPID_KEY']
+		result = Wolfram.fetch(query).pods[1]
 
-	if result == nil
-		return "Wolfram|Alpha has nothing for #{query}"
+		if result == nil
+			return "Wolfram|Alpha has nothing for #{query}"
+		else
+			return result.plaintext.gsub(/[\t\r\n]/, '')
+		end
 	else
-		return result.plaintext.gsub(/[\t\r\n]/, '')
+		return 'Internal error (missing API key).'
 	end
 end
 
 def weather(location)
-	wu = Wunderground.new(ENV['WUNDERGROUND_API_KEY'])
-	hash = wu.conditions_for(location)
+	if ENV.has_key?('WUNDERGROUND_API_KEY')
+		wu = Wunderground.new(ENV['WUNDERGROUND_API_KEY'])
+		hash = wu.conditions_for(location)
 
-	unless hash['current_observation'] == nil
-		loc = hash['current_observation']['display_location']['full']
-		weather = hash['current_observation']['weather']
-		temp = hash['current_observation']['temperature_string']
-		return "Current temperature in #{loc} is #{temp} and #{weather}."
+		unless hash['current_observation'] == nil
+			loc = hash['current_observation']['display_location']['full']
+			weather = hash['current_observation']['weather']
+			temp = hash['current_observation']['temperature_string']
+			return "Current temperature in #{loc} is #{temp} and #{weather}."
+		else
+			return "Bad weather query for #{location}."
+		end
 	else
-		return "Bad weather query for #{location}."
+		return 'Internal error (missing API key).'
 	end
 end
 
@@ -185,7 +193,7 @@ def define_word(word)
 			return "#{word}: #{definition}."
 		end
 	else
-		return 'Internal bot error (missing API key).'
+		return 'Internal error (missing API key).'
 	end
 end
 
