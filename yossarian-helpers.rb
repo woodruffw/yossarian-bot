@@ -110,7 +110,7 @@ def wolfram_alpha(query)
 		Wolfram.appid = ENV['WOLFRAM_ALPHA_APPID_KEY']
 		result = Wolfram.fetch(query).pods[1]
 
-		if result == nil
+		if result == nil or result.plaintext.empty?
 			return "Wolfram|Alpha has nothing for #{query}"
 		else
 			return result.plaintext.gsub(/[\t\r\n]/, '')

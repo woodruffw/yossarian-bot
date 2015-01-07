@@ -16,14 +16,13 @@ require_relative 'yossarian-helpers'
 
 BOT_VERSION = 0.5
 
-options = {}
+options = {:links => true}
 
 OptionParser.new do |opts|
 	opts.banner = "Usage: $0 <irc server> <channels> [options]"
 
-	options['links'] = true
 	opts.on('-n', '--no-link-titles', 'Do not title links.') do |n|
-		options['links'] = false
+		options[:links] = false
 	end
 end.parse!
 
@@ -92,7 +91,7 @@ bot = Cinch::Bot.new do
 		m.reply "#{m.user.nick}: #{rot13(msg)}"
 	end
 
-	on :message, /^!8ball (.+)?$/ do |m, question|
+	on :message, /^!8ball [A-Za-z0-9\-_ ]+\?$/ do |m|
 		m.reply "#{m.user.nick}: #{random_8ball}"
 	end
 
@@ -100,7 +99,7 @@ bot = Cinch::Bot.new do
 		m.reply "#{m.user.nick}: #{define_word(word)}"
 	end
 	
-	if options['links']
+	if options[:links]
 		on :message, /(http(s)?:\/\/[^ \t]*)/ do |m, link|
 			title = link_title(link)
 			unless title.empty?
