@@ -1,0 +1,33 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.3.6)
+    cinch (2.2.2)
+    daemons (1.1.9)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    json (1.8.2)
+    libxml-ruby (2.7.0)
+    mini_portile (0.6.2)
+    multi_xml (0.5.5)
+    nokogiri (1.6.5)
+      mini_portile (~> 0.6.0)
+    wolfram (0.2.1)
+      nokogiri (>= 1.4.3)
+    wunderground (1.2.0)
+      addressable
+      httparty (> 0.6.0)
+      json (> 1.4.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cinch
+  daemons
+  json
+  libxml-ruby
+  nokogiri
+  wolfram
+  wunderground

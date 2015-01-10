@@ -16,12 +16,14 @@ An entertaining IRC bot.
 
 ### Dependencies:
 `yossarian-bot` depends on the `cinch`, `json`, `nokogiri`, `wolfram`,
-`wunderground`, and `xml` gems.
+`wunderground`, `xml`, and `daemons` gems.
 
 To install them:
 
 ```bash
-$ sudo gem install cinch json nokogiri wolfram wunderground libxml-ruby
+$ sudo gem install cinch json nokogiri wolfram wunderground libxml-ruby daemons
+$ # OR:
+$ bundle install
 ```
 
 `yossarian-bot` also requires API keys for several services. Make sure that
@@ -41,7 +43,10 @@ run `yossarian-bot.rb`:
 ```bash
 $ git clone https://github.com/woodruffw/yossarian-bot
 $ cd yossarian-bot
-$ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2'
+$ bundle install
+$ ruby bot-control.rb start -- 'irc.example.net' '#chan1,#chan2'
+$ # OR:
+$ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2' # not run in background
 ```
 
 ## Using the bot
