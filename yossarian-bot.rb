@@ -14,7 +14,7 @@ require 'cinch'
 require 'optparse'
 require_relative 'yossarian-helpers'
 
-BOT_VERSION = 0.5
+BOT_VERSION = 0.6
 
 options = {:links => true}
 
