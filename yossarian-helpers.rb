@@ -16,7 +16,7 @@ require 'cleverbot-api'
 def list_help
 	return "Available commands: !bots, !author, !botver, !src, !c22, " +
 		"!fortune, !say, !pmsg, !ud, !wa, !w, !g, !rot13, !8ball, !define, " +
-		"!cb" +
+		"!cb. " +
 		"For more info on each, try !help <cmd>."
 end
 
@@ -51,7 +51,7 @@ def cmd_help(cmd)
 	when /^(!)?rot13/
 		return "!rot13 <message> - use the ROT-13 cipher on <message>."
 	when /^(!)?8ball/
-		return "!8ball <question> - ask the Magic 8 Ball a question. Must end with \'?\'"
+		return "!8ball <question> - ask the Magic 8 Ball a question. Must end with \'?\'."
 	when /^(!)?define/
 		return "!define <word> - get the Merrian-Webster definition of <word>."
 	when /^(!)?cb/
