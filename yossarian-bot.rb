@@ -64,7 +64,7 @@ bot = Cinch::Bot.new do
 	end
 
 	on :message, "!fortune" do |m|
-		m.reply `fortune`.gsub(/\n/, ' ')
+		m.reply unix_fortune
 	end
 
 	on :message, /^!pmsg (.+?) (.+)/ do |m, user, msg|

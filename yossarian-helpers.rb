@@ -92,6 +92,14 @@ def random_quote
 	].sample
 end
 
+def unix_fortune
+	if system('which fortune 2> /dev/null')
+		return `fortune`.gsub(/\n/, ' ')
+	else
+		return 'Internal error (no fortune).'
+	end
+end
+
 def urban_dict(word)
 	query = URI.encode(word)
 	data = Net::HTTP.get(URI("http://api.urbandictionary.com/v0/define?term=#{query}"))
@@ -110,7 +118,7 @@ def wolfram_alpha(query)
 		Wolfram.appid = ENV['WOLFRAM_ALPHA_APPID_KEY']
 		result = Wolfram.fetch(query).pods[1]
 
-		if result == nil or result.plaintext.empty?
+		if result == nil || result.plaintext.empty?
 			return "Wolfram|Alpha has nothing for #{query}"
 		else
 			return result.plaintext.gsub(/[\t\r\n]/, '')
