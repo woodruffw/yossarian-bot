@@ -54,7 +54,7 @@ $ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2' # not run in backgroun
 `yossarian-bot` prefixes its commands with `!`:
 
 * `!help` - Message the caller with a list of accepted commands.
-* `!bots` (or `[!:]bots`) - Report in as a robot.
+* `!bots` (or `[.:]bots`) - Report in as a robot.
 * `!author` - Message the author's name.
 * `!botver` - Message the version of `yossarian-bot` currently running.
 * `!src` - Message a link to the bot's source code.
