@@ -30,7 +30,7 @@ def cmd_help(cmd)
 		return "!author - the author of yossarian-bot."
 	when /^(!)?botver/
 		return "!botver - the version of yossarian-bot."
-	when /^(!)?src/
+	when /^(!)?s(?:ou)?rc/
 		return "!src - a link to yossarian-bot\'s source."
 	when /^(!)?c22/
 		return "!c22 - get a random Catch-22 quote."
@@ -44,9 +44,9 @@ def cmd_help(cmd)
 		return "!ud <phrase> - search UrbanDictionary for <phrase>."
 	when /^(!)?wa/
 		return "!wa <query> - ask Wolfram|Alpha about <query>."
-	when /^(!)?w/
+	when /^(!)?w(?:eather)?/
 		return "!w <location> - get weather for <location> from Wunderground."
-	when /^(!)?g/
+	when /^(!)?g(?:oogle)?/
 		return "!g <search> - get the first Google result for <search>."
 	when /^(!)?rot13/
 		return "!rot13 <message> - use the ROT-13 cipher on <message>."

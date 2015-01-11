@@ -14,7 +14,7 @@ require 'cinch'
 require 'optparse'
 require_relative 'yossarian-helpers'
 
-BOT_VERSION = 0.6
+BOT_VERSION = 0.7
 
 options = {:links => true}
 
@@ -55,7 +55,7 @@ bot = Cinch::Bot.new do
 		m.reply "yossarian-bot version #{BOT_VERSION}"
 	end
 
-	on :message, /^!s(ou)?rc/ do |m|
+	on :message, /^!s(?:ou)?rc/ do |m|
 		m.reply "https://github.com/woodruffw/yossarian-bot"
 	end
 
@@ -83,11 +83,11 @@ bot = Cinch::Bot.new do
 		m.reply "#{m.user.nick}: #{wolfram_alpha(query)}"
 	end
 
-	on :message, /^!w (.+)/ do |m, location|
+	on :message, /^!w(?:eather)? (.+)/ do |m, location|
 		m.reply "#{m.user.nick}: #{weather(location)}"
 	end
 
-	on :message, /^!g (.+)/ do |m, search|
+	on :message, /^!g(?:oogle)? (.+)/ do |m, search|
 		m.reply "#{m.user.nick}: #{google(search)}"
 	end
 
