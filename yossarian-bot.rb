@@ -102,6 +102,10 @@ bot = Cinch::Bot.new do
 	on :message, /^!define ([a-zA-Z]+)/ do |m, word|
 		m.reply "#{m.user.nick}: #{define_word(word)}"
 	end
+
+	on :message, /^!cb (.+)/ do |m, query|
+		m.reply "#{m.user.nick}: #{cleverbot(query)}"
+	end
 	
 	if options[:links]
 		on :message, /(http(s)?:\/\/[^ \t]*)/ do |m, link|

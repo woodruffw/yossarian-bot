@@ -11,10 +11,12 @@ require 'nokogiri'
 require 'wolfram'
 require 'wunderground'
 require 'xml'
+require 'cleverbot-api'
 
 def list_help
 	return "Available commands: !bots, !author, !botver, !src, !c22, " +
-		"!fortune, !say, !pmsg, !ud, !wa, !w, !g, !rot13, !8ball, !define. " +
+		"!fortune, !say, !pmsg, !ud, !wa, !w, !g, !rot13, !8ball, !define, " +
+		"!cb" +
 		"For more info on each, try !help <cmd>."
 end
 
@@ -49,9 +51,11 @@ def cmd_help(cmd)
 	when /^(!)?rot13/
 		return "!rot13 <message> - use the ROT-13 cipher on <message>."
 	when /^(!)?8ball/
-		return "!8ball <question> - ask the Magic 8 Ball a question."
+		return "!8ball <question> - ask the Magic 8 Ball a question. Must end with \'?\'"
 	when /^(!)?define/
 		return "!define <word> - get the Merrian-Webster definition of <word>."
+	when /^(!)?cb/
+		return "!cb <query> - talk to CleverBot."
 	else
 		return "#{cmd}: unknown command."
 	end
@@ -205,6 +209,11 @@ def define_word(word)
 	else
 		return 'Internal error (missing API key).'
 	end
+end
+
+def cleverbot(query)
+	cb = CleverBot.new
+	return cb.think(query)
 end
 
 def link_title(link)

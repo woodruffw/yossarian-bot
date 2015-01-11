@@ -10,18 +10,19 @@ An entertaining IRC bot.
 * Wolfram|Alpha queries
 * Weather updates
 * Google searches
+* Cleverbot
 * ...and more!
 
 ## Running the bot
 
 ### Dependencies:
 `yossarian-bot` depends on the `cinch`, `json`, `nokogiri`, `wolfram`,
-`wunderground`, `xml`, and `daemons` gems.
+`wunderground`, `xml`, `daemons`, and `cleverbot-api` gems.
 
 To install them:
 
 ```bash
-$ sudo gem install cinch json nokogiri wolfram wunderground libxml-ruby daemons
+$ sudo gem install cinch json nokogiri wolfram wunderground libxml-ruby daemons cleverbot-api
 $ # OR:
 $ bundle install
 ```
@@ -53,12 +54,13 @@ $ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2' # not run in backgroun
 
 `yossarian-bot` prefixes its commands with `!`:
 
-* `!help` - Message the caller with a list of accepted commands.
+* `!help` (or `[.:]help`) - Message the caller with a list of accepted commands.
 * `!bots` (or `[.:]bots`) - Report in as a robot.
 * `!author` - Message the author's name.
 * `!botver` - Message the version of `yossarian-bot` currently running.
 * `!src` - Message a link to the bot's source code.
 * `!fortune` - Message a Unix fortune.
+* `!say <message>` - Make the bot say the given message.
 * `!pmsg <user> <message>` - Private message the given user.
 * `!ud <word>` - Look up the given word on UrbanDictionary.
 * `!wa <query>` - Ask Wolfram|Alpha about something.
@@ -67,6 +69,7 @@ $ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2' # not run in backgroun
 * `!rot13 <message>` - "encrypt" a message with the ROT-13 cipher.
 * `!8ball <question>` - ask the Magic 8 Ball a question.
 * `!define <word>` - get the Merriam-Webster definiton of a word.
+* `!cb <query>` - talk to CleverBot.
 
 In addition to these commands, `yossarian-bot` also matches all HTTP[S] links
 and messages the title of the linked HTML page.
