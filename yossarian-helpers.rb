@@ -14,16 +14,16 @@ require 'xml'
 
 def list_help
 	return "Available commands: !bots, !author, !botver, !src, !c22, " +
-		"!fortune, !pmsg, !ud, !wa, !w, !g, !rot13, !8ball, !define. " +
+		"!fortune, !say, !pmsg, !ud, !wa, !w, !g, !rot13, !8ball, !define. " +
 		"For more info on each, try !help <cmd>."
 end
 
 def cmd_help(cmd)
 	case cmd
-	when /^(!)?help/
+	when /^([!.:])?help/
 		return "!help [cmd] - List general help or help on <cmd>."
-	when /^(!)?bots/
-		return "!bots - report self as bot."
+	when /^([!.:])?bots/
+		return "!bots - report self as bot to the channel."
 	when /^(!)?author/
 		return "!author - the author of yossarian-bot."
 	when /^(!)?botver/
@@ -31,9 +31,11 @@ def cmd_help(cmd)
 	when /^(!)?src/
 		return "!src - a link to yossarian-bot\'s source."
 	when /^(!)?c22/
-		return "!c22 - message a random Catch-22 quote."
+		return "!c22 - get a random Catch-22 quote."
 	when /^(!)?fortune/
-		return "!fortune - message a random Unix fortune."
+		return "!fortune - get a random Unix fortune."
+	when /^(!)?say/
+		return "!say <message> - make the bot say <message>."
 	when /^(!)?pmsg/
 		return "!pmsg <user> <message> - message <user> with <message> through yossarian-bot"
 	when /^(!)?ud/

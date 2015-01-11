@@ -67,6 +67,10 @@ bot = Cinch::Bot.new do
 		m.reply unix_fortune
 	end
 
+	on :message, /^!say (.+)/ do |m, msg|
+		m.reply msg
+	end
+
 	on :message, /^!pmsg (.+?) (.+)/ do |m, user, msg|
 		User(user).send "#{user}: #{msg} (#{m.user.nick})"
 	end
