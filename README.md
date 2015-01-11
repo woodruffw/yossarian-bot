@@ -73,3 +73,9 @@ $ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2' # not run in backgroun
 
 In addition to these commands, `yossarian-bot` also matches all HTTP[S] links
 and messages the title of the linked HTML page.
+
+## License
+
+`yossarian-bot` is licensed under the MIT License.
+
+For the exact terms, see the [license](./LICENSE) file.
