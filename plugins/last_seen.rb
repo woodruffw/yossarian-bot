@@ -17,7 +17,7 @@ class LastSeen
 
 	include Cinch::Plugin
 	listen_to :channel
-	match /seen (.+)/, method: last_seen
+	match /seen (.+)/, method: :last_seen
 
 	def initialize(*args)
 		super
