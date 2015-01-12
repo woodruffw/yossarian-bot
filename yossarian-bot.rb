@@ -19,6 +19,9 @@ require_relative 'plugins/urbandictionary'
 require_relative 'plugins/wolframalpha'
 require_relative 'plugins/weather'
 require_relative 'plugins/google'
+require_relative 'plugins/magic8ball'
+require_relative 'plugins/merriamwebster'
+require_relative 'plugins/cleverbot'
 
 BOT_VERSION = 0.7
 
@@ -45,7 +48,10 @@ bot = Cinch::Bot.new do
 			UrbanDictionary,
 			WolframAlpha,
 			Weather,
-			Google
+			Google,
+			Magic8Ball,
+			MerriamWebster,
+			Cleverbot
 		]
 	end
 
@@ -87,18 +93,6 @@ bot = Cinch::Bot.new do
 
 	on :message, /^!rot13 (.+)/ do |m, msg|
 		m.reply "#{m.user.nick}: #{rot13(msg)}"
-	end
-
-	on :message, /^!8ball [A-Za-z0-9\-_ ]+\?$/ do |m|
-		m.reply "#{m.user.nick}: #{random_8ball}"
-	end
-
-	on :message, /^!define ([a-zA-Z]+)/ do |m, word|
-		m.reply "#{m.user.nick}: #{define_word(word)}"
-	end
-
-	on :message, /^!cb (.+)/ do |m, query|
-		m.reply "#{m.user.nick}: #{cleverbot(query)}"
 	end
 	
 	if options[:links]

@@ -15,9 +15,9 @@ class Google
 			site = hash['responseData']['results'][0]['url']
 			content = hash['responseData']['results'][0]['content'].gsub(/([\t\r\n])|(<(\/)?b>)/, '')
 			content.gsub!(/(&amp;)|(&quot;)|(&lt;)|(&gt;)|(&#39;)/, '&amp;' => '&', '&quot;' => '"', '&lt;' => '<', '&gt;' => '>', '&#39;' => '\'')
-			m.reply "#{site} - #{content}"
+			m.reply "#{m.user.nick}: #{site} - #{content}"
 		else
-			m.reply "No Google results for #{search}."
+			m.reply "#{m.user.nick}: No Google results for #{search}."
 		end
 	end
 end

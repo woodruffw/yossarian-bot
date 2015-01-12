@@ -15,9 +15,9 @@ class Weather
 				loc = hash['current_observation']['display_location']['full']
 				weather = hash['current_observation']['weather']
 				temp = hash['current_observation']['temperature_string']
-				m.reply "Current temperature in #{loc} is #{temp} and #{weather}."
+				m.reply "#{m.user.nick}: Current temperature in #{loc} is #{temp} and #{weather}."
 			else
-				m.reply "Bad weather query for #{location}."
+				m.reply "#{m.user.nick}: Bad weather query for #{location}."
 			end
 		else
 			m.reply 'Internal error (missing API key).'

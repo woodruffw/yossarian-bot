@@ -72,52 +72,6 @@ def rot13(msg)
 	return msg.tr("A-Ma-mN-Zn-z", "N-Zn-zA-Ma-m")
 end
 
-def random_8ball
-	[
-		"It is certain.",
-		"It is decidedly so.",
-		"Without a doubt.",
-		"Yes definitely.",
-		"You may rely on it.",
-		"As I see it, yes.",
-		"Most likely.",
-		"Outlook good.",
-		"Yes.",
-		"Signs point to yes.",
-		"Reply hazy, try again.",
-		"Ask again later.",
-		"Better not tell you now.",
-		"Cannot predict now.",
-		"Concentrate and ask again.",
-		"Don't count on it.",
-		"My reply is no.",
-		"My sources say no.",
-		"Outlook not so good.",
-		"Very doubtful."
-	].sample
-end
-
-def define_word(word)
-	if ENV.has_key?('MERRIAM_WEBSTER_API_KEY')
-		url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/#{word}?key=#{ENV['MERRIAM_WEBSTER_API_KEY']}"
-		doc = XML::Parser.string(open(url).string).parse
-		definition = doc.find_first('entry/def[1]/dt[1]').to_s.gsub(/(<(\/)?[A-Za-z0-9_-]+>)|(:)/, '')
-
-		if definition.empty?
-			return "No defintion for #{word}."
-		else
-			return "#{word}: #{definition}."
-		end
-	else
-		return 'Internal error (missing API key).'
-	end
-end
-
-def cleverbot(query)
-	cb = CleverBot.new
-	return cb.think(query)
-end
-
 def link_title(link)
 	html = Nokogiri::HTML(open(link))
 	return html.css('title').text.gsub(/[\t\r\n]/, '')

@@ -14,8 +14,7 @@ class UrbanDictionary
 			m.reply "No definition for #{query}."
 		else
 			list = hash['list'][0]
-			m.reply list['definition'][0..255].gsub(/[\r\n]/, '') +
-				"... link: " + list['permalink']
+			m.reply "#{m.user.nick}: #{query} - #{list['definition'][0..255].gsub(/[\r\n]/, '')}... (#{list['permalink']})"
 		end
 	end
 end

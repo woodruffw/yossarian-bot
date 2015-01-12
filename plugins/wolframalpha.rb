@@ -12,9 +12,9 @@ class WolframAlpha
 			result = Wolfram.fetch(query).pods[1]
 
 			if result == nil || result.plaintext.empty?
-				m.reply "Wolfram|Alpha has nothing for #{query}"
+				m.reply "#{m.user.nick}: Wolfram|Alpha has nothing for #{query}"
 			else
-				m.reply result.plaintext.gsub(/[\t\r\n]/, '')
+				m.reply "#{m.user.nick}: #{result.plaintext.gsub(/[\t\r\n]/, '')}"
 			end
 		else
 			m.reply 'Internal error (missing API key).'
