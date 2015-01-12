@@ -67,6 +67,7 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!wa <query>` - Ask Wolfram|Alpha about something.
 * `!w <location>` - Get the weather from Wunderground.
 * `!g <search>` - Search Google.
+* `!yt <search>` - Search YouTube.
 * `!rot13 <message>` - "encrypt" a message with the ROT-13 cipher.
 * `!8ball <question>` - ask the Magic 8 Ball a question.
 * `!define <word>` - get the Merriam-Webster definiton of a word.
