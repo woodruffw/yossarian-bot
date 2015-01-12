@@ -14,6 +14,7 @@ require 'cinch'
 require 'optparse'
 
 require_relative 'yossarian-helpers'
+require_relative 'plugins/yossarianbuiltins'
 require_relative 'plugins/catch22'
 require_relative 'plugins/urbandictionary'
 require_relative 'plugins/wolframalpha'
@@ -22,6 +23,7 @@ require_relative 'plugins/google'
 require_relative 'plugins/magic8ball'
 require_relative 'plugins/merriamwebster'
 require_relative 'plugins/cleverbot'
+require_relative 'plugins/fortune'
 
 BOT_VERSION = 0.7
 
@@ -44,6 +46,7 @@ bot = Cinch::Bot.new do
 		c.channels = ARGV[1].split(',')
 		c.plugins.prefix = /^!/
 		c.plugins.plugins = [
+			YossarianBuiltins,
 			Catch22,
 			UrbanDictionary,
 			WolframAlpha,
@@ -51,25 +54,26 @@ bot = Cinch::Bot.new do
 			Google,
 			Magic8Ball,
 			MerriamWebster,
-			Cleverbot
+			Cleverbot,
+			Fortune
 		]
 	end
 
-	on :message, /^[.!:]help$/ do |m|
-		User(m.user.nick).send(list_help, true)
-	end
+	# on :message, /^[.!:]help$/ do |m|
+	# 	User(m.user.nick).send(list_help, true)
+	# end
 
-	on :message, /^[.!:]help (.+)/ do |m, cmd|
-		User(m.user.nick).send(cmd_help(cmd), true)
-	end
+	# on :message, /^[.!:]help (.+)/ do |m, cmd|
+	# 	User(m.user.nick).send(cmd_help(cmd), true)
+	# end
 
-	on :message, /^[.!:]bots/ do |m|
-		m.reply "Reporting in! [Ruby] Use !help for commands."
-	end
+	# on :message, /^[.!:]bots/ do |m|
+	# 	m.reply "Reporting in! [Ruby] Use !help for commands."
+	# end
 
-	on :message, "!author" do |m|
-		m.reply "Author: cpt_yossarian (woodruffw)"
-	end
+	# on :message, "!author" do |m|
+	# 	m.reply "Author: cpt_yossarian (woodruffw)"
+	# end
 
 	on :message, "!botver" do |m|
 		m.reply "yossarian-bot version #{BOT_VERSION}"
@@ -77,10 +81,6 @@ bot = Cinch::Bot.new do
 
 	on :message, /^!s(?:ou)?rc/ do |m|
 		m.reply "https://github.com/woodruffw/yossarian-bot"
-	end
-
-	on :message, "!fortune" do |m|
-		m.reply unix_fortune
 	end
 
 	on :message, /^!say (.+)/ do |m, msg|
