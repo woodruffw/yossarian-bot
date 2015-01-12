@@ -16,6 +16,9 @@ require 'optparse'
 require_relative 'yossarian-helpers'
 require_relative 'plugins/catch22'
 require_relative 'plugins/urbandictionary'
+require_relative 'plugins/wolframalpha'
+require_relative 'plugins/weather'
+require_relative 'plugins/google'
 
 BOT_VERSION = 0.7
 
@@ -39,7 +42,10 @@ bot = Cinch::Bot.new do
 		c.plugins.prefix = /^!/
 		c.plugins.plugins = [
 			Catch22,
-			UrbanDictionary
+			UrbanDictionary,
+			WolframAlpha,
+			Weather,
+			Google
 		]
 	end
 
@@ -77,18 +83,6 @@ bot = Cinch::Bot.new do
 
 	on :message, /^!pmsg (.+?) (.+)/ do |m, user, msg|
 		User(user).send "#{user}: #{msg} (#{m.user.nick})"
-	end
-
-	on :message, /^!wa (.+)/ do |m, query|
-		m.reply "#{m.user.nick}: #{wolfram_alpha(query)}"
-	end
-
-	on :message, /^!w(?:eather)? (.+)/ do |m, location|
-		m.reply "#{m.user.nick}: #{weather(location)}"
-	end
-
-	on :message, /^!g(?:oogle)? (.+)/ do |m, search|
-		m.reply "#{m.user.nick}: #{google(search)}"
 	end
 
 	on :message, /^!rot13 (.+)/ do |m, msg|

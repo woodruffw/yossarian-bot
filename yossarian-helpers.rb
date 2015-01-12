@@ -8,7 +8,6 @@ require 'uri'
 require 'open-uri'
 require 'json'
 require 'nokogiri'
-require 'wolfram'
 require 'wunderground'
 require 'xml'
 require 'cleverbot-api'
@@ -66,53 +65,6 @@ def unix_fortune
 		return `fortune`.gsub(/\n/, ' ')
 	else
 		return 'Internal error (no fortune).'
-	end
-end
-
-def wolfram_alpha(query)
-	if ENV.has_key?('WOLFRAM_ALPHA_APPID_KEY')
-		Wolfram.appid = ENV['WOLFRAM_ALPHA_APPID_KEY']
-		result = Wolfram.fetch(query).pods[1]
-
-		if result == nil || result.plaintext.empty?
-			return "Wolfram|Alpha has nothing for #{query}"
-		else
-			return result.plaintext.gsub(/[\t\r\n]/, '')
-		end
-	else
-		return 'Internal error (missing API key).'
-	end
-end
-
-def weather(location)
-	if ENV.has_key?('WUNDERGROUND_API_KEY')
-		wu = Wunderground.new(ENV['WUNDERGROUND_API_KEY'])
-		hash = wu.conditions_for(location)
-
-		unless hash['current_observation'] == nil
-			loc = hash['current_observation']['display_location']['full']
-			weather = hash['current_observation']['weather']
-			temp = hash['current_observation']['temperature_string']
-			return "Current temperature in #{loc} is #{temp} and #{weather}."
-		else
-			return "Bad weather query for #{location}."
-		end
-	else
-		return 'Internal error (missing API key).'
-	end
-end
-
-def google(search)
-	url = URI.encode("https://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=large&safe=active&q=#{search}")
-	hash = JSON.parse(open(url).string)
-
-	unless hash['responseData']['results'].empty?
-		site = hash['responseData']['results'][0]['url']
-		content = hash['responseData']['results'][0]['content'].gsub(/([\t\r\n])|(<(\/)?b>)/, '')
-		content.gsub!(/(&amp;)|(&quot;)|(&lt;)|(&gt;)|(&#39;)/, '&amp;' => '&', '&quot;' => '"', '&lt;' => '<', '&gt;' => '>', '&#39;' => '\'')
-		return "#{site} - #{content}"
-	else
-		return "No Google results for #{search}."
 	end
 end
 
