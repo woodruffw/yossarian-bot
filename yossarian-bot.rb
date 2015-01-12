@@ -19,6 +19,7 @@ require_relative 'plugins/urban_dictionary'
 require_relative 'plugins/wolfram_alpha'
 require_relative 'plugins/weather'
 require_relative 'plugins/google'
+require_relative 'plugins/youtube'
 require_relative 'plugins/magic8ball'
 require_relative 'plugins/merriam_webster'
 require_relative 'plugins/cleverbot'
@@ -51,6 +52,7 @@ bot = Cinch::Bot.new do
 			WolframAlpha,
 			Weather,
 			Google,
+			YouTube,
 			Magic8Ball,
 			MerriamWebster,
 			Cleverbot,

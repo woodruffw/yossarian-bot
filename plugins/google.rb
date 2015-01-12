@@ -12,12 +12,12 @@ require 'open-uri'
 class Google
 	include Cinch::Plugin
 
-	match /g (.+)/, method: :google
-	match /google (.+)/, method: :google
+	match /g (.+)/, method: :google_search
+	match /google (.+)/, method: :google_search
 
-	def google(m, search)
-		url = URI.encode("https://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=large&safe=active&q=#{search}")
-		hash = JSON.parse(open(url).string)
+	def google_search(m, search)
+		url = URI.encode("https://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=large&safe=active&q=#{search}&max-results=1&v=2&prettyprint=false&alt=json")
+		hash = JSON.parse(open(url).read)
 
 		unless hash['responseData']['results'].empty?
 			site = hash['responseData']['results'][0]['url']
