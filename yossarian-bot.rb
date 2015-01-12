@@ -12,7 +12,10 @@
 
 require 'cinch'
 require 'optparse'
+
 require_relative 'yossarian-helpers'
+require_relative 'plugins/catch22'
+require_relative 'plugins/urbandictionary'
 
 BOT_VERSION = 0.7
 
@@ -33,6 +36,11 @@ bot = Cinch::Bot.new do
 		c.max_messages = 1
 		c.server = ARGV[0]
 		c.channels = ARGV[1].split(',')
+		c.plugins.prefix = /^!/
+		c.plugins.plugins = [
+			Catch22,
+			UrbanDictionary
+		]
 	end
 
 	on :message, /^[.!:]help$/ do |m|
@@ -59,10 +67,6 @@ bot = Cinch::Bot.new do
 		m.reply "https://github.com/woodruffw/yossarian-bot"
 	end
 
-	on :message, "!c22" do |m|
-		m.reply random_quote
-	end
-
 	on :message, "!fortune" do |m|
 		m.reply unix_fortune
 	end
@@ -73,10 +77,6 @@ bot = Cinch::Bot.new do
 
 	on :message, /^!pmsg (.+?) (.+)/ do |m, user, msg|
 		User(user).send "#{user}: #{msg} (#{m.user.nick})"
-	end
-
-	on :message, /^!ud (.+)/ do |m, word|
-		m.reply "#{m.user.nick}: #{urban_dict(word)}"
 	end
 
 	on :message, /^!wa (.+)/ do |m, query|
