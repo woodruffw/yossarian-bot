@@ -25,15 +25,20 @@ require_relative 'plugins/merriam_webster'
 require_relative 'plugins/cleverbot'
 require_relative 'plugins/fortune'
 require_relative 'plugins/rot13'
+require_relative 'plugins/last_seen'
 require_relative 'plugins/link_titling'
 
-options = {:links => true}
+options = {:links => true, :seen => true}
 
 OptionParser.new do |opts|
 	opts.banner = "Usage: $0 <irc server> <channels> [options]"
 
-	opts.on('-n', '--no-link-titles', 'Do not title links.') do |n|
+	opts.on('-t', '--no-link-titles', 'Do not title links.') do |t|
 		options[:links] = false
+	end
+
+	opts.on('-s', '--no-seen', 'Disable the !seen command.') do |s|
+		options[:seen] = false
 	end
 end.parse!
 
@@ -59,6 +64,10 @@ bot = Cinch::Bot.new do
 			Fortune,
 			Rot13
 		]
+
+		if options[:seen]
+			c.plugins.plugins << LastSeen
+		end
 
 		if options[:links]
 			c.plugins.plugins << LinkTitling

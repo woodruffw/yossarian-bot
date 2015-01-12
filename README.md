@@ -52,28 +52,21 @@ $ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2' # not run in backgroun
 
 ## Using the bot
 
-Once `yossarian-bot` is started, it can be issued commands by channel members.
+### Command-Line Options
 
-All commands are prefixed with `!`, or `.`/`:` in some cases.
+* `-t`/`--no-link-titles` - Disable link titling.
+* `-s`/`--no-seen` - Disable the `!seen` command.
 
-* `!help` (or `[.:]help`) - Message the caller with a list of accepted commands.
-* `!bots` (or `[.:]bots`) - Report in as a robot.
-* `!author` - Message the author's name.
-* `!botver` - Message the version of `yossarian-bot` currently running.
-* `!src` - Message a link to the bot's source code.
-* `!fortune` - Message a Unix fortune.
-* `!say <message>` - Make the bot say the given message.
-* `!ud <word>` - Look up the given word on UrbanDictionary.
-* `!wa <query>` - Ask Wolfram|Alpha about something.
-* `!w <location>` - Get the weather from Wunderground.
-* `!g <search>` - Search Google.
-* `!yt <search>` - Search YouTube.
-* `!rot13 <message>` - "encrypt" a message with the ROT-13 cipher.
-* `!8ball <question>` - ask the Magic 8 Ball a question.
-* `!define <word>` - get the Merriam-Webster definiton of a word.
-* `!cb <query>` - talk to CleverBot.
+`yossarian-bot` has two usage cases: commands and matches.
 
-In addition to these commands, `yossarian-bot` also matches all HTTP[S] links
+### Commands
+
+There are a bunch of commands that `yossarian-bot` accepts. You can
+see a complete list in the [COMMANDS](./COMMANDS.md) file.
+
+### Matches
+
+`yossarian-bot` matches all HTTP[S] links
 and messages the title of the linked HTML page. This feature can be disabled
 with the `-n`/`--no-link-titles` flag.
 
