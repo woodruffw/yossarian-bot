@@ -1,3 +1,11 @@
+#  magic8ball.rb
+#  Author: William Woodruff
+#  ------------------------
+#  A Cinch plugin that provides Magic 8 Ball answers for yossarian-bot.
+#  ------------------------
+#  This code is licensed by William Woodruff under the MIT License.
+#  http://opensource.org/licenses/MIT
+
 class Magic8Ball
 	include Cinch::Plugin
 

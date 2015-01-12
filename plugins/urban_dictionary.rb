@@ -1,3 +1,11 @@
+#  urban_dictionary.rb
+#  Author: William Woodruff
+#  ------------------------
+#  A Cinch plugin that provides UrbanDictionary interaction for yossarian-bot.
+#  ------------------------
+#  This code is licensed by William Woodruff under the MIT License.
+#  http://opensource.org/licenses/MIT
+
 require 'json'
 
 class UrbanDictionary

@@ -1,3 +1,11 @@
+#  catch22.rb
+#  Author: William Woodruff
+#  ------------------------
+#  A Cinch plugin that provides random Catch-22 quotes for yossarian-bot.
+#  ------------------------
+#  This code is licensed by William Woodruff under the MIT License.
+#  http://opensource.org/licenses/MIT
+
 class Catch22
 	include Cinch::Plugin
 

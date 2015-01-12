@@ -63,7 +63,6 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!src` - Message a link to the bot's source code.
 * `!fortune` - Message a Unix fortune.
 * `!say <message>` - Make the bot say the given message.
-* `!pmsg <user> <message>` - Private message the given user.
 * `!ud <word>` - Look up the given word on UrbanDictionary.
 * `!wa <query>` - Ask Wolfram|Alpha about something.
 * `!w <location>` - Get the weather from Wunderground.
@@ -74,7 +73,8 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!cb <query>` - talk to CleverBot.
 
 In addition to these commands, `yossarian-bot` also matches all HTTP[S] links
-and messages the title of the linked HTML page.
+and messages the title of the linked HTML page. This feature can be disabled
+with the `-n`/`--no-link-titles` flag.
 
 ## License
 

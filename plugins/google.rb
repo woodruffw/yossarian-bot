@@ -1,3 +1,11 @@
+#  google.rb
+#  Author: William Woodruff
+#  ------------------------
+#  A Cinch plugin that provides Google interaction for yossarian-bot.
+#  ------------------------
+#  This code is licensed by William Woodruff under the MIT License.
+#  http://opensource.org/licenses/MIT
+
 require 'json'
 require 'open-uri'
 
