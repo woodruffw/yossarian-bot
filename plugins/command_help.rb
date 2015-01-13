@@ -1,14 +1,14 @@
-#  yossarian_builtins.rb
+#  command_help.rb
 #  Author: William Woodruff
 #  ------------------------
-#  A Cinch plugin that provides basic built-in commands for yossarian-bot.
+#  A Cinch plugin that provides command help for yossarian-bot.
 #  ------------------------
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
 require_relative 'yossarian_plugin'
 
-class YossarianBuiltins < YossarianPlugin
+class CommandHelp < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage
@@ -19,7 +19,6 @@ class YossarianBuiltins < YossarianPlugin
 		cmd =~ /^(!)?help$/
 	end
 
-	$BOT_VERSION = 0.99
 	set :prefix, /^[.!:]/
 
 	match /help$/, method: :help
@@ -36,31 +35,5 @@ class YossarianBuiltins < YossarianPlugin
 			end
 		end
 		User(m.user).send m.reply "Nothing found for \'#{cmd}\'.", true
-	end
-
-	match /bots$/, method: :report_in
-	def report_in(m)
-		m.reply 'Reporting in! [Ruby] See !help for commands.'
-	end
-
-	match /author$/, method: :author
-	def author(m)
-		m.reply 'Author: cpt_yossarian (woodruffw).'
-	end
-
-	match /botver$/, method: :bot_version
-	def bot_version(m)
-		m.reply "yossarian-bot version #{$BOT_VERSION}."
-	end
-
-	match /src$/, method: :bot_source
-	match /source$/, method: :bot_source
-	def bot_source(m)
-		m.reply 'https://github.com/woodruffw/yossarian-bot'
-	end
-
-	match /say (.+)/, method: :bot_say
-	def bot_say(m, msg)
-		m.reply msg
 	end
 end

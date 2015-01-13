@@ -6,12 +6,9 @@ commands
 All commands are prefixed with `!`, or `.`/`:` in some cases.
 
 * `!help` (or `[.:]help`) - Message the caller with a list of accepted commands.
-* `!bots` (or `[.:]bots`) - Report in as a robot.
-* `!author` (or `[.:]author`) - Message the author's name.
 * `!botver` (or `[.:]botver`) - Message the version of `yossarian-bot` currently running.
 * `!src` (or `[.:]src`) - Message a link to the bot's source code.
 * `!fortune` - Message a Unix fortune.
-* `!say <message>` - Make the bot say the given message.
 * `!ud <word>` - Look up the given word on UrbanDictionary.
 * `!wa <query>` - Ask Wolfram|Alpha about something.
 * `!w <location>` - Get the weather from Wunderground.

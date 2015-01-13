@@ -13,7 +13,8 @@
 require 'cinch'
 require 'optparse'
 
-require_relative 'plugins/yossarian_builtins'
+require_relative 'plugins/command_help'
+require_relative 'plugins/bot_info'
 require_relative 'plugins/catch22'
 require_relative 'plugins/urban_dictionary'
 require_relative 'plugins/wolfram_alpha'
@@ -51,7 +52,8 @@ bot = Cinch::Bot.new do
 		c.channels = ARGV[1].split(',')
 		c.plugins.prefix = /^!/
 		c.plugins.plugins = [
-			YossarianBuiltins,
+			CommandHelp,
+			BotInfo,
 			Catch22,
 			UrbanDictionary,
 			WolframAlpha,
@@ -72,6 +74,10 @@ bot = Cinch::Bot.new do
 		if options[:links]
 			c.plugins.plugins << LinkTitling
 		end
+	end
+
+	on :message, /^[!.:,]bots$/ do |m|
+		m.reply 'Reporting in! [Ruby] See !help for commands.'
 	end
 end
 
