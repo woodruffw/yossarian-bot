@@ -54,6 +54,12 @@ $ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2' # not run in backgroun
 
 ### Command-Line Options
 
+The first and second arguments are mandatory. The first argument is the server
+domain (e.g. `irc.freenode.net`), and the second argument is a comma-separated
+list of channels to join on that server (e.g. `#chan1,#chan2`).
+
+All other arguments are optional:
+
 * `-t`/`--no-link-titles` - Disable link titling.
 * `-s`/`--no-seen` - Disable the `!seen` command.
 
