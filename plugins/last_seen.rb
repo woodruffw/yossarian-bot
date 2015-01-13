@@ -30,13 +30,13 @@ class LastSeen
 
 	def last_seen(m, nick)
 		if nick == @bot.nick
-			m.reply "How can I keep track of when I'm seen?"
+			m.reply "That's not going to work."
 		elsif nick == m.user.nick
 			m.reply "You're online right now."
 		elsif @users.has_key?(nick)
 			m.reply @users[nick].to_s
 		else
-			m.reply "I've never seen #{nick}"
+			m.reply "I've never seen #{nick}."
 		end
 	end
 end
