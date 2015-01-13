@@ -13,9 +13,7 @@ require_relative 'yossarian_plugin'
 class LinkTitling < YossarianPlugin
 	include Cinch::Plugin
 
-	set :prefix, //
-
-	match /(http(s)?:\/\/[^ \t]*)/, method: :link_title
+	match /(http(s)?:\/\/[^ \t]*)/, use_prefix: false, method: :link_title
 
 	def link_title(m, link)
 		html = Nokogiri::HTML(open(link))

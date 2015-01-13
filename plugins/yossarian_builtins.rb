@@ -24,18 +24,18 @@ class YossarianBuiltins < YossarianPlugin
 
 	match /help$/, method: :help
 	def help(m)
-		m.reply 'Commands: http://git.io/38F1qA -- Use !help <cmd> for info.', true
+		User(m.user).send 'Commands: http://git.io/38F1qA -- Use !help <cmd> for info.', true
 	end
 
 	match /help (.+)/, method: :help_cmd
 	def help_cmd(m, cmd)
 		@bot.plugins.each do |plugin|
 			if plugin.match?(cmd)
-				m.reply plugin.usage, true
+				User(m.user).send m.reply plugin.usage, true
 				return
 			end
 		end
-		m.reply "Nothing found for \'#{cmd}\'.", true
+		User(m.user).send m.reply "Nothing found for \'#{cmd}\'.", true
 	end
 
 	match /bots$/, method: :report_in
@@ -45,18 +45,18 @@ class YossarianBuiltins < YossarianPlugin
 
 	match /author$/, method: :author
 	def author(m)
-		m.reply 'Author: cpt_yossarian (woodruffw).', true
+		m.reply 'Author: cpt_yossarian (woodruffw).'
 	end
 
 	match /botver$/, method: :bot_version
 	def bot_version(m)
-		m.reply "yossarian-bot version #{$BOT_VERSION}.", true
+		m.reply "yossarian-bot version #{$BOT_VERSION}."
 	end
 
 	match /src$/, method: :bot_source
 	match /source$/, method: :bot_source
 	def bot_source(m)
-		m.reply 'https://github.com/woodruffw/yossarian-bot', true
+		m.reply 'https://github.com/woodruffw/yossarian-bot'
 	end
 
 	match /say (.+)/, method: :bot_say
