@@ -27,6 +27,7 @@ require_relative 'plugins/cleverbot'
 require_relative 'plugins/fortune'
 require_relative 'plugins/rot13'
 require_relative 'plugins/last_seen'
+require_relative 'plugins/tiny_url'
 require_relative 'plugins/link_titling'
 
 options = {:links => true, :seen => true}
@@ -64,7 +65,8 @@ bot = Cinch::Bot.new do
 			MerriamWebster,
 			Cleverbot,
 			Fortune,
-			Rot13
+			Rot13,
+			TinyURL
 		]
 
 		if options[:seen]

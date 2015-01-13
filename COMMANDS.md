@@ -19,3 +19,4 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!define <word>` - get the Merriam-Webster definiton of a word.
 * `!cb <query>` - talk to CleverBot.
 * `!seen <nick>` - check the last time `yossarian-bot` saw someone.
+* `!turl <url>` - create a short link to the given url with TinyURL.

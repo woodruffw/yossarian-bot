@@ -25,8 +25,7 @@ class UrbanDictionary < YossarianPlugin
 	match /urban (.+)/, method: :urban_dict
 
 	def urban_dict(m, query)
-		query = URI.encode(query)
-		data = Net::HTTP.get(URI("http://api.urbandictionary.com/v0/define?term=#{query}"))
+		data = Net::HTTP.get(URI("http://api.urbandictionary.com/v0/define?term=#{URI.encode(query)}"))
 		hash = JSON.parse(data)
 		if hash['list'].empty?
 			m.reply "No definition for #{query}."
