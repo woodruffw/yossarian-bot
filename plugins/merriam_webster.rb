@@ -9,8 +9,18 @@
 require 'xml'
 require 'open-uri'
 
-class MerriamWebster
+require_relative 'yossarian_plugin'
+
+class MerriamWebster < YossarianPlugin
 	include Cinch::Plugin
+
+	def usage
+		'!define <word> - Get the Merriam-Webster defintion of <word>. Alias: !mw.'
+	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?(define)|(mw)$/
+	end
 
 	match /mw (\w+)/, method: :define_word
 	match /define (\w+)/, method: :define_word

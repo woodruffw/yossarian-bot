@@ -9,8 +9,18 @@
 require 'json'
 require 'open-uri'
 
-class YouTube
+require_relative 'yossarian_plugin'
+
+class YouTube < YossarianPlugin
 	include Cinch::Plugin
+
+	def usage
+		'!yt <search> - Search YouTube. Alias: !youtube.'
+	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?(youtube)|(yt)$/
+	end
 
 	match /yt (.+)/, method: :youtube_search
 	match /youtube (.+)/, method: :youtube_search

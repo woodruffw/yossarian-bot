@@ -8,8 +8,18 @@
 
 require 'json'
 
-class UrbanDictionary
+require_relative 'yossarian_plugin'
+
+class UrbanDictionary < YossarianPlugin
 	include Cinch::Plugin
+
+	def usage
+		'!ud <query> - Look up <query> on UrbanDictionary. Alias: !urban.'
+	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?(ud)|(urban)$/
+	end
 
 	match /ud (.+)/, method: :urban_dict
 	match /urban (.+)/, method: :urban_dict

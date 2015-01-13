@@ -9,8 +9,18 @@
 require 'json'
 require 'open-uri'
 
-class Google
+require_relative 'yossarian_plugin'
+
+class Google < YossarianPlugin
 	include Cinch::Plugin
+
+	def usage
+		'!g <search> - Search Google. Alias: !google.'
+	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?(google)|(g)$/
+	end
 
 	match /g (.+)/, method: :google_search
 	match /google (.+)/, method: :google_search

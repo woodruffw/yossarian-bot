@@ -8,7 +8,9 @@
 
 require 'nokogiri'
 
-class LinkTitling
+require_relative 'yossarian_plugin'
+
+class LinkTitling < YossarianPlugin
 	include Cinch::Plugin
 
 	set :prefix, //

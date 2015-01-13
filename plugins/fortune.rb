@@ -6,8 +6,18 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-class Fortune
+require_relative 'yossarian_plugin'
+
+class Fortune < YossarianPlugin
 	include Cinch::Plugin
+
+	def usage
+		'!fortune - Get a Unix fortune.'
+	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?fortune$/
+	end
 
 	match /fortune/, method: :unix_fortune
 

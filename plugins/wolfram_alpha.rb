@@ -8,8 +8,18 @@
 
 require 'wolfram'
 
-class WolframAlpha
+require_relative 'yossarian_plugin'
+
+class WolframAlpha < YossarianPlugin
 	include Cinch::Plugin
+
+	def usage
+		'!wa <query> - Ask Wolfram|Alpha about <query>. Alias: !wolfram.'
+	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?(wolfram)|(wa)$/
+	end
 
 	match /wa (.+)/, method: :wolfram_alpha
 	match /wolfram (.+)/, method: :wolfram_alpha

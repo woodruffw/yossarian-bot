@@ -6,8 +6,18 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-class Catch22
+require_relative 'yossarian_plugin'
+
+class Catch22 < YossarianPlugin
 	include Cinch::Plugin
+
+	def usage
+		'!c22 - Get a random Catch-22 quote. Alias: !catch22'
+	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?(catch22)|(c22)$/
+	end
 
 	$quotes = [
 		"He was going to live forever, or die in the attempt.",
@@ -44,7 +54,8 @@ class Catch22
 		"He was a militant idealist who crusaded against racial bigotry by growing faint in its presence."
 	]
 
-	match /c(?:atch)?22$/, method: :catch22
+	match /c22$/, method: :catch22
+	match /catch22$/, method: :catch22
 
 	def catch22(m)
 		m.reply $quotes.sample

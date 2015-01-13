@@ -8,7 +8,9 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-class LastSeen
+require_relative 'yossarian_plugin'
+
+class LastSeen < YossarianPlugin
 	class LastSeenStruct < Struct.new(:who, :where, :what, :time)
 		def to_s
 			return "#{who} was last seen on #{time.asctime} in #{where} saying #{what}"
@@ -16,6 +18,15 @@ class LastSeen
 	end
 
 	include Cinch::Plugin
+
+	def usage
+		'!seen <nick> - Check the last time <nick> was seen.'
+	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?seen$/
+	end
+
 	listen_to :channel
 	match /seen (.+)/, method: :last_seen
 

@@ -8,8 +8,18 @@
 
 require 'wunderground'
 
-class Weather
+require_relative 'yossarian_plugin'
+
+class Weather < YossarianPlugin
 	include Cinch::Plugin
+
+	def usage
+		'!w <location> - Get the weather at <location>. Alias: !weather.'
+	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?(w)|(weather)$/
+	end
 
 	match /w (.+)/, method: :weather
 	match /weather (.+)/, method: :weather

@@ -6,8 +6,18 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-class Magic8Ball
+require_relative 'yossarian_plugin'
+
+class Magic8Ball < YossarianPlugin
 	include Cinch::Plugin
+
+	def usage
+		'!8ball <question> - Ask the Magic 8 Ball a question. Alias: !8b.'
+	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?(8ball)|(8b)$/
+	end
 
 	$answers = [
 		"It is certain.",

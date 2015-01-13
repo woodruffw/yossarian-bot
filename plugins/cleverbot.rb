@@ -8,8 +8,18 @@
 
 require 'cleverbot-api'
 
-class Cleverbot
+require_relative 'yossarian_plugin'
+
+class Cleverbot < YossarianPlugin
 	include Cinch::Plugin
+
+	def usage
+		'!cb <message> - Talk to CleverBot. Alias: !cleverbot.'
+	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?(cb)|(cleverbot)$/
+	end
 
 	match /cb (.+)/, method: :cleverbot
 	match /cleverbot (.+)/, method: :cleverbot
