@@ -1,7 +1,7 @@
-#  cleverbot.rb
+#  tiny_url.rb
 #  Author: William Woodruff
 #  ------------------------
-#  A Cinch plugin that provides Cleverbot interaction to yossarian-bot.
+#  A Cinch plugin that provides TinyURL interaction to yossarian-bot.
 #  ------------------------
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
