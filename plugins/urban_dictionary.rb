@@ -28,7 +28,7 @@ class UrbanDictionary < YossarianPlugin
 		data = Net::HTTP.get(URI("http://api.urbandictionary.com/v0/define?term=#{URI.encode(query)}"))
 		hash = JSON.parse(data)
 		if hash['list'].empty?
-			m.reply "No definition for #{query}."
+			m.reply "UrbanDictionary has nothing for #{query}."
 		else
 			list = hash['list'][0]
 			m.reply "#{m.user.nick}: #{query} - #{list['definition'][0..255].gsub(/[\r\n]/, '')}... (#{list['permalink']})"
