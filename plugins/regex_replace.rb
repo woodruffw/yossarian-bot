@@ -29,6 +29,8 @@ class RegexReplace < YossarianPlugin
 		if @users.has_key?(m.user.nick)
 			mod = @users[m.user.nick].sub(orig, repl)
 			m.reply "#{m.user.nick} probably meant: #{mod}"
+		else
+			m.reply "#{m.user.nick}: No previous message to operate on."
 		end
 	end
 end
