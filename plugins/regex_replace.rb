@@ -19,16 +19,17 @@ class RegexReplace < YossarianPlugin
 
 	listen_to :channel
 	def listen(m)
-		if m.message !~ /s\/(.+)\/(.+)/
+		if m.message !~ /s\/([^\/]*)\/([^\/]*)(\/)?/
 			@users[m.user.nick] = m.message
 		end
 	end
 
-	match /s\/(.+)\/(.+)/, use_prefix: false, method: :sed
+	match /s\/([^\/]*)\/([^\/]*)(\/)?/, use_prefix: false, method: :sed
 	def sed(m, orig, repl)
 		if @users.has_key?(m.user.nick)
 			mod = @users[m.user.nick].sub(orig, repl)
 			m.reply "#{m.user.nick} probably meant: #{mod}"
+			@users.delete(m.user.nick)
 		else
 			m.reply "#{m.user.nick}: No previous message to operate on."
 		end
