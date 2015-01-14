@@ -28,9 +28,10 @@ require_relative 'plugins/fortune'
 require_relative 'plugins/rot13'
 require_relative 'plugins/last_seen'
 require_relative 'plugins/tiny_url'
+require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
-options = {:links => true, :seen => true}
+options = {:links => true, :seen => true, :regex => true}
 
 OptionParser.new do |opts|
 	opts.banner = "Usage: $0 <irc server> <channels> [options]"
@@ -41,6 +42,10 @@ OptionParser.new do |opts|
 
 	opts.on('-s', '--no-seen', 'Disable the !seen command.') do |s|
 		options[:seen] = false
+	end
+
+	opts.on('-r', '--no-regex-replace', 'Disable sed-like regexes for typos.') do |r|
+		options[:regex] = false
 	end
 end.parse!
 
@@ -75,6 +80,10 @@ bot = Cinch::Bot.new do
 
 		if options[:links]
 			c.plugins.plugins << LinkTitling
+		end
+
+		if options[:regex]
+			c.plugins.plugins << RegexReplace
 		end
 	end
 

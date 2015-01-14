@@ -62,6 +62,7 @@ All other arguments are optional:
 
 * `-t`/`--no-link-titles` - Disable link titling.
 * `-s`/`--no-seen` - Disable the `!seen` command.
+* `-r`/`--no-regex-replace` - Disable `sed`-like typo replacement.
 
 `yossarian-bot` has two usage cases: commands and matches.
 
@@ -75,6 +76,12 @@ see a complete list in the [COMMANDS](./COMMANDS.md) file.
 `yossarian-bot` matches all HTTP[S] links
 and messages the title of the linked HTML page. This feature can be disabled
 with the `-n`/`--no-link-titles` flag.
+
+Messages of the form `s/(.+)/(.+)` are also matched, and the first pattern
+matched is applied to the user's last previous message, with the second match
+replacing it. For example, a typo like "this is a setnence" can be corrected
+with `s/setnence/sentence`. This feature can be disabled with the
+`-r`/`--no-regex-replace` flag.
 
 ## License
 
