@@ -28,6 +28,7 @@ require_relative 'plugins/fortune'
 require_relative 'plugins/rot13'
 require_relative 'plugins/last_seen'
 require_relative 'plugins/tiny_url'
+require_relative 'plugins/github_info'
 require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
@@ -71,7 +72,8 @@ bot = Cinch::Bot.new do
 			Cleverbot,
 			Fortune,
 			Rot13,
-			TinyURL
+			TinyURL,
+			GitHubInfo
 		]
 
 		if options[:seen]

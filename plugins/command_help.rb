@@ -22,11 +22,13 @@ class CommandHelp < YossarianPlugin
 	set :prefix, /^[.!:]/
 
 	match /help$/, method: :help
+
 	def help(m)
 		User(m.user).send 'Commands: http://git.io/38F1qA -- Use !help <cmd> for info.', true
 	end
 
 	match /help (.+)/, method: :help_cmd
+
 	def help_cmd(m, cmd)
 		@bot.plugins.each do |plugin|
 			if plugin.match?(cmd)
