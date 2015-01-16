@@ -19,8 +19,8 @@ require_relative 'plugins/catch22'
 require_relative 'plugins/urban_dictionary'
 require_relative 'plugins/wolfram_alpha'
 require_relative 'plugins/weather'
-require_relative 'plugins/google'
-require_relative 'plugins/youtube'
+require_relative 'plugins/google_search'
+require_relative 'plugins/youtube_search'
 require_relative 'plugins/magic8ball'
 require_relative 'plugins/merriam_webster'
 require_relative 'plugins/cleverbot'
@@ -29,6 +29,7 @@ require_relative 'plugins/rot13'
 require_relative 'plugins/last_seen'
 require_relative 'plugins/tiny_url'
 require_relative 'plugins/github_info'
+require_relative 'plugins/xkcd_comics'
 require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
@@ -65,15 +66,16 @@ bot = Cinch::Bot.new do
 			UrbanDictionary,
 			WolframAlpha,
 			Weather,
-			Google,
-			YouTube,
+			GoogleSearch,
+			YouTubeSearch,
 			Magic8Ball,
 			MerriamWebster,
 			Cleverbot,
 			Fortune,
 			Rot13,
 			TinyURL,
-			GitHubInfo
+			GitHubInfo,
+			XKCDComics
 		]
 
 		if options[:seen]

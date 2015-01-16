@@ -17,12 +17,12 @@ An entertaining IRC bot.
 
 ### Dependencies:
 `yossarian-bot` depends on the `cinch`, `json`, `nokogiri`, `wolfram`,
-`wunderground`, `xml`, `daemons`, and `cleverbot-api` gems.
+`wunderground`, `xml`, `daemons`, `cleverbot-api`, and `xkcd` gems.
 
 To install them:
 
 ```bash
-$ sudo gem install cinch json nokogiri wolfram wunderground libxml-ruby daemons cleverbot-api
+$ sudo gem install cinch json nokogiri wolfram wunderground libxml-ruby daemons cleverbot-api xkcd
 $ # OR:
 $ bundle install
 ```

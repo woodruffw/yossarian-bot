@@ -1,4 +1,4 @@
-#  youtube.rb
+#  youtube_search.rb
 #  Author: William Woodruff
 #  ------------------------
 #  A Cinch plugin that provides YouTube interaction for yossarian-bot.
@@ -11,7 +11,7 @@ require 'open-uri'
 
 require_relative 'yossarian_plugin'
 
-class YouTube < YossarianPlugin
+class YouTubeSearch < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage

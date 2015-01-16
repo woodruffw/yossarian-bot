@@ -1,4 +1,4 @@
-#  google.rb
+#  google_search.rb
 #  Author: William Woodruff
 #  ------------------------
 #  A Cinch plugin that provides Google interaction for yossarian-bot.
@@ -11,7 +11,7 @@ require 'open-uri'
 
 require_relative 'yossarian_plugin'
 
-class Google < YossarianPlugin
+class GoogleSearch < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage

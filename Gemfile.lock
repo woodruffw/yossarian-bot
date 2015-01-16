@@ -5,6 +5,8 @@ GEM
     cinch (2.2.2)
     cleverbot-api (0.0.4)
     daemons (1.1.9)
+    google-search (1.0.3)
+      json
     httparty (0.13.3)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -20,6 +22,9 @@ GEM
       addressable
       httparty (> 0.6.0)
       json (> 1.4.0)
+    xkcd (1.1.0)
+      google-search
+      nokogiri (>= 1.5.0)
 
 PLATFORMS
   ruby
@@ -33,3 +38,4 @@ DEPENDENCIES
   nokogiri
   wolfram
   wunderground
+  xkcd

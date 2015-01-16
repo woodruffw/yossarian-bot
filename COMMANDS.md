@@ -5,7 +5,7 @@ commands
 
 All commands are prefixed with `!`, or `.`/`:` in some cases.
 
-* `!help` (or `[.:]help`) - Message the caller with a list of accepted commands.
+* `!help [cmd]` (or `[.:]help`) - Message the caller with a list of accepted commands or help on a command.
 * `!botver` (or `[.:]botver`) - Message the version of `yossarian-bot` currently running.
 * `!src` (or `[.:]src`) - Message a link to the bot's source code.
 * `!fortune` - Message a Unix fortune.
@@ -20,3 +20,5 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!cb <query>` - talk to CleverBot.
 * `!seen <nick>` - check the last time `yossarian-bot` saw someone.
 * `!turl <url>` - create a short link to the given url with TinyURL.
+* `!gh <username>` - get statistics about a GitHub user.
+* `!xkcd [search]` - get a random XKCD comic, or one related to a query.
