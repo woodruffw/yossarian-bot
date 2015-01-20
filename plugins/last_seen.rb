@@ -37,7 +37,7 @@ class LastSeen < YossarianPlugin
 		@users[m.user.nick] = LastSeenStruct.new(m.user, m.channel, m.message, Time.now)
 	end
 
-	match /seen (.+)/, method: :last_seen
+	match /seen (\w+)/, method: :last_seen
 	def last_seen(m, nick)
 		if nick == @bot.nick
 			m.reply "That's not going to work."
