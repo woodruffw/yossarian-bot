@@ -7,7 +7,7 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 
 * `!help [cmd]` (or `[.:]help`) - Message the caller with a list of accepted commands or help on a command.
 * `!botinfo <key>` (or `[.:]botinfo`) - Retrieve information about the bot. Keys: ver, src, author.
-* `!admin <commands>` - Administrate the bot with an authorized user. Accepted commands: enable|disable <plugin>, quit, say.
+* `!admin <commands>` - Administrate the bot with an authorized user. Accepted commands: enable|disable|list <plugin>, quit, say.
 * `!src` (or `[.:]src`) - Message a link to the bot's source code.
 * `!fortune` - Message a Unix fortune.
 * `!ud <word>` - Look up the given word on UrbanDictionary.

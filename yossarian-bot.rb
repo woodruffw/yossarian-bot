@@ -36,6 +36,28 @@ require_relative 'plugins/link_titling'
 
 $BOT_VERSION = 1.00
 $BOT_ADMIN = ''
+$BOT_PLUGINS = [
+	CommandHelp,
+	BotInfo,
+	BotAdmin,
+	Catch22,
+	UrbanDictionary,
+	WolframAlpha,
+	Weather,
+	GoogleSearch,
+	YouTubeSearch,
+	Magic8Ball,
+	MerriamWebster,
+	Cleverbot,
+	Fortune,
+	Rot13,
+	TinyURL,
+	GitHubInfo,
+	XKCDComics,
+	LastSeen,
+	LinkTitling,
+	RegexReplace
+]
 
 options = {:links => true, :seen => true, :regex => true}
 
@@ -67,36 +89,18 @@ bot = Cinch::Bot.new do
 		c.server = ARGV[0]
 		c.channels = ARGV[1].split(',')
 		c.plugins.prefix = /^!/
-		c.plugins.plugins = [
-			CommandHelp,
-			BotInfo,
-			BotAdmin,
-			Catch22,
-			UrbanDictionary,
-			WolframAlpha,
-			Weather,
-			GoogleSearch,
-			YouTubeSearch,
-			Magic8Ball,
-			MerriamWebster,
-			Cleverbot,
-			Fortune,
-			Rot13,
-			TinyURL,
-			GitHubInfo,
-			XKCDComics
-		]
+		c.plugins.plugins = $BOT_PLUGINS.dup
 
-		if options[:seen]
-			c.plugins.plugins << LastSeen
+		unless options[:seen]
+			c.plugins.plugins.delete(LastSeen)
 		end
 
-		if options[:links]
-			c.plugins.plugins << LinkTitling
+		unless options[:links]
+			c.plugins.plugins.delete(LinkTitling)
 		end
 
-		if options[:regex]
-			c.plugins.plugins << RegexReplace
+		unless options[:regex]
+			c.plugins.plugins.delete(RegexReplace)
 		end
 	end
 
