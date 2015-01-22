@@ -15,6 +15,7 @@ require 'optparse'
 
 require_relative 'plugins/command_help'
 require_relative 'plugins/bot_info'
+require_relative 'plugins/bot_admin'
 require_relative 'plugins/catch22'
 require_relative 'plugins/urban_dictionary'
 require_relative 'plugins/wolfram_alpha'
@@ -33,10 +34,17 @@ require_relative 'plugins/xkcd_comics'
 require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
+$BOT_VERSION = 1.00
+$BOT_ADMIN = ''
+
 options = {:links => true, :seen => true, :regex => true}
 
 OptionParser.new do |opts|
 	opts.banner = "Usage: $0 <irc server> <channels> [options]"
+
+	opts.on('-a', '--admin NICK', 'Set the bot\'s admin.') do |a|
+		$BOT_ADMIN = a
+	end
 
 	opts.on('-t', '--no-link-titles', 'Do not title links.') do |t|
 		options[:links] = false
@@ -62,6 +70,7 @@ bot = Cinch::Bot.new do
 		c.plugins.plugins = [
 			CommandHelp,
 			BotInfo,
+			BotAdmin,
 			Catch22,
 			UrbanDictionary,
 			WolframAlpha,

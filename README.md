@@ -60,6 +60,7 @@ list of channels to join on that server (e.g. `#chan1,#chan2`).
 
 All other arguments are optional:
 
+* `-a`/`--admin NICK` - Set an administrator for the bot. If this flag is not provided, the `!admin` command will not work for any user.
 * `-t`/`--no-link-titles` - Disable link titling.
 * `-s`/`--no-seen` - Disable the `!seen` command.
 * `-r`/`--no-regex-replace` - Disable `sed`-like typo replacement.

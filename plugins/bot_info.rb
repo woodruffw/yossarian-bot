@@ -19,8 +19,6 @@ class BotInfo < YossarianPlugin
 		cmd =~ /^(!)?(botinfo)|(bi)$/
 	end
 
-	$BOT_VERSION = 1.00
-
 	match /bi (\w+)/, method: :bot_info
 	match /botinfo (\w+)/, method: :bot_info
 

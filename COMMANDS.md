@@ -6,7 +6,8 @@ commands
 All commands are prefixed with `!`, or `.`/`:` in some cases.
 
 * `!help [cmd]` (or `[.:]help`) - Message the caller with a list of accepted commands or help on a command.
-* `!botver` (or `[.:]botver`) - Message the version of `yossarian-bot` currently running.
+* `!botinfo <key>` (or `[.:]botinfo`) - Retrieve information about the bot. Keys: ver, src, author.
+* `!admin <commands>` - Administrate the bot with an authorized user. Accepted commands: enable|disable <plugin>, quit, say.
 * `!src` (or `[.:]src`) - Message a link to the bot's source code.
 * `!fortune` - Message a Unix fortune.
 * `!ud <word>` - Look up the given word on UrbanDictionary.
