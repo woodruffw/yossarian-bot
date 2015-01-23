@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.6)
-    cinch (2.2.2)
+    cinch (2.2.3)
     cleverbot-api (0.0.4)
     daemons (1.1.9)
     google-search (1.0.3)
@@ -11,10 +11,10 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     json (1.8.2)
-    libxml-ruby (2.7.0)
+    libxml-ruby (2.8.0)
     mini_portile (0.6.2)
     multi_xml (0.5.5)
-    nokogiri (1.6.5)
+    nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     wolfram (0.2.1)
       nokogiri (>= 1.4.3)
