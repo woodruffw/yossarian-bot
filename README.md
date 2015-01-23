@@ -4,13 +4,20 @@ yossarian-bot
 An entertaining IRC bot.
 
 ## Features:
+* Simple real-time administration.
 * Unix fortunes (`fortune` must be present)
 * Catch-22 quotes
 * UrbanDictionary queries
 * Wolfram|Alpha queries
-* Weather updates
+* Smart weather queries (Wunderground)
 * Google searches
-* Cleverbot
+* YouTube searches
+* ROT13 message "encryption"
+* Magic 8 Ball queries
+* Dictionary queries (Merriam-Webster)
+* Cleverbot discussions
+* Channel 'seen' log
+* Link compression (TinyURL)
 * ...and more!
 
 ## Running the bot
