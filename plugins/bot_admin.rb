@@ -84,7 +84,7 @@ class BotAdmin < YossarianPlugin
 
 	def bot_say(m, msg)
 		if authenticate?(m.user.nick)
-			m.reply msg
+			Channel(m.channel).send msg
 		else
 			m.reply "#{m.user.nick}: You do not have permission to do that."
 		end
