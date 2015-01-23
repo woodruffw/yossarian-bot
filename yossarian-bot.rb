@@ -31,6 +31,7 @@ require_relative 'plugins/last_seen'
 require_relative 'plugins/tiny_url'
 require_relative 'plugins/github_info'
 require_relative 'plugins/xkcd_comics'
+require_relative 'plugins/isitup'
 require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
@@ -54,6 +55,7 @@ $BOT_PLUGINS = [
 	TinyURL,
 	GitHubInfo,
 	XKCDComics,
+	IsItUp,
 	LastSeen,
 	LinkTitling,
 	RegexReplace

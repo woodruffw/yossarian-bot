@@ -22,8 +22,7 @@ class GoogleSearch < YossarianPlugin
 		cmd =~ /^(!)?(google)|(g)$/
 	end
 
-	match /g (.+)/, method: :google_search
-	match /google (.+)/, method: :google_search
+	match /g(?:oogle)? (.+)/, method: :google_search
 	
 	def google_search(m, search)
 		url = URI.encode("https://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=large&safe=active&q=#{search}&max-results=1&v=2&prettyprint=false&alt=json")

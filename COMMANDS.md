@@ -23,3 +23,4 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!turl <url>` - create a short link to the given url with TinyURL.
 * `!gh <username>` - get statistics about a GitHub user.
 * `!xkcd [search]` - get a random XKCD comic, or one related to a query.
+* `!isitup <site>` - check whether or not a given site is currently online.
