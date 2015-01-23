@@ -29,7 +29,7 @@ class BotInfo < YossarianPlugin
 		when /(source)|(src)/
 			m.reply 'https://github.com/woodruffw/yossarian-bot'
 		when /author/
-			m.reply 'Author: cpt_yossarian (woodruffw)'
+			m.reply 'Author: woodruffw'
 		end
 	end
 end
