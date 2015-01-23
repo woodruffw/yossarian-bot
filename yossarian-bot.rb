@@ -35,7 +35,7 @@ require_relative 'plugins/isitup'
 require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
-$BOT_VERSION = 1.00
+$BOT_VERSION = 1.10
 $BOT_ADMIN = ''
 $BOT_PLUGINS = [
 	CommandHelp,
