@@ -15,14 +15,14 @@ class IsItUp < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage
-		'!isitup <site> - Check whether or not <site> is currently online.'
+		'!isitup <site> - Check whether or not <site> is currently online. Alias: !up.'
 	end
 
 	def match?(cmd)
-		cmd =~ /^(!)?isitup$/
+		cmd =~ /^(!)?(?:isit)?up$/
 	end
 
-	match /isitup (.+)/, method: :isitup
+	match /(?:isit)?up (.+)/, method: :isitup
 
 	def isitup(m, site)
 		url = "http://isitup.org/#{URI.encode(site)}.json"
