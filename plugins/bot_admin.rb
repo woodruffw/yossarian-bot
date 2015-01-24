@@ -12,7 +12,7 @@ class BotAdmin < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage
-		'!admin <commands> - control bot operation with <commands>. Available commands: enable|disable|list <plugin>, quit, say.'
+		'!admin <commands> - Control bot operation with <commands>. Available commands: enable|disable|list <plugin>, quit, say.'
 	end
 
 	def match?(cmd)

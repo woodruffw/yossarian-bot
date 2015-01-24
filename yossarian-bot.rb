@@ -32,6 +32,7 @@ require_relative 'plugins/tiny_url'
 require_relative 'plugins/github_info'
 require_relative 'plugins/xkcd_comics'
 require_relative 'plugins/isitup'
+require_relative 'plugins/ctcp_version'
 require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
@@ -56,6 +57,7 @@ $BOT_PLUGINS = [
 	GitHubInfo,
 	XKCDComics,
 	IsItUp,
+	CTCPVersion,
 	LastSeen,
 	LinkTitling,
 	RegexReplace

@@ -14,7 +14,7 @@ class XKCDComics < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage
-		'!xkcd [search] - get a random XKCD comic, or one related to [search].'
+		'!xkcd [search] - Get a random XKCD comic, or one related to [search].'
 	end
 
 	def match?(cmd)
