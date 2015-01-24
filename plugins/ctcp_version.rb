@@ -34,7 +34,7 @@ class CTCPVersion < YossarianPlugin
 		@channel = m.channel
 	end
 
-	listen_to :ctcp, method: :ctcp_ver_recv
+	listen_to :ctcp, 'VERSION', method: :ctcp_ver_recv
 
 	def ctcp_ver_recv(m)
 		version = m.ctcp_message.sub('VERSION ', '')
