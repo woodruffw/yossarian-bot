@@ -27,7 +27,7 @@ class CommandHelp < YossarianPlugin
 		User(m.user).send 'Commands: http://git.io/38F1qA -- Use !help <cmd> for info.', true
 	end
 
-	match /help (\w+)/, method: :help_cmd
+	match /help (\S+)/, method: :help_cmd
 
 	def help_cmd(m, cmd)
 		@bot.plugins.each do |plugin|
