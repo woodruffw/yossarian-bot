@@ -49,6 +49,6 @@ plugins visible to `yossarian-bot`, not just enabled ones.
 * `!admin disable <plugin>` - Disable the given <plugin>. Like `enable`,
 the given <plugin> must be a class name.
 * `!admin quit` - Gracefully kill the bot.
-* `!admin auth <nick>` - Make <nick> an administrator.
-* `!admin deauth <nick>` - Remove <nick> from the administrator list.
-* `!admin say <message>` - Make the bot say <message>.
+* `!admin auth <nick>` - Make \<nick\> an administrator.
+* `!admin deauth <nick>` - Remove \<nick\> from the administrator list.
+* `!admin say <message>` - Make the bot say \<message\>.
