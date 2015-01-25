@@ -44,11 +44,11 @@ The `!admin` command can take several sub-commands:
 
 * `!admin list` - List all plugins currently *available*. This includes *all*
 plugins visible to `yossarian-bot`, not just enabled ones.
-* `!admin enable <plugin>` - Enable the given <plugin>. <plugin> *must* be the 
+* `!admin enable <plugin>` - Enable the given \<plugin\>. \<plugin\> *must* be the 
 *class name* of the plugin, like `GoogleSearch` or `WolframAlpha`.
-* `!admin disable <plugin>` - Disable the given <plugin>. Like `enable`,
+* `!admin disable <plugin>` - Disable the given \<plugin\>. Like `enable`,
 the given <plugin> must be a class name.
-* `!admin quit` - Gracefully kill the bot.
+* `!admin quit` - Gracefully kill the bot. This is the preferred way to terminate `yossarian-bot`
 * `!admin auth <nick>` - Make \<nick\> an administrator.
 * `!admin deauth <nick>` - Remove \<nick\> from the administrator list.
 * `!admin say <message>` - Make the bot say \<message\>.
