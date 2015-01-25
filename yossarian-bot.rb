@@ -87,8 +87,8 @@ end.parse!
 
 bot = Cinch::Bot.new do
 	configure do |c|
-		c.nick = "yossarian-bot"
-		c.realname = "yossarian-bot"
+		c.nick = 'yossarian-bot'
+		c.realname = 'yossarian-bot'
 		c.max_messages = 1
 		c.server = ARGV[0]
 		c.channels = ARGV[1].split(',')
