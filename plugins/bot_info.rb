@@ -30,6 +30,8 @@ class BotInfo < YossarianPlugin
 			m.reply 'https://github.com/woodruffw/yossarian-bot'
 		when /author/
 			m.reply 'Author: woodruffw'
+		when /admins/
+			m.reply "Admins: %s" % $BOT_ADMINS.join(', ')
 		end
 	end
 end

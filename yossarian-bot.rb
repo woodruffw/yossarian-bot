@@ -37,7 +37,7 @@ require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
 $BOT_VERSION = 1.10
-$BOT_ADMIN = ''
+$BOT_ADMINS = []
 $BOT_PLUGINS = [
 	CommandHelp,
 	BotInfo,
@@ -69,7 +69,7 @@ OptionParser.new do |opts|
 	opts.banner = "Usage: $0 <irc server> <channels> [options]"
 
 	opts.on('-a', '--admin NICK', 'Set the bot\'s admin.') do |a|
-		$BOT_ADMIN = a
+		$BOT_ADMINS = a.split(',')
 	end
 
 	opts.on('-t', '--no-link-titles', 'Do not title links.') do |t|
