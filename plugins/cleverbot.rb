@@ -13,6 +13,11 @@ require_relative 'yossarian_plugin'
 class Cleverbot < YossarianPlugin
 	include Cinch::Plugin
 
+	def initialize(*args)
+		super
+		@cb = CleverBot.new
+	end
+
 	def usage
 		'!cb <message> - Talk to CleverBot. Alias: !cleverbot.'
 	end
@@ -25,7 +30,6 @@ class Cleverbot < YossarianPlugin
 	match /cleverbot (.+)/, method: :cleverbot
 
 	def cleverbot(m, query)
-		cb = CleverBot.new
-		m.reply "#{m.user.nick}: #{cb.think(query)}"
+		m.reply "#{m.user.nick}: #{@cb.think(query)}"
 	end
 end
