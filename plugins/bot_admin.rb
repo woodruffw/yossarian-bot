@@ -106,6 +106,34 @@ class BotAdmin < YossarianPlugin
 		end
 	end
 
+	match /admin join (\S+)/, method: :bot_join_channel
+
+	def bot_join_channel(m, chan)
+		if authenticate?(m.user.nick)
+			if !@bot.channels.include?(chan)
+				@bot.join(chan)
+				m.reply "#{m.user.nick}: I\'ve joined #{chan}."
+			else
+				m.reply "#{m.user.nick}: I\'m already in #{chan}!"
+			end
+		else
+			m.reply "#{m.user.nick}: You do not have permission to do that."
+		end
+	end
+
+	match /admin leave (\S+)/, method: :bot_leave_channel
+
+	def bot_leave_channel(m, chan)
+		if authenticate?(m.user.nick)
+			if @bot.channels.include?(chan)
+				m.reply "#{m.user.nick}: I\'m leaving #{chan}."
+				@bot.part(chan)
+			end
+		else
+			m.reply "#{m.user.nick}: You do not have permission to do that."
+		end
+	end
+
 	match /admin say (.+)/, method: :bot_say
 
 	def bot_say(m, msg)

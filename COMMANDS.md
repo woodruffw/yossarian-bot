@@ -51,4 +51,6 @@ the given <plugin> must be a class name.
 * `!admin quit` - Gracefully kill the bot. This is the preferred way to terminate `yossarian-bot`
 * `!admin auth <nick>` - Make \<nick\> an administrator.
 * `!admin deauth <nick>` - Remove \<nick\> from the administrator list.
+* `!admin join <channel>` - Join \<channel\> on the network.
+* `!admin leave <channel>` - Leave \<channel\> on the network, if in it.
 * `!admin say <message>` - Make the bot say \<message\>.
