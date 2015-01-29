@@ -112,6 +112,10 @@ bot = Cinch::Bot.new do
 		unless options[:regex]
 			c.plugins.plugins.delete(RegexReplace)
 		end
+
+		unless options[:intros]
+			c.plugins.plugins.delete(UserIntros)
+		end
 	end
 
 	on :message, /^[!.:,]bots$/ do |m|
