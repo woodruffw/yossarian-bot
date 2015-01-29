@@ -32,6 +32,7 @@ require_relative 'plugins/tiny_url'
 require_relative 'plugins/github_info'
 require_relative 'plugins/xkcd_comics'
 require_relative 'plugins/isitup'
+require_relative 'plugins/user_intros/user_intros'
 require_relative 'plugins/ctcp_version'
 require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
@@ -57,13 +58,14 @@ $BOT_PLUGINS = [
 	GitHubInfo,
 	XKCDComics,
 	IsItUp,
+	UserIntros,
 	CTCPVersion,
 	LastSeen,
 	LinkTitling,
 	RegexReplace
 ]
 
-options = {:links => true, :seen => true, :regex => true}
+options = {:links => true, :seen => true, :regex => true, :intros => true}
 
 OptionParser.new do |opts|
 	opts.banner = "Usage: $0 <irc server> <channels> [options]"
@@ -82,6 +84,10 @@ OptionParser.new do |opts|
 
 	opts.on('-r', '--no-regex-replace', 'Disable sed-like regexes for typos.') do |r|
 		options[:regex] = false
+	end
+
+	opts.on('-i', '--no-intros', 'No custom user intros.') do |i|
+		options[:intros] = false
 	end
 end.parse!
 

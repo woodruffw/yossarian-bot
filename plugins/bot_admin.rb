@@ -27,7 +27,6 @@ class BotAdmin < YossarianPlugin
 
 	def plugin_list(m)
 		if authenticate?(m.user.nick)
-			User(m.user).send "Active plugins: %s" % @bot.plugins.map { |p| p.class }.join(', '), true
 			User(m.user).send "Available plugins: %s" % $BOT_PLUGINS.map { |p| p.name }.join(', '), true
 		else
 			m.reply "#{m.user.nick}: You do not have permission to do that."
