@@ -33,6 +33,7 @@ The `!botinfo` command takes one of four keys:
 * `!botinfo ver` (or `version`) - Get `yossarian-bot`'s version.
 * `!botinfo src` (or `source`)- Get a link to `yossarian-bot`'s source.
 * `!botinfo author` - Get `yossarian-bot`'s author.
+* `!botinfo uptime` - Get `yossarian-bot`'s running time.
 * `!botinfo admins` - List the nicks of the admins currently registered to the bot.
 
 ### `!admin` sub-commands

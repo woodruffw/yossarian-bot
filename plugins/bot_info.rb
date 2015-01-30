@@ -12,7 +12,7 @@ class BotInfo < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage
-		'!bi [key] - Retrieve information about the bot. Keys: ver, src, author. Alias: !botinfo.'
+		'!bi [key] - Retrieve information about the bot. Keys: ver, src, author, uptime, admins. Alias: !botinfo.'
 	end
 
 	def match?(cmd)
@@ -30,6 +30,8 @@ class BotInfo < YossarianPlugin
 			m.reply 'https://github.com/woodruffw/yossarian-bot'
 		when /author/
 			m.reply 'Author: woodruffw'
+		when /uptime/
+			m.reply "I\'ve been online since #{$BOT_UPTIME}."
 		when /admins/
 			m.reply "Admins: %s" % $BOT_ADMINS.join(', ')
 		end

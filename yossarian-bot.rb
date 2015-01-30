@@ -11,6 +11,7 @@
 #  http://opensource.org/licenses/MIT
 
 require 'cinch'
+require 'date'
 require 'optparse'
 
 require_relative 'plugins/command_help'
@@ -38,6 +39,7 @@ require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
 $BOT_VERSION = 1.15
+$BOT_UPTIME = DateTime.now.asctime
 $BOT_ADMINS = []
 $BOT_PLUGINS = [
 	CommandHelp,
