@@ -1,7 +1,7 @@
 yossarian-bot
 =============
 
-An entertaining IRC bot.
+An entertaining IRC bot that's easy to extend.
 
 ## Features:
 * Simple real-time administration.

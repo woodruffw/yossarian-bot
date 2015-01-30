@@ -35,7 +35,7 @@ class Catch22 < YossarianPlugin
 		"Well, he died. You don't get any older than that.",
 		"\"Consciously, sir, consciously,\" Yossarian corrected in an effort to help. \"I hate them consciously.\"",
 		"Prostitution gives her an opportunity to meet people. It provides fresh air and wholesome exercise, and it keeps her out of trouble.",
-		"What would they do to me,\" he asked in confidential tones, \"if I refused to fly them?",
+		"\"What would they do to me,\" he asked in confidential tones, \"if I refused to fly them?\"",
 		"\"If you're going to be shot, whose side do you expect me to be on?\" ex-P.F.C. Wintergreen retorted.",
 		"\"Because...\" Clevinger sputtered, and turned speechless with frustration. Clevinger really thought he was right, but Yossarian had proof, because strangers he didn't know shot at him with cannons every time he flew up into the air to drop bombs on them, and it wasn't funny at all.",
 		"Catch-22 did not exist, he was positive of that, but it made no difference.",
