@@ -26,7 +26,7 @@ class CTCPVersion < YossarianPlugin
 		cmd =~ /^(!)?ver(?:sion)?$/
 	end
 
-	match /ver(?:sion)? (\S+)/, method: :ctcp_ver_req
+	match /ver(?:sion)? ([^#][\S]+)/, method: :ctcp_ver_req
 
 	def ctcp_ver_req(m, nick)
 		User(nick).ctcp 'VERSION'
