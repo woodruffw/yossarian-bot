@@ -38,7 +38,7 @@ require_relative 'plugins/ctcp_version'
 require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
-$BOT_VERSION = 1.15
+$BOT_VERSION = 1.20
 $BOT_UPTIME = DateTime.now.asctime
 $BOT_ADMINS = []
 $BOT_PLUGINS = [
