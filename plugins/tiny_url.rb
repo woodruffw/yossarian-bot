@@ -21,8 +21,8 @@ class TinyURL < YossarianPlugin
 		cmd =~ /^(!)?(tinyurl)|(turl)$/
 	end
 
-	match /turl (http(s)?:\/\/[^ \t]*)/, method: :tinyurl
-	match /tinyurl (http(s)?:\/\/[^ \t]*)/, method: :tinyurl
+	match /turl (http(s)?:\/\/[^ \t]*)/, method: :tinyurl, strip_colors: true
+	match /tinyurl (http(s)?:\/\/[^ \t]*)/, method: :tinyurl, strip_colors: true
 
 	def tinyurl(m, link)
 		url = "http://tinyurl.com/api-create.php?url=#{URI.encode(link)}"

@@ -21,8 +21,8 @@ class UrbanDictionary < YossarianPlugin
 		cmd =~ /^(!)?(ud)|(urban)$/
 	end
 
-	match /ud (.+)/, method: :urban_dict
-	match /urban (.+)/, method: :urban_dict
+	match /ud (.+)/, method: :urban_dict, strip_colors: true
+	match /urban (.+)/, method: :urban_dict, strip_colors: true
 
 	def urban_dict(m, query)
 		data = Net::HTTP.get(URI("http://api.urbandictionary.com/v0/define?term=#{URI.encode(query)}"))

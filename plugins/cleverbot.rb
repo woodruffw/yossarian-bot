@@ -26,8 +26,8 @@ class Cleverbot < YossarianPlugin
 		cmd =~ /^(!)?(cb)|(cleverbot)$/
 	end
 
-	match /cb (.+)/, method: :cleverbot
-	match /cleverbot (.+)/, method: :cleverbot
+	match /cb (.+)/, method: :cleverbot, strip_colors: true
+	match /cleverbot (.+)/, method: :cleverbot, strip_colors: true
 
 	def cleverbot(m, query)
 		m.reply "#{m.user.nick}: #{@cb.think(query)}"

@@ -22,7 +22,7 @@ class IsItUp < YossarianPlugin
 		cmd =~ /^(!)?(?:isit)?up$/
 	end
 
-	match /(?:isit)?up (.+)/, method: :isitup
+	match /(?:isit)?up (.+)/, method: :isitup, strip_colors: true
 
 	def isitup(m, site)
 		url = "http://isitup.org/#{URI.encode(site)}.json"

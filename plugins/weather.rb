@@ -21,8 +21,8 @@ class Weather < YossarianPlugin
 		cmd =~ /^(!)?(weather)|(w)$/
 	end
 
-	match /w (.+)/, method: :weather
-	match /weather (.+)/, method: :weather
+	match /w (.+)/, method: :weather, strip_colors: true
+	match /weather (.+)/, method: :weather, strip_colors: true
 
 	def weather(m, location)
 		if ENV.has_key?('WUNDERGROUND_API_KEY')

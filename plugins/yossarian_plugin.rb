@@ -1,4 +1,4 @@
-#  yossarian_plug.rb
+#  yossarian_plugin.rb
 #  Author: William Woodruff
 #  ------------------------
 #  The superclass that all yossarian-bot plugins extend.

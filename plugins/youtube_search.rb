@@ -22,8 +22,8 @@ class YouTubeSearch < YossarianPlugin
 		cmd =~ /^(!)?(youtube)|(yt)$/
 	end
 
-	match /yt (.+)/, method: :youtube_search
-	match /youtube (.+)/, method: :youtube_search
+	match /yt (.+)/, method: :youtube_search, strip_colors: true
+	match /youtube (.+)/, method: :youtube_search, strip_colors: true
 
 	def youtube_search(m, search)
 		url = URI.encode("http://gdata.youtube.com/feeds/api/videos?q=#{search}&max-results=1&v=2&prettyprint=false&alt=json")

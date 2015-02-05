@@ -21,8 +21,8 @@ class WolframAlpha < YossarianPlugin
 		cmd =~ /^(!)?(wolfram)|(wa)$/
 	end
 
-	match /wa (.+)/, method: :wolfram_alpha
-	match /wolfram (.+)/, method: :wolfram_alpha
+	match /wa (.+)/, method: :wolfram_alpha, strip_colors: true
+	match /wolfram (.+)/, method: :wolfram_alpha, strip_colors: true
 
 	def wolfram_alpha(m, query)
 		if ENV.has_key?('WOLFRAM_ALPHA_APPID_KEY')
