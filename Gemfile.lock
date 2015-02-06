@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.3.6)
+    addressable (2.3.7)
     cinch (2.2.3)
     cleverbot-api (0.0.4)
     daemons (1.1.9)
