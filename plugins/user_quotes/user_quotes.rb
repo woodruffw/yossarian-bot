@@ -31,7 +31,7 @@ class UserQuotes < YossarianPlugin
 	end
 
 	def usage
-		'!quote [user] - Retrieve a random quote. If a user is provided, a quote from that user is retrieved.'
+		'!quote [nick] - Retrieve a random quote. If a nick is provided, a quote from that user is retrieved.'
 	end
 
 	def match?(cmd)
