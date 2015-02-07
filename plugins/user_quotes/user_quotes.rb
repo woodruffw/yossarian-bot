@@ -63,12 +63,10 @@ class UserQuotes < YossarianPlugin
 				@quotes[m.user.nick].push(m.message)
 			end
 		else
-			m.reply "spooky"
 			@quotes[m.user.nick] = [m.message]
 		end
 
 		if @@message_count == @@sync_interval
-			m.reply "wooooo"
 			sync_quotes_file
 			@@message_count = 0
 		end
