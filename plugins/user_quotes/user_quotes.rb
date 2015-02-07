@@ -15,7 +15,7 @@ class UserQuotes < YossarianPlugin
 	include Cinch::Plugin
 
 	@@user_quotes_file = File.expand_path(File.join(File.dirname(__FILE__), 'user_quotes.yml'))
-	@@user_quote_limit = 15
+	@@user_quote_limit = 25
 	@@sync_interval = 10
 	@@message_count = 0
 
@@ -49,21 +49,28 @@ class UserQuotes < YossarianPlugin
 	listen_to :channel
 
 	def listen(m)
+		chan = m.channel.to_s
+		nick = m.user.nick
+
 		if m.message =~ /!quote/
 			return # we don't want to store quote queries, for obvious reasons
 		else
 			@@message_count += 1
 		end
 
-		if @quotes.has_key?(m.user.nick)
-			if @quotes[m.user.nick].size < @@user_quote_limit
-				@quotes[m.user.nick] << m.message
+		if @quotes.has_key?(chan)
+			if @quotes[chan].has_key?(nick)
+				if @quotes[chan][nick].size < @@user_quote_limit
+					@quotes[chan][nick] << m.message
+				else
+					@quotes[chan][nick].delete_at(rand(@quotes[chan][nick].length))
+					@quotes[chan][nick].push(m.message)
+				end
 			else
-				@quotes[m.user.nick].delete_at(rand(@quotes[m.user.nick].length))
-				@quotes[m.user.nick].push(m.message)
+				@quotes[chan][nick] = [m.message]
 			end
 		else
-			@quotes[m.user.nick] = [m.message]
+			@quotes[chan] = {}
 		end
 
 		if @@message_count == @@sync_interval
@@ -75,20 +82,27 @@ class UserQuotes < YossarianPlugin
 	match /quote$/, method: :random_quote
 
 	def random_quote(m)
-		user = @quotes.keys.sample
-		quote = @quotes[user].sample
+		channel = @quotes.keys.sample
 
-		m.reply "#{quote} [#{user}]"
+		unless channel == nil
+			user = @quotes[channel].keys.sample
+			quote = @quotes[channel][user].sample
+			m.reply "#{quote} [#{user} on #{channel}]"
+		else
+			m.reply "I don\'t have any quotes yet. Check back in a bit."
+		end
 	end
 
 	match /quote (\S+)/, method: :random_quote_user
 
 	def random_quote_user(m, nick)
-		if @quotes.has_key?(nick)
-			quote = @quotes[nick].sample
+		chan = m.channel.to_s
+
+		if @quotes.has_key?(chan) && @quotes[chan].has_key?(nick)
+			quote = @quotes[chan][m.user.nick].sample
 			m.reply "#{quote} [#{nick}]"
 		else
-			m.reply "I don\'t have any quotes for #{nick}."
+			m.reply "I don\'t have any quotes for #{nick} on this channel."
 		end
 	end
 end
