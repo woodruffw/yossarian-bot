@@ -31,7 +31,9 @@ class UrbanDictionary < YossarianPlugin
 			m.reply "UrbanDictionary has nothing for #{query}."
 		else
 			list = hash['list'][0]
-			m.reply "#{m.user.nick}: #{query} - #{list['definition'][0..255].gsub(/[\r\n]/, '')}... (#{list['permalink']})"
+			definition = list['definition'][0..255].gsub(/[\r\n]/, '')
+			link = list['permalink']
+			m.reply "#{m.user.nick}: #{query} - #{definition}... (#{link})"
 		end
 	end
 end
