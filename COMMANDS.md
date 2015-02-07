@@ -29,7 +29,7 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 
 ### `!botinfo` keys
 
-The `!botinfo` command takes one of four keys:
+The `!botinfo` command takes one of the following keys:
 
 * `!botinfo ver` (or `version`) - Get `yossarian-bot`'s version.
 * `!botinfo src` (or `source`)- Get a link to `yossarian-bot`'s source.
