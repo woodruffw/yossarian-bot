@@ -45,7 +45,7 @@ or with the `!admin auth <nick>` command at runtime (by an extant admin).
 
 The `!admin` command can take several sub-commands:
 
-* `!admin list` - List all plugins currently *available*. This includes *all*
+* `!admin plugin list` - List all plugins currently *available*. This includes *all*
 plugins visible to `yossarian-bot`, not just enabled ones.
 * `!admin enable <plugin>` - Enable the given \<plugin\>. \<plugin\> *must* be the 
 *class name* of the plugin, like `GoogleSearch` or `WolframAlpha`.

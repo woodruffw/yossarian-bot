@@ -34,6 +34,7 @@ require_relative 'plugins/github_info'
 require_relative 'plugins/xkcd_comics'
 require_relative 'plugins/isitup'
 require_relative 'plugins/user_intros/user_intros'
+require_relative 'plugins/user_quotes/user_quotes'
 require_relative 'plugins/ctcp_version'
 require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
@@ -61,13 +62,20 @@ $BOT_PLUGINS = [
 	XKCDComics,
 	IsItUp,
 	UserIntros,
+	UserQuotes,
 	CTCPVersion,
 	LastSeen,
 	LinkTitling,
 	RegexReplace
 ]
 
-options = {:links => true, :seen => true, :regex => true, :intros => true}
+options = {
+	:links => true,
+	:seen => true,
+	:regex => true,
+	:intros => true,
+	:quotes => true
+}
 
 OptionParser.new do |opts|
 	opts.banner = "Usage: $0 <irc server> <channels> [options]"
@@ -90,6 +98,10 @@ OptionParser.new do |opts|
 
 	opts.on('-i', '--no-intros', 'No custom user intros.') do |i|
 		options[:intros] = false
+	end
+
+	opts.on('-q', '--no-quotes', 'No !quote collection.') do |q|
+		options[:quotes] = false
 	end
 end.parse!
 
@@ -117,6 +129,10 @@ bot = Cinch::Bot.new do
 
 		unless options[:intros]
 			c.plugins.plugins.delete(UserIntros)
+		end
+
+		unless options[:quotes]
+			c.plugins.plugins.delete(UserQuotes)
 		end
 	end
 

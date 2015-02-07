@@ -18,6 +18,7 @@ class RegexReplace < YossarianPlugin
 	end
 
 	listen_to :channel
+
 	def listen(m)
 		if m.message !~ /s\/([^\/]*)\/([^\/]*)(\/)?/
 			@users[m.user.nick] = m.message
@@ -25,6 +26,7 @@ class RegexReplace < YossarianPlugin
 	end
 
 	match /s\/([^\/]*)\/([^\/]*)(\/)?/, use_prefix: false, method: :sed
+
 	def sed(m, orig, repl)
 		if @users.has_key?(m.user.nick)
 			mod = @users[m.user.nick].sub(Regexp.new(orig), repl)
