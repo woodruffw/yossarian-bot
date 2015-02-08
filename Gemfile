@@ -9,4 +9,4 @@ gem 'wunderground'
 gem 'libxml-ruby'
 gem 'cleverbot-api'
 gem 'xkcd'
-
+gem 'time_difference'
