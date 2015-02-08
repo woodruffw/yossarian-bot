@@ -99,7 +99,7 @@ class UserQuotes < YossarianPlugin
 		chan = m.channel.to_s
 
 		if @quotes.has_key?(chan) && @quotes[chan].has_key?(nick)
-			quote = @quotes[chan][m.user.nick].sample
+			quote = @quotes[chan][nick].sample
 			m.reply "#{quote} [#{nick}]"
 		else
 			m.reply "I don\'t have any quotes for #{nick} on this channel."
