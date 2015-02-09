@@ -22,8 +22,8 @@ class GitHubInfo < YossarianPlugin
 		cmd =~ /^(!)?(github)|(gh)$/
 	end
 
-	match /gh (\w+)/, method: :github_info, strip_colors: true
-	match /github (\w+)/, method: :github_info, strip_colors: true
+	match /gh (\S+)/, method: :github_info, strip_colors: true
+	match /github (\S+)/, method: :github_info, strip_colors: true
 
 	def github_info(m, username)
 		url = "https://api.github.com/users/#{URI.encode(username)}"
