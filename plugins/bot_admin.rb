@@ -135,21 +135,21 @@ class BotAdmin < YossarianPlugin
 		end
 	end
 
-	match /admin say (.+)/, method: :bot_say
+	match /admin say (#\S+) (.+)/, method: :bot_say
 
-	def bot_say(m, msg)
+	def bot_say(m, chan, msg)
 		if authenticate?(m.user.nick)
-			Channel(m.channel).send msg
+			Channel(chan).send msg
 		else
 			m.reply "#{m.user.nick}: You do not have permission to do that."
 		end
 	end
 
-	match /admin act (.+)/, method: :bot_act
+	match /admin act (#\S+) (.+)/, method: :bot_act
 
-	def bot_act(m, msg)
+	def bot_act(m, chan, msg)
 		if authenticate?(m.user.nick)
-			m.action_reply msg
+			Channel(chan).action msg
 		else
 			m.reply "#{m.user.nick}: You do not have permission to do that."
 		end
