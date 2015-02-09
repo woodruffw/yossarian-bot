@@ -52,8 +52,8 @@ class UserQuotes < YossarianPlugin
 		chan = m.channel.to_s
 		nick = m.user.nick
 
-		if m.message =~ /!quote/
-			return # we don't want to store quote queries, for obvious reasons
+		if m.message =~ /^[!:.]/
+			return # we don't want to store command queries, for obvious reasons
 		else
 			@@message_count += 1
 		end
