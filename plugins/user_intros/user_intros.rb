@@ -45,17 +45,21 @@ class UserIntros < YossarianPlugin
 	match /intro (.+)/, method: :set_intro
 
 	def set_intro(m, intro)
-		@intros[m.user.nick] = intro
-		m.reply "#{m.user.nick}: Your intro has been set to: #{intro}"
+		if @intros.has_key?(m.channel)
+			@intros[m.channel][m.user.nick] = intro
+		else
+			@intros[m.channel] = {m.user.nick => intro}
+		end
+		m.reply "#{m.user.nick}: Your intro for #{m.channel} has been set to: #{intro}"
 		sync_intros_file
 	end
 
 	match /rmintro/, method: :remove_intro
 
 	def remove_intro(m)
-		if @intros.has_key?(m.user.nick)
-			@intros.delete(m.user.nick)
-			m.reply "#{m.user.nick}: Your intro has been removed."
+		if @intros.has_key?(m.channel) && @intros[m.channel].has_key?(m.user.nick)
+			@intros[m.channel].delete(m.user.nick)
+			m.reply "#{m.user.nick}: Your intro for #{m.channel} has been removed."
 			sync_intros_file
 		else
 			m.reply "#{m.user.nick}: You don't currently have an intro."
@@ -65,8 +69,8 @@ class UserIntros < YossarianPlugin
 	listen_to :join, method: :intro_user
 
 	def intro_user(m)
-		if @intros.has_key?(m.user.nick)
-			m.reply @intros[m.user.nick]
+		if @intros.has_key?(m.channel) && @intros[m.channel].has_key?(m.user.nick)
+			m.reply @intros[m.channel][m.user.nick]
 		end
 	end
 end

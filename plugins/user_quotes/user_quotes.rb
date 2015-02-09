@@ -49,7 +49,7 @@ class UserQuotes < YossarianPlugin
 	listen_to :channel
 
 	def listen(m)
-		chan = m.channel.to_s
+		chan = m.channel
 		nick = m.user.nick
 
 		if m.message =~ /^[!:.]/
@@ -96,7 +96,7 @@ class UserQuotes < YossarianPlugin
 	match /quote (\S+)/, method: :random_quote_user
 
 	def random_quote_user(m, nick)
-		chan = m.channel.to_s
+		chan = m.channel
 
 		if @quotes.has_key?(chan) && @quotes[chan].has_key?(nick)
 			quote = @quotes[chan][nick].sample
