@@ -21,6 +21,7 @@ require_relative 'plugins/urban_dictionary'
 require_relative 'plugins/wolfram_alpha'
 require_relative 'plugins/weather'
 require_relative 'plugins/google_search'
+require_relative 'plugins/google_translate'
 require_relative 'plugins/youtube_search'
 require_relative 'plugins/magic8ball'
 require_relative 'plugins/merriam_webster'
@@ -50,6 +51,7 @@ $BOT_PLUGINS = [
 	WolframAlpha,
 	Weather,
 	GoogleSearch,
+	GoogleTranslate,
 	YouTubeSearch,
 	Magic8Ball,
 	MerriamWebster,
