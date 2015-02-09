@@ -72,6 +72,7 @@ All other arguments are optional:
 * `-t`/`--no-link-titles` - Disable link titling.
 * `-s`/`--no-seen` - Disable the `!seen` command.
 * `-r`/`--no-regex-replace` - Disable `sed`-like typo replacement.
+* `-i`/`--no-intros` - Disable custom user intros.
 * `-q`/`--no-quotes` - Disable user quote collection.
 
 `yossarian-bot` has two usage cases: commands and matches.
