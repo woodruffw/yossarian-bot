@@ -127,6 +127,8 @@ class BotAdmin < YossarianPlugin
 			if @bot.channels.include?(chan)
 				m.reply "#{m.user.nick}: I\'m leaving #{chan}."
 				@bot.part(chan)
+			else
+				m.reply "#{m.user.nick}: I\'m not in the channel."
 			end
 		else
 			m.reply "#{m.user.nick}: You do not have permission to do that."
@@ -138,6 +140,16 @@ class BotAdmin < YossarianPlugin
 	def bot_say(m, msg)
 		if authenticate?(m.user.nick)
 			Channel(m.channel).send msg
+		else
+			m.reply "#{m.user.nick}: You do not have permission to do that."
+		end
+	end
+
+	match /admin act (.+)/, method: :bot_act
+
+	def bot_act(m, msg)
+		if authenticate?(m.user.nick)
+			m.action_reply msg
 		else
 			m.reply "#{m.user.nick}: You do not have permission to do that."
 		end
