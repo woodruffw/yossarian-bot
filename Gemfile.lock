@@ -8,7 +8,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.7)
-    cinch (2.2.3)
+    cinch (2.2.4)
     cleverbot-api (0.0.4)
     daemons (1.1.9)
     google-search (1.0.3)
