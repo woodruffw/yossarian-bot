@@ -37,7 +37,7 @@ class GitHubInfo < YossarianPlugin
 				repos = hash['public_repos']
 				followers = hash['followers']
 				following = hash['following']
-				m.reply "#{m.user.nick}: #{login} (#{name}) has #{repos} repositories, #{followers} followers, and is following #{following} people."
+				m.reply "#{m.user.nick}: #{login} (#{name}) has #{repos} repositories, #{followers} followers, and is following #{following} people. See more at https://github.com/#{login}"
 			else
 				m.reply "#{m.user.nick}: No such user \'#{username}\'."
 			end
