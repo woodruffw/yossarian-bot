@@ -34,7 +34,10 @@ class BotAdmin < YossarianPlugin
 				Format(active_plugin_names.include?(apn) ? :green : :red, apn)
 			end.join(', ')
 
+			# temporarily allow up to two messages due to to long plugin lists
+			@bot.config.max_messages = 2
 			m.reply "#{m.user.nick}: Available plugins: #{plugins}"
+			@bot.config.max_messages = 1
 		else
 			m.reply "#{m.user.nick}: You do not have permission to do that."
 		end
