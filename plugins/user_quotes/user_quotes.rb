@@ -53,7 +53,7 @@ class UserQuotes < YossarianPlugin
 		nick = m.user.nick
 
 		if m.message =~ /^[!:.]/
-			return # we don't want to store quote queries, for obvious reasons
+			return # we don't want to command messages, for obvious reasons
 		else
 			@@message_count += 1
 		end
