@@ -24,6 +24,7 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!gh <username>` - Get statistics about a GitHub user.
 * `!xkcd [search]` - Get a random XKCD comic, or one related to a query.
 * `!isitup <site>` - Check whether or not a given site is currently online.
+* `!haste <data>` - Post data to Hastebin.
 * `!intro <intro>` - Set an custom intro for your nick. Prefixing this command with `show` or `rm` shows or removes your intro, respectively.
 * `!quote [nick]` - Retrieve a completely random quote, or a random quote from the given nick.
 
