@@ -20,18 +20,13 @@ An entertaining IRC bot that's easy to extend.
 * Link compression (TinyURL)
 * ...and more!
 
-## Running the bot
+## Installation
 
-### Dependencies:
-`yossarian-bot` depends on the `cinch`, `json`, `nokogiri`, `wolfram`,
-`wunderground`, `xml`, `daemons`, `cleverbot-api`, `xkcd`, and `time_difference`
-gems.
-
-To install them:
+First, clone the repo and install `yossarian-bot`'s dependencies:
 
 ```bash
-$ sudo gem install cinch json nokogiri wolfram wunderground libxml-ruby daemons cleverbot-api xkcd time_difference
-$ # OR:
+$ git clone https://github.com/woodruffw/yossarian-bot
+$ cd yossarian-bot
 $ bundle install
 ```
 
@@ -45,14 +40,11 @@ they are exported to the environment as follows:
 Additionally, the `fortune` utility must be present in order for Unix fortunes
 to work correctly.
 
-### Installation
-Once all dependencies (see above) are installed, simply clone the repo and
-run `yossarian-bot.rb`:
+### Running
+
+Once all dependencies are installed, `yossarian-bot` can be run as follows:
 
 ```bash
-$ git clone https://github.com/woodruffw/yossarian-bot
-$ cd yossarian-bot
-$ bundle install
 $ ruby bot-control.rb start -- 'irc.example.net' '#chan1,#chan2'
 $ # OR:
 $ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2' # not run in background
