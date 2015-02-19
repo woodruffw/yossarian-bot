@@ -33,6 +33,7 @@ require_relative 'plugins/tiny_url'
 require_relative 'plugins/github_info'
 require_relative 'plugins/xkcd_comics'
 require_relative 'plugins/isitup'
+require_relative 'plugins/hastebin'
 require_relative 'plugins/user_intros/user_intros'
 require_relative 'plugins/user_quotes/user_quotes'
 require_relative 'plugins/ctcp_version'
@@ -62,6 +63,7 @@ $BOT_PLUGINS = [
 	GitHubInfo,
 	XKCDComics,
 	IsItUp,
+	Hastebin,
 	UserIntros,
 	UserQuotes,
 	CTCPVersion,
