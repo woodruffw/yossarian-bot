@@ -41,7 +41,7 @@ require_relative 'plugins/ctcp_version'
 require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
-$BOT_VERSION = 1.30
+$BOT_VERSION = 1.40
 $BOT_STARTTIME = Time.now
 $BOT_ADMINS = []
 $BOT_PLUGINS = [
@@ -114,6 +114,7 @@ bot = Cinch::Bot.new do
 	configure do |c|
 		c.nick = 'yossarian-bot'
 		c.realname = 'yossarian-bot'
+		c.user = 'yossarian-bot'
 		c.max_messages = 1
 		c.server = ARGV[0]
 		c.channels = ARGV[1].split(',')
