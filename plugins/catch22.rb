@@ -51,7 +51,9 @@ class Catch22 < YossarianPlugin
 		"When I was a kid, I used to walk around all day with crab apples in my cheeks. One in each cheek.",
 		"Catch-22 says they have the right to do anything we can't stop them from doing.",
 		"There was one catch, and that was Catch-22.",
-		"He was a militant idealist who crusaded against racial bigotry by growing faint in its presence."
+		"He was a militant idealist who crusaded against racial bigotry by growing faint in its presence.",
+		"Aarfy was a dedicated fraternity man who loved cheerleading and class reunions and did not have brains enough to be afraid.",
+		"Any fool can make money these days and most of them do. But what about people with talent and brains? Name, for example, one poet who makes money."
 	]
 
 	match /c22$/, method: :catch22
