@@ -68,7 +68,7 @@ class BotAdmin < YossarianPlugin
 			@bot.plugins.each do |plugin|
 				if plugin.class.name == name
 					@bot.plugins.unregister_plugin(plugin)
-					m.reply "#{m.user.nick}: Disabled #{name}."
+					m.reply "#{m.user.nick}: #{name} has been disabled."
 					return
 				end
 			end
