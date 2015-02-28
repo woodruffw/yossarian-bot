@@ -35,6 +35,7 @@ require_relative 'plugins/xkcd_comics'
 require_relative 'plugins/isitup'
 require_relative 'plugins/hastebin'
 require_relative 'plugins/slap'
+require_relative 'plugins/zalgo/zalgo'
 require_relative 'plugins/user_intros/user_intros'
 require_relative 'plugins/user_quotes/user_quotes'
 require_relative 'plugins/ctcp_version'
@@ -66,6 +67,7 @@ $BOT_PLUGINS = [
 	IsItUp,
 	Hastebin,
 	Slap,
+	Zalgo,
 	UserIntros,
 	UserQuotes,
 	CTCPVersion,
