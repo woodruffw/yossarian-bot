@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  yossarian_plugin.rb
 #  Author: William Woodruff
 #  ------------------------

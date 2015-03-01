@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  weather.rb
 #  Author: William Woodruff
 #  ------------------------

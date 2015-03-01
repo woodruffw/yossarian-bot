@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  link_titling.rb
 #  Author: William Woodruff
 #  ------------------------

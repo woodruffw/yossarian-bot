@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  rot13.rb
 #  Author: William Woodruff
 #  ------------------------

@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  wolfram_alpha.rb
 #  Author: William Woodruff
 #  ------------------------

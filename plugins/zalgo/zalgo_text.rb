@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#  -*- coding: utf-8 -*-
 #  zalgo_text.rb
 #  Author: Alex Young
 #  Modified by: William Woodruff

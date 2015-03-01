@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  ctcp_version.rb
 #  Author: William Woodruff
 #  ------------------------

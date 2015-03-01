@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  urban_dictionary.rb
 #  Author: William Woodruff
 #  ------------------------

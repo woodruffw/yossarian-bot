@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  cleverbot.rb
 #  Author: William Woodruff
 #  ------------------------

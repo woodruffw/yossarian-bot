@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  bot_admin.rb
 #  Author: William Woodruff
 #  ------------------------

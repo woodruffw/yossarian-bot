@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  user_quotes.rb
 #  Author: William Woodruff
 #  ------------------------

@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  catch22.rb
 #  Author: William Woodruff
 #  ------------------------

@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  zalgo.rb
 #  Author: William Woodruff
 #  ------------------------

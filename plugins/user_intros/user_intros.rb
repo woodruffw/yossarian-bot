@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  user_intros.rb
 #  Author: William Woodruff
 #  ------------------------

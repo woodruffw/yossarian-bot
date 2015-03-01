@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  merriam_webster.rb
 #  Author: William Woodruff
 #  ------------------------

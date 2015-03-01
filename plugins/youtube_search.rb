@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  youtube_search.rb
 #  Author: William Woodruff
 #  ------------------------

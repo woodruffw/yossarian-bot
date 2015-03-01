@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  magic8ball.rb
 #  Author: William Woodruff
 #  ------------------------

@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  fortune.rb
 #  Author: William Woodruff
 #  ------------------------

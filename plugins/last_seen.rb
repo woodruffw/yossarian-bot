@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  last_seen.rb
 #  Author: William Woodruff
 #  ------------------------

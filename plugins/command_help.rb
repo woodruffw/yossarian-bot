@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  command_help.rb
 #  Author: William Woodruff
 #  ------------------------

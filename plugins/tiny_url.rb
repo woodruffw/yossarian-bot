@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  tiny_url.rb
 #  Author: William Woodruff
 #  ------------------------

@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  regex_replace.rb
 #  Author: William Woodruff
 #  ------------------------

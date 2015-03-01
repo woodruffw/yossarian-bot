@@ -1,3 +1,4 @@
+#  -*- coding: utf-8 -*-
 #  hastebin.rb
 #  Author: William Woodruff
 #  ------------------------
