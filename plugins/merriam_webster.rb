@@ -16,11 +16,11 @@ class MerriamWebster < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage
-		'!define <word> - Get the Merriam-Webster defintion of <word>. Alias: !mw.'
+		'!define <word> - Get the Merriam-Webster defintion of <word>.'
 	end
 
 	def match?(cmd)
-		cmd =~ /^(!)?(define)|(mw)$/
+		cmd =~ /^(!)?define$/
 	end
 
 	match /mw (\w+)/, method: :define_word, strip_colors: true
