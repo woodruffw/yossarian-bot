@@ -45,9 +45,9 @@ to work correctly.
 Once all dependencies are installed, `yossarian-bot` can be run as follows:
 
 ```bash
-$ ruby bot-control.rb start -- 'irc.example.net' '#chan1,#chan2'
+$ ruby bot-control.rb start
 $ # OR:
-$ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2' # not run in background
+$ ruby yossarian-bot.rb # not run in background
 ```
 
 ## Using the bot
@@ -63,7 +63,6 @@ keys.
 
 All arguments are optional:
 
-* `-a`/`--admins 'nick1,nick2'` - Set administrator(s) for the bot, separated by commas. If this flag is not provided, the `!admin` command will not work for any user.
 * `-t`/`--no-link-titles` - Disable link titling.
 * `-s`/`--no-seen` - Disable the `!seen` command.
 * `-r`/`--no-regex-replace` - Disable `sed`-like typo replacement.

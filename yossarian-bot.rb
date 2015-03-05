@@ -78,12 +78,15 @@ $BOT_PLUGINS = [
 ]
 
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
+config_options = {}
 
 if File.file?(config_file)
 	config_options = YAML::load_file(config_file)
 else
 	abort('Fatal: Could not find a config.yml to load from.')
 end
+
+$BOT_ADMINS = config_options['admins'] or []
 
 flags = {
 	:links => true,
@@ -95,10 +98,6 @@ flags = {
 
 OptionParser.new do |opts|
 	opts.banner = "Usage: $0 <irc server> <channels> [flags]"
-
-	opts.on('-a', '--admin NICK', 'Set the bot\'s admin.') do |a|
-		$BOT_ADMINS = a.split(',')
-	end
 
 	opts.on('-t', '--no-link-titles', 'Do not title links.') do |t|
 		flags[:links] = false
