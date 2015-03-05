@@ -56,7 +56,7 @@ $ ruby yossarian-bot.rb # not run in background
 
 `yossarian-bot` is configured via a YAML file named *config.yml*.
 
-Look at [config.yml](./config.yml) to see an example of optional and required
+Look at [the example config.yml](./config.yml.example) to see a list of optional and required
 keys.
 
 ### Command-Line Options
