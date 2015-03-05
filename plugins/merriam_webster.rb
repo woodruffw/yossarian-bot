@@ -23,7 +23,6 @@ class MerriamWebster < YossarianPlugin
 		cmd =~ /^(!)?define$/
 	end
 
-	match /mw (\w+)/, method: :define_word, strip_colors: true
 	match /define (\w+)/, method: :define_word, strip_colors: true
 
 	def define_word(m, word)

@@ -19,7 +19,7 @@ class Weather < YossarianPlugin
 	end
 
 	def match?(cmd)
-		cmd =~ /^(!)?(weather)|(w)$/
+		cmd =~ /^(!)?(weather)|(^w)$/
 	end
 
 	match /w (.+)/, method: :weather, strip_colors: true
