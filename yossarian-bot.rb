@@ -12,6 +12,7 @@
 
 require 'cinch'
 require 'optparse'
+require 'yaml'
 
 require_relative 'plugins/command_help'
 require_relative 'plugins/bot_info'
@@ -42,7 +43,7 @@ require_relative 'plugins/ctcp_version'
 require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
-$BOT_VERSION = 1.40
+$BOT_VERSION = 1.50
 $BOT_STARTTIME = Time.now
 $BOT_ADMINS = []
 $BOT_PLUGINS = [
@@ -76,7 +77,15 @@ $BOT_PLUGINS = [
 	RegexReplace
 ]
 
-options = {
+config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
+
+if File.file?(config_file)
+	config_options = YAML::load_file(config_file)
+else
+	abort('Fatal: Could not find a config.yml to load from.')
+end
+
+flags = {
 	:links => true,
 	:seen => true,
 	:regex => true,
@@ -85,61 +94,61 @@ options = {
 }
 
 OptionParser.new do |opts|
-	opts.banner = "Usage: $0 <irc server> <channels> [options]"
+	opts.banner = "Usage: $0 <irc server> <channels> [flags]"
 
 	opts.on('-a', '--admin NICK', 'Set the bot\'s admin.') do |a|
 		$BOT_ADMINS = a.split(',')
 	end
 
 	opts.on('-t', '--no-link-titles', 'Do not title links.') do |t|
-		options[:links] = false
+		flags[:links] = false
 	end
 
 	opts.on('-s', '--no-seen', 'Disable the !seen command.') do |s|
-		options[:seen] = false
+		flags[:seen] = false
 	end
 
 	opts.on('-r', '--no-regex-replace', 'Disable sed-like regexes for typos.') do |r|
-		options[:regex] = false
+		flags[:regex] = false
 	end
 
 	opts.on('-i', '--no-intros', 'No custom user intros.') do |i|
-		options[:intros] = false
+		flags[:intros] = false
 	end
 
 	opts.on('-q', '--no-quotes', 'No !quote collection.') do |q|
-		options[:quotes] = false
+		flags[:quotes] = false
 	end
 end.parse!
 
 bot = Cinch::Bot.new do
 	configure do |c|
-		c.nick = 'yossarian-bot'
+		c.nick = config_options['nick'] or 'yossarian-bot'
 		c.realname = 'yossarian-bot'
 		c.user = 'yossarian-bot'
 		c.max_messages = 1
-		c.server = ARGV[0]
-		c.channels = ARGV[1].split(',')
-		c.plugins.prefix = /^!/
+		c.server = config_options['server'] or abort('Fatal: Missing \'server\' field in config.yml')
+		c.channels = config_options['channels'] or abort('Fatal: Missing \'channels\' field in config.yml')
+		c.plugins.prefix = Regexp.new(config_options['prefix']) or /^!/
 		c.plugins.plugins = $BOT_PLUGINS.dup
 
-		unless options[:seen]
+		unless flags[:seen]
 			c.plugins.plugins.delete(LastSeen)
 		end
 
-		unless options[:links]
+		unless flags[:links]
 			c.plugins.plugins.delete(LinkTitling)
 		end
 
-		unless options[:regex]
+		unless flags[:regex]
 			c.plugins.plugins.delete(RegexReplace)
 		end
 
-		unless options[:intros]
+		unless flags[:intros]
 			c.plugins.plugins.delete(UserIntros)
 		end
 
-		unless options[:quotes]
+		unless flags[:quotes]
 			c.plugins.plugins.delete(UserQuotes)
 		end
 	end

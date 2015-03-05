@@ -52,13 +52,16 @@ $ ruby yossarian-bot.rb 'irc.example.net' '#chan1,#chan2' # not run in backgroun
 
 ## Using the bot
 
+### Configuration Options
+
+`yossarian-bot` is configured via a YAML file named *config.yml*.
+
+Look at [config.yml](./config.yml) to see an example of optional and required
+keys.
+
 ### Command-Line Options
 
-The first and second arguments are mandatory. The first argument is the server
-domain (e.g. `irc.freenode.net`), and the second argument is a comma-separated
-list of channels to join on that server (e.g. `#chan1,#chan2`).
-
-All other arguments are optional:
+All arguments are optional:
 
 * `-a`/`--admins 'nick1,nick2'` - Set administrator(s) for the bot, separated by commas. If this flag is not provided, the `!admin` command will not work for any user.
 * `-t`/`--no-link-titles` - Disable link titling.
