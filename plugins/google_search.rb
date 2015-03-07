@@ -20,7 +20,7 @@ class GoogleSearch < YossarianPlugin
 	end
 
 	def match?(cmd)
-		cmd =~ /^(!)?(google)|(g)$/
+		cmd =~ /^(!)?g(?:oogle)?$/
 	end
 
 	match /g(?:oogle)? (.+)/, method: :google_search, strip_colors: true
