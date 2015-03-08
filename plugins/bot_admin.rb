@@ -56,9 +56,9 @@ class BotAdmin < YossarianPlugin
 					return
 				end
 			end
-			m.reply "#{m.user.nick}: #{name} is already enabled or does not exist."
+			m.reply "#{name} is already enabled or does not exist.", true
 		else
-			m.reply "#{m.user.nick}: You do not have permission to do that."
+			m.reply "You do not have permission to do that.", true
 		end
 	end
 
@@ -69,13 +69,13 @@ class BotAdmin < YossarianPlugin
 			@bot.plugins.each do |plugin|
 				if plugin.class.name == name
 					@bot.plugins.unregister_plugin(plugin)
-					m.reply "#{m.user.nick}: #{name} has been disabled."
+					m.reply "#{name} has been disabled.", true
 					return
 				end
 			end
-			m.reply "#{m.user.nick}: #{name} is already disabled or does not exist."
+			m.reply "#{name} is already disabled or does not exist.", true
 		else
-			m.reply "#{m.user.nick}: You do not have permission to do that."
+			m.reply "You do not have permission to do that.", true
 		end
 	end
 
@@ -86,7 +86,7 @@ class BotAdmin < YossarianPlugin
 			m.reply 'Goodbye!'
 			@bot.quit
 		else
-			m.reply "#{m.user.nick}: You do not have permission to do that."
+			m.reply "You do not have permission to do that.", true
 		end
 	end
 
@@ -95,9 +95,9 @@ class BotAdmin < YossarianPlugin
 	def bot_add_admin(m, nick)
 		if authenticate?(m.user.nick)
 			$BOT_ADMINS << nick
-			m.reply "#{m.user.nick}: Added #{nick} as an admin."
+			m.reply "Added #{nick} as an admin.", true
 		else
-			m.reply "#{m.user.nick}: You do not have permission to do that."
+			m.reply "You do not have permission to do that.", true
 		end
 	end
 
@@ -107,12 +107,12 @@ class BotAdmin < YossarianPlugin
 		if authenticate?(m.user.nick)
 			if $BOT_ADMINS.include?(nick)
 				$BOT_ADMINS.delete(nick)
-				m.reply "#{m.user.nick}: #{nick} is no longer an admin."
+				m.reply "#{nick} is no longer an admin.", true
 			else
-				m.reply "#{m.user.nick}: No admin \'#{nick}\' to remove."
+				m.reply "No admin \'#{nick}\' to remove.", true
 			end
 		else
-			m.reply "#{m.user.nick}: You do not have permission to do that."
+			m.reply "You do not have permission to do that.", true
 		end
 	end
 
@@ -122,12 +122,12 @@ class BotAdmin < YossarianPlugin
 		if authenticate?(m.user.nick)
 			if !@bot.channels.include?(chan)
 				@bot.join(chan)
-				m.reply "#{m.user.nick}: I\'ve joined #{chan}."
+				m.reply "I\'ve joined #{chan}.", true
 			else
-				m.reply "#{m.user.nick}: I\'m already in #{chan}!"
+				m.reply "I\'m already in #{chan}!", true
 			end
 		else
-			m.reply "#{m.user.nick}: You do not have permission to do that."
+			m.reply "You do not have permission to do that.", true
 		end
 	end
 
@@ -136,13 +136,13 @@ class BotAdmin < YossarianPlugin
 	def bot_leave_channel(m, chan)
 		if authenticate?(m.user.nick)
 			if @bot.channels.include?(chan)
-				m.reply "#{m.user.nick}: I\'m leaving #{chan}."
+				m.reply "I\'m leaving #{chan}.", true
 				@bot.part(chan)
 			else
-				m.reply "#{m.user.nick}: I\'m not in the channel."
+				m.reply "I\'m not in the channel.", true
 			end
 		else
-			m.reply "#{m.user.nick}: You do not have permission to do that."
+			m.reply "You do not have permission to do that.", true
 		end
 	end
 
@@ -152,7 +152,7 @@ class BotAdmin < YossarianPlugin
 		if authenticate?(m.user.nick)
 			Channel(chan).send msg
 		else
-			m.reply "#{m.user.nick}: You do not have permission to do that."
+			m.reply "You do not have permission to do that.", true
 		end
 	end
 
@@ -162,7 +162,7 @@ class BotAdmin < YossarianPlugin
 		if authenticate?(m.user.nick)
 			Channel(chan).action msg
 		else
-			m.reply "#{m.user.nick}: You do not have permission to do that."
+			m.reply "You do not have permission to do that.", true
 		end
 	end
 end
