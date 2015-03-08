@@ -33,9 +33,9 @@ class GoogleSearch < YossarianPlugin
 			site = URI.unescape(hash['responseData']['results'][0]['url'])
 			content = hash['responseData']['results'][0]['content'].gsub(/([\t\r\n])|(<(\/)?b>)/, '')
 			content.gsub!(/(&amp;)|(&quot;)|(&lt;)|(&gt;)|(&#39;)/, '&amp;' => '&', '&quot;' => '"', '&lt;' => '<', '&gt;' => '>', '&#39;' => '\'')
-			m.reply "#{m.user.nick}: #{site} - #{content}"
+			m.reply "#{site} - #{content}", true
 		else
-			m.reply "#{m.user.nick}: No Google results for #{search}."
+			m.reply "No Google results for #{search}.", true
 		end
 	end
 end

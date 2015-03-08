@@ -34,7 +34,7 @@ class RegexReplace < YossarianPlugin
 			m.reply "#{m.user.nick} probably meant: #{mod}"
 			@users.delete(m.user.nick)
 		else
-			m.reply "#{m.user.nick}: No previous message to operate on."
+			m.reply "No previous message to operate on.", true
 		end
 	end
 end

@@ -37,10 +37,10 @@ class BotAdmin < YossarianPlugin
 
 			# temporarily allow up to two messages due to to long plugin lists
 			@bot.config.max_messages = 2
-			m.reply "#{m.user.nick}: Available plugins: #{plugins}"
+			m.reply "Available plugins: #{plugins}", true
 			@bot.config.max_messages = 1
 		else
-			m.reply "#{m.user.nick}: You do not have permission to do that."
+			m.reply "You do not have permission to do that.", true
 		end
 	end
 

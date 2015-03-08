@@ -36,9 +36,9 @@ class YouTubeSearch < YossarianPlugin
 			uploader = entry['author'][0]['name']['$t']
 			video_id = entry['media$group']['yt$videoid']['$t']
 
-			m.reply "#{m.user.nick}: #{title} [#{uploader}] - https://youtu.be/#{video_id}"
+			m.reply "#{title} [#{uploader}] - https://youtu.be/#{video_id}", true
 		else
-			m.reply "#{m.user.nick}: No results for #{search}."
+			m.reply "No results for #{search}.", true
 		end
 	end
 end

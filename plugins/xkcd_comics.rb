@@ -25,12 +25,12 @@ class XKCDComics < YossarianPlugin
 	match /xkcd$/, method: :xkcd_random
 
 	def xkcd_random(m)
-		m.reply "#{m.user.nick}: #{XKCD.img}"
+		m.reply XKCD.img, true
 	end
 
 	match /xkcd (.+)/, method: :xkcd_search, strip_colors: true
 
 	def xkcd_search(m, search)
-		m.reply "#{m.user.nick}: #{XKCD.search search}"
+		m.reply XKCD.search(search), true
 	end
 end

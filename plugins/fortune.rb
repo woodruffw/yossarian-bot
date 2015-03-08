@@ -24,7 +24,7 @@ class Fortune < YossarianPlugin
 
 	def unix_fortune(m)
 		if system('which fortune 2> /dev/null')
-			m.reply "#{m.user.nick}: #{`fortune`.gsub(/\n/, ' ')}"
+			m.reply `fortune`.gsub(/\n/, ' '), true
 		else
 			m.reply 'Internal error (no fortune).'
 		end

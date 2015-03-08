@@ -31,9 +31,9 @@ class WolframAlpha < YossarianPlugin
 			result = Wolfram.fetch(query).pods[1]
 
 			if result == nil || result.plaintext.empty?
-				m.reply "#{m.user.nick}: Wolfram|Alpha has nothing for #{query}"
+				m.reply "Wolfram|Alpha has nothing for #{query}", true
 			else
-				m.reply "#{m.user.nick}: #{result.plaintext.gsub(/[\t\r\n]/, '')}"
+				m.reply result.plaintext.gsub(/[\t\r\n]/, ''), true
 			end
 		else
 			m.reply 'Internal error (missing API key).'

@@ -29,6 +29,6 @@ class GoogleTranslate < YossarianPlugin
 		url = URI.encode("https://translate.googleapis.com/translate_a/t?client=a&sl=auto&tl=en&q=#{msg}")
 		hash = JSON.parse(open(url).read)
 		result = hash['sentences'][0]['trans']
-		m.reply "#{m.user.nick}: #{result}"
+		m.reply result, true
 	end
 end

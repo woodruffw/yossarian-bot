@@ -34,7 +34,7 @@ class UrbanDictionary < YossarianPlugin
 			list = hash['list'][0]
 			definition = list['definition'][0..255].gsub(/[\r\n]/, '')
 			link = list['permalink']
-			m.reply "#{m.user.nick}: #{query} - #{definition}... (#{link})"
+			m.reply "#{query} - #{definition}... (#{link})", true
 		end
 	end
 end

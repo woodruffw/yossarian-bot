@@ -29,6 +29,6 @@ class Hastebin < YossarianPlugin
 		haste = Haste::Uploader.new
 		key = haste.upload_raw data
 		
-		m.reply "#{m.user.nick}: http://hastebin.com/#{key}"
+		m.reply "http://hastebin.com/#{key}", true
 	end
 end

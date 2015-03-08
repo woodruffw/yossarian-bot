@@ -34,9 +34,9 @@ class Weather < YossarianPlugin
 				loc = hash['current_observation']['display_location']['full']
 				weather = hash['current_observation']['weather']
 				temp = hash['current_observation']['temperature_string']
-				m.reply "#{m.user.nick}: Current temperature in #{loc} is #{temp} and #{weather}."
+				m.reply "Current temperature in #{loc} is #{temp} and #{weather}.", true
 			else
-				m.reply "#{m.user.nick}: Bad weather query for #{location}."
+				m.reply "Bad weather query for #{location}.", true
 			end
 		else
 			m.reply 'Internal error (missing API key).'

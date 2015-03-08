@@ -34,11 +34,11 @@ class IsItUp < YossarianPlugin
 
 		case hash['status_code']
 		when 1
-			m.reply "#{m.user.nick}: #{domain} is currently online [#{response_code}]."
+			m.reply "#{domain} is currently online [#{response_code}].", true
 		when 2
-			m.reply "#{m.user.nick}: #{domain} is currently offline."
+			m.reply "#{domain} is currently offline.", true
 		when 3
-			m.reply "#{m.user.nick}: #{domain} is not a valid URL."
+			m.reply "#{domain} is not a valid URL.", true
 		end
 	end
 end

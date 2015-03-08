@@ -24,6 +24,6 @@ class Rot13 < YossarianPlugin
 	match /rot13 (.+)/, method: :rot13
 
 	def rot13(m, msg)
-		m.reply "#{m.user.nick}: #{msg.tr("A-Ma-mN-Zn-z", "N-Zn-zA-Ma-m")}"
+		m.reply msg.tr("A-Ma-mN-Zn-z", "N-Zn-zA-Ma-m"), true
 	end
 end

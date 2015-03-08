@@ -31,6 +31,6 @@ class Cleverbot < YossarianPlugin
 	match /cleverbot (.+)/, method: :cleverbot, strip_colors: true
 
 	def cleverbot(m, query)
-		m.reply "#{m.user.nick}: #{@cb.think(query)}"
+		m.reply @cb.think(query), true
 	end
 end

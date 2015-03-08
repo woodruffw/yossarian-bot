@@ -43,7 +43,7 @@ require_relative 'plugins/ctcp_version'
 require_relative 'plugins/regex_replace'
 require_relative 'plugins/link_titling'
 
-$BOT_VERSION = 1.50
+$BOT_VERSION = 1.55
 $BOT_STARTTIME = Time.now
 $BOT_ADMINS = []
 $BOT_PLUGINS = [

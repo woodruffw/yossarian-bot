@@ -32,9 +32,9 @@ class MerriamWebster < YossarianPlugin
 			definition = doc.find_first('entry/def[1]/dt[1]').to_s.gsub(/(<(\/)?[A-Za-z0-9_-]+>)|(:)/, '')
 
 			if definition.empty?
-				m.reply "#{m.user.nick}: No defintion for #{word}."
+				m.reply "No defintion for #{word}.", true
 			else
-				m.reply "#{m.user.nick}: #{word} - #{definition}."
+				m.reply "#{word} - #{definition}.", true
 			end
 		else
 			m.reply 'Internal error (missing API key).'
