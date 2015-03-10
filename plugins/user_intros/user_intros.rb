@@ -82,7 +82,7 @@ class UserIntros < YossarianPlugin
 
 	def intro_user(m)
 		if @intros.has_key?(m.channel.to_s) && @intros[m.channel.to_s].has_key?(m.user.nick)
-			m.reply @intros[m.channel.to_s][m.user.nick]
+			m.reply "\u200B#{@intros[m.channel.to_s][m.user.nick]}"
 		end
 	end
 end
