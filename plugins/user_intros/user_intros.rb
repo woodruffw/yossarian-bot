@@ -28,7 +28,7 @@ class UserIntros < YossarianPlugin
 	end
 
 	def usage
-		'!intro <intro> - Set a custom intro message for your nick. Prefix with \'rm\' to remove your intro.'
+		'![rm|show]intro <intro> - Set a custom intro message for your nick.'
 	end
 
 	def match?(cmd)

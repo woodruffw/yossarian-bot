@@ -29,7 +29,7 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!zalgo <message>` - Summon Zalgo with a message.
 * `!taco` - Get a random taco recipe, courtesy of the [Taco Randomizer](http://taco-randomizer.herokuapp.com/).
 * `!rainbow <message>` - Vomit out rainbowified text.
-* `!intro <intro>` - Set an custom intro for your nick. Prefixing this command with `show` or `rm` shows or removes your intro, respectively.
+* `![rm|show]intro <intro>` - Set an custom intro for your nick. Prefixing this command with `show` or `rm` shows or removes your intro, respectively.
 * `!quote [nick]` - Retrieve a completely random quote, or a random quote from the given nick.
 
 ### `!botinfo` keys
