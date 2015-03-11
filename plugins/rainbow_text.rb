@@ -28,6 +28,6 @@ class RainbowText < YossarianPlugin
 			"\x03#{rand(00..15)}#{c}\x0F"
 		end.join('')
 
-		m.reply color_text, true
+		m.reply color_text
 	end
 end
