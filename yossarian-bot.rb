@@ -44,6 +44,7 @@ $BOT_PLUGINS = [
 	Hastebin,
 	Slap,
 	Zalgo,
+	TacoRecipes,
 	UserIntros,
 	UserQuotes,
 	CTCPVersion,
