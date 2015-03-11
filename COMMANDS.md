@@ -27,6 +27,7 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!haste <data>` - Post data to Hastebin.
 * `!slap <nick>` - Slap someone with a large trout.
 * `!zalgo <message>` - Summon Zalgo with a message.
+* `!taco` - Get a random taco recipe, courtesy of the [Taco Randomizer](http://taco-randomizer.herokuapp.com/).
 * `!intro <intro>` - Set an custom intro for your nick. Prefixing this command with `show` or `rm` shows or removes your intro, respectively.
 * `!quote [nick]` - Retrieve a completely random quote, or a random quote from the given nick.
 
