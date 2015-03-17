@@ -46,6 +46,7 @@ $BOT_PLUGINS = [
 	Zalgo,
 	TacoRecipes,
 	RainbowText,
+	MorseCode,
 	UserIntros,
 	UserQuotes,
 	CTCPVersion,
