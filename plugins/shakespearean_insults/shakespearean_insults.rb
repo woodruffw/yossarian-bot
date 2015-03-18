@@ -23,20 +23,32 @@ class ShakespeareanInsults < YossarianPlugin
 	end
 
 	def usage
-		'!insult - Generate a Shakespearean insult.'
+		'!insult [nick] - Generate a Shakespearean insult, and insult someone if given.'
 	end
 
 	def match?(cmd)
 		cmd =~ /^(!)?insult$/
 	end
 
-	match /insult$/, method: :shakespearean_insult
+	match /insult$/, method: :insult
 
-	def shakespearean_insult(m)
+	def insult(m)
 		col1 = @insults['column1'].sample
 		col2 = @insults['column2'].sample
 		col3 = @insults['column3'].sample
 
 		m.reply "Thou art a #{col1}, #{col2} #{col3}!", true
+	end
+
+	match /insult (\S+)/, method: :insult_nick, strip_colors: true
+
+	def insult_nick(m, nick)
+		if m.channel.users.has_key?(User(nick))
+			col1 = @insults['column1'].sample
+			col2 = @insults['column2'].sample
+			col3 = @insults['column3'].sample
+
+			m.reply "#{nick} is a #{col1}, #{col2} #{col3}!"
+		end
 	end
 end
