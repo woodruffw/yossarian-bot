@@ -1,2 +1,2 @@
 *.yml
-!plugins/shakespearean_insults.yml
+!plugins/shakespearean_insults/shakespearean_insults.yml
