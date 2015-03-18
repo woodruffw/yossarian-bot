@@ -139,7 +139,7 @@ class BotAdmin < YossarianPlugin
 				m.reply "I\'m leaving #{chan}.", true
 				@bot.part(chan)
 			else
-				m.reply "I\'m not in the channel.", true
+				m.reply "I\'m not in that channel.", true
 			end
 		else
 			m.reply "You do not have permission to do that.", true
