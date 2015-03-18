@@ -30,6 +30,7 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!taco` - Get a random taco recipe, courtesy of the [Taco Randomizer](http://taco-randomizer.herokuapp.com/).
 * `!rainbow <message>` - Vomit out rainbowified text.
 * `!morse <text>` - Convert text to Morse code.
+* `!insult [nick]` - Generate a Shakespearean insult, and direct it at a nickname (if given).
 * `![rm|show]intro <intro>` - Set an custom intro for your nick. Prefixing this command with `show` or `rm` shows or removes your intro, respectively.
 * `!quote [nick]` - Retrieve a completely random quote, or a random quote from the given nick.
 
