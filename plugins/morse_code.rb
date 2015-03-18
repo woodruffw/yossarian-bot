@@ -22,7 +22,7 @@ class MorseCode < YossarianPlugin
 		cmd =~ /^(!)?morse$/
 	end
 
-	match /morse (\w+)/, method: :morse_code, strip_colors: true
+	match /morse (.+)/, method: :morse_code, strip_colors: true
 
 	def morse_code(m, text)
 		m.reply Telegraph.text_to_morse(text), true
