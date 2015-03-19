@@ -83,12 +83,12 @@ class UserQuotes < YossarianPlugin
 	match /quote$/, method: :random_quote
 
 	def random_quote(m)
-		channel = @quotes.keys.sample
-		nick = @quotes[channel].keys.sample
+		chan = m.channel.to_s
 
-		unless channel == nil or nick == nil
-			quote = @quotes[channel][nick].sample
-			m.reply "#{quote} [#{nick} on #{channel}]"
+		unless chan == nil or @quotes[chan] == nil
+			nick = @quotes[chan].keys.sample
+			quote = @quotes[chan][nick].sample
+			m.reply "#{quote} [#{nick} on #{chan}]"
 		else
 			m.reply "I don\'t have any quotes yet. Check back in a bit."
 		end
