@@ -26,10 +26,10 @@ class IsItUp < YossarianPlugin
 	match /(?:isit)?up (.+)/, method: :isitup, strip_colors: true
 
 	def isitup(m, site)
-		url = "http://isitup.org/#{URI.encode(site)}.json"
+		domain = site.gsub(/http(?:s)?:\/\//, '')
+		url = "http://isitup.org/#{URI.encode(domain)}.json"
 		hash = JSON.parse(open(url).read)
 
-		domain = hash['domain']
 		response_code = hash['response_code']
 
 		case hash['status_code']
@@ -38,7 +38,7 @@ class IsItUp < YossarianPlugin
 		when 2
 			m.reply "#{domain} is currently offline.", true
 		when 3
-			m.reply "#{domain} is not a valid URL.", true
+			m.reply "#{domain} is not a valid domain.", true
 		end
 	end
 end
