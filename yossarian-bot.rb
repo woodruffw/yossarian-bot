@@ -18,8 +18,6 @@ Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |file|
 	require file
 end
 
-$BOT_VERSION = 1.55
-$BOT_STARTTIME = Time.now
 $BOT_ADMINS = []
 $BOT_PLUGINS = [
 	CommandHelp,

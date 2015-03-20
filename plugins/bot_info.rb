@@ -14,6 +14,12 @@ require_relative 'yossarian_plugin'
 class BotInfo < YossarianPlugin
 	include Cinch::Plugin
 
+	def initialize(*args)
+		super
+		@bot_version = 1.60
+		@bot_starttime = Time.now
+	end
+
 	def usage
 		'!bi [key] - Retrieve information about the bot. Keys: ver, src, author, uptime, chans, admins. Alias: !botinfo.'
 	end
@@ -30,13 +36,13 @@ class BotInfo < YossarianPlugin
 	def bot_info(m, key)
 		case key
 		when /(version)|(ver)/
-			m.reply "yossarian-bot version %s." % $BOT_VERSION
+			m.reply "yossarian-bot version %s." % @bot_version
 		when /(source)|(src)/
 			m.reply 'https://github.com/woodruffw/yossarian-bot'
 		when /author/
 			m.reply 'Author: woodruffw'
 		when /uptime/
-			diff = TimeDifference.between($BOT_STARTTIME, Time.now).in_general
+			diff = TimeDifference.between(@bot_starttime, Time.now).in_general
 			m.reply "I\'ve been online for %d days, %d hours, %d minutes, and %d seconds." % [diff[:days], diff[:hours], diff[:minutes], diff[:seconds]]
 		when /chan(nel)?s/
 			m.reply "Channels: %s" % @bot.channels.join(', ')
