@@ -29,7 +29,7 @@ class MerriamWebster < YossarianPlugin
 		if ENV.has_key?('MERRIAM_WEBSTER_API_KEY')
 			url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/#{word}?key=#{ENV['MERRIAM_WEBSTER_API_KEY']}"
 			doc = XML::Parser.string(open(url).string).parse
-			definition = doc.find_first('entry/def[1]/dt[1]').to_s.gsub(/(<(\/)?[A-Za-z0-9_-]+>)|(:)/, '')
+			definition = doc.find_first('entry/def[1]/dt[1]').to_s.gsub(/(<(\/)?[A-Za-z0-9_-]+>)|(:)|([\r\n\t]+)/, '')
 
 			if definition.empty?
 				m.reply "No defintion for #{word}.", true
