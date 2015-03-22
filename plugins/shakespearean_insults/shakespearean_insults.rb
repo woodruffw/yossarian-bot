@@ -49,6 +49,8 @@ class ShakespeareanInsults < YossarianPlugin
 			col3 = @insults['column3'].sample
 
 			m.reply "#{nick} is a #{col1}, #{col2} #{col3}!"
+		else
+			m.reply "I don\'t see #{nick} in this channel."
 		end
 	end
 end

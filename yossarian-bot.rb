@@ -46,6 +46,7 @@ $BOT_PLUGINS = [
 	RainbowText,
 	MorseCode,
 	ShakespeareanInsults,
+	LutherInsults,
 	UserIntros,
 	UserQuotes,
 	CTCPVersion,
