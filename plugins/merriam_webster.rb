@@ -23,7 +23,7 @@ class MerriamWebster < YossarianPlugin
 		cmd =~ /^(!)?define$/
 	end
 
-	match /define (\w+)/, method: :define_word, strip_colors: true
+	match /define (\S+)/, method: :define_word, strip_colors: true
 
 	def define_word(m, word)
 		if ENV.has_key?('MERRIAM_WEBSTER_API_KEY')
