@@ -29,7 +29,7 @@ class TacoRecipes < YossarianPlugin
 		cmd =~ /^(!)?taco$/
 	end
 
-	match /taco/, method: :random_taco
+	match /taco$/, method: :random_taco
 
 	def random_taco(m)
 		hash = JSON.parse(open(@base_url).read)
