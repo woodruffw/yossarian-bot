@@ -6,6 +6,7 @@ commands
 All commands are prefixed with `!`, or `.`/`:` in some cases.
 
 * `!help [cmd]` (or `[.:]help`) - Message the caller with a list of accepted commands or help on a command.
+* `!ping` - Ping the bot for a timestamped response.
 * `!botinfo <key>` (or `[.:]botinfo`) - Retrieve <key> information about the bot. See below.
 * `!admin <commands>` - Administrate the bot with an authorized user. See below.
 * `!fortune` - Message a Unix fortune.

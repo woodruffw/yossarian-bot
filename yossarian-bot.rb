@@ -21,6 +21,7 @@ end
 $BOT_ADMINS = []
 $BOT_PLUGINS = [
 	CommandHelp,
+	Ping,
 	BotInfo,
 	BotAdmin,
 	Catch22,
