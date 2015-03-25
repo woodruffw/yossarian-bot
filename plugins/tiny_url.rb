@@ -15,7 +15,7 @@ class TinyURL < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage
-		'!turl <url> - Shorten the given <url> using TinyURL.'
+		'!turl <url> - Shorten the given <url> using TinyURL. Alias: !tinyurl.'
 	end
 
 	def match?(cmd)
