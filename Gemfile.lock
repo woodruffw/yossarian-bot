@@ -1,16 +1,16 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.0)
+    activesupport (4.2.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.3.7)
+    addressable (2.3.8)
     cinch (2.2.4)
     cleverbot-api (0.0.4)
-    daemons (1.2.1)
+    daemons (1.2.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     google-search (1.0.3)
@@ -32,7 +32,7 @@ GEM
       mini_portile (~> 0.6.0)
     telegraph (1.0.1)
     thread_safe (0.3.5)
-    time_difference (0.3.2)
+    time_difference (0.4.2)
       activesupport
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
