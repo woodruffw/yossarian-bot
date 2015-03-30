@@ -24,7 +24,7 @@ class Cleverbot < YossarianPlugin
 	end
 
 	def match?(cmd)
-		cmd =~ /^(!)?(cb)|(cleverbot)$/
+		cmd =~ /^(!)?(cb$)|(cleverbot$)/
 	end
 
 	match /cb (.+)/, method: :cleverbot, strip_colors: true
