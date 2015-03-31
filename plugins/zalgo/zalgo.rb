@@ -21,7 +21,7 @@ class Zalgo < YossarianPlugin
 		cmd =~ /(!)?zalgo$/
 	end
 
-	match /zalgo (.+)/, method: :zalgo
+	match /zalgo (.+)/, method: :zalgo, strip_colors: true
 
 	def zalgo(m, msg)
 		m.reply ZalgoText.he_comes(msg, {:up => false, :down => false})
