@@ -49,7 +49,7 @@ class BotInfo < YossarianPlugin
 		when /admins/
 			m.reply "Admins: %s" % $BOT_ADMINS.join(', ')
 		else
-			m.reply "I don\'t have any information on #{key}."
+			m.reply "I don\'t have any information on #{key}. Try !help botinfo."
 		end
 	end
 end
