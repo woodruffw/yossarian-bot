@@ -1,2 +1,3 @@
 *.yml
 !plugins/shakespearean_insults/shakespearean_insults.yml
+!plugins/theo_quotes/theo_quotes.yml
