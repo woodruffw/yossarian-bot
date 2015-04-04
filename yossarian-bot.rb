@@ -48,6 +48,7 @@ $BOT_PLUGINS = [
 	MorseCode,
 	ShakespeareanInsults,
 	LutherInsults,
+	TheoQuotes,
 	CBSG,
 	UserIntros,
 	UserQuotes,

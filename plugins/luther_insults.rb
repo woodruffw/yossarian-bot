@@ -21,7 +21,7 @@ class LutherInsults < YossarianPlugin
 	end
 
 	def usage
-		'!luther - Fetch a random insult from Martin Luther\'s oeuvre.'
+		'!luther [nick] - Fetch a random insult from Martin Luther\'s oeuvre and direct it at a nickname if given.'
 	end
 
 	def match?(cmd)

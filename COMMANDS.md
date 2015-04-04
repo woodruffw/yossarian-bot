@@ -33,7 +33,8 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!morse <text>` - Convert text to Morse code.
 * `!insult [nick]` - Generate a Shakespearean insult and direct it at a nickname if given.
 * `!luther [nick]` - Get an insult from [Luther's Oeuvre](http://ergofabulous.org/luther/) and direct it at a nickname if given.
-* `!cbsg` - Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live).
+* `!theo [nick]` - Get a random Theo De Raadt quote and direct it at a nickname if given.
+* `!cbsg` - Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live) and direct it at a nickname if given.
 * `![rm|show]intro <intro>` - Set an custom intro for your nick. Prefixing this command with `show` or `rm` shows or removes your intro, respectively.
 * `!quote [nick]` - Retrieve a completely random quote, or a random quote from the given nick.
 
