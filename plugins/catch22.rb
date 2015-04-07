@@ -65,6 +65,6 @@ class Catch22 < YossarianPlugin
 	match /catch22$/, method: :catch22
 
 	def catch22(m)
-		m.reply @quotes.sample
+		m.reply @quotes.sample, true
 	end
 end
