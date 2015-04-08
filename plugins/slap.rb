@@ -25,6 +25,8 @@ class Slap < YossarianPlugin
 	def slap(m, nick)
 		if m.channel.users.has_key?(User(nick))
 			m.action_reply "slaps #{nick} with a large trout"
+		else
+			m.reply "I don\'t see #{nick} in this channel."
 		end
 	end
 end
