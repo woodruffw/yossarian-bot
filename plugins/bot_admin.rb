@@ -21,7 +21,7 @@ class BotAdmin < YossarianPlugin
 	end
 
 	def authenticate?(nick)
-		$BOT_ADMINS.include?(nick) && !$BOT_ADMINS.empty?
+		$BOT_ADMINS.include?(nick) && User(nick).authed?
 	end
 
 	match /admin plugin list/, method: :plugin_list
