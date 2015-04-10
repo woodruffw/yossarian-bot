@@ -17,9 +17,13 @@ class LinkTitling < YossarianPlugin
 	match /(http(s)?:\/\/[^ \t]*)/, use_prefix: false, method: :link_title
 
 	def link_title(m, link)
-		html = Nokogiri::HTML(open(link))
-		title = html.css('title').text.gsub(/[\t\r\n]/, '')
+		begin
+			html = Nokogiri::HTML(open(link))
+			title = html.css('title').text.gsub(/[\t\r\n]/, '')
 
-		m.reply "Title: \'#{title}\'"
+			m.reply "Title: \'#{title}\'"
+		rescue Exception => e
+			m.reply e.to_s, true
+		end
 	end
 end
