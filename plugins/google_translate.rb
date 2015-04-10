@@ -26,9 +26,13 @@ class GoogleTranslate < YossarianPlugin
 	match /tr(?:anslate)? (.+)/, method: :google_translate_auto, strip_colors: true
 
 	def google_translate_auto(m, msg)
-		url = URI.encode("https://translate.googleapis.com/translate_a/t?client=a&sl=auto&tl=en&q=#{msg}")
-		hash = JSON.parse(open(url).read)
-		result = hash['sentences'][0]['trans']
-		m.reply result, true
+		begin
+			url = URI.encode("https://translate.googleapis.com/translate_a/t?client=a&sl=auto&tl=en&q=#{msg}")
+			hash = JSON.parse(open(url).read)
+			result = hash['sentences'][0]['trans']
+			m.reply result, true
+		rescue Exception => e
+			m.reply e.to_s, true
+		end
 	end
 end

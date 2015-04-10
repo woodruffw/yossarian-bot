@@ -26,7 +26,8 @@ class GoogleSearch < YossarianPlugin
 	match /g(?:oogle)? (.+)/, method: :google_search, strip_colors: true
 	
 	def google_search(m, search)
-		url = URI.encode("https://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=large&safe=active&q=#{search}&max-results=1&v=2&prettyprint=false&alt=json")
+		query = URI.encode(search)
+		url = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=large&safe=active&q=#{query}&max-results=1&v=2&prettyprint=false&alt=json"
 		hash = JSON.parse(open(url).read)
 
 		unless hash['responseData']['results'].empty?
