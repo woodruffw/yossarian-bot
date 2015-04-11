@@ -8,7 +8,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    cinch (2.2.4)
+    cinch (2.2.5)
     cleverbot-api (0.0.4)
     daemons (1.2.2)
     faraday (0.9.1)
