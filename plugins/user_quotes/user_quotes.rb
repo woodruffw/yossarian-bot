@@ -9,24 +9,25 @@
 #  http://opensource.org/licenses/MIT
 
 require 'yaml'
+require 'fileutils'
 
 require_relative '../yossarian_plugin'
 
 class UserQuotes < YossarianPlugin
 	include Cinch::Plugin
 
-	@@user_quotes_file = File.expand_path(File.join(File.dirname(__FILE__), 'user_quotes.yml'))
 	@@user_quote_limit = 25
 	@@sync_interval = 10
 	@@message_count = 0
 
 	def initialize(*args)
 		super
+		@quotes_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_quotes.yml'))
 		@quotes = {}
 	end
 
 	def sync_quotes_file
-		File.open(@@user_quotes_file, "w+") do |file|
+		File.open(@quotes_file, "w+") do |file|
 			file.write @quotes.to_yaml
 		end
 	end
@@ -42,8 +43,10 @@ class UserQuotes < YossarianPlugin
 	listen_to :connect, method: :initialize_quotes
 
 	def initialize_quotes(m)
-		if File.exist?(@@user_quotes_file)
-			@quotes = YAML::load_file(@@user_quotes_file)
+		if File.exist?(@quotes_file)
+			@quotes = YAML::load_file(@quotes_file)
+		else
+			FileUtils.mkdir File.dirname(@quotes_file)
 		end
 	end
 
