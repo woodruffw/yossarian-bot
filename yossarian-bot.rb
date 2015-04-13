@@ -60,6 +60,7 @@ $BOT_PLUGINS = [
 
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
 config_options = {}
+server_threads = []
 
 if File.file?(config_file)
 	config_options = YAML::load_file(config_file)
@@ -78,7 +79,7 @@ flags = {
 }
 
 OptionParser.new do |opts|
-	opts.banner = "Usage: $0 <irc server> <channels> [flags]"
+	opts.banner = "Usage: $0 [flags]"
 
 	opts.on('-t', '--no-link-titles', 'Do not title links.') do |t|
 		flags[:links] = false
@@ -101,41 +102,47 @@ OptionParser.new do |opts|
 	end
 end.parse!
 
-bot = Cinch::Bot.new do
-	configure do |c|
-		c.nick = config_options['nick'] or 'yossarian-bot'
-		c.realname = 'yossarian-bot'
-		c.user = 'yossarian-bot'
-		c.max_messages = 1
-		c.server = config_options['server'] or abort('Fatal: Missing \'server\' field in config.yml')
-		c.channels = config_options['channels'] or abort('Fatal: Missing \'channels\' field in config.yml')
-		c.plugins.prefix = Regexp.new(config_options['prefix']) or /^!/
-		c.plugins.plugins = $BOT_PLUGINS.dup
+config_options['servers'].each do |server, channels|
+	server_threads << Thread.new do
+		bot = Cinch::Bot.new do
+			configure do |conf|
+				conf.nick = config_options['nick'] or 'yossarian-bot'
+				conf.realname = 'yossarian-bot'
+				conf.user = 'yossarian-bot'
+				conf.max_messages = 1
+				conf.server = server
+				conf.channels = channels
+				conf.plugins.prefix = Regexp.new(config_options['prefix']) or /^!/
+				conf.plugins.plugins = $BOT_PLUGINS.dup
 
-		unless flags[:seen]
-			c.plugins.plugins.delete(LastSeen)
-		end
+				unless flags[:seen]
+					c.plugins.plugins.delete(LastSeen)
+				end
 
-		unless flags[:links]
-			c.plugins.plugins.delete(LinkTitling)
-		end
+				unless flags[:links]
+					c.plugins.plugins.delete(LinkTitling)
+				end
 
-		unless flags[:regex]
-			c.plugins.plugins.delete(RegexReplace)
-		end
+				unless flags[:regex]
+					c.plugins.plugins.delete(RegexReplace)
+				end
 
-		unless flags[:intros]
-			c.plugins.plugins.delete(UserIntros)
-		end
+				unless flags[:intros]
+					c.plugins.plugins.delete(UserIntros)
+				end
 
-		unless flags[:quotes]
-			c.plugins.plugins.delete(UserQuotes)
-		end
-	end
+				unless flags[:quotes]
+					c.plugins.plugins.delete(UserQuotes)
+				end
+			end
 
-	on :message, /^[!.:,]bots$/ do |m|
-		m.reply 'Reporting in! [Ruby] See !help for commands.'
+			on :message, /^[!.:,]bots$/ do |m|
+				m.reply 'Reporting in! [Ruby] See !help for commands.'
+			end
+		end.start
 	end
 end
 
-bot.start
+server_threads.each do |thread|
+	thread.join
+end
