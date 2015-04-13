@@ -8,21 +8,21 @@
 #  http://opensource.org/licenses/MIT
 
 require 'yaml'
+require 'fileutils'
 
 require_relative '../yossarian_plugin'
 
 class UserIntros < YossarianPlugin
 	include Cinch::Plugin
 
-	@@user_intros_file = File.expand_path(File.join(File.dirname(__FILE__), 'user_intros.yml'))
-
 	def initialize(*args)
 		super
+		@intros_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_intros.yml'))
 		@intros = {}
 	end
 
 	def sync_intros_file
-		File.open(@@user_intros_file, "w+") do |file|
+		File.open(@intros_file, "w+") do |file|
 			file.write @intros.to_yaml
 		end
 	end
@@ -38,8 +38,10 @@ class UserIntros < YossarianPlugin
 	listen_to :connect, method: :initialize_intros
 
 	def initialize_intros(m)
-		if File.exist?(@@user_intros_file)
-			@intros = YAML::load_file(@@user_intros_file)
+		if File.exist?(@intros_file)
+			@intros = YAML::load_file(@intros_file)
+		else
+			FileUtils.mkpath File.dirname(@intros_file)
 		end
 	end
 
