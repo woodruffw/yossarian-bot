@@ -116,23 +116,23 @@ config_options['servers'].each do |server, channels|
 				conf.plugins.plugins = $BOT_PLUGINS.dup
 
 				unless flags[:seen]
-					c.plugins.plugins.delete(LastSeen)
+					conf.plugins.plugins.delete(LastSeen)
 				end
 
 				unless flags[:links]
-					c.plugins.plugins.delete(LinkTitling)
+					conf.plugins.plugins.delete(LinkTitling)
 				end
 
 				unless flags[:regex]
-					c.plugins.plugins.delete(RegexReplace)
+					conf.plugins.plugins.delete(RegexReplace)
 				end
 
 				unless flags[:intros]
-					c.plugins.plugins.delete(UserIntros)
+					conf.plugins.plugins.delete(UserIntros)
 				end
 
 				unless flags[:quotes]
-					c.plugins.plugins.delete(UserQuotes)
+					conf.plugins.plugins.delete(UserQuotes)
 				end
 			end
 
