@@ -35,8 +35,10 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!luther [nick]` - Get an insult from [Luther's Oeuvre](http://ergofabulous.org/luther/) and direct it at a nickname if given.
 * `!theo [nick]` - Get a random Theo De Raadt quote and direct it at a nickname if given.
 * `!cbsg` - Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live) and direct it at a nickname if given.
+* `!btc` - Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/)
 * `![rm|show]intro <intro>` - Set an custom intro for your nick. Prefixing this command with `show` or `rm` shows or removes your intro, respectively.
 * `!quote [nick]` - Retrieve a completely random quote, or a random quote from the given nick.
+* `!ver [nick]` - Send a CTCP VERSION request to the given nick.
 
 ### `!botinfo` keys
 

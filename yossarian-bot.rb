@@ -50,6 +50,7 @@ $BOT_PLUGINS = [
 	LutherInsults,
 	TheoQuotes,
 	CBSG,
+	BTC,
 	UserIntros,
 	UserQuotes,
 	CTCPVersion,
