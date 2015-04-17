@@ -76,7 +76,8 @@ flags = {
 	:seen => true,
 	:regex => true,
 	:intros => true,
-	:quotes => true
+	:quotes => true,
+	:ctcp => true,
 }
 
 OptionParser.new do |opts|
@@ -100,6 +101,10 @@ OptionParser.new do |opts|
 
 	opts.on('-q', '--no-quotes', 'No !quote collection.') do |q|
 		flags[:quotes] = false
+	end
+
+	opts.on( "-c", "--no-ctcp-version", 'No !ver requests.') do |c|
+		flags[:ctcp] = false
 	end
 end.parse!
 
@@ -134,6 +139,10 @@ config_options['servers'].each do |server, channels|
 
 				unless flags[:quotes]
 					conf.plugins.plugins.delete(UserQuotes)
+				end
+
+				unless flags[:ctcp]
+					conf.plugins.plugins.delete(CTCPVersion)
 				end
 			end
 
