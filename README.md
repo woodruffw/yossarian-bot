@@ -68,6 +68,7 @@ All arguments are optional:
 * `-r`/`--no-regex-replace` - Disable `sed`-like typo replacement.
 * `-i`/`--no-intros` - Disable custom user intros.
 * `-q`/`--no-quotes` - Disable user quote collection.
+* `-c`/`--no-ctcp-version` - Disable `!ver` requests.
 
 `yossarian-bot` has two usage cases: commands and matches.
 
