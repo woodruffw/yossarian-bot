@@ -38,6 +38,7 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!btc` - Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/)
 * `![rm|show]intro <intro>` - Set an custom intro for your nick. Prefixing this command with `show` or `rm` shows or removes your intro, respectively.
 * `!quote [nick]` - Retrieve a completely random quote, or a random quote from the given nick.
+* `!trigger <command>` - Manage custom message replies and their triggers. See below.
 * `!ver [nick]` - Send a CTCP VERSION request to the given nick.
 
 ### `!botinfo` keys
@@ -72,3 +73,11 @@ the given <plugin> must be a class name.
 * `!admin leave <channel>` - Leave \<channel\> on the network, if in it.
 * `!admin say <channel> <message>` - Make the bot say \<message\> in \<channel\>.
 * `!admin act <channel> <message>` - Make the bot act \<message\> in \<channel\>.
+
+### `!trigger` sub-commands
+
+The `!trigger` command takes one of three sub-commands:
+
+* `!trigger add <trigger> <response>` - Make the bot say \<response\> whenever \<trigger\> is typed.
+* `!trigger rm <trigger>` - Remove \<trigger\> and the response associated with it.
+* `!trigger list` - List all triggers currently stored by `yossarian-bot`. Responses are not listed for the sake of brevity.

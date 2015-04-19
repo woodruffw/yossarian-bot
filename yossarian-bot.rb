@@ -53,6 +53,7 @@ $BOT_PLUGINS = [
 	BTC,
 	UserIntros,
 	UserQuotes,
+	CustomTriggers,
 	CTCPVersion,
 	LastSeen,
 	LinkTitling,
@@ -78,33 +79,38 @@ flags = {
 	:intros => true,
 	:quotes => true,
 	:ctcp => true,
+	:triggers => true,
 }
 
 OptionParser.new do |opts|
 	opts.banner = "Usage: $0 [flags]"
 
-	opts.on('-t', '--no-link-titles', 'Do not title links.') do |t|
+	opts.on('-t', '--no-link-titles', 'Do not title links.') do
 		flags[:links] = false
 	end
 
-	opts.on('-s', '--no-seen', 'Disable the !seen command.') do |s|
+	opts.on('-s', '--no-seen', 'Disable the !seen command.') do
 		flags[:seen] = false
 	end
 
-	opts.on('-r', '--no-regex-replace', 'Disable sed-like regexes for typos.') do |r|
+	opts.on('-r', '--no-regex-replace', 'Disable sed-like regexes for typos.') do
 		flags[:regex] = false
 	end
 
-	opts.on('-i', '--no-intros', 'No custom user intros.') do |i|
+	opts.on('-i', '--no-intros', 'No custom user intros.') do
 		flags[:intros] = false
 	end
 
-	opts.on('-q', '--no-quotes', 'No !quote collection.') do |q|
+	opts.on('-q', '--no-quotes', 'No !quote collection.') do
 		flags[:quotes] = false
 	end
 
-	opts.on( "-c", "--no-ctcp-version", 'No !ver requests.') do |c|
+	opts.on('-c', '--no-ctcp-version', 'No !ver requests.') do
 		flags[:ctcp] = false
+	end
+
+	opts.on('-T', '--no-custom-triggers', 'No custom triggers.') do
+		flags[:triggers] = false
 	end
 end.parse!
 
@@ -143,6 +149,10 @@ config_options['servers'].each do |server, channels|
 
 				unless flags[:ctcp]
 					conf.plugins.plugins.delete(CTCPVersion)
+				end
+
+				unless flags[:triggers]
+					conf.plugins.plugins.delete(CustomTriggers)
 				end
 			end
 

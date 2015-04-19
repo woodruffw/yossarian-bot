@@ -56,30 +56,28 @@ class UserQuotes < YossarianPlugin
 		chan = m.channel.to_s
 		nick = m.user.nick
 
-		if m.message =~ /^[!:.]/
-			return # we don't want command messages, for obvious reasons
-		else
+		unless m.message =~ /^[!:.]/
 			@@message_count += 1
-		end
 
-		if @quotes.has_key?(chan)
-			if @quotes[chan].has_key?(nick)
-				if @quotes[chan][nick].size < @@user_quote_limit
-					@quotes[chan][nick] << m.message
+			if @quotes.has_key?(chan)
+				if @quotes[chan].has_key?(nick)
+					if @quotes[chan][nick].size < @@user_quote_limit
+						@quotes[chan][nick] << m.message
+					else
+						@quotes[chan][nick].delete_at(rand(@quotes[chan][nick].length))
+						@quotes[chan][nick].push(m.message)
+					end
 				else
-					@quotes[chan][nick].delete_at(rand(@quotes[chan][nick].length))
-					@quotes[chan][nick].push(m.message)
+					@quotes[chan][nick] = [m.message]
 				end
 			else
-				@quotes[chan][nick] = [m.message]
+				@quotes[chan] = {}
 			end
-		else
-			@quotes[chan] = {}
-		end
 
-		if @@message_count == @@sync_interval
-			sync_quotes_file
-			@@message_count = 0
+			if @@message_count == @@sync_interval
+				sync_quotes_file
+				@@message_count = 0
+			end
 		end
 	end
 
