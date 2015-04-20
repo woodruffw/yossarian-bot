@@ -89,6 +89,14 @@ replacing it. For example, a typo like "this is a setnence" can be corrected
 with `s/setnence/sentence`. This feature can be disabled with the
 `-r`/`--no-regex-replace` flag.
 
+## Contributing
+
+Contributions to `yossarian-bot` are welcomed and appreciated.
+
+If you'd like to contribute but don't have any contributions in mind, checkout
+the [TODO](./TODO.md) file. It contains a list of things that can be fixed,
+improved, and added.
+
 ## License
 
 `yossarian-bot` is licensed under the MIT License.

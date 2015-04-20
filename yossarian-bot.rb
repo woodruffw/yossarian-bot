@@ -14,8 +14,8 @@ require 'cinch'
 require 'optparse'
 require 'yaml'
 
-Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |file|
-	require file
+Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |plugin|
+	require plugin
 end
 
 $BOT_ADMINS = []
