@@ -15,3 +15,5 @@ Cinch instances/Threads.
 for 'VERSION'. This causes two bugs: `!ver yossarian-bot` doesn't work, and
 users with multiple CTCP VERSION messages set can spam the channel via `yossarian-bot`.
 * There are (probably) URL encoding bugs in some of the web-based plugins.
+* YouTubeSearch relies on a now-deprecated API and needs to be updated to
+continue working.
