@@ -47,8 +47,8 @@ class Magic8Ball < YossarianPlugin
 		cmd =~ /^(!)?(8ball)|(8b)$/
 	end
 
-	match /8b (?:.+)\?/, method: :magic8ball
-	match /8ball (?:.+)\?/, method: :magic8ball
+	match /8b (.+)/, method: :magic8ball
+	match /8ball (.+)/, method: :magic8ball
 
 	def magic8ball(m)
 		m.reply @answers.sample, true
