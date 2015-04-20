@@ -36,6 +36,7 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!theo [nick]` - Get a random Theo De Raadt quote and direct it at a nickname if given.
 * `!cbsg` - Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live) and direct it at a nickname if given.
 * `!btc` - Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/)
+* `!wp` - Get the current world population estimate from the [US Census](https://www.census.gov/popclock/data/population/world)
 * `![rm|show]intro <intro>` - Set an custom intro for your nick. Prefixing this command with `show` or `rm` shows or removes your intro, respectively.
 * `!quote [nick]` - Retrieve a completely random quote, or a random quote from the given nick.
 * `!trigger <command>` - Manage custom message replies and their triggers. See below.

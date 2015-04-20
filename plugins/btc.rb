@@ -2,7 +2,7 @@
 #  btc.rb
 #  Author: William Woodruff
 #  ------------------------
-#  A Cinch plugin that retrives Bitcoin exchange rates for yossarian-bot.
+#  A Cinch plugin that retrieves Bitcoin exchange rates for yossarian-bot.
 #  Data courtesy of the BitcoinAverage Price Index: https://bitcoinaverage.com/
 #  ------------------------
 #  This code is licensed by William Woodruff under the MIT License.

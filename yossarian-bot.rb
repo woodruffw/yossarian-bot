@@ -51,6 +51,7 @@ $BOT_PLUGINS = [
 	TheoQuotes,
 	CBSG,
 	BTC,
+	WorldPopulation,
 	UserIntros,
 	UserQuotes,
 	CustomTriggers,
