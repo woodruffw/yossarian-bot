@@ -47,7 +47,7 @@ class BotInfo < YossarianPlugin
 		when /chan(nel)?s/
 			m.reply "Channels: %s" % @bot.channels.join(', ')
 		when /admins/
-			m.reply "Admins: %s" % $BOT_ADMINS.join(', ')
+			m.reply "Admins: %s" % @bot.admins.join(', ')
 		else
 			m.reply "I don\'t have any information on #{key}. Try !help botinfo."
 		end

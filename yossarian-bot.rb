@@ -18,7 +18,6 @@ Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |plugin|
 	require plugin
 end
 
-$BOT_ADMINS = []
 $BOT_PLUGINS = [
 	CommandHelp,
 	Ping,
@@ -71,8 +70,6 @@ else
 	abort('Fatal: Could not find a config.yml to load from.')
 end
 
-$BOT_ADMINS = config_options['admins'] or []
-
 flags = {
 	:links => true,
 	:seen => true,
@@ -118,6 +115,12 @@ end.parse!
 config_options['servers'].each do |server, channels|
 	server_threads << Thread.new do
 		bot = Cinch::Bot.new do
+			@admins = config_options['admins'] or []
+
+			def admins
+				@admins
+			end
+
 			configure do |conf|
 				conf.nick = config_options['nick'] or 'yossarian-bot'
 				conf.realname = 'yossarian-bot'

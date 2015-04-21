@@ -21,7 +21,7 @@ class BotAdmin < YossarianPlugin
 	end
 
 	def authenticate?(nick)
-		$BOT_ADMINS.include?(nick) && User(nick).authed?
+		@bot.admins.include?(nick) && User(nick).authed?
 	end
 
 	match /admin plugin list/, method: :plugin_list
@@ -94,7 +94,7 @@ class BotAdmin < YossarianPlugin
 
 	def bot_add_admin(m, nick)
 		if authenticate?(m.user.nick)
-			$BOT_ADMINS << nick
+			@bot.admins << nick
 			m.reply "Added #{nick} as an admin.", true
 		else
 			m.reply "You do not have permission to do that.", true
@@ -105,8 +105,8 @@ class BotAdmin < YossarianPlugin
 
 	def bot_remove_admin(m, nick)
 		if authenticate?(m.user.nick)
-			if $BOT_ADMINS.include?(nick)
-				$BOT_ADMINS.delete(nick)
+			if @bot.admins.include?(nick)
+				@bot.admins.delete(nick)
 				m.reply "#{nick} is no longer an admin.", true
 			else
 				m.reply "No admin \'#{nick}\' to remove.", true
