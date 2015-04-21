@@ -56,7 +56,7 @@ $ ruby yossarian-bot.rb # not run in background
 
 `yossarian-bot` is configured via a YAML file named *config.yml*.
 
-Look at [the example config.yml](./config.yml.example) to see a list of optional and required
+Look at [the example config.yml](config.yml.example) to see a list of optional and required
 keys.
 
 ### Command-Line Options
@@ -75,7 +75,7 @@ All arguments are optional:
 ### Commands
 
 There are a bunch of commands that `yossarian-bot` accepts. You can
-see a complete list in the [COMMANDS](./COMMANDS.md) file.
+see a complete list in the [COMMANDS](COMMANDS.md) file.
 
 ### Matches
 
@@ -94,11 +94,11 @@ with `s/setnence/sentence`. This feature can be disabled with the
 Contributions to `yossarian-bot` are welcomed and appreciated.
 
 If you'd like to contribute but don't have any contributions in mind, check out
-the [TODO](./TODO.md) file. It contains a list of things that can be fixed,
+the [TODO](TODO.md) file. It contains a list of things that can be fixed,
 improved, and added.
 
 ## License
 
 `yossarian-bot` is licensed under the MIT License.
 
-For the exact terms, see the [license](./LICENSE) file.
+For the exact terms, see the [license](LICENSE) file.
