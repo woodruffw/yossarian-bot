@@ -17,3 +17,5 @@ users with multiple CTCP VERSION messages set can spam the channel via `yossaria
 * There are (probably) URL encoding bugs in some of the web-based plugins.
 * YouTubeSearch relies on a now-deprecated API and needs to be updated to
 continue working.
+* GoogleTranslate may also rely on a now-deprecated API and may need to be updated
+or switched to a non-paid service.
