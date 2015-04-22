@@ -18,7 +18,7 @@ class TacoRecipes < YossarianPlugin
 
 	def initialize(*args)
 		super
-		@base_url = 'http://taco-randomizer.herokuapp.com/random/?full-taco=true'
+		@url = 'http://taco-randomizer.herokuapp.com/random/?full-taco=true'
 	end
 
 	def usage
@@ -32,7 +32,7 @@ class TacoRecipes < YossarianPlugin
 	match /taco$/, method: :random_taco
 
 	def random_taco(m)
-		hash = JSON.parse(open(@base_url).read)
+		hash = JSON.parse(open(@url).read)
 		recipe_url = hash['url'].gsub(/(raw\.github.com)|(\/master\/)/, 'raw.github.com' => 'github.com', '/master/' => '/tree/master/')
 
 		m.reply "#{hash['name']} - #{recipe_url}", true
