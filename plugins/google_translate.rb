@@ -27,7 +27,8 @@ class GoogleTranslate < YossarianPlugin
 
 	def google_translate_auto(m, msg)
 		begin
-			url = URI.encode("https://translate.googleapis.com/translate_a/t?client=a&sl=auto&tl=en&q=#{msg}")
+			query = URI.encode(msg)
+			url = "https://translate.googleapis.com/translate_a/t?client=a&sl=auto&tl=en&q=#{query}"
 			hash = JSON.parse(open(url).read)
 			result = hash['sentences'][0]['trans']
 			m.reply result, true

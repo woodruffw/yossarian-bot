@@ -26,7 +26,7 @@ class IsItUp < YossarianPlugin
 	match /(?:isit)?up (.+)/, method: :isitup, strip_colors: true
 
 	def isitup(m, site)
-		domain = site.gsub(/http(?:s)?:\/\//, '')
+		domain = site.gsub(/^http(?:s)?:\/\//, '')
 		url = "http://isitup.org/#{URI.encode(domain)}.json"
 		hash = JSON.parse(open(url).read)
 
