@@ -18,7 +18,7 @@ class LinkTitling < YossarianPlugin
 
 	def link_title(m, link)
 		begin
-			html = Nokogiri::HTML(open(link))
+			html = Nokogiri::HTML(open(link, {:read_timeout => 3}))
 			title = html.css('title').text.gsub(/[\t\r\n]/, '')
 
 			m.reply "Title: \'#{title}\'"
