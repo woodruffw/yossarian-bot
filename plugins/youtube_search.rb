@@ -36,8 +36,8 @@ class YouTubeSearch < YossarianPlugin
 
 				if hash['items'] != 0
 					entry = hash['items'][0]
-					title = entry['title']
-					uploader = entry['channelTitle']
+					title = entry['snippet']['title']
+					uploader = entry['snippet']['channelTitle']
 					video_id = entry['id']['videoId']
 
 					m.reply "#{title} [#{uploader}] - https://youtu.be/#{video_id}", true
