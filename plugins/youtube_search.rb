@@ -27,24 +27,28 @@ class YouTubeSearch < YossarianPlugin
 	match /youtube (.+)/, method: :youtube_search, strip_colors: true
 
 	def youtube_search(m, search)
-		query = URI.encode(search)
-		url = "http://gdata.youtube.com/feeds/api/videos?q=#{query}&max-results=1&v=2&prettyprint=false&alt=json"
+		if ENV.has_key?('YOUTUBE_API_KEY')
+			query = URI.encode(search)
+			url = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{search}&key=#{ENV['YOUTUBE_API_KEY']}"
 
-		begin
-			hash = JSON.parse(open(url).read)
+			begin
+				hash = JSON.parse(open(url).read)
 
-			if hash['feed']['openSearch$totalResults']['$t'] != 0
-				entry = hash['feed']['entry'][0]
-				title = entry['title']['$t']
-				uploader = entry['author'][0]['name']['$t']
-				video_id = entry['media$group']['yt$videoid']['$t']
+				if hash['items'] != 0
+					entry = hash['items'][0]
+					title = entry['title']
+					uploader = entry['channelTitle']
+					video_id = entry['id']['videoId']
 
-				m.reply "#{title} [#{uploader}] - https://youtu.be/#{video_id}", true
-			else
-				m.reply "No results for #{search}.", true
+					m.reply "#{title} [#{uploader}] - https://youtu.be/#{video_id}", true
+				else
+					m.reply "No results for #{search}.", true
+				end
+			rescue Exception => e
+				m.reply e.to_s, true
 			end
-		rescue Exception => e
-			m.reply e.to_s, true
+		else
+			m.reply 'Internal error (missing API key).'
 		end
 	end
 end
