@@ -29,7 +29,7 @@ class YouTubeSearch < YossarianPlugin
 	def youtube_search(m, search)
 		if ENV.has_key?('YOUTUBE_API_KEY')
 			query = URI.encode(search)
-			url = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{search}&key=#{ENV['YOUTUBE_API_KEY']}"
+			url = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{query}&key=#{ENV['YOUTUBE_API_KEY']}"
 
 			begin
 				hash = JSON.parse(open(url).read)
