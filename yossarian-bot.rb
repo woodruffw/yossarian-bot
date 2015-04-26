@@ -51,6 +51,7 @@ $BOT_PLUGINS = [
 	CBSG,
 	BTC,
 	WorldPopulation,
+	RubyEval,
 	UserIntros,
 	UserQuotes,
 	CustomTriggers,
