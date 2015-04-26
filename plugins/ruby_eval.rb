@@ -29,7 +29,7 @@ class RubyEval < YossarianPlugin
 		cmd =~ /^(!)?(?:rb$)|(?:ruby$)/
 	end
 
-	match /(?:rb)|(?:ruby) (.+)/, method: :ruby_eval, strip_colors: true
+	match /(?:rb|ruby) (.+)/, method: :ruby_eval, strip_colors: true
 
 	def ruby_eval(m, code)
 		mech = Mechanize.new
