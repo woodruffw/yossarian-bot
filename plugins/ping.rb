@@ -24,7 +24,6 @@ class Ping < YossarianPlugin
 	match /ping$/, method: :ping
 
 	def ping(m)
-		msec = ((Time.now.usec - m.time.usec) / 1000)
-		m.reply "pong (#{msec}ms)", true
+		m.reply "pong #{Time.now.to_i}", true
 	end
 end
