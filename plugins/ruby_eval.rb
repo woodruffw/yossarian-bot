@@ -18,7 +18,7 @@ class RubyEval < YossarianPlugin
 
 	def initialize(*args)
 		super
-		@url = 'https://eval.in'
+		@url = 'http://eval.in'
 	end
 
 	def usage
@@ -32,10 +32,11 @@ class RubyEval < YossarianPlugin
 	match /(?:rb)|(?:ruby) (.+)/, method: :ruby_eval, strip_colors: true
 
 	def ruby_eval(m, code)
+		mech = Mechanize.new
+		mech.user_agent_alias = 'Linux Firefox'
+		page = mech.get(@url)
+
 		begin
-			mech = Mechanize.new
-			mech.user_agent_alias = 'Linux Firefox'
-			page = mech.get(@url)
 			form = page.forms.first
 			form.field_with(:name => 'code').value = code
 			form.field_with(:name => 'lang').value = "ruby/mri-2.2"
