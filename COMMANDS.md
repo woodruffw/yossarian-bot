@@ -11,21 +11,21 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!admin <commands>` - Administrate the bot with an authorized user. See below.
 * `!fortune` - Message a Unix fortune.
 * `!c22` - Get a random Catch-22 quote.
-* `!ud <word>` - Look up the given word on UrbanDictionary.
-* `!wa <query>` - Ask Wolfram|Alpha about something.
-* `!w <location>` - Get the weather from Wunderground.
-* `!g <search>` - Search Google.
-* `!yt <search>` - Search YouTube.
+* `!ud <word>` - Look up the given word on [UrbanDictionary](http://www.urbandictionary.com/).
+* `!wa <query>` - Ask [Wolfram|Alpha](http://www.wolframalpha.com/) about something.
+* `!w <location>` - Get the weather from [Wunderground](https://www.wunderground.com/).
+* `!g <search>` - Search [Google](https://google.com).
+* `!yt <search>` - Search [YouTube](https://youtube.com).
 * `!rot13 <message>` - "Encrypt" a message with the ROT-13 cipher.
 * `!8ball <question>` - Ask the Magic 8 Ball a question.
-* `!define <word>` - Get the Merriam-Webster definiton of a word.
-* `!cb <query>` - Talk to CleverBot.
+* `!define <word>` - Get the [Merriam-Webster](http://www.merriam-webster.com/) definiton of a word.
+* `!cb <query>` - Talk to [CleverBot](http://www.cleverbot.com/).
 * `!seen <nick>` - Check the last time `yossarian-bot` saw someone.
-* `!turl <url>` - Create a short link to the given url with TinyURL.
-* `!gh <username>` - Get statistics about a GitHub user.
-* `!xkcd [search]` - Get a random XKCD comic, or one related to a query.
+* `!turl <url>` - Create a short link to the given url with [TinyURL](http://tinyurl.com/).
+* `!gh <username>` - Get statistics about a [GitHub](https://github.com/) user.
+* `!xkcd [search]` - Get a random [XKCD](http://xkcd.com/) comic, or one related to a query.
 * `!isitup <site>` - Check whether or not a given site is currently online.
-* `!haste <data>` - Post data to Hastebin.
+* `!haste <data>` - Post data to [Hastebin](http://hastebin.com/).
 * `!slap <nick>` - Slap someone with a large trout.
 * `!zalgo <message>` - Summon Zalgo with a message.
 * `!taco` - Get a random taco recipe, courtesy of the [Taco Randomizer](http://taco-randomizer.herokuapp.com/).
