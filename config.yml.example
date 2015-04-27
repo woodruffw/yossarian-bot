@@ -9,7 +9,13 @@ admins: ['cpt_yossarian']
 # mandatory keys
 servers:
     irc.rizon.net:
-        - '#yossarian-bot'
+        ssl: true
+        port: 6697
+        channels:
+            - '#yossarian-bot'
     irc.freenode.net:
-        - '#bots'
+        ssl: true
+        port: 6697
+        channels:
+            - '#bots'
 
