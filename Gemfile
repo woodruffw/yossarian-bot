@@ -12,3 +12,5 @@ gem 'xkcd'
 gem 'time_difference'
 gem 'haste'
 gem 'telegraph'
+gem 'mechanize'
+
