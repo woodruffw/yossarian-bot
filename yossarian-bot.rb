@@ -129,6 +129,8 @@ config_options['servers'].each do |server, channels|
 				conf.max_messages = 1
 				conf.server = server
 				conf.channels = channels
+				conf.port = 6697
+				conf.ssl.use = true
 				conf.plugins.prefix = Regexp.new(config_options['prefix']) or /^!/
 				conf.plugins.plugins = $BOT_PLUGINS.dup
 
