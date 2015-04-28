@@ -17,6 +17,7 @@ class CTCPVersion < YossarianPlugin
 		super
 		@nick = ''
 		@channel = ''
+		@sent = false
 	end
 
 	def usage
@@ -34,15 +35,17 @@ class CTCPVersion < YossarianPlugin
 			User(nick).ctcp 'VERSION'
 			@nick = m.user.nick
 			@channel = m.channel
+			@sent = true
 		end
 	end
 
 	listen_to :ctcp, method: :ctcp_ver_recv
 
 	def ctcp_ver_recv(m)
-		if m.ctcp_message.include?('VERSION')
+		if m.ctcp_message.include?('VERSION') && @sent
 			version = m.ctcp_message.sub('VERSION ', '')
 			Channel(@channel).send "#{@nick}: #{m.user.nick} is using #{version}."
+			@sent = false
 		end
 	end
 end
