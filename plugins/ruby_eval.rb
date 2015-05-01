@@ -41,7 +41,7 @@ class RubyEval < YossarianPlugin
 			form.field_with(:name => 'code').value = code
 			form.field_with(:name => 'lang').value = "ruby/mri-2.2"
 			html = Nokogiri::HTML(mech.submit(form).body)
-			results = html.css('pre').last.text.gsub("\n", ' ')
+			results = html.css('pre').last.text.gsub(/[\t\r\n]/, ' ')
 
 			if results.size > 0 
 				m.reply results, true
