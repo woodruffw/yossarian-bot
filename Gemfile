@@ -13,4 +13,5 @@ gem 'time_difference'
 gem 'haste'
 gem 'telegraph'
 gem 'mechanize'
+gem 'sanitize'
 
