@@ -16,11 +16,15 @@ require_relative 'yossarian_plugin'
 class Wikipedia < YossarianPlugin
 	include Cinch::Plugin
 
-	match /wiki (.+)/, method: :search_wiki
-
 	def usage
 		'!wiki <search> - Search Wikipedia.'
 	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?wiki$/
+	end
+
+	match /wiki (.+)/, method: :search_wiki
 
 	def search_wiki(m, search)
 		query = URI.encode(search)
@@ -31,9 +35,8 @@ class Wikipedia < YossarianPlugin
 				m.reply "No results for #{search}."
 			else
 				page_id = hash['query']['pages'].keys.pop()
-				content = hash['query']['pages'][page_id]['extract'].gsub(/([\t\r\n])|(<(\/)?b>)/, '')
-				content = Sanitize.fragment(content).strip()
-				m.reply "#{content} http://enwp.org/#{query}"
+				content = Sanitize.clean(hash['query']['pages'][page_id]['extract']).strip
+				m.reply "http://enwp.org/#{query} - #{content}", true
 			end
 	end
 end
