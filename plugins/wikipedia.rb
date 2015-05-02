@@ -8,6 +8,7 @@
 #  http://opensource.org/licenses/MIT
 
 require 'sanitize'
+require 'titleize'
 require 'json'
 require 'open-uri'
 
@@ -27,7 +28,7 @@ class Wikipedia < YossarianPlugin
 	match /wiki (.+)/, method: :search_wiki
 
 	def search_wiki(m, search)
-		query = URI.encode(search)
+		query = URI.encode(search.titleize)
 		url = "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=#{query}&format=json&exintro=1"
 		hash = JSON.parse(open(url).read)
 
