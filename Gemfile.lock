@@ -58,6 +58,7 @@ GEM
     thread_safe (0.3.5)
     time_difference (0.4.2)
       activesupport
+    titleize (1.3.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unf (0.1.4)
@@ -89,6 +90,7 @@ DEPENDENCIES
   sanitize
   telegraph
   time_difference
+  titleize
   wolfram
   wunderground
   xkcd

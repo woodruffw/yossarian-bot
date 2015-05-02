@@ -14,4 +14,5 @@ gem 'haste'
 gem 'telegraph'
 gem 'mechanize'
 gem 'sanitize'
+gem 'titleize'
 
