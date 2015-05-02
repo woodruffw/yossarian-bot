@@ -17,7 +17,7 @@ class Wikipedia < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage
-		'!wiki <search> - Search Wikipedia.'
+		'!wiki <search> - Search Wikipedia for the given <search>.'
 	end
 
 	def match?(cmd)
