@@ -23,7 +23,7 @@ require_relative 'yossarian_plugin'
 
   def search_wiki(m, search)
        query = URI.encode(search)
-	     url = "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=#{query}&format=json&exintro=1"
+       url = "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&titles=#{query}&format=json&exintro=1"
        hash = JSON.parse(open(url).read)
 
 		        if hash['query']['pages']['-1']
