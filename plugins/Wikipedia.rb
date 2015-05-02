@@ -36,7 +36,11 @@ class Wikipedia < YossarianPlugin
 			else
 				page_id = hash['query']['pages'].keys.pop()
 				content = Sanitize.clean(hash['query']['pages'][page_id]['extract']).gsub(/[\t\r\n]/, '')
-				m.reply "http://enwp.org/#{query} - #{content}", true
+				if content.empty? || content =~ /This is a redirect/
+					m.reply "http://enwp.org/#{query} - [No extract provided]", true
+				else
+					m.reply "http://enwp.org/#{query} - #{content}", true
+				end
 			end
 	end
 end
