@@ -35,7 +35,7 @@ class Wikipedia < YossarianPlugin
 				m.reply "No results for #{search}."
 			else
 				page_id = hash['query']['pages'].keys.pop()
-				content = Sanitize.clean(hash['query']['pages'][page_id]['extract']).strip
+				content = Sanitize.clean(hash['query']['pages'][page_id]['extract']).gsub(/[\t\r\n]/, '')
 				m.reply "http://enwp.org/#{query} - #{content}", true
 			end
 	end
