@@ -14,7 +14,7 @@ class Zalgo < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage
-		'!zalgo <message> - Summon Zalgo with the given message.'
+		'!zalgo <text> - Summon Zalgo with the given text.'
 	end
 
 	def match?(cmd)
@@ -23,7 +23,7 @@ class Zalgo < YossarianPlugin
 
 	match /zalgo (.+)/, method: :zalgo, strip_colors: true
 
-	def zalgo(m, msg)
-		m.reply ZalgoText.he_comes(msg, {:up => false, :down => false})
+	def zalgo(m, text)
+		m.reply ZalgoText.he_comes(text, {:up => false, :down => false})
 	end
 end

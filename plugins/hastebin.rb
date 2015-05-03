@@ -15,7 +15,7 @@ class Hastebin < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage
-		'!hb <data> - Post data to Hastebin. Aliases: !haste, !hastebin.'
+		'!hb <text> - Post text to Hastebin. Aliases: !haste, !hastebin.'
 	end
 
 	def match?(cmd)
@@ -25,9 +25,9 @@ class Hastebin < YossarianPlugin
 	match /hb (.+)/, method: :hastebin
 	match /haste(?:bin)? (.+)/, method: :hastebin
 
-	def hastebin(m, data)
+	def hastebin(m, text)
 		haste = Haste::Uploader.new
-		key = haste.upload_raw data
+		key = haste.upload_raw text
 		
 		m.reply "http://hastebin.com/#{key}", true
 	end

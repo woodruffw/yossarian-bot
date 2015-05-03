@@ -11,12 +11,12 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!admin <commands>` - Administrate the bot with an authorized user. See below.
 * `!fortune` - Message a Unix fortune.
 * `!c22` - Get a random Catch-22 quote.
-* `!ud <word>` - Look up the given word on [UrbanDictionary](http://www.urbandictionary.com/).
+* `!ud <query>` - Look up the given query on [UrbanDictionary](http://www.urbandictionary.com/).
 * `!wa <query>` - Ask [Wolfram|Alpha](http://www.wolframalpha.com/) about something.
 * `!w <location>` - Get the weather from [Wunderground](https://www.wunderground.com/).
 * `!g <search>` - Search [Google](https://google.com).
 * `!yt <search>` - Search [YouTube](https://youtube.com).
-* `!rot13 <message>` - "Encrypt" a message with the ROT-13 cipher.
+* `!rot13 <text>` - "Encrypt" some text with the ROT-13 cipher.
 * `!8ball <question>` - Ask the Magic 8 Ball a question.
 * `!define <word>` - Get the [Merriam-Webster](http://www.merriam-webster.com/) definiton of a word.
 * `!cb <query>` - Talk to [CleverBot](http://www.cleverbot.com/).
@@ -25,11 +25,11 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!gh <username>` - Get statistics about a [GitHub](https://github.com/) user.
 * `!xkcd [search]` - Get a random [XKCD](http://xkcd.com/) comic, or one related to a query.
 * `!isitup <site>` - Check whether or not a given site is currently online.
-* `!haste <data>` - Post data to [Hastebin](http://hastebin.com/).
+* `!haste <text>` - Post text to [Hastebin](http://hastebin.com/).
 * `!slap <nick>` - Slap someone with a large trout.
-* `!zalgo <message>` - Summon Zalgo with a message.
+* `!zalgo <text>` - Summon Zalgo with some text.
 * `!taco` - Get a random taco recipe, courtesy of the [Taco Randomizer](http://taco-randomizer.herokuapp.com/).
-* `!rainbow <message>` - Vomit out rainbowified text.
+* `!rainbow <text>` - Vomit out rainbowified text.
 * `!morse <text>` - Convert text to Morse code.
 * `!insult [nick]` - Generate a Shakespearean insult and direct it at a nickname if given.
 * `!luther [nick]` - Get an insult from [Luther's Oeuvre](http://ergofabulous.org/luther/) and direct it at a nickname if given.
@@ -38,6 +38,8 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!btc` - Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/)
 * `!wp` - Get the current world population estimate from the [US Census](https://www.census.gov/popclock/data/population/world)
 * `!rb <code>` - Evaluate some Ruby code on [eval.in](https://eval.in). 
+* `!wiki <search>` - Search [Wikipedia](http://en.wikipedia.org).
+* `!leet <text>` - Convert text to leetspeak.
 * `![rm|show]intro <intro>` - Set an custom intro for your nick. Prefixing this command with `show` or `rm` shows or removes your intro, respectively.
 * `!quote [nick]` - Retrieve a completely random quote, or a random quote from the given nick.
 * `!trigger <command>` - Manage custom message replies and their triggers. See below.
