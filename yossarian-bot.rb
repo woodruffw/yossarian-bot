@@ -53,6 +53,7 @@ $BOT_PLUGINS = [
 	WorldPopulation,
 	RubyEval,
 	Wikipedia,
+	LeetSpeak,
 	UserIntros,
 	UserQuotes,
 	CustomTriggers,

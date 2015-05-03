@@ -28,6 +28,7 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
     json (1.8.2)
+    leetspeak (0.1.1)
     libxml-ruby (2.8.0)
     mechanize (2.7.3)
       domain_name (~> 0.5, >= 0.5.1)
@@ -84,6 +85,7 @@ DEPENDENCIES
   daemons
   haste
   json
+  leetspeak
   libxml-ruby
   mechanize
   nokogiri

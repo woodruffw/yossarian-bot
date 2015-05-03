@@ -13,7 +13,7 @@ class RainbowText < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage
-		'!rainbow <message> - Vomit out rainbowified text. Alias: !vomit.'
+		'!rainbow <text> - Vomit out rainbowified text. Alias: !vomit.'
 	end
 
 	def match?(cmd)
