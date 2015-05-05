@@ -31,13 +31,13 @@ class Wikipedia < YossarianPlugin
 		array = JSON.parse(open(url).read)
 
         if array[1].empty?
-			m.reply "Sorry no result for #{query}"
+			m.reply "Sorry no result for #{query}", true
 
 		else
 
 			content = array[2].first
 		    link = array[3].first.sub('https://en.wikipedia.org/wiki/', 'http://enwp.org/')
-			m.reply "#{link} - #{content}"
+			m.reply "#{link} - #{content}", true
 
 		end
 	end
