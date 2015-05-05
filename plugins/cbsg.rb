@@ -31,8 +31,12 @@ class CBSG < YossarianPlugin
 	match /cbsg$/, method: :cbsg
 
 	def cbsg(m)
-		page = Nokogiri::HTML(open(@url).read)
+		begin
+			page = Nokogiri::HTML(open(@url).read)
 
-		m.reply page.css('li')[0].text, true
+			m.reply page.css('li')[0].text, true
+		rescue Exception => e
+			m.reply e.to_s, true
+		end
 	end
 end
