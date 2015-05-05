@@ -26,7 +26,7 @@ class Wikipedia < YossarianPlugin
 	match /wiki (.+)/, method: :search_wiki
 
 	def search_wiki(m, search)
-		query = URI.encode(search.titleize)
+		query = URI.encode(search)
 		url = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=#{query}"
 		array = JSON.parse(open(url).read)
 
@@ -35,9 +35,17 @@ class Wikipedia < YossarianPlugin
 
 		else
 
-			content = array[2].first
+		    content = array[2].first
 		    link = array[3].first.sub('https://en.wikipedia.org/wiki/', 'http://enwp.org/')
-			m.reply "#{link} - #{content}", true
+
+		      if content == ""
+
+			     m.reply "#{link} - No extract provided.", true
+             else
+
+			     m.reply "#{link} - #{content}", true
+
+		      end
 
 		end
 	end
