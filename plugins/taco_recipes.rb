@@ -32,9 +32,13 @@ class TacoRecipes < YossarianPlugin
 	match /taco$/, method: :random_taco
 
 	def random_taco(m)
-		hash = JSON.parse(open(@url).read)
-		recipe_url = hash['url'].gsub(/(raw\.github.com)|(\/master\/)/, 'raw.github.com' => 'github.com', '/master/' => '/tree/master/')
+		begin
+			hash = JSON.parse(open(@url).read)
+			recipe_url = hash['url'].gsub(/(raw\.github.com)|(\/master\/)/, 'raw.github.com' => 'github.com', '/master/' => '/tree/master/')
 
-		m.reply "#{hash['name']} - #{recipe_url}", true
+			m.reply "#{hash['name']} - #{recipe_url}", true
+		rescue Exception => e
+			m.reply e.to_s, true
+		end
 	end
 end
