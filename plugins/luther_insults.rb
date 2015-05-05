@@ -41,10 +41,14 @@ class LutherInsults < YossarianPlugin
 
 	def luther_insult_nick(m, nick)
 		if m.channel.users.has_key?(User(nick))
-			page = Nokogiri::HTML(open(@url).read)
-			insult = page.css('p')[0].text
+			begin
+				page = Nokogiri::HTML(open(@url).read)
+				insult = page.css('p')[0].text
 
-			m.reply "#{nick}: #{insult}"
+				m.reply "#{nick}: #{insult}"
+			rescue Exception => e
+				m.reply e.to_s, true
+			end
 		else
 			m.reply "I don\'t see #{nick} in this channel."
 		end
