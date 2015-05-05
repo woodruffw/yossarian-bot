@@ -31,7 +31,11 @@ class BTC < YossarianPlugin
 	match /btc$/, method: :btc_rate
 
 	def btc_rate(m)
-		rate = open(@url).read
-		m.reply "1 BTC = #{rate} USD", true
+		begin
+			rate = open(@url).read
+			m.reply "1 BTC = #{rate} USD", true
+		rescue Exception => e
+			m.reply e.to_s, true
+		end
 	end
 end
