@@ -42,8 +42,8 @@ class GitHubInfo < YossarianPlugin
 			else
 				m.reply "No such user \'#{username}\'.", true
 			end
-		rescue
-			m.reply "No such user \'#{username}\' or possible network error.", true
+		rescue Exception => e
+			m.reply e.to_s, true
 		end
 	end
 end
