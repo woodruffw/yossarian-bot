@@ -41,13 +41,13 @@ class LastSeen < YossarianPlugin
 	match /seen (\w+)/, method: :last_seen
 	def last_seen(m, nick)
 		if nick == @bot.nick
-			m.reply "That's not going to work."
+			m.reply "That\'s not going to work."
 		elsif nick == m.user.nick
-			m.reply "You're online right now."
+			m.reply "You\'re online right now."
 		elsif @users.has_key?(nick)
 			m.reply @users[nick].to_s
 		else
-			m.reply "I've never seen #{nick}."
+			m.reply "I\'ve never seen #{nick}."
 		end
 	end
 end

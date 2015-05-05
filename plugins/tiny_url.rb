@@ -27,7 +27,11 @@ class TinyURL < YossarianPlugin
 
 	def tinyurl(m, link)
 		url = "http://tinyurl.com/api-create.php?url=#{URI.encode(link)}"
-		short_link = open(url).read
-		m.reply short_link, true
+		begin
+			short_link = open(url).read
+			m.reply short_link, true
+		rescue Exception => e
+			m.reply e.to_s, true
+		end
 	end
 end

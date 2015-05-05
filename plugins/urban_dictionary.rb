@@ -15,7 +15,7 @@ class UrbanDictionary < YossarianPlugin
 	include Cinch::Plugin
 
 	def usage
-		'!ud <query> - Look up <query> on UrbanDictionary. Alias: !urban.'
+		'!ud <phrase> - Look up <phrase> on UrbanDictionary. Alias: !urban.'
 	end
 
 	def match?(cmd)
@@ -25,16 +25,22 @@ class UrbanDictionary < YossarianPlugin
 	match /ud (.+)/, method: :urban_dict, strip_colors: true
 	match /urban (.+)/, method: :urban_dict, strip_colors: true
 
-	def urban_dict(m, query)
-		data = Net::HTTP.get(URI("http://api.urbandictionary.com/v0/define?term=#{URI.encode(query)}"))
-		hash = JSON.parse(data)
-		if hash['list'].empty?
-			m.reply "UrbanDictionary has nothing for #{query}."
-		else
-			list = hash['list'][0]
-			definition = list['definition'][0..255].gsub(/[\r\n]/, '')
-			link = list['permalink']
-			m.reply "#{query} - #{definition}... (#{link})", true
+	def urban_dict(m, phrase)
+		query = URI.encode(phrase)
+		url = "http://api.urbandictionary.com/v0/define?term=#{query}"
+
+		begin
+			hash = JSON.parse(open(url).read)
+			if hash['list'].empty?
+				m.reply "UrbanDictionary has nothing for #{phrase}."
+			else
+				list = hash['list'][0]
+				definition = list['definition'][0..255].gsub(/[\r\n]/, '')
+				link = list['permalink']
+				m.reply "#{phrase} - #{definition}... (#{link})", true
+			end
+		rescue Exception => e
+			m.reply e.to_s, true
 		end
 	end
 end

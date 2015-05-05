@@ -33,10 +33,10 @@ class CommandHelp < YossarianPlugin
 	def help_cmd(m, cmd)
 		@bot.plugins.each do |plugin|
 			if plugin.match?(cmd)
-				User(m.user).send plugin.usage, true
+				m.reply plugin.usage, true
 				return
 			end
 		end
-		User(m.user).send "Nothing found for \'#{cmd}\'.", true
+		m.reply "Nothing found for \'#{cmd}\'.", true
 	end
 end
