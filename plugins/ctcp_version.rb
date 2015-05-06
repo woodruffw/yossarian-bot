@@ -32,10 +32,15 @@ class CTCPVersion < YossarianPlugin
 
 	def ctcp_ver_req(m, nick)
 		if m.channel.users.has_key?(User(nick))
-			User(nick).ctcp 'VERSION'
-			@nick = m.user.nick
-			@channel = m.channel
-			@sent = true
+			if nick == @bot.nick
+				m.reply 'See !botinfo version for my version.', true
+			else
+				User(nick).ctcp 'VERSION'
+				@nick = m.user.nick
+				@channel = m.channel
+				@sent = true
+			end
+
 		else
 			m.reply "I don\'t see #{nick} in this channel."
 		end
