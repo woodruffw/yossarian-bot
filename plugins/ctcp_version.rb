@@ -36,6 +36,8 @@ class CTCPVersion < YossarianPlugin
 			@nick = m.user.nick
 			@channel = m.channel
 			@sent = true
+		else
+			m.reply "I don\'t see #{nick} in this channel."
 		end
 	end
 
