@@ -94,8 +94,12 @@ class BotAdmin < YossarianPlugin
 
 	def bot_add_admin(m, nick)
 		if authenticate?(m.user.nick)
-			@bot.admins << nick
-			m.reply "Added #{nick} as an admin.", true
+			unless @bot.admins.include?(nick)
+				@bot.admins << nick
+				m.reply "Added #{nick} as an admin.", true
+			else
+				m.reply "#{nick} is already an admin.", true
+			end
 		else
 			m.reply "You do not have permission to do that.", true
 		end
