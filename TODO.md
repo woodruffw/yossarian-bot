@@ -11,11 +11,12 @@ Cinch instances/Threads.
 
 ## Plugins
 
-* CTCPVersion currently listens for all CTCP messages, and then filters them
+* ~~CTCPVersion currently listens for all CTCP messages, and then filters them
 for 'VERSION'. This causes two bugs: `!ver yossarian-bot` doesn't work, and
-users with multiple CTCP VERSION messages set can spam the channel via `yossarian-bot`.
+users with multiple CTCP VERSION messages set can spam the channel via `yossarian-bot`.~~
 * There are (probably) URL encoding bugs in some of the web-based plugins.
 * ~~YouTubeSearch relies on a now-deprecated API and needs to be updated to
 continue working.~~
 * GoogleTranslate may also rely on a now-deprecated API and may need to be updated
 or switched to a non-paid service.
+* There are problem race conditions in some of the plugins.
