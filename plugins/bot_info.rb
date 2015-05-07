@@ -35,21 +35,21 @@ class BotInfo < YossarianPlugin
 
 	def bot_info(m, key)
 		case key
-		when /(version)|(ver)/
+		when /(^version$)|(^ver$)/
 			m.reply "yossarian-bot version %s." % @bot_version
-		when /(source)|(src)/
+		when /(^source$)|(^src$)/
 			m.reply 'https://github.com/woodruffw/yossarian-bot'
-		when /author/
+		when /^author$/
 			m.reply 'Author: woodruffw'
-		when /uptime/
+		when /^uptime$/
 			diff = TimeDifference.between(@bot_starttime, Time.now).in_general
 			m.reply "I\'ve been online for %d days, %d hours, %d minutes, and %d seconds." % [diff[:days], diff[:hours], diff[:minutes], diff[:seconds]]
-		when /chan(nel)?s/
+		when /^chan(nel)?s$/
 			m.reply "Channels: %s" % @bot.channels.join(', ')
-		when /admins/
+		when /^admins$/
 			m.reply "Admins: %s" % @bot.admins.join(', ')
 		else
-			m.reply "I don\'t have any information on #{key}. Try !help botinfo."
+			m.reply "I don\'t have any information on \'#{key}\'. Try !help botinfo."
 		end
 	end
 end
