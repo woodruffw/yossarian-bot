@@ -25,7 +25,7 @@ class BotInfo < YossarianPlugin
 	end
 
 	def match?(cmd)
-		cmd =~ /^(!)?(botinfo)|(bi)$/
+		cmd =~ /^(!)?(botinfo$)|(bi$)/
 	end
 
 	set :prefix, /^[.!:]/
