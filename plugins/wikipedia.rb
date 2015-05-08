@@ -14,6 +14,7 @@ require_relative 'yossarian_plugin'
 
 class Wikipedia < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!wiki <search> - Search Wikipedia for the given <search>.'

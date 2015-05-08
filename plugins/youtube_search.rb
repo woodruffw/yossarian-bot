@@ -14,6 +14,7 @@ require_relative 'yossarian_plugin'
 
 class YouTubeSearch < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!yt <search> - Search YouTube. Alias: !youtube.'

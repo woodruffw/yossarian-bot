@@ -11,6 +11,7 @@ require_relative 'yossarian_plugin'
 
 class CommandHelp < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!help [cmd] - Display general help, or help for [cmd].'

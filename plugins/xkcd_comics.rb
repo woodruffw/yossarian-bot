@@ -13,6 +13,7 @@ require_relative 'yossarian_plugin'
 
 class XKCDComics < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!xkcd [search] - Get a random XKCD comic, or one related to [search].'

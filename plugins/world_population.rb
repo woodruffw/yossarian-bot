@@ -15,6 +15,7 @@ require_relative 'yossarian_plugin'
 
 class WorldPopulation < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def initialize(*args)
 		super

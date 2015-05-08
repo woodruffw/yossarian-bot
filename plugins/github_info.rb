@@ -14,6 +14,7 @@ require_relative 'yossarian_plugin'
 
 class GitHubInfo < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!gh <user> - Get information about <user> on GitHub. Alias: !github.'

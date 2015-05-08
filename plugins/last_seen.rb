@@ -13,6 +13,7 @@ require_relative 'yossarian_plugin'
 
 class LastSeen < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	class LastSeenStruct < Struct.new(:who, :where, :what, :time)
 		def to_s

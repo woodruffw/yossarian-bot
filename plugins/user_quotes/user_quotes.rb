@@ -15,6 +15,7 @@ require_relative '../yossarian_plugin'
 
 class UserQuotes < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	@@user_quote_limit = 25
 	@@sync_interval = 10

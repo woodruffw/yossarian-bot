@@ -13,6 +13,7 @@ require_relative 'yossarian_plugin'
 
 class BotInfo < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def initialize(*args)
 		super
@@ -49,7 +50,7 @@ class BotInfo < YossarianPlugin
 		when /^admins$/
 			m.user.send "Admins: %s" % @bot.admins.join(', ')
 		when /^ignores$/
-			m.user.send "Ignored nicks: %s" % $BLACKLIST.join(', ')
+			m.user.send "Ignored hosts: %s" % @bot.blacklist.join(', ')
 		else
 			m.user.send "I don\'t have any information on \'#{key}\'. Try !help botinfo."
 		end

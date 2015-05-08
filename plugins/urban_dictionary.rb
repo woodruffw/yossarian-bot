@@ -13,6 +13,7 @@ require_relative 'yossarian_plugin'
 
 class UrbanDictionary < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!ud <phrase> - Look up <phrase> on UrbanDictionary. Alias: !urban.'

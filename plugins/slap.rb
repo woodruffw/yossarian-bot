@@ -11,6 +11,7 @@ require_relative 'yossarian_plugin'
 
 class Slap < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!slap <nick> - Slap <nick> with a large trout.'

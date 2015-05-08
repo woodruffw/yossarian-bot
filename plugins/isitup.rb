@@ -14,6 +14,7 @@ require_relative 'yossarian_plugin'
 
 class IsItUp < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!isitup <site> - Check whether or not <site> is currently online. Alias: !up.'

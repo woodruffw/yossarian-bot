@@ -13,6 +13,7 @@ require_relative 'yossarian_plugin'
 
 class MorseCode < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!morse <text> - Convert the given text to Morse code.'

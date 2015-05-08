@@ -14,6 +14,7 @@ require_relative 'yossarian_plugin'
 
 class GoogleTranslate < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!tr <message>- Translate <message> to English, with optional <from> and <to> for accuracy and other languages. Alias: !translate.'

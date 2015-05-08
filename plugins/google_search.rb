@@ -14,6 +14,7 @@ require_relative 'yossarian_plugin'
 
 class GoogleSearch < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!g <search> - Search Google. Alias: !google.'

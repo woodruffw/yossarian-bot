@@ -14,11 +14,11 @@ require 'cinch'
 require 'optparse'
 require 'yaml'
 
+require_relative 'lib/blacklist'
+
 Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |plugin|
 	require plugin
 end
-
-require_relative 'lib/extensions/cinch/bot/handler_list'
 
 $BOT_PLUGINS = [
 	CommandHelp,
@@ -123,9 +123,14 @@ config_options['servers'].each do |server, info|
 	server_threads << Thread.new do
 		bot = Cinch::Bot.new do
 			@admins = info['admins'] or []
+			@blacklist = []
 
 			def admins
 				@admins
+			end
+
+			def blacklist
+				@blacklist
 			end
 
 			configure do |conf|

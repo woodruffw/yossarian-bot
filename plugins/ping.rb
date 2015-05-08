@@ -12,6 +12,7 @@ require_relative 'yossarian_plugin'
 
 class Ping < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!ping - Ping the bot for a timestamped response.'

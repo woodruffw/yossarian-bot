@@ -13,6 +13,7 @@ require_relative 'yossarian_plugin'
 
 class TinyURL < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!turl <url> - Shorten the given <url> using TinyURL. Alias: !tinyurl.'

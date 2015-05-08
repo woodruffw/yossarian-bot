@@ -12,6 +12,7 @@ require_relative "zalgo_text"
 
 class Zalgo < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!zalgo <text> - Summon Zalgo with the given text.'

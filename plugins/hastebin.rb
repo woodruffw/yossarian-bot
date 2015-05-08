@@ -13,6 +13,7 @@ require_relative 'yossarian_plugin'
 
 class Hastebin < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!hb <text> - Post text to Hastebin. Aliases: !haste, !hastebin.'

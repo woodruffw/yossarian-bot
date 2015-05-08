@@ -13,6 +13,7 @@ require_relative 'yossarian_plugin'
 
 class Weather < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!w <location> - Get the weather at <location>. Alias: !weather.'

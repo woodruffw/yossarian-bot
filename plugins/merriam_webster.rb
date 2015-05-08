@@ -14,6 +14,7 @@ require_relative 'yossarian_plugin'
 
 class MerriamWebster < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!define <word> - Get the Merriam-Webster defintion of <word>.'

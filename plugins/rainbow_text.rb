@@ -11,6 +11,7 @@ require_relative 'yossarian_plugin'
 
 class RainbowText < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!rainbow <text> - Vomit out rainbowified text. Alias: !vomit.'

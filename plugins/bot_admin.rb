@@ -11,6 +11,7 @@ require_relative 'yossarian_plugin'
 
 class BotAdmin < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!admin <commands> - Control bot operation with <commands>. See !help for a link to admin commands.'
@@ -154,11 +155,13 @@ class BotAdmin < YossarianPlugin
 
 	def bot_ignore_nick(m, nick)
 		if authenticate?(m.user.nick)
-			unless $BLACKLIST.include?(nick)
-				$BLACKLIST << nick
-				m.reply "I\'m ignoring #{nick}.", true
+			host = User(nick).host
+
+			unless @bot.blacklist.include?(host)
+				@bot.blacklist << host
+				m.reply "Ignoring messages from #{host} (#{nick}).", true
 			else
-				m.reply "I\'m already ignoring #{nick}.", true
+				m.reply "I\'m already ignoring that host.", true
 			end
 		else
 			m.reply "You do not have permission to do that.", true
@@ -169,11 +172,13 @@ class BotAdmin < YossarianPlugin
 
 	def bot_unignore_nick(m, nick)
 		if authenticate?(m.user.nick)
-			if $BLACKLIST.include?(nick)
-				$BLACKLIST.delete(nick)
-				m.reply "I\'m no longer ignoring #{nick}.", true
+			host = User(nick).host
+
+			if @bot.blacklist.include?(host)
+				@bot.blacklist.delete(host)
+				m.reply "No longer ignoring #{host} (#{nick}).", true
 			else
-				m.reply "I\'m not currently ignoring #{nick}.", true
+				m.reply "I\'m not currently ignoring that host.", true
 			end
 		else
 			m.reply "You do not have permission to do that.", true

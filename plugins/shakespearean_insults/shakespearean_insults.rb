@@ -14,6 +14,7 @@ require_relative '../yossarian_plugin'
 
 class ShakespeareanInsults < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	@@insults_file = File.expand_path(File.join(File.dirname(__FILE__), 'shakespearean_insults.yml'))
 

@@ -11,6 +11,7 @@ require_relative 'yossarian_plugin'
 
 class Rot13 < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!r13 <message> - \'Encrypt\' <message> with the ROT-13 cipher. Alias: !rot13.'

@@ -12,6 +12,7 @@ require_relative 'yossarian_plugin'
 
 class RegexReplace < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def initialize(*args)
 		super

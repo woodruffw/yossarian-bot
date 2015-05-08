@@ -13,6 +13,7 @@ require_relative 'yossarian_plugin'
 
 class LinkTitling < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	match /(http(s)?:\/\/[^ \t]*)/, use_prefix: false, method: :link_title
 

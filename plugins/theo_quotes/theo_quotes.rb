@@ -14,6 +14,7 @@ require_relative '../yossarian_plugin'
 
 class TheoQuotes < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	@@quotes_file = File.expand_path(File.join(File.dirname(__FILE__), 'theo_quotes.yml'))
 

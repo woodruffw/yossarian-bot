@@ -13,6 +13,7 @@ require_relative 'yossarian_plugin'
 
 class WolframAlpha < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!wa <query> - Ask Wolfram|Alpha about <query>. Alias: !wolfram.'

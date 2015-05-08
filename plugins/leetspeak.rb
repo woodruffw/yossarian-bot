@@ -13,6 +13,7 @@ require_relative 'yossarian_plugin'
 
 class LeetSpeak < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def usage
 		'!leet <text> - Convert <text> to leetspeak.'

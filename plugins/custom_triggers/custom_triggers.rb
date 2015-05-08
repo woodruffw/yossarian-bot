@@ -13,6 +13,7 @@ require_relative '../yossarian_plugin'
 
 class CustomTriggers < YossarianPlugin
 	include Cinch::Plugin
+	use_blacklist
 
 	def initialize(*args)
 		super
