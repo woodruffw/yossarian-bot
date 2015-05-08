@@ -60,8 +60,8 @@ The `!botinfo` command takes one of the following keys:
 ### `!admin` sub-commands
 
 In order to administrate the bot, your IRC nick must be authorized.
-Authorized nicks are either defined at execution with the `-a`/`--admins` flag
-or with the `!admin auth <nick>` command at runtime (by an extant admin).
+Authorized nicks are either defined in the bot's `config.yml` or
+with the `!admin auth <nick>` command at runtime (by an extant admin).
 
 The `!admin` command can take several sub-commands:
 

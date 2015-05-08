@@ -60,19 +60,6 @@ $ ruby yossarian-bot.rb # not run in background
 Look at [the example config.yml](config.yml.example) to see a list of optional and required
 keys.
 
-### Command-Line Options
-
-All arguments are optional:
-
-* `-t`/`--no-link-titles` - Disable link titling.
-* `-s`/`--no-seen` - Disable the `!seen` command.
-* `-r`/`--no-regex-replace` - Disable `sed`-like typo replacement.
-* `-i`/`--no-intros` - Disable custom user intros.
-* `-q`/`--no-quotes` - Disable user quote collection.
-* `-c`/`--no-ctcp-version` - Disable `!ver` requests.
-
-`yossarian-bot` has two usage cases: commands and matches.
-
 ### Commands
 
 There are a bunch of commands that `yossarian-bot` accepts. You can
