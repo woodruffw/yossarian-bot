@@ -75,6 +75,8 @@ the given <plugin> must be a class name.
 * `!admin deauth <nick>` - Remove \<nick\> from the administrator list.
 * `!admin join <channel>` - Join \<channel\> on the network.
 * `!admin leave <channel>` - Leave \<channel\> on the network, if in it.
+* `!admin ignore <nick>` - Ignore messages and commands from \<nick\>.
+* `!admin unignore <nick>` - Stop ignoring messages and commands from \<nick\>.
 * `!admin say <channel> <message>` - Make the bot say \<message\> in \<channel\>.
 * `!admin act <channel> <message>` - Make the bot act \<message\> in \<channel\>.
 
