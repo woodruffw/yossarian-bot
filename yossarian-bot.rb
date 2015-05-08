@@ -119,10 +119,10 @@ OptionParser.new do |opts|
 	end
 end.parse!
 
-config_options['servers'].each do |server, channels|
+config_options['servers'].each do |server, info|
 	server_threads << Thread.new do
 		bot = Cinch::Bot.new do
-			@admins = config_options['admins'] or []
+			@admins = info['admins'] or []
 
 			def admins
 				@admins
@@ -134,9 +134,9 @@ config_options['servers'].each do |server, channels|
 				conf.user = 'yossarian-bot'
 				conf.max_messages = 1
 				conf.server = server
-				conf.channels = channels['channels']
-				conf.port = channels['port']
-				conf.ssl.use = channels['ssl'] or false
+				conf.channels = info['channels']
+				conf.port = info['port']
+				conf.ssl.use = info['ssl'] or false
 				conf.plugins.prefix = Regexp.new(config_options['prefix']) or /^!/
 				conf.plugins.plugins = $BOT_PLUGINS.dup
 

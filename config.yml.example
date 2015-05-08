@@ -3,17 +3,19 @@
 nick: 'yossarian-test'
 prefix: '^!'
 
-# not mandatory, but required for !admin commands
-admins: ['cpt_yossarian']
-
 # mandatory keys
 servers:
     irc.rizon.net:
+        admins:
+            - 'cpt_yossarian'
+            - 'yossarian'
         ssl: true
         port: 6697
         channels:
             - '#yossarian-bot'
     irc.freenode.net:
+        admins:
+            - 'woodruffw'
         ssl: true
         port: 6697
         channels:
