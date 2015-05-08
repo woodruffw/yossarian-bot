@@ -21,7 +21,7 @@ class BotInfo < YossarianPlugin
 	end
 
 	def usage
-		'!bi [key] - Retrieve information about the bot. Keys: ver, src, author, uptime, chans, admins. Alias: !botinfo.'
+		'!bi [key] - Retrieve information about the bot. Keys: ver, src, author, uptime, chans, admins, ignores. Alias: !botinfo.'
 	end
 
 	def match?(cmd)
@@ -48,6 +48,8 @@ class BotInfo < YossarianPlugin
 			m.reply "Channels: %s" % @bot.channels.join(', ')
 		when /^admins$/
 			m.reply "Admins: %s" % @bot.admins.join(', ')
+		when /^ignores$/
+			m.reply "Ignored nicks: %s" % $BLACKLIST.join(', ')
 		else
 			m.reply "I don\'t have any information on \'#{key}\'. Try !help botinfo."
 		end

@@ -55,6 +55,7 @@ The `!botinfo` command takes one of the following keys:
 * `!botinfo uptime` - Get `yossarian-bot`'s running time.
 * `!botinfo chans` (or `channels`) - List the channels the bot is currently on.
 * `!botinfo admins` - List the nicks of the admins currently registered to the bot.
+* `!botinfo ignores` - List nicks currently ignored by the bot.
 
 ### `!admin` sub-commands
 

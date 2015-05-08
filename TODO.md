@@ -8,6 +8,7 @@ TODO
 * Research better ways to connect to multiple networks besides spawning new
 Cinch instances/Threads.
 * Reduce/remove any remaining global variables
+* Make blacklisting less awful (no monkey patch or global variable).
 
 ## Plugins
 
