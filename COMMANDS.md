@@ -34,7 +34,7 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!insult [nick]` - Generate a Shakespearean insult and direct it at a nickname if given.
 * `!luther [nick]` - Get an insult from [Luther's Oeuvre](http://ergofabulous.org/luther/) and direct it at a nickname if given.
 * `!theo [nick]` - Get a random Theo De Raadt quote and direct it at a nickname if given.
-* `!cbsg` - Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live) and direct it at a nickname if given.
+* `!cbsg` - Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live).
 * `!btc` - Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/)
 * `!wp` - Get the current world population estimate from the [US Census](https://www.census.gov/popclock/data/population/world)
 * `!rb <code>` - Evaluate some Ruby code on [eval.in](https://eval.in). 
