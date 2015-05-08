@@ -150,6 +150,36 @@ class BotAdmin < YossarianPlugin
 		end
 	end
 
+	match /admin ignore (\S+)/, method: :bot_ignore_nick
+
+	def bot_ignore_nick(m, nick)
+		if authenticate?(m.user.nick)
+			unless $BLACKLIST.include?(nick)
+				$BLACKLIST << nick
+				m.reply "I\'m ignoring #{nick}.", true
+			else
+				m.reply "I\'m already ignoring #{nick}.", true
+			end
+		else
+			m.reply "You do not have permission to do that.", true
+		end
+	end
+
+	match /admin unignore (\S+)/, method: :bot_unignore_nick
+
+	def bot_unignore_nick(m, nick)
+		if authenticate?(m.user.nick)
+			if $BLACKLIST.include?(nick)
+				$BLACKLIST.delete(nick)
+				m.reply "I\'m no longer ignoring #{nick}.", true
+			else
+				m.reply "I\'m not currently ignoring #{nick}.", true
+			end
+		else
+			m.reply "You do not have permission to do that.", true
+		end
+	end
+
 	match /admin say (#\S+) (.+)/, method: :bot_say
 
 	def bot_say(m, chan, msg)

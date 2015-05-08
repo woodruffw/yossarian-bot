@@ -18,6 +18,8 @@ Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |plugin|
 	require plugin
 end
 
+require_relative 'lib/extensions/cinch/bot/handler_list'
+
 $BOT_PLUGINS = [
 	CommandHelp,
 	Ping,
@@ -62,6 +64,8 @@ $BOT_PLUGINS = [
 	LinkTitling,
 	RegexReplace
 ]
+
+$BLACKLIST = Set.new
 
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
 config_options = {}

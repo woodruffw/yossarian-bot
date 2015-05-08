@@ -16,7 +16,7 @@ class BotInfo < YossarianPlugin
 
 	def initialize(*args)
 		super
-		@bot_version = 2.21
+		@bot_version = 2.22
 		@bot_starttime = Time.now
 	end
 
