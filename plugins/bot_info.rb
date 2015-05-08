@@ -36,22 +36,22 @@ class BotInfo < YossarianPlugin
 	def bot_info(m, key)
 		case key
 		when /(^version$)|(^ver$)/
-			m.reply "yossarian-bot version %s." % @bot_version
+			m.user.send "yossarian-bot version %s." % @bot_version
 		when /(^source$)|(^src$)/
-			m.reply 'https://github.com/woodruffw/yossarian-bot'
+			m.user.send 'https://github.com/woodruffw/yossarian-bot'
 		when /^author$/
-			m.reply 'Author: woodruffw'
+			m.user.send 'Author: woodruffw'
 		when /^uptime$/
 			diff = TimeDifference.between(@bot_starttime, Time.now).in_general
-			m.reply "I\'ve been online for %d days, %d hours, %d minutes, and %d seconds." % [diff[:days], diff[:hours], diff[:minutes], diff[:seconds]]
+			m.user.send "I\'ve been online for %d days, %d hours, %d minutes, and %d seconds." % [diff[:days], diff[:hours], diff[:minutes], diff[:seconds]]
 		when /^chan(nel)?s$/
-			m.reply "Channels: %s" % @bot.channels.join(', ')
+			m.user.send "Channels: %s" % @bot.channels.join(', ')
 		when /^admins$/
-			m.reply "Admins: %s" % @bot.admins.join(', ')
+			m.user.send "Admins: %s" % @bot.admins.join(', ')
 		when /^ignores$/
-			m.reply "Ignored nicks: %s" % $BLACKLIST.join(', ')
+			m.user.send "Ignored nicks: %s" % $BLACKLIST.join(', ')
 		else
-			m.reply "I don\'t have any information on \'#{key}\'. Try !help botinfo."
+			m.user.send "I don\'t have any information on \'#{key}\'. Try !help botinfo."
 		end
 	end
 end
