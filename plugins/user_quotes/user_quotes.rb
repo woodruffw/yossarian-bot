@@ -87,12 +87,12 @@ class UserQuotes < YossarianPlugin
 	def random_quote(m)
 		chan = m.channel.to_s
 
-		unless chan == nil or @quotes[chan] == nil
+		unless chan == nil || @quotes[chan] == nil
 			nick = @quotes[chan].keys.sample
 			quote = @quotes[chan][nick].sample
 			m.reply "#{quote} [#{nick} on #{chan}]"
 		else
-			m.reply "I don\'t have any quotes yet. Check back in a bit."
+			m.reply "I don\'t have any quotes on this channel yet. Check back in a bit."
 		end
 	end
 
