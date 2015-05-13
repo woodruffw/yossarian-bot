@@ -185,6 +185,17 @@ class BotAdmin < YossarianPlugin
 		end
 	end
 
+    match /admin nick (\S+)/, method: :bot_nick
+
+    def bot_nick(m, nick)
+        if authenticate?(m.user.nick)
+            m.reply "Changing my nickname to #{nick}.", true
+            @bot.nick = nick
+        else
+            m.reply "You do not have permission to do that.", true
+        end
+    end
+
 	match /admin say (#\S+) (.+)/, method: :bot_say
 
 	def bot_say(m, chan, msg)
