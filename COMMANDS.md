@@ -16,6 +16,7 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!w <location>` - Get the weather from [Wunderground](https://www.wunderground.com/).
 * `!g <search>` - Search [Google](https://google.com).
 * `!yt <search>` - Search [YouTube](https://youtube.com).
+* `!ddg <search>` - Search [DuckDuckGo](https://duckduckgo.com)'s Zero Click Info database.
 * `!rot13 <text>` - "Encrypt" some text with the ROT-13 cipher.
 * `!8ball <question>` - Ask the Magic 8 Ball a question.
 * `!define <word>` - Get the [Merriam-Webster](http://www.merriam-webster.com/) definiton of a word.

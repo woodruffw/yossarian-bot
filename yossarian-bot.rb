@@ -32,6 +32,7 @@ $BOT_PLUGINS = [
 	GoogleSearch,
 	GoogleTranslate,
 	YouTubeSearch,
+	DuckDuckGoSearch,
 	Magic8Ball,
 	MerriamWebster,
 	Cleverbot,

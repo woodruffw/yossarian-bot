@@ -14,3 +14,5 @@ gem 'haste'
 gem 'telegraph'
 gem 'mechanize'
 gem 'leetspeak'
+gem 'duck-duck-go'
+
