@@ -66,8 +66,6 @@ $BOT_PLUGINS = [
 	RegexReplace
 ]
 
-$BLACKLIST = []
-
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
 config_options = {}
 server_threads = []
