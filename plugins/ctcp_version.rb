@@ -41,7 +41,6 @@ class CTCPVersion < YossarianPlugin
 				@channel = m.channel
 				@sent = true
 			end
-
 		else
 			m.reply "I don\'t see #{nick} in this channel."
 		end
@@ -50,10 +49,14 @@ class CTCPVersion < YossarianPlugin
 	listen_to :ctcp, method: :ctcp_ver_recv
 
 	def ctcp_ver_recv(m)
-		if m.ctcp_message.include?('VERSION') && @sent
-			version = m.ctcp_message.sub('VERSION ', '')
-			Channel(@channel).send "#{@nick}: #{m.user.nick} is using #{version}."
-			@sent = false
+		if m.ctcp_message.include?('VERSION')
+			if @sent
+				version = m.ctcp_message.sub('VERSION ', '')
+				Channel(@channel).send "#{@nick}: #{m.user.nick} is using #{version}."
+				@sent = false
+			else
+				m.reply 'See !botinfo version for my version.', true
+			end
 		end
 	end
 end
