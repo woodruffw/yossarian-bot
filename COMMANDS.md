@@ -43,6 +43,7 @@ All commands are prefixed with `!`, or `.`/`:` in some cases.
 * `!leet <text>` - Convert text to leetspeak.
 * `![rm|show]intro <intro>` - Set an custom intro for your nick. Prefixing this command with `show` or `rm` shows or removes your intro, respectively.
 * `!quote [nick]` - Retrieve a completely random quote, or a random quote from the given nick.
+* `!mail <nick> <message>` - Send a message to a nick. Messages are delivered the next time the nick speaks.
 * `!trigger <command>` - Manage custom message replies and their triggers. See below.
 * `!ver [nick]` - Send a CTCP VERSION request to the given nick.
 

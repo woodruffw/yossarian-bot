@@ -59,6 +59,7 @@ $BOT_PLUGINS = [
 	LeetSpeak,
 	UserIntros,
 	UserQuotes,
+	UserMail,
 	CustomTriggers,
 	CTCPVersion,
 	LastSeen,
