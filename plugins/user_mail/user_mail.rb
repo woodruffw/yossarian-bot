@@ -56,7 +56,7 @@ class UserMail < YossarianPlugin
 	listen_to :channel
 
 	def listen(m)
-		nick = m.user.nick
+		nick = m.user.nick.downcase
 
 		if @mbox.has_key?(nick)
 			@mbox[nick].each do |msg|
@@ -70,10 +70,10 @@ class UserMail < YossarianPlugin
 	match /mail (\S+) (.+)/, method: :mail
 
 	def mail(m, nick, msg)
-		if @mbox.has_key?(nick)
-			@mbox[nick] << MboxMessageStruct.new(m.user.nick, Time.now, msg)
+		if @mbox.has_key?(nick.downcase)
+			@mbox[nick.downcase] << MboxMessageStruct.new(m.user.nick, Time.now, msg)
 		else
-			@mbox[nick] = [MboxMessageStruct.new(m.user.nick, Time.now, msg)]
+			@mbox[nick.downcase] = [MboxMessageStruct.new(m.user.nick, Time.now, msg)]
 		end
 
 		m.reply "I\'ll pass your message on to #{nick} the next time I see them on."
