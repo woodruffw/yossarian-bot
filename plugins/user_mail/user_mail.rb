@@ -76,7 +76,7 @@ class UserMail < YossarianPlugin
 			@mbox[nick.downcase] = [MboxMessageStruct.new(m.user.nick, Time.now, msg)]
 		end
 
-		m.reply "I\'ll pass your message on to #{nick} the next time I see them on."
+		m.reply "I\'ll give your message to #{nick} the next time I see them."
 		sync_mbox_file
 	end
 end
