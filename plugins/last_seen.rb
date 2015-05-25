@@ -36,19 +36,21 @@ class LastSeen < YossarianPlugin
 
 	listen_to :channel
 	def listen(m)
-		@users[m.user.nick] = LastSeenStruct.new(m.user, m.channel, m.message, Time.now)
+		@users[m.user.nick.downcase] = LastSeenStruct.new(m.user.nick, m.channel, m.message, Time.now)
 	end
 
-	match /seen (\w+)/, method: :last_seen
+	match /seen (\S+)/, method: :last_seen
 	def last_seen(m, nick)
+		nick.downcase!
+
 		if nick == @bot.nick
-			m.reply "That\'s not going to work."
+			m.reply "That\'s not going to work.", true
 		elsif nick == m.user.nick
-			m.reply "You\'re online right now."
+			m.reply "You\'re online right now.", true
 		elsif @users.has_key?(nick)
-			m.reply @users[nick].to_s
+			m.reply @users[nick].to_s, true
 		else
-			m.reply "I\'ve never seen #{nick}."
+			m.reply "I\'ve never seen #{nick}.", true
 		end
 	end
 end
