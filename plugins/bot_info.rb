@@ -17,7 +17,7 @@ class BotInfo < YossarianPlugin
 
 	def initialize(*args)
 		super
-		@bot_version = 2.24
+		@bot_version = 2.25
 		@bot_starttime = Time.now
 	end
 
@@ -36,23 +36,23 @@ class BotInfo < YossarianPlugin
 
 	def bot_info(m, key)
 		case key
-		when /(^version$)|(^ver$)/
-			m.user.notice "yossarian-bot version %s." % @bot_version
+		when /(^version$)|(^vers?$)/
+			m.reply "yossarian-bot version %s." % @bot_version
 		when /(^source$)|(^src$)/
-			m.user.notice 'https://github.com/woodruffw/yossarian-bot'
+			m.reply 'https://github.com/woodruffw/yossarian-bot'
 		when /^author$/
-			m.user.notice 'Author: woodruffw'
+			m.reply 'Author: woodruffw'
 		when /^uptime$/
 			diff = TimeDifference.between(@bot_starttime, Time.now).in_general
-			m.user.notice "I\'ve been online for %d days, %d hours, %d minutes, and %d seconds." % [diff[:days], diff[:hours], diff[:minutes], diff[:seconds]]
+			m.reply "I\'ve been online for %d days, %d hours, %d minutes, and %d seconds." % [diff[:days], diff[:hours], diff[:minutes], diff[:seconds]]
 		when /^chan(nel)?s$/
-			m.user.notice "Channels: %s" % @bot.channels.join(', ')
+			m.reply "Channels: %s" % @bot.channels.join(', ')
 		when /^admins$/
-			m.user.notice "Admins: %s" % @bot.admins.join(', ')
+			m.user.notice "Admins: %s" % @bot.admins.join(', ') # notice to prevent highlight bans
 		when /^ignores$/
-			m.user.notice "Ignored hosts: %s" % @bot.blacklist.join(', ')
+			m.reply "Ignored hosts: %s" % @bot.blacklist.join(', ')
 		else
-			m.user.notice "I don\'t have any information on \'#{key}\'. Try !help botinfo."
+			m.reply "I don\'t have any information on \'#{key}\'. Try !help botinfo."
 		end
 	end
 end
