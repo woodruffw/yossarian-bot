@@ -23,4 +23,6 @@ or switched to a non-paid service.
 * There are problem race conditions in some of the plugins.
 * LastSeen should probably be rewritten/changed to be persistent across bot
 reboots.
+* Fix case sensitivity in plugins that use nicks. IRC isn't case sensitive, so
+the bot shouldn't be.
 
