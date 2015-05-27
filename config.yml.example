@@ -2,6 +2,10 @@
 # optional keys, set by default or not necessary
 nick: 'yossarian-test'
 prefix: '^!'
+disabled_plugins:
+    - 'LinkTitling'
+    - 'UserIntros'
+    - 'RegexReplace'
 
 # mandatory keys
 servers:
