@@ -57,8 +57,8 @@ $ ruby yossarian-bot.rb # not run in background
 
 `yossarian-bot` is configured via a YAML file named *config.yml*.
 
-Look at [the example config.yml](config.yml.example) to see a list of optional and required
-keys.
+Look at [the example config.yml](config.yml.example) to see a list of optional
+and required keys.
 
 ### Commands
 
@@ -74,8 +74,8 @@ HTML page. This feature can be disabled by adding `LinkTitling` to the server's
 Messages of the form `s/(.+)/(.+)` are also matched, and the first pattern
 matched is applied to the user's last previous message, with the second match
 replacing it. For example, a typo like "this is a setnence" can be corrected
-with `s/setnence/sentence`. This feature can be disabled by adding `RegexReplace`
-to the server's `disabled_plugins` array in `config.yml`.
+with `s/setnence/sentence`. This feature can be disabled by adding
+`RegexReplace` to the server's `disabled_plugins` array in `config.yml`.
 
 ## Contributing
 
