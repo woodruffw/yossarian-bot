@@ -67,15 +67,15 @@ see a complete list in the [COMMANDS](COMMANDS.md) file.
 
 ### Matches
 
-`yossarian-bot` matches all HTTP[S] links
-and messages the title of the linked HTML page. This feature can be disabled
-with the `-n`/`--no-link-titles` flag.
+`yossarian-bot` matches all HTTP[S] links and messages the title of the linked
+HTML page. This feature can be disabled by adding `LinkTitling` to the 
+`disabled_plugins` array in `config.yml`.
 
 Messages of the form `s/(.+)/(.+)` are also matched, and the first pattern
 matched is applied to the user's last previous message, with the second match
 replacing it. For example, a typo like "this is a setnence" can be corrected
-with `s/setnence/sentence`. This feature can be disabled with the
-`-r`/`--no-regex-replace` flag.
+with `s/setnence/sentence`. This feature can be disabled by adding `RegexReplace`
+to the `disabled_plugins` array in `config.yml`.
 
 ## Contributing
 

@@ -77,48 +77,6 @@ else
 	abort('Fatal: Could not find a config.yml to load from.')
 end
 
-flags = {
-	:links => true,
-	:seen => true,
-	:regex => true,
-	:intros => true,
-	:quotes => true,
-	:ctcp => true,
-	:triggers => true,
-}
-
-OptionParser.new do |opts|
-	opts.banner = "Usage: $0 [flags]"
-
-	opts.on('-t', '--no-link-titles', 'Do not title links.') do
-		flags[:links] = false
-	end
-
-	opts.on('-s', '--no-seen', 'Disable the !seen command.') do
-		flags[:seen] = false
-	end
-
-	opts.on('-r', '--no-regex-replace', 'Disable sed-like regexes for typos.') do
-		flags[:regex] = false
-	end
-
-	opts.on('-i', '--no-intros', 'No custom user intros.') do
-		flags[:intros] = false
-	end
-
-	opts.on('-q', '--no-quotes', 'No !quote collection.') do
-		flags[:quotes] = false
-	end
-
-	opts.on('-c', '--no-ctcp-version', 'No !ver requests.') do
-		flags[:ctcp] = false
-	end
-
-	opts.on('-T', '--no-custom-triggers', 'No custom triggers.') do
-		flags[:triggers] = false
-	end
-end.parse!
-
 config_options['servers'].each do |server, info|
 	server_threads << Thread.new do
 		bot = Cinch::Bot.new do
@@ -145,32 +103,8 @@ config_options['servers'].each do |server, info|
 				conf.plugins.prefix = Regexp.new(config_options['prefix']) or /^!/
 				conf.plugins.plugins = $BOT_PLUGINS.dup
 
-				unless flags[:seen]
-					conf.plugins.plugins.delete(LastSeen)
-				end
-
-				unless flags[:links]
-					conf.plugins.plugins.delete(LinkTitling)
-				end
-
-				unless flags[:regex]
-					conf.plugins.plugins.delete(RegexReplace)
-				end
-
-				unless flags[:intros]
-					conf.plugins.plugins.delete(UserIntros)
-				end
-
-				unless flags[:quotes]
-					conf.plugins.plugins.delete(UserQuotes)
-				end
-
-				unless flags[:ctcp]
-					conf.plugins.plugins.delete(CTCPVersion)
-				end
-
-				unless flags[:triggers]
-					conf.plugins.plugins.delete(CustomTriggers)
+				config_options['disabled_plugins'].each do |plugin|
+					conf.plugins.plugins.delete(Object.const_get(plugin))
 				end
 			end
 
