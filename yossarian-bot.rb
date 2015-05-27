@@ -51,6 +51,7 @@ $BOT_PLUGINS = [
 	ShakespeareanInsults,
 	LutherInsults,
 	TheoQuotes,
+	LennartQuotes,
 	CBSG,
 	BTC,
 	WorldPopulation,

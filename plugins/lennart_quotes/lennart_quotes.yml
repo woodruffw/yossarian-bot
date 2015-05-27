@@ -1,0 +1,22 @@
+- I don't usually talk about this too much, and hence I figure that people are really not aware of this, but yes, the Open Source community is full of assholes, and I probably more than most others am one of their most favourite targets.
+- I am used to rough discussions on mailing lists, and yes, when I was younger I did not always stay technical in flamewars, but nowadays I am pretty good at that, I am sometimes articulate, but never personal.
+- I'd actually put some blame on a certain circle of folks that play a major role in kernel development, and first and foremost Linus Torvalds himself.
+- If Linux had success, then that certainly happened despite, not because of this behaviour.
+- If you are a newcomer to Linux, either grow a really thick skin. Or run away, it's not a friendly place to be in. It is sad that it is that way, but it certainly is.
+- The Linux community is dominated by western, white, straight, males in their 30s and 40s these days. I perfectly fit in that pattern, and the rubbish they pour over me is awful. I can only imagine that it is much worse for members of minorities, or people from different cultural backgrounds, in particular ones where losing face is a major issue.
+- I get hate mail for hacking on Open Source. People have started multiple "petitions" on petition web sites, asking me to stop working (google for it). Recently, people started collecting Bitcoins to hire a hitman for me (this really happened!)
+- Both Windows Vista and MacOS X have similar g-f logic in their audio stacks, however with PA we brought it to the next step.
+- On Free Software systems PA doesn't really have any competitor. Some people think that JACK is one, but it actually is not.
+- I think that PA is the way forward for audio on the Linux desktop. It may have its deficiencies -- but everything has.
+- It always is a great feeling to see how PA got incorporated into so many distributions and how it is now used by so many people.
+- In fact, for quite a few parts of the lower level ALSA APIs PulseAudio is the first user of all. And of course, it cannot be a surprise that we expose bugs that were previously unknown in the drivers this way.
+- So in the past Ubuntu packaged PA in a way that, let's say, was not exactly optimal. I thought they'd gotten around fixing things since then. Turns out they didn't.
+- Putting it all together, we realised that Upstart wouldn’t be it.
+- So we knew that people would hate us for it. We knew we’d have to fight for a long time to get it accepted.
+- I mean, on my laptop I even use NetworkManager, because Networkd doesn’t do wireless, right? 
+- Some people don’t realise that when Gnome started making use of Logind, I actually wrote the patch for that. 
+- So anyway, we tried to do these things in the nicest possible way, but of course people generally don’t acknowledge it!
+- We have this speed, this quick pace with how we progress Systemd, and I think it can only work if we stay somewhat loose and not have strict regulations about how these things work.
+- Then if you look at Gentoo, for example, they still haven’t done Systemd as default. They used to be like Arch Linux is now – they used to be the young people who adopted things quickly. But the Gentoo people aged, and they became more conservative.
+- Nowadays Systemd is very polished in many ways, and the reason why it is so polished is because we actually listen to people.
+- I’m in the lucky position in that there’s no pressure on me in any way.
