@@ -1,27 +1,27 @@
 ---
-# optional keys, set by default or not necessary
-nick: 'yossarian-test'
-prefix: '^!'
-disabled_plugins:
-    - 'LinkTitling'
-    - 'UserIntros'
-    - 'RegexReplace'
-
-# mandatory keys
 servers:
-    irc.rizon.net:
-        admins:
+    irc.rizon.net: # at least one server entry is mandatory
+        nick: 'yossarian-bot' # optional
+        prefix: '^!' # optional
+        admins: # optional
             - 'cpt_yossarian'
             - 'yossarian'
-        ssl: true
-        port: 6697
-        channels:
+        ssl: true # optional
+        port: 6697 # optional
+        channels: # mandatory
             - '#yossarian-bot'
+        disabled_plugins: # mandatory - use an empty array if none
+            - 'LinkTitling'
+            - 'UserIntros'
+            - 'RegexReplace'
     irc.freenode.net:
+        nick: 'yossarian-bot'
+        prefix: '^!'
         admins:
             - 'woodruffw'
         ssl: true
         port: 6697
         channels:
             - '#bots'
+        disabled_plugins: []
 

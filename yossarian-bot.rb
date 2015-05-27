@@ -77,10 +77,10 @@ else
 	abort('Fatal: Could not find a config.yml to load from.')
 end
 
-config_options['servers'].each do |server, info|
+config_options['servers'].each do |server_name, server_info|
 	server_threads << Thread.new do
 		bot = Cinch::Bot.new do
-			@admins = info['admins'] or []
+			@admins = server_info['admins'] or []
 			@blacklist = []
 
 			def admins
@@ -92,18 +92,18 @@ config_options['servers'].each do |server, info|
 			end
 
 			configure do |conf|
-				conf.nick = config_options['nick'] or 'yossarian-bot'
+				conf.nick = server_info['nick'] or 'yossarian-bot'
 				conf.realname = 'yossarian-bot'
 				conf.user = 'yossarian-bot'
 				conf.max_messages = 1
-				conf.server = server
-				conf.channels = info['channels']
-				conf.port = info['port']
-				conf.ssl.use = info['ssl'] or false
-				conf.plugins.prefix = Regexp.new(config_options['prefix']) or /^!/
+				conf.server = server_name
+				conf.channels = server_info['channels']
+				conf.port = server_info['port'] or 6667
+				conf.ssl.use = server_info['ssl'] or false
+				conf.plugins.prefix = Regexp.new(server_info['prefix']) or /^!/
 				conf.plugins.plugins = $BOT_PLUGINS.dup
 
-				config_options['disabled_plugins'].each do |plugin|
+				server_info['disabled_plugins'].each do |plugin|
 					conf.plugins.plugins.delete(Object.const_get(plugin))
 				end
 			end
