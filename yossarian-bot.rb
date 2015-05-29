@@ -41,6 +41,7 @@ $BOT_PLUGINS = [
 	TinyURL,
 	GitHubInfo,
 	XKCDComics,
+	Jerkcity,
 	IsItUp,
 	Hastebin,
 	Slap,

@@ -1,0 +1,66 @@
+#  -*- coding: utf-8 -*-
+#  jerkcity.rb
+#  Author: William Woodruff
+#  ------------------------
+#  A Cinch plugin that fetches random Jerkcity comics for yossarian-bot.
+#  ------------------------
+#  This code is licensed by William Woodruff under the MIT License.
+#  http://opensource.org/licenses/MIT
+
+require 'open-uri'
+require 'nokogiri'
+
+require_relative 'yossarian_plugin'
+
+class Jerkcity < YossarianPlugin
+	include Cinch::Plugin
+	use_blacklist
+
+	def initialize(*args)
+		super
+		@url = 'http://jerkcity.com'
+		@comic_count = 0
+	end
+
+	def usage
+		'!jerkcity - Fetch a random comic from jerkcity.com.'
+	end
+
+	def match?(cmd)
+		cmd =~ /^(!)?jerkcity$/
+	end
+
+	listen_to :connect, method: :initialize_comic_count
+
+	def initialize_comic_count(m)
+		begin
+			html = Nokogiri::HTML(open(@url).read)
+			text = html.css('div')[3].text
+			@comic_count = text.split('|')[2].strip.gsub(/(No. )|(,)/, '').to_i
+		rescue Exception => e
+			debug e.to_s
+		end
+	end
+
+	match /jerkcity$/, method: :jerkcity
+
+	def jerkcity(m)
+		if @comic_count > 0
+			rand = Random.rand(1..@comic_count)
+			comic_url = "#{@url}/_jerkcity#{rand}.html"
+			
+			begin
+				html = Nokogiri::HTML(open(comic_url).read)
+				text_array = html.css('div')[3].text.split('|')
+				comic_desc = text_array[0].strip
+				comic_date = text_array[1].strip
+
+				m.reply "#{comic_desc} (#{comic_date}) - #{comic_url}", true
+			rescue Exception => e
+				m.reply e.to_s, true
+			end
+		else
+			m.reply 'Internal error (couldn\'t get comic count).'
+		end
+	end
+end

@@ -33,6 +33,7 @@ definiton of a word.
 * `!gh <username>` - Get statistics about a [GitHub](https://github.com/) user.
 * `!xkcd [search]` - Get a random [XKCD](http://xkcd.com/) comic, or one related
 to a query.
+* `!jerkcity` - Get a random [Jerkcity](http://jerkcity.com/) comic.
 * `!isitup <site>` - Check whether or not a given site is currently online.
 * `!haste <text>` - Post text to [Hastebin](http://hastebin.com/).
 * `!slap <nick>` - Slap someone with a large trout.
