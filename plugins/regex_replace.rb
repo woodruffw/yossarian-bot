@@ -27,7 +27,7 @@ class RegexReplace < YossarianPlugin
 		end
 	end
 
-	match /s\/([^\/]*)\/([^\/]*)(\/)?/, use_prefix: false, method: :sed
+	match /^s\/([^\/]*)\/([^\/]*)(\/)?$/, use_prefix: false, method: :sed
 
 	def sed(m, orig, repl)
 		if @users.has_key?(m.user.nick)
