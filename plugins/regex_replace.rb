@@ -22,7 +22,7 @@ class RegexReplace < YossarianPlugin
 	listen_to :channel
 
 	def listen(m)
-		if m.message !~ /s\/([^\/]*)\/([^\/]*)(\/)?/
+		if m.message !~ /^s\/([^\/]*)\/([^\/]*)(\/)?$/
 			@users[m.user.nick] = m.message
 		end
 	end
