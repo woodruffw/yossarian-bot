@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'open_uri_redirections'
 gem 'daemons'
 gem 'cinch'
 gem 'json'
@@ -15,4 +16,3 @@ gem 'telegraph'
 gem 'mechanize'
 gem 'leetspeak'
 gem 'duck-duck-go'
-

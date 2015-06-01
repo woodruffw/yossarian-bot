@@ -7,6 +7,8 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require 'open-uri'
+require 'open_uri_redirections'
 require 'nokogiri'
 
 require_relative 'yossarian_plugin'
@@ -19,10 +21,10 @@ class LinkTitling < YossarianPlugin
 
 	def link_title(m, link)
 		begin
-			html = Nokogiri::HTML(open(link, {:read_timeout => 3}))
+			html = Nokogiri::HTML(open(link, {:read_timeout => 3, :allow_redirections => :safe}))
 			title = html.css('title').text.gsub(/[\t\r\n]/, '')
 
-			if title.size > 0
+			unless title.empty?
 				m.reply "Title: \'#{title}\'"
 			end
 		rescue Exception => e
