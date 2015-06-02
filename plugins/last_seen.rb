@@ -41,14 +41,12 @@ class LastSeen < YossarianPlugin
 
 	match /seen (\S+)/, method: :last_seen
 	def last_seen(m, nick)
-		nick.downcase!
-
 		if nick == @bot.nick
 			m.reply "That\'s not going to work.", true
 		elsif nick == m.user.nick
 			m.reply "You\'re online right now.", true
-		elsif @users.has_key?(nick)
-			m.reply @users[nick].to_s, true
+		elsif @users.has_key?(nick.downcase)
+			m.reply @users[nick.downcase].to_s, true
 		else
 			m.reply "I\'ve never seen #{nick}.", true
 		end
