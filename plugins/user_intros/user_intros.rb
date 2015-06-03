@@ -42,7 +42,7 @@ class UserIntros < YossarianPlugin
 		if File.exist?(@intros_file)
 			@intros = YAML::load_file(@intros_file)
 		else
-			FileUtils.mkpath File.dirname(@intros_file)
+			FileUtils.mkdir_p File.dirname(@intros_file)
 		end
 	end
 

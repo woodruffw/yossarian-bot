@@ -1,4 +1,52 @@
 ---
+available_plugins:
+    - CommandHelp
+    - Ping
+    - BotInfo
+    - BotAdmin
+    - Catch22
+    - UrbanDictionary
+    - WolframAlpha
+    - Weather
+    - GoogleSearch
+    - GoogleTranslate
+    - YouTubeSearch
+    - DuckDuckGoSearch
+    - Magic8Ball
+    - MerriamWebster
+    - Cleverbot
+    - Fortune
+    - Rot13
+    - TinyURL
+    - GitHubInfo
+    - XKCDComics
+    - Jerkcity
+    - IsItUp
+    - Hastebin
+    - Slap
+    - Zalgo
+    - TacoRecipes
+    - RainbowText
+    - MorseCode
+    - ShakespeareanInsults
+    - LutherInsults
+    - TheoQuotes
+    - LennartQuotes
+    - CBSG
+    - BTC
+    - WorldPopulation
+    - RubyEval
+    - Wikipedia
+    - LeetSpeak
+    - UserIntros
+    - UserQuotes
+    - UserMail
+    - CustomTriggers
+    - CTCPVersion
+    - LastSeen
+    - LinkTitling
+    - RegexReplace
+
 servers:
     irc.rizon.net: # at least one server entry is mandatory
         nick: 'yossarian-bot' # optional

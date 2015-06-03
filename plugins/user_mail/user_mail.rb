@@ -49,7 +49,7 @@ class UserMail < YossarianPlugin
 		if File.exist?(@mbox_file)
 			@mbox = YAML::load_file(@mbox_file)
 		else
-			FileUtils.mkdir File.dirname(@mbox_file)
+			FileUtils.mkdir_p File.dirname(@mbox_file)
 		end
 	end
 

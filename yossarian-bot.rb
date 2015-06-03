@@ -20,55 +20,7 @@ Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |plugin|
 	require plugin
 end
 
-$BOT_PLUGINS = [
-	CommandHelp,
-	Ping,
-	BotInfo,
-	BotAdmin,
-	Catch22,
-	UrbanDictionary,
-	WolframAlpha,
-	Weather,
-	GoogleSearch,
-	GoogleTranslate,
-	YouTubeSearch,
-	DuckDuckGoSearch,
-	Magic8Ball,
-	MerriamWebster,
-	Cleverbot,
-	Fortune,
-	Rot13,
-	TinyURL,
-	GitHubInfo,
-	XKCDComics,
-	Jerkcity,
-	IsItUp,
-	Hastebin,
-	Slap,
-	Zalgo,
-	TacoRecipes,
-	RainbowText,
-	MorseCode,
-	ShakespeareanInsults,
-	LutherInsults,
-	TheoQuotes,
-	LennartQuotes,
-	CBSG,
-	BTC,
-	WorldPopulation,
-	RubyEval,
-	Wikipedia,
-	LeetSpeak,
-	UserIntros,
-	UserQuotes,
-	UserMail,
-	CustomTriggers,
-	CTCPVersion,
-	LastSeen,
-	LinkTitling,
-	RegexReplace
-]
-
+$BOT_PLUGINS = []
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
 config_options = {}
 server_threads = []
@@ -77,6 +29,10 @@ if File.file?(config_file)
 	config_options = YAML::load_file(config_file)
 else
 	abort('Fatal: Could not find a config.yml to load from.')
+end
+
+$BOT_PLUGINS = config_options['available_plugins'].map do |plugin|
+	Object.const_get(plugin)
 end
 
 config_options['servers'].each do |server_name, server_info|

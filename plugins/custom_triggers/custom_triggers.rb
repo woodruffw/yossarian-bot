@@ -41,7 +41,7 @@ class CustomTriggers < YossarianPlugin
 		if File.exist?(@triggers_file)
 			@intros = YAML::load_file(@triggers_file)
 		else
-			FileUtils.mkpath File.dirname(@triggers_file)
+			FileUtils.mkdir_p File.dirname(@triggers_file)
 		end
 	end
 

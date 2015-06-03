@@ -47,7 +47,7 @@ class UserQuotes < YossarianPlugin
 		if File.exist?(@quotes_file)
 			@quotes = YAML::load_file(@quotes_file)
 		else
-			FileUtils.mkdir File.dirname(@quotes_file)
+			FileUtils.mkdir_p File.dirname(@quotes_file)
 		end
 	end
 
