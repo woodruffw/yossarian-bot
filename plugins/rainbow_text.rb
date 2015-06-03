@@ -15,7 +15,7 @@ class RainbowText < YossarianPlugin
 
 	def initialize(*args)
 		super
-		@colors = [3, 4, 6, 7, 8, 9, 11, 13]
+		@colors = ['03', '04', '06', '07', '08', '09', '11', '13']
 	end
 
 	def usage
