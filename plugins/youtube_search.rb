@@ -37,11 +37,19 @@ class YouTubeSearch < YossarianPlugin
 
 				unless hash['items'].empty?
 					entry = hash['items'][0]
+
+					if entry['id']['kind'] == 'youtube#playlist'
+						id = entry['id']['playlistId']
+						url = "youtube.com/playlist?list=#{id}"
+					else
+						id = entry['id']['videoId']
+						url = "youtu.be/#{id}"
+					end
+
 					title = entry['snippet']['title']
 					uploader = entry['snippet']['channelTitle']
-					video_id = entry['id']['videoId']
 
-					m.reply "#{title} [#{uploader}] - https://youtu.be/#{video_id}", true
+					m.reply "#{title} [#{uploader}] - #{url}", true
 				else
 					m.reply "No results for #{search}.", true
 				end
