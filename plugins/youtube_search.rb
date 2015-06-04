@@ -30,26 +30,18 @@ class YouTubeSearch < YossarianPlugin
 	def youtube_search(m, search)
 		if ENV.has_key?('YOUTUBE_API_KEY')
 			query = URI.encode(search)
-			url = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{query}&key=#{ENV['YOUTUBE_API_KEY']}"
+			url = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=#{query}&key=#{ENV['YOUTUBE_API_KEY']}"
 
 			begin
 				hash = JSON.parse(open(url).read)
 
 				unless hash['items'].empty?
 					entry = hash['items'][0]
-
-					if entry['id']['kind'] == 'youtube#playlist'
-						id = entry['id']['playlistId']
-						url = "youtube.com/playlist?list=#{id}"
-					else
-						id = entry['id']['videoId']
-						url = "youtu.be/#{id}"
-					end
-
 					title = entry['snippet']['title']
 					uploader = entry['snippet']['channelTitle']
+					video_id = entry['id']['videoId']
 
-					m.reply "#{title} [#{uploader}] - #{url}", true
+					m.reply "#{title} [#{uploader}] - https://youtu.be/#{video_id}", true
 				else
 					m.reply "No results for #{search}.", true
 				end
