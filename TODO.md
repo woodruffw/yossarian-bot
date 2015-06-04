@@ -3,6 +3,8 @@ TODO
 
 ## Core
 
+* Make a yossarian_bot.rb a YossarianBot class that encapsulates everything
+as an object instead of the current imperative approach.
 * Make plugin management more granular (per-channel)
 * ~~Expand configuration file to remove the need for argument flags~~
 * Research better ways to connect to multiple networks besides spawning new
