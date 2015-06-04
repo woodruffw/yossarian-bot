@@ -29,4 +29,4 @@ reboots.
 * Fix case sensitivity in plugins that use nicks. IRC isn't case sensitive, so
 the bot shouldn't be.
 * Cleverbot appears to have changed its interface, breaking the gem that the
-plugin uses.
+Cleverbot plugin uses.
