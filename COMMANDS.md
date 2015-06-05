@@ -60,7 +60,7 @@ nickname if given.
 * `!rb <code>` - Evaluate some Ruby code on [eval.in](https://eval.in). 
 * `!wiki <search>` - Search [Wikipedia](http://en.wikipedia.org).
 * `!leet <text>` - Convert text to leetspeak.
-* `![rm|show]intro <intro>` - Set an custom intro for your nick.
+* `!intro <command>` - Manage the intro message for your nick. See below.
 Prefixing this command with `show` or `rm` shows or removes your intro,
 respectively.
 * `!quote [nick]` - Retrieve a completely random quote, or a random quote from
@@ -110,6 +110,16 @@ terminate `yossarian-bot`
 \<channel\>.
 * `!admin act <channel> <message>` - Make the bot act \<message\> in 
 \<channel\>.
+
+### `!intro` sub-commands
+
+Each nickname is allowed to have a single introduction per channel registered
+with the bot, which will be said whenever that nickname is seen joining the
+channel in question.
+
+* `!intro add <intro>` - Set your nick's introduction message to \<intro\>.
+* `!intro rm` - Delete your nick's introduction message.
+* `!intro show` - Show your nick's introduction message.
 
 ### `!trigger` sub-commands
 

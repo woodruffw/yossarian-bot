@@ -29,7 +29,7 @@ class UserIntros < YossarianPlugin
 	end
 
 	def usage
-		'![rm|show]intro <intro> - Set a custom intro message for your nick.'
+		'!intro <command> - Manage the intro message for your nick. Commands are add, rm, and show.'
 	end
 
 	def match?(cmd)
@@ -46,7 +46,7 @@ class UserIntros < YossarianPlugin
 		end
 	end
 
-	match /intro (.+)/, method: :set_intro
+	match /intro add (.+)/, method: :set_intro
 
 	def set_intro(m, intro)
 		intro.gsub!(/\x01/, '')
@@ -59,7 +59,7 @@ class UserIntros < YossarianPlugin
 		sync_intros_file
 	end
 
-	match /rmintro/, method: :remove_intro
+	match /intro rm$/, method: :remove_intro
 
 	def remove_intro(m)
 		if @intros.has_key?(m.channel.to_s) && @intros[m.channel.to_s].has_key?(m.user.nick)
@@ -71,7 +71,7 @@ class UserIntros < YossarianPlugin
 		end
 	end
 
-	match /showintro/, method: :show_intro
+	match /intro show$/, method: :show_intro
 
 	def show_intro(m)
 		if @intros.has_key?(m.channel.to_s) && @intros[m.channel.to_s].has_key?(m.user.nick)
