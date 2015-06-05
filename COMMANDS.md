@@ -41,7 +41,7 @@ to a query.
 * `!taco` - Get a random taco recipe, courtesy of the
 [Taco Randomizer](http://taco-randomizer.herokuapp.com/).
 * `!rainbow <text>` - Vomit out rainbowified text.
-* `!flip <text>` - Flip text upside down.
+* `!flip <down|up> <text>` - Flip text upside down or rightside up.
 * `!morse <text>` - Convert text to Morse code.
 * `!insult [nick]` - Generate a Shakespearean insult and direct it at a nickname
 if given.

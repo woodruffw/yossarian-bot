@@ -16,20 +16,20 @@ class FlipText < YossarianPlugin
 	use_blacklist
 
 	def usage
-		'!flip <text> - Flip text upside down.'
+		'!flip <down|up> <text> - Flip text upside down or rightside up.'
 	end
 
 	def match?(cmd)
 		cmd =~ /^(!)?flip$/
 	end
 
-	match /flip (.+)/, method: :flip_text, strip_colors: true
+	match /flip down (.+)/, method: :flip_text, strip_colors: true
 
 	def flip_text(m, text)
 		m.reply text.flip, true
 	end
 
-	match /unflip (.+)/, method: :unflip_text, strip_colors: true
+	match /flip up (.+)/, method: :unflip_text, strip_colors: true
 
 	def unflip_text(m, text)
 		m.reply text.unflip, true
