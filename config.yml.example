@@ -27,6 +27,7 @@ available_plugins:
     - Zalgo
     - TacoRecipes
     - RainbowText
+    - FlipText
     - MorseCode
     - ShakespeareanInsults
     - LutherInsults
