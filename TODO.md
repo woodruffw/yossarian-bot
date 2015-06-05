@@ -30,3 +30,9 @@ reboots.
 the bot shouldn't be.
 * Cleverbot appears to have changed its interface, breaking the gem that the
 Cleverbot plugin uses.
+
+## New Plugin Ideas
+
+* [Systems Research Topic Generator](http://dept.cs.williams.edu/~barath/systems-topic-generator.html)
+* [Crypto Research Topic Generator](http://cseweb.ucsd.edu/~mihir/crypto-topic-generator.html)
+* [CS Research Topic Generator](https://www.cs.purdue.edu/homes/dec/essay.topic.generator.html)
