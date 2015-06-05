@@ -26,6 +26,6 @@ class MorseCode < YossarianPlugin
 	match /morse (.+)/, method: :morse_code, strip_colors: true
 
 	def morse_code(m, text)
-		m.reply Telegraph.text_to_morse(text)
+		m.reply Telegraph.text_to_morse(text), true
 	end
 end
