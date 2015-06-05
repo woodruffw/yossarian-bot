@@ -28,4 +28,10 @@ class FlipText < YossarianPlugin
 	def flip_text(m, text)
 		m.reply text.flip, true
 	end
+
+	match /unflip (.+)/, method: :unflip_text, strip_colors: true
+
+	def unflip_text(m, text)
+		m.reply text.unflip, true
+	end
 end
