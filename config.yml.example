@@ -1,5 +1,6 @@
 ---
 available_plugins:
+    - IBIP
     - CommandHelp
     - Ping
     - BotInfo

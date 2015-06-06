@@ -5,7 +5,8 @@ commands
 
 All commands are prefixed with `!`, or `.`/`:` in some cases.
 
-* `[!.:]help [cmd]` - Message the caller with a list of accepted commands or
+* `[.!:]bots` - Announce this bot to the channel.
+* `[.!:]help [cmd]` - Message the caller with a list of accepted commands or
 help on a command.
 * `!ping` - Ping the bot for a timestamped response.
 * `!botinfo <key>` - Retrieve information about the bot. See below.

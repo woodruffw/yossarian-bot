@@ -65,10 +65,6 @@ config_options['servers'].each do |server_name, server_info|
 					conf.plugins.plugins.delete(Object.const_get(plugin))
 				end
 			end
-
-			on :message, /^[!.:,]bots$/ do |m|
-				m.reply 'Reporting in! [Ruby] See !help for commands.'
-			end
 		end.start
 	end
 end
