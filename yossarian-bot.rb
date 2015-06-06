@@ -11,7 +11,6 @@
 #  http://opensource.org/licenses/MIT
 
 require 'cinch'
-require 'optparse'
 require 'yaml'
 
 require_relative 'lib/blacklist'
