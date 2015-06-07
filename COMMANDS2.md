@@ -56,10 +56,10 @@ Command Syntax | Plugin class | Description | Working?
 `!rb <code>` | RubyEval | Evaluate some Ruby code on [eval.in](https://eval.in). | Yes
 `!wiki <search>` | Wikipedia | Search [Wikipedia](http://en.wikipedia.org). | Yes
 `!leet <text>` | LeetSpeak | Convert text to leetspeak. | Yes
-`!intro <command>` | UserIntros | Manage the intro message for your nick. See below. | Yes
+`!intro <command>` | UserIntros | Manage the intro message for your nick. [See below](#intro). | Yes
 `!quote [nick]` | UserQuotes | Retrieve a completely random quote, or a random quote from the given nick. | Yes
 `!mail <nick> <message>` | UserMail | Send a message to a nick. Messages are delivered the next time the nick speaks. | Yes
-`!trigger <command>` | CustomTriggers | Manage custom message replies and their triggers. See below. | Yes
+`!trigger <command>` | CustomTriggers | Manage custom message replies and their triggers. [See below](#trigger). | Yes
 `!ver <nick>` | CTCPVersion | Send a CTCP VERSION request to the given nick. | Yes
 
 ### `!botinfo` keys <a name="botinfo"></a>
@@ -97,3 +97,25 @@ Subcommand | Description
 `!admin unignore <nick>` | Stop ignoring messages and commands from nick.
 `!admin say <channel> <message>` | Make the bot say the given message in the given channel.
 `!admin act <channel> <message>` | Make the bot act the given message in the given channel.
+
+### `!intro` subcommands <a name="intro"></a>
+
+Each nickname is allowed to have a single introduction per channel registered
+with the bot, which will be said whenever that nickname is seen joining the
+channel in question.
+
+Subcommand | Description
+---------- | ----------
+`!intro add <intro>` | Set your nick's introduction message to the given intro.
+`!intro rm` | Delete your nick's introduction message.
+`!intro show` | Show your nick's introduction message.
+
+### `!trigger` subcommands <a name="trigger"></a>
+
+The `!trigger` command takes one of three subcommands:
+
+Subcommand | Description
+---------- | ----------
+`!trigger add <trigger> <response>` | Make the bot say the given response whenever the given trigger is typed.
+`!trigger rm <trigger>` | Remove the given trigger and the response associated with it.
+`!trigger list` | List all triggers currently stored by `yossarian-bot`. Responses are not listed for the sake of brevity.
