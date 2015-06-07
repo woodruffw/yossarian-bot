@@ -35,15 +35,17 @@ class LastSeen < YossarianPlugin
 	end
 
 	listen_to :channel
+
 	def listen(m)
 		@users[m.user.nick.downcase] = LastSeenStruct.new(m.user.nick, m.channel, m.message, Time.now)
 	end
 
-	match /seen (\S+)/, method: :last_seen
+	match /seen (\S+)/, method: :last_seen, strip_colors: true
+
 	def last_seen(m, nick)
-		if nick == @bot.nick
+		if nick.downcase == @bot.nick.downcase
 			m.reply "That\'s not going to work.", true
-		elsif nick == m.user.nick
+		elsif nick.downcase == m.user.nick.downcase
 			m.reply "You\'re online right now.", true
 		elsif @users.has_key?(nick.downcase)
 			m.reply @users[nick.downcase].to_s, true
