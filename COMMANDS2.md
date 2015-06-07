@@ -23,7 +23,7 @@ Command Syntax | Plugin class | Description | Working?
 `!fortune` | Fortune | Get a Unix fortune. | Yes
 `!c22` | Catch22 | Get a Catch-22 quote. | Yes
 `!ud <query>` | UrbanDictionary | Look up the given query on [UrbanDictionary](http://www.urbandictionary.com/). | Yes
-`!wa <query>` | WolframAlpha | Ask [Wolfram|Alpha](http://www.wolframalpha.com/) about something. | Yes
+`!wa <query>` | WolframAlpha | Ask [Wolfram\|Alpha](http://www.wolframalpha.com/) about something. | Yes
 `!w <location>` | Weather | Get the weather for the given location from [Wunderground](https://www.wunderground.com/). | Yes
 `!g <search>` | GoogleSearch | Search [Google](https://google.com). | Yes
 `!yt <search>` | YouTubeSearch | Search [YouTube](https://youtube.com). | Yes
