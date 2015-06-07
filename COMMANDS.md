@@ -1,133 +1,121 @@
-commands
-=========
+COMMANDS
+========
 
-`yossarian-bot` accepts the following commands:
+This is a list of commands accepted by `yossarian-bot`.
 
-All commands are prefixed with `!`, or `.`/`:` in some cases.
+### Legend
 
-* `[.!:]bots` - Announce this bot to the channel.
-* `[.!:]help [cmd]` - Message the caller with a list of accepted commands or
-help on a command.
-* `!ping` - Ping the bot for a timestamped response.
-* `!botinfo <key>` - Retrieve information about the bot. See below.
-* `!admin <commands>` - Administrate the bot with an authorized user. See below.
-* `!fortune` - Message a Unix fortune.
-* `!c22` - Get a random Catch-22 quote.
-* `!ud <query>` - Look up the given query on
-[UrbanDictionary](http://www.urbandictionary.com/).
-* `!wa <query>` - Ask [Wolfram|Alpha](http://www.wolframalpha.com/) about
-something.
-* `!w <location>` - Get the weather from
-[Wunderground](https://www.wunderground.com/).
-* `!g <search>` - Search [Google](https://google.com).
-* `!yt <search>` - Search [YouTube](https://youtube.com).
-* `!ddg <search>` - Search [DuckDuckGo](https://duckduckgo.com)'s Zero Click
-Info database.
-* `!rot13 <text>` - "Encrypt" some text with the ROT-13 cipher.
-* `!8ball <question>` - Ask the Magic 8 Ball a question.
-* `!define <word>` - Get the [Merriam-Webster](http://www.merriam-webster.com/)
-definiton of a word.
-* `!cb <query>` - Talk to [CleverBot](http://www.cleverbot.com/).
-* `!seen <nick>` - Check the last time `yossarian-bot` saw someone.
-* `!turl <url>` - Create a short link to the given url with
-[TinyURL](http://tinyurl.com/).
-* `!gh <username>` - Get statistics about a [GitHub](https://github.com/) user.
-* `!xkcd [search]` - Get a random [XKCD](http://xkcd.com/) comic, or one related
-to a query.
-* `!jerkcity` - Get a random [Jerkcity](http://jerkcity.com/) comic.
-* `!isitup <site>` - Check whether or not a given site is currently online.
-* `!haste <text>` - Post text to [Hastebin](http://hastebin.com/).
-* `!slap <nick>` - Slap someone with a large trout.
-* `!zalgo <text>` - Summon Zalgo with some text.
-* `!taco` - Get a random taco recipe, courtesy of the
-[Taco Randomizer](http://taco-randomizer.herokuapp.com/).
-* `!rainbow <text>` - Vomit out rainbowified text.
-* `!flip <down|up> <text>` - Flip text upside down or rightside up.
-* `!morse <text>` - Convert text to Morse code.
-* `!insult [nick]` - Generate a Shakespearean insult and direct it at a nickname
-if given.
-* `!luther [nick]` - Get an insult from
-[Luther's Oeuvre](http://ergofabulous.org/luther/) and direct it at a nickname
-if given.
-* `!theo [nick]` - Get a random Theo De Raadt quote and direct it at a nickname
-if given.
-* `!lennart [nick]` - Get a random Lennart Poettering quote and direct it at a
-nickname if given.
-* `!cbsg` - Spew some corporate bullshit from the
-[Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live).
-* `!btc` - Get the current BTC - USD exchange rate from the
-[BitcoinAverage Price Index](https://bitcoinaverage.com/)
-* `!wp` - Get the current world population estimate from the
-[US Census](https://www.census.gov/popclock/data/population/world)
-* `!rb <code>` - Evaluate some Ruby code on [eval.in](https://eval.in). 
-* `!wiki <search>` - Search [Wikipedia](http://en.wikipedia.org).
-* `!leet <text>` - Convert text to leetspeak.
-* `!intro <command>` - Manage the intro message for your nick. See below.
-* `!quote [nick]` - Retrieve a completely random quote, or a random quote from
-the given nick.
-* `!mail <nick> <message>` - Send a message to a nick. Messages are delivered
-the next time the nick speaks.
-* `!trigger <command>` - Manage custom message replies and their triggers.
-See below.
-* `!ver [nick]` - Send a CTCP VERSION request to the given nick.
+* If a command takes prefix(es) besides `!`, they will be noted within braces (`{}`).
+* An argument enclosed in `<>` is **mandatory**. Example: `<text>`
+* An argument enclosed in `[]` is **optional**. Example: `[text]`.
+* A bar (`|`) indicates a **choice**. For example, `<hello|bye>` indicates a
+mandatory argument of **either** `hello` or `bye`.
 
-### `!botinfo` keys
+### Commands
+
+Command Syntax | Plugin class | Description | Working?
+-------------- | ------------ | ----------- | -------
+`{.!:}bots` | IBIP | Announce this bot to the channel. | Yes
+`{.!:}help [cmd]` | CommandHelp | Announce general help or help on a specific command if provided. | Yes
+`!ping` | Ping | Ping the bot for a timestamped response. | Yes
+`!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
+`!admin <subcommand>` | BotAdmin | Administrate the bot with an authorized user. [See below](#admin). | Yes
+`!fortune` | Fortune | Get a Unix fortune. | Yes
+`!c22` | Catch22 | Get a Catch-22 quote. | Yes
+`!ud <query>` | UrbanDictionary | Look up the given query on [UrbanDictionary](http://www.urbandictionary.com/). | Yes
+`!wa <query>` | WolframAlpha | Ask [Wolfram\|Alpha](http://www.wolframalpha.com/) about something. | Yes
+`!w <location>` | Weather | Get the weather for the given location from [Wunderground](https://www.wunderground.com/). | Yes
+`!g <search>` | GoogleSearch | Search [Google](https://google.com). | Yes
+`!tr <text>` | GoogleTranslate | Translate text to English with [Google Translate](https://translate.google.com). | Broken (API changed)
+`!yt <search>` | YouTubeSearch | Search [YouTube](https://youtube.com). | Yes
+`!ddg <search>` | DuckDuckGoSearch | Search [DuckDuckGo](https://duckduckgo.com)'s Zero Click Info database. | Yes
+`!rot13 <text>` | Rot13 | "Encrypt" some text with the ROT-13 cipher. | Yes
+`!8ball <question>` | Magic8Ball | Ask the Magic 8 Ball a question. | Yes
+`!define <word>` | MerriamWebster | Get the [Merriam-Webster](http://www.merriam-webster.com/) definiton of a word. | Yes
+`!cb <query>` | Cleverbot | Talk to [CleverBot](http://www.cleverbot.com/). | Broken (API changed)
+`!seen <nick>` | LastSeen | Check the last time `yossarian-bot` saw someone. | Yes
+`!turl <url>` | TinyURL | Create a short link to the given url with [TinyURL](http://tinyurl.com/). | Yes
+`!gh <username>` | GitHubInfo | Get statistics about a [GitHub](https://github.com/) user. | Yes
+`!xkcd [search]` | XKCDComics | Get a random [XKCD](http://xkcd.com/) comic, or one related to a search. | Yes
+`!jerkcity` | Jerkcity | Get a random [Jerkcity](http://jerkcity.com/) comic. | Yes
+`!isitup <site>` | IsItUp | Check whether or not a given site is currently online. | Yes
+`!haste <text>` | Hastebin | Post text to [Hastebin](http://hastebin.com/). | Yes
+`!slap <nick>` | Slap | Slap someone with a large trout. | Yes
+`!zalgo <text>` | Zalgo | Summon Zalgo with some text. | Yes
+`!taco` | TacoRecipes | Get a random taco recipe, courtesy of the [Taco Randomizer](http://taco-randomizer.herokuapp.com/). | Yes
+`!rainbow <text>` | RainbowText | Vomit out rainbowified text. | Yes
+`!flip <down|up> <text>` | FlipText | Flip text upside down or rightside up. | Yes
+`!morse <text>` | MorseCode | Convert text to Morse Code. | Yes
+`!insult [nick]` | ShakespeareanInsults | Generate a Shakespearean insult and direct it at a nickname if given. | Yes
+`!luther [nick]` | LutherInsults | Get an insult from [Luther's Oeuvre](http://ergofabulous.org/luther/) and direct it at a nickname if given. | Yes
+`!theo [nick]` | TheoQuotes | Get a random Theo De Raadt quote and direct it at a nickname if given. | Yes
+`!lennart [nick]` | LennartQuotes | Get a random Lennart Poettering quote and direct it at a nickname if given. | Yes
+`!cbsg` | CBSG | Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live). | Yes
+`!btc` | BTC | Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/). | Yes
+`!wp` | WorldPopulation | Get the current world population estimate from the [US Census](https://www.census.gov/popclock/data/population/world). | Yes
+`!rb <code>` | RubyEval | Evaluate some Ruby code on [eval.in](https://eval.in). | Yes
+`!wiki <search>` | Wikipedia | Search [Wikipedia](http://en.wikipedia.org). | Yes
+`!leet <text>` | LeetSpeak | Convert text to leetspeak. | Yes
+`!intro <command>` | UserIntros | Manage the intro message for your nick. [See below](#intro). | Yes
+`!quote [nick]` | UserQuotes | Retrieve a completely random quote, or a random quote from the given nick. | Yes
+`!mail <nick> <message>` | UserMail | Send a message to a nick. Messages are delivered the next time the nick speaks. | Yes
+`!trigger <command>` | CustomTriggers | Manage custom message replies and their triggers. [See below](#trigger). | Yes
+`!ver <nick>` | CTCPVersion | Send a CTCP VERSION request to the given nick. | Yes
+
+### `!botinfo` keys <a name="botinfo"></a>
 
 The `!botinfo` command takes one of the following keys:
 
-* `!botinfo ver` (or `version`) - Get `yossarian-bot`'s version.
-* `!botinfo src` (or `source`)- Get a link to `yossarian-bot`'s source.
-* `!botinfo author` - Get `yossarian-bot`'s author.
-* `!botinfo uptime` - Get `yossarian-bot`'s running time.
-* `!botinfo chans` (or `channels`) - List the channels the bot is currently on.
-* `!botinfo admins` - List the nicks of the admins currently registered to the
-bot.
-* `!botinfo ignores` - List nicks currently ignored by the bot.
+Key | Description
+--- | ------
+`ver` (or `version`) | Get `yossarian-bot`'s version.
+`src` (or `source`) | Get a link to `yossarian-bot`'s source code.
+`author` | Get `yossarian-bot`'s author.
+`uptime` | Get `yossarian-bot`'s running time.
+`chans` (or `channels`) | List the channels the bot is currently on.
+`admins` | List the nicks of the admins currently registered to the bot.
+`ignores` | List nicks currently ignored by the bot.
 
-### `!admin` sub-commands
+### `!admin` subcommands <a name="admin"></a>
 
 In order to administrate the bot, your IRC nick must be authorized.
 Authorized nicks are either defined in the bot's `config.yml` or
 with the `!admin auth <nick>` command at runtime (by an extant admin).
 
-The `!admin` command can take several sub-commands:
+The `!admin` command can take several subcommands:
 
-* `!admin plugin list` - List all plugins currently *available*. This includes
-*all* plugins visible to `yossarian-bot`, not just enabled ones.
-* `!admin enable <plugin>` - Enable the given \<plugin\>. \<plugin\> *must* be
-the *class name* of the plugin, like `GoogleSearch` or `WolframAlpha`.
-* `!admin disable <plugin>` - Disable the given \<plugin\>. Like `enable`,
-the given <plugin> must be a class name.
-* `!admin quit` - Gracefully kill the bot. This is the preferred way to
-terminate `yossarian-bot`
-* `!admin auth <nick>` - Make \<nick\> an administrator.
-* `!admin deauth <nick>` - Remove \<nick\> from the administrator list.
-* `!admin join <channel>` - Join \<channel\> on the network.
-* `!admin leave <channel>` - Leave \<channel\> on the network, if in it.
-* `!admin ignore <nick>` - Ignore messages and commands from \<nick\>.
-* `!admin unignore <nick>` - Stop ignoring messages and commands from \<nick\>.
-* `!admin say <channel> <message>` - Make the bot say \<message\> in 
-\<channel\>.
-* `!admin act <channel> <message>` - Make the bot act \<message\> in 
-\<channel\>.
+Subcommand | Description
+---------- | ----------
+`!admin plugin list` | List all plugins currently *available*. This includes *all* plugins visible to `yossarian-bot`, not just enabled ones.
+`!admin enable <plugin>` | Enable the given plugin. The plugin *must* be the *class name* of the plugin.
+`!admin disable <plugin>` | Disable the given plugin. Like `enable`, the given plugin must be a class name.
+`!admin quit` | Gracefully kill the bot. This is the preferred way to terminate `yossarian-bot`.
+`!admin auth <nick>` | Make the given nick an administrator.
+`!admin deauth <nick>` | Remove the given nick from the administrator list.
+`!admin join <channel>` | Join the given channel on the network.
+`!admin leave <channel>` | Leave the given channel on the network, if in it. `!admin ignore <nick>` | Ignore messages and commands from nick.
+`!admin unignore <nick>` | Stop ignoring messages and commands from nick.
+`!admin say <channel> <message>` | Make the bot say the given message in the given channel.
+`!admin act <channel> <message>` | Make the bot act the given message in the given channel.
 
-### `!intro` sub-commands
+### `!intro` subcommands <a name="intro"></a>
 
 Each nickname is allowed to have a single introduction per channel registered
 with the bot, which will be said whenever that nickname is seen joining the
 channel in question.
 
-* `!intro add <intro>` - Set your nick's introduction message to \<intro\>.
-* `!intro rm` - Delete your nick's introduction message.
-* `!intro show` - Show your nick's introduction message.
+Subcommand | Description
+---------- | ----------
+`!intro add <intro>` | Set your nick's introduction message to the given intro.
+`!intro rm` | Delete your nick's introduction message.
+`!intro show` | Show your nick's introduction message.
 
-### `!trigger` sub-commands
+### `!trigger` subcommands <a name="trigger"></a>
 
-The `!trigger` command takes one of three sub-commands:
+The `!trigger` command takes one of three subcommands:
 
-* `!trigger add <trigger> <response>` - Make the bot say \<response\> whenever
-\<trigger\> is typed.
-* `!trigger rm <trigger>` - Remove \<trigger\> and the response associated with
-it.
-* `!trigger list` - List all triggers currently stored by `yossarian-bot`.
-Responses are not listed for the sake of brevity.
+Subcommand | Description
+---------- | ----------
+`!trigger add <trigger> <response>` | Make the bot say the given response whenever the given trigger is typed.
+`!trigger rm <trigger>` | Remove the given trigger and the response associated with it.
+`!trigger list` | List all triggers currently stored by `yossarian-bot`. Responses are not listed for the sake of brevity.
