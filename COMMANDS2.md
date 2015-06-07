@@ -13,4 +13,5 @@ This is a list of commands accepted by `yossarian-bot`.
 
 Command | Plugin class | Description | Working?
 ------- | ------------ | ----------- | -------
-{.!:}bots | IBIP | Announce this bot to the channel. | Yes
+`{.!:}bots` | IBIP | Announce this bot to the channel. | Yes
+`{.!:}help [cmd]` | CommandHelp | Announce general help or help on a specific command if provided. | Yes
