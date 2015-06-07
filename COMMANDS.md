@@ -63,8 +63,6 @@ nickname if given.
 * `!wiki <search>` - Search [Wikipedia](http://en.wikipedia.org).
 * `!leet <text>` - Convert text to leetspeak.
 * `!intro <command>` - Manage the intro message for your nick. See below.
-Prefixing this command with `show` or `rm` shows or removes your intro,
-respectively.
 * `!quote [nick]` - Retrieve a completely random quote, or a random quote from
 the given nick.
 * `!mail <nick> <message>` - Send a message to a nick. Messages are delivered
