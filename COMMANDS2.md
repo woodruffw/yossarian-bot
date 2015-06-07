@@ -19,7 +19,7 @@ Command Syntax | Plugin class | Description | Working?
 `{.!:}help [cmd]` | CommandHelp | Announce general help or help on a specific command if provided. | Yes
 `!ping` | Ping | Ping the bot for a timestamped response. | Yes
 `!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
-`!admin <commands>` | BotAdmin | Administrate the bot with an authorized user. See below. | Yes
+`!admin <subcommand>` | BotAdmin | Administrate the bot with an authorized user. [See below](#admin). | Yes
 `!fortune` | Fortune | Get a Unix fortune. | Yes
 `!c22` | Catch22 | Get a Catch-22 quote. | Yes
 `!ud <query>` | UrbanDictionary | Look up the given query on [UrbanDictionary](http://www.urbandictionary.com/). | Yes
@@ -66,7 +66,7 @@ Command Syntax | Plugin class | Description | Working?
 
 The `!botinfo` command takes one of the following keys:
 
-Key | Output
+Key | Description
 --- | ------
 `ver` (or `version`) | Get `yossarian-bot`'s version.
 `src` (or `source`) | Get a link to `yossarian-bot`'s source code.
@@ -75,3 +75,25 @@ Key | Output
 `chans` (or `channels`) | List the channels the bot is currently on.
 `admins` | List the nicks of the admins currently registered to the bot.
 `ignores` | List nicks currently ignored by the bot.
+
+### `!admin` subcommands <a name="admin"></a>
+
+In order to administrate the bot, your IRC nick must be authorized.
+Authorized nicks are either defined in the bot's `config.yml` or
+with the `!admin auth <nick>` command at runtime (by an extant admin).
+
+The `!admin` command can take several subcommands:
+
+Subcommand | Description
+---------- | ----------
+`!admin plugin list` | List all plugins currently *available*. This includes *all* plugins visible to `yossarian-bot`, not just enabled ones.
+`!admin enable <plugin>` | Enable the given plugin. The plugin *must* be the *class name* of the plugin.
+`!admin disable <plugin>` | Disable the given plugin. Like `enable`, the given plugin must be a class name.
+`!admin quit` | Gracefully kill the bot. This is the preferred way to terminate `yossarian-bot`.
+`!admin auth <nick>` | Make the given nick an administrator.
+`!admin deauth <nick>` | Remove the given nick from the administrator list.
+`!admin join <channel>` | Join the given channel on the network.
+`!admin leave <channel>` | Leave the given channel on the network, if in it. `!admin ignore <nick>` | Ignore messages and commands from nick.
+`!admin unignore <nick>` | Stop ignoring messages and commands from nick.
+`!admin say <channel> <message>` | Make the bot say the given message in the given channel.
+`!admin act <channel> <message>` | Make the bot act the given message in the given channel.
