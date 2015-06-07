@@ -26,12 +26,13 @@ Command Syntax | Plugin class | Description | Working?
 `!wa <query>` | WolframAlpha | Ask [Wolfram\|Alpha](http://www.wolframalpha.com/) about something. | Yes
 `!w <location>` | Weather | Get the weather for the given location from [Wunderground](https://www.wunderground.com/). | Yes
 `!g <search>` | GoogleSearch | Search [Google](https://google.com). | Yes
+`!tr <text>` | GoogleTranslate | Translate text to English with [Google Translate](https://translate.google.com). | Broken (API changed)
 `!yt <search>` | YouTubeSearch | Search [YouTube](https://youtube.com). | Yes
 `!ddg <search>` | DuckDuckGoSearch | Search [DuckDuckGo](https://duckduckgo.com)'s Zero Click Info database. | Yes
 `!rot13 <text>` | Rot13 | "Encrypt" some text with the ROT-13 cipher. | Yes
 `!8ball <question>` | Magic8Ball | Ask the Magic 8 Ball a question. | Yes
 `!define <word>` | MerriamWebster | Get the [Merriam-Webster](http://www.merriam-webster.com/) definiton of a word. | Yes
-`!cb <query>` | Cleverbot | Talk to [CleverBot](http://www.cleverbot.com/). | Broken
+`!cb <query>` | Cleverbot | Talk to [CleverBot](http://www.cleverbot.com/). | Broken (API changed)
 `!seen <nick>` | LastSeen | Check the last time `yossarian-bot` saw someone. | Yes
 `!turl <url>` | TinyURL | Create a short link to the given url with [TinyURL](http://tinyurl.com/). | Yes
 `!gh <username>` | GitHubInfo | Get statistics about a [GitHub](https://github.com/) user. | Yes

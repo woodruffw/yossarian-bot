@@ -17,7 +17,7 @@ class GoogleTranslate < YossarianPlugin
 	use_blacklist
 
 	def usage
-		'!tr <message>- Translate <message> to English, with optional <from> and <to> for accuracy and other languages. Alias: !translate.'
+		'!tr <text>- Translate <text> to English. Alias: !translate.'
 	end
 
 	def match?(cmd)
