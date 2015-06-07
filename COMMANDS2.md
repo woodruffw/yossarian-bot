@@ -18,7 +18,7 @@ Command Syntax | Plugin class | Description | Working?
 `{.!:}bots` | IBIP | Announce this bot to the channel. | Yes
 `{.!:}help [cmd]` | CommandHelp | Announce general help or help on a specific command if provided. | Yes
 `!ping` | Ping | Ping the bot for a timestamped response. | Yes
-`!botinfo <key>` | BotInfo | Retrieve information about the bot. See below. | Yes
+`!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
 `!admin <commands>` | BotAdmin | Administrate the bot with an authorized user. See below. | Yes
 `!fortune` | Fortune | Get a Unix fortune. | Yes
 `!c22` | Catch22 | Get a Catch-22 quote. | Yes
@@ -61,3 +61,17 @@ Command Syntax | Plugin class | Description | Working?
 `!mail <nick> <message>` | UserMail | Send a message to a nick. Messages are delivered the next time the nick speaks. | Yes
 `!trigger <command>` | CustomTriggers | Manage custom message replies and their triggers. See below. | Yes
 `!ver <nick>` | CTCPVersion | Send a CTCP VERSION request to the given nick. | Yes
+
+### `!botinfo` keys <a name="botinfo"></a>
+
+The `!botinfo` command takes one of the following keys:
+
+Key | Output
+--- | ------
+`ver` (or `version`) | Get `yossarian-bot`'s version.
+`src` (or `source`) | Get a link to `yossarian-bot`'s source code.
+`author` | Get `yossarian-bot`'s author.
+`uptime` | Get `yossarian-bot`'s running time.
+`chans` (or `channels`) | List the channels the bot is currently on.
+`admins` | List the nicks of the admins currently registered to the bot.
+`ignores` | List nicks currently ignored by the bot.
