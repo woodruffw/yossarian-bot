@@ -36,6 +36,7 @@ available_plugins:
     - LennartQuotes
     - CBSG
     - BTC
+    - StockQuotes
     - WorldPopulation
     - RubyEval
     - Wikipedia
