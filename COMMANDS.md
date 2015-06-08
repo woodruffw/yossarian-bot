@@ -87,17 +87,17 @@ The `!admin` command can take several subcommands:
 
 Subcommand | Description
 ---------- | ----------
-`!admin plugin list` | List all plugins currently *available*. This includes *all* plugins visible to `yossarian-bot`, not just enabled ones.
-`!admin enable <plugin>` | Enable the given plugin. The plugin *must* be the *class name* of the plugin.
-`!admin disable <plugin>` | Disable the given plugin. Like `enable`, the given plugin must be a class name.
-`!admin quit` | Gracefully kill the bot. This is the preferred way to terminate `yossarian-bot`.
-`!admin auth <nick>` | Make the given nick an administrator.
-`!admin deauth <nick>` | Remove the given nick from the administrator list.
-`!admin join <channel>` | Join the given channel on the network.
-`!admin leave <channel>` | Leave the given channel on the network, if in it. `!admin ignore <nick>` | Ignore messages and commands from nick.
-`!admin unignore <nick>` | Stop ignoring messages and commands from nick.
-`!admin say <channel> <message>` | Make the bot say the given message in the given channel.
-`!admin act <channel> <message>` | Make the bot act the given message in the given channel.
+`plugin list` | List all plugins currently *available*. This includes *all* plugins visible to `yossarian-bot`, not just enabled ones.
+`enable <plugin>` | Enable the given plugin. The plugin *must* be the *class name* of the plugin.
+`disable <plugin>` | Disable the given plugin. Like `enable`, the given plugin must be a class name.
+`quit` | Gracefully kill the bot. This is the preferred way to terminate `yossarian-bot`.
+`auth <nick>` | Make the given nick an administrator.
+`deauth <nick>` | Remove the given nick from the administrator list.
+`join <channel>` | Join the given channel on the network.
+`leave <channel>` | Leave the given channel on the network, if in it. `ignore <nick>` | Ignore messages and commands from nick.
+`unignore <nick>` | Stop ignoring messages and commands from nick.
+`say <channel> <message>` | Make the bot say the given message in the given channel.
+`act <channel> <message>` | Make the bot act the given message in the given channel.
 
 ### `!intro` subcommands <a name="intro"></a>
 
@@ -107,9 +107,9 @@ channel in question.
 
 Subcommand | Description
 ---------- | ----------
-`!intro add <intro>` | Set your nick's introduction message to the given intro.
-`!intro rm` | Delete your nick's introduction message.
-`!intro show` | Show your nick's introduction message.
+`add <intro>` | Set your nick's introduction message to the given intro.
+`rm` | Delete your nick's introduction message.
+`show` | Show your nick's introduction message.
 
 ### `!trigger` subcommands <a name="trigger"></a>
 
@@ -117,6 +117,6 @@ The `!trigger` command takes one of three subcommands:
 
 Subcommand | Description
 ---------- | ----------
-`!trigger add <trigger> <response>` | Make the bot say the given response whenever the given trigger is typed.
-`!trigger rm <trigger>` | Remove the given trigger and the response associated with it.
-`!trigger list` | List all triggers currently stored by `yossarian-bot`. Responses are not listed for the sake of brevity.
+`add <trigger> <response>` | Make the bot say the given response whenever the given trigger is typed.
+`rm <trigger>` | Remove the given trigger and the response associated with it.
+`list` | List all triggers currently stored by `yossarian-bot`. Responses are not listed for the sake of brevity.
