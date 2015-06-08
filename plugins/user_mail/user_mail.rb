@@ -59,8 +59,10 @@ class UserMail < YossarianPlugin
 		nick = m.user.nick.downcase
 
 		if @mbox.has_key?(nick)
+			m.user.send 'Here is your mail. Use !mail <nick> <message> to reply in turn.'
+
 			@mbox[nick].each do |msg|
-				m.user.notice msg.to_s
+				m.user.send msg.to_s
 			end
 			@mbox.delete(nick)
 			sync_mbox_file
