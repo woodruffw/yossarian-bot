@@ -2,7 +2,7 @@
 #  stock_quotes.rb
 #  Author: William Woodruff
 #  ------------------------
-#  A Cinch plugin that Yahoo! Finanance stock quotes for yossarian-bot.
+#  A Cinch plugin that provides Yahoo! Finanance stock quotes for yossarian-bot.
 #  ------------------------
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
