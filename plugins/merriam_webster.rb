@@ -16,6 +16,11 @@ class MerriamWebster < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	def initialize(*args)
+		super
+		@key = ENV['MERRIAM_WEBSTER_API_KEY']
+	end
+
 	def usage
 		'!define <word> - Get the Merriam-Webster defintion of <word>.'
 	end
@@ -27,9 +32,9 @@ class MerriamWebster < YossarianPlugin
 	match /define (\S+)/, method: :define_word, strip_colors: true
 
 	def define_word(m, word)
-		if ENV.has_key?('MERRIAM_WEBSTER_API_KEY')
+		if @key
 			query = URI.encode(word)
-			url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/#{query}?key=#{ENV['MERRIAM_WEBSTER_API_KEY']}"
+			url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/#{query}?key=#{@key}"
 
 			begin
 				doc = XML::Parser.string(open(url).string).parse

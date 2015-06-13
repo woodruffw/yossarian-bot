@@ -15,6 +15,11 @@ class WolframAlpha < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	def initialize(*args)
+		super
+		@key = ENV['WOLFRAM_ALPHA_APPID_KEY']
+	end
+
 	def usage
 		'!wa <query> - Ask Wolfram|Alpha about <query>. Alias: !wolfram.'
 	end
@@ -27,8 +32,8 @@ class WolframAlpha < YossarianPlugin
 	match /wolfram (.+)/, method: :wolfram_alpha, strip_colors: true
 
 	def wolfram_alpha(m, query)
-		if ENV.has_key?('WOLFRAM_ALPHA_APPID_KEY')
-			Wolfram.appid = ENV['WOLFRAM_ALPHA_APPID_KEY']
+		if @key
+			Wolfram.appid = @key
 			result = Wolfram.fetch(query).pods[1]
 
 			if result == nil || result.plaintext.empty?

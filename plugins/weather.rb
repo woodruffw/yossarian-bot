@@ -15,6 +15,11 @@ class Weather < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	def initialize(*args)
+		super
+		@key = ENV['WUNDERGROUND_API_KEY']
+	end
+
 	def usage
 		'!w <location> - Get the weather at <location>. Alias: !weather.'
 	end
@@ -27,8 +32,8 @@ class Weather < YossarianPlugin
 	match /weather (.+)/, method: :weather, strip_colors: true
 
 	def weather(m, location)
-		if ENV.has_key?('WUNDERGROUND_API_KEY')
-			wu = Wunderground.new(ENV['WUNDERGROUND_API_KEY'])
+		if @key
+			wu = Wunderground.new(@key)
 			hash = wu.conditions_for(location)
 
 			unless hash['current_observation'] == nil
