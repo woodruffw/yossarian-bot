@@ -24,6 +24,6 @@ class IBIP < YossarianPlugin
 	match /bots$/, method: :ibip, prefix: /^[.!:]/
 
 	def ibip(m)
-		m.reply 'Reporting in! [Ruby] See !help for commands.'
+		m.reply 'Reporting in! [Ruby] See !help.'
 	end
 end
