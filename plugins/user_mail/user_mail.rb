@@ -59,7 +59,7 @@ class UserMail < YossarianPlugin
 		nick = m.user.nick.downcase
 
 		if @mbox.has_key?(nick)
-			m.user.send 'Here is your mail. Use !mail <nick> <message> to reply in turn.'
+			m.user.send "Here is your mail. Use !mail #{nick} <message> to reply in turn."
 
 			@mbox[nick].each do |msg|
 				m.user.send msg.to_s
@@ -78,7 +78,7 @@ class UserMail < YossarianPlugin
 			@mbox[nick.downcase] = [MboxMessageStruct.new(m.user.nick, Time.now, msg)]
 		end
 
-		m.reply "I\'ll give your message to #{nick} the next time I see them."
+		m.reply "I\'ll give your message to #{nick} the next time I see them.", true
 		sync_mbox_file
 	end
 end
