@@ -72,14 +72,18 @@ class UserMail < YossarianPlugin
 	match /mail (\S+) (.+)/, method: :mail
 
 	def mail(m, nick, msg)
-		if @mbox.has_key?(nick.downcase)
-			@mbox[nick.downcase] << MboxMessageStruct.new(m.user.nick, Time.now, msg)
+		if nick.downcase == @bot.nick.downcase
+			m.reply 'That\'s not going to work.', true
 		else
-			@mbox[nick.downcase] = [MboxMessageStruct.new(m.user.nick, Time.now, msg)]
-		end
+			if @mbox.has_key?(nick.downcase)
+				@mbox[nick.downcase] << MboxMessageStruct.new(m.user.nick, Time.now, msg)
+			else
+				@mbox[nick.downcase] = [MboxMessageStruct.new(m.user.nick, Time.now, msg)]
+			end
 
-		m.reply "I\'ll give your message to #{nick} the next time I see them.", true
-		sync_mbox_file
+			m.reply "I\'ll give your message to #{nick} the next time I see them.", true
+			sync_mbox_file
+		end
 	end
 end
 
