@@ -35,7 +35,7 @@ class TacoRecipes < YossarianPlugin
 	def random_taco(m)
 		begin
 			hash = JSON.parse(open(@url).read)
-			recipe_url = hash['url'].gsub(/(raw\.github.com)|(\/master\/)/, 'raw.github.com' => 'github.com', '/master/' => '/tree/master/')
+			recipe_url = hash['url'].gsub(/(raw\.github.com)|(\/master\/)/, 'raw.github.com' => 'github.com', '/master/' => '/tree/master')
 
 			m.reply "#{hash['name']} - #{recipe_url}", true
 		rescue Exception => e
