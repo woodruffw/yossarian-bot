@@ -28,6 +28,12 @@ class HAL < YossarianPlugin
 		cmd =~ /^(!)?hal$/
 	end
 
+	listen_to :channel
+
+	def listen(m)
+		@hal.reply(m.message) # train hal on channel messages
+	end
+
 	match /hal (.+)/, method: :hal, strip_colors: true
 
 	def hal(m, msg)
