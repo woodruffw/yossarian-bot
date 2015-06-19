@@ -45,15 +45,19 @@ class CustomTriggers < YossarianPlugin
 		end
 	end
 
-	match /trigger add ([^!.:]\S+) ([^!.:].+)/, method: :add_trigger
+	match /trigger add (\S+) (.+)/, method: :add_trigger
 
 	def add_trigger(m, trigger, response)
-		@triggers[trigger] = response
-		m.reply "Added trigger for \'#{trigger}\' -> \'#{response}\'.", true
-		sync_triggers_file
+		if trigger !~ /^[!:.]/ && response !~ /^[!:.]/
+			@triggers[trigger] = response
+			m.reply "Added trigger for \'#{trigger}\' -> \'#{response}\'.", true
+			sync_triggers_file
+		else
+			m.reply 'Triggers and responses cannot be prefixed.', true
+		end
 	end
 
-	match /trigger rm ([^!.:]\S+)/, method: :rm_trigger
+	match /trigger rm (\S+)/, method: :rm_trigger
 
 	def rm_trigger(m, trigger)
 		if @triggers.has_key?(trigger)
