@@ -33,7 +33,7 @@ Command Syntax | Plugin class | Description | Working?
 `!8ball <question>` | Magic8Ball | Ask the Magic 8 Ball a question. | Yes
 `!define <word>` | MerriamWebster | Get the [Merriam-Webster](http://www.merriam-webster.com/) definiton of a word. | Yes
 `!cb <message>` | Cleverbot | Talk to [CleverBot](http://www.cleverbot.com/). | Broken (API changed)
-`!megahal <message>` | HAL | Talk to MegaHAL. | Yes
+`!hal9000 <message>` | HAL | Talk to MegaHAL. | Yes
 `!seen <nick>` | LastSeen | Check the last time `yossarian-bot` saw someone. | Yes
 `!turl <url>` | TinyURL | Create a short link to the given url with [TinyURL](http://tinyurl.com/). | Yes
 `!gh <username>` | GitHubInfo | Get statistics about a [GitHub](https://github.com/) user. | Yes

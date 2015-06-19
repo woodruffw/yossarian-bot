@@ -21,11 +21,11 @@ class HAL < YossarianPlugin
 	end
 
 	def usage
-		'!megahal <message> - Talk to MegaHAL.'
+		'!hal9000 <message> - Talk to MegaHAL. Alias: !hal9k.'
 	end
 
 	def match?(cmd)
-		cmd =~ /^(!)?megahal$/
+		cmd =~ /^(!)?(hal9000$)|(hal9k$)/
 	end
 
 	listen_to :channel
@@ -36,7 +36,8 @@ class HAL < YossarianPlugin
 		end
 	end
 
-	match /megahal (.+)/, method: :hal, strip_colors: true
+	match /hal9000 (.+)/, method: :hal, strip_colors: true
+	match /hal9k (.+)/, method: :hal, strip_colors: true
 
 	def hal(m, msg)
 		m.reply @hal.reply(msg), true
