@@ -16,6 +16,7 @@ available_plugins:
     - Magic8Ball
     - MerriamWebster
     - Cleverbot
+    - HAL
     - Fortune
     - Rot13
     - TinyURL

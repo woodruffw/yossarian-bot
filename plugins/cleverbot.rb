@@ -31,7 +31,7 @@ class Cleverbot < YossarianPlugin
 	match /cb (.+)/, method: :cleverbot, strip_colors: true
 	match /cleverbot (.+)/, method: :cleverbot, strip_colors: true
 
-	def cleverbot(m, query)
-		m.reply @cb.think(query), true
+	def cleverbot(m, msg)
+		m.reply @cb.think(msg), true
 	end
 end
