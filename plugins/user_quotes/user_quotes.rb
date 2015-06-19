@@ -57,7 +57,7 @@ class UserQuotes < YossarianPlugin
 		chan = m.channel.to_s
 		nick = m.user.nick
 
-		unless m.message =~ /^[!:.]/
+		if m.message !~ /^[!:.]/
 			@@message_count += 1
 
 			if @quotes.has_key?(chan)

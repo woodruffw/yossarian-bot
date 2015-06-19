@@ -21,20 +21,22 @@ class HAL < YossarianPlugin
 	end
 
 	def usage
-		'!hal <message> - Talk to MegaHAL.'
+		'!megahal <message> - Talk to MegaHAL.'
 	end
 
 	def match?(cmd)
-		cmd =~ /^(!)?hal$/
+		cmd =~ /^(!)?megahal$/
 	end
 
 	listen_to :channel
 
 	def listen(m)
-		@hal.reply(m.message) # train hal on channel messages
+		if m.message !~ /^[!:.]/
+			@hal.reply(m.message) # train hal on channel messages
+		end
 	end
 
-	match /hal (.+)/, method: :hal, strip_colors: true
+	match /megahal (.+)/, method: :hal, strip_colors: true
 
 	def hal(m, msg)
 		m.reply @hal.reply(msg), true
