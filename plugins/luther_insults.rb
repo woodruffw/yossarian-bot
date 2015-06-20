@@ -33,7 +33,7 @@ class LutherInsults < YossarianPlugin
 
 	def luther_insult(m)
 		page = Nokogiri::HTML(open(@url).read)
-		insult = page.css('p')[0].text
+		insult = page.css('p').first.text
 
 		m.reply insult, true
 	end
@@ -44,7 +44,7 @@ class LutherInsults < YossarianPlugin
 		if m.channel.users.has_key?(User(nick))
 			begin
 				page = Nokogiri::HTML(open(@url).read)
-				insult = page.css('p')[0].text
+				insult = page.css('p').first.text
 
 				m.reply "#{nick}: #{insult}"
 			rescue Exception => e

@@ -33,12 +33,12 @@ class Wikipedia < YossarianPlugin
 		begin
 			results = JSON.parse(open(url).read)
 			unless results[1].empty?
-				if results[2][0].empty?
+				if results[2].first.empty?
 					content = "No extract provided."
 				else
-					content = results[2][0]
+					content = results[2].first
 				end
-				link = results[3][0].sub('https://en.wikipedia.org/wiki/', 'http://enwp.org/')
+				link = results[3].first.sub('https://en.wikipedia.org/wiki/', 'http://enwp.org/')
 
 				m.reply "#{link} - #{content}", true
 			else

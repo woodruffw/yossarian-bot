@@ -35,7 +35,7 @@ class CBSG < YossarianPlugin
 		begin
 			page = Nokogiri::HTML(open(@url).read)
 
-			m.reply page.css('li')[0].text, true
+			m.reply page.css('li').first.text, true
 		rescue Exception => e
 			m.reply e.to_s, true
 		end
