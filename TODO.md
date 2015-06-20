@@ -30,6 +30,8 @@ reboots.
 the bot shouldn't be.
 * Cleverbot appears to have changed its interface, breaking the gem that the
 Cleverbot plugin uses.
+* CustomTriggers should be able to accept sanitized/safe regular expressions.
+* HAL should learn on a per-channel basis and continuously save its brain.
 
 ## New Plugin Ideas
 
