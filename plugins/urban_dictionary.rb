@@ -35,7 +35,7 @@ class UrbanDictionary < YossarianPlugin
 			if hash['list'].empty?
 				m.reply "UrbanDictionary has nothing for #{phrase}."
 			else
-				list = hash['list'][0]
+				list = hash['list'].first
 				definition = list['definition'][0..255].gsub(/[\r\n]/, '')
 				link = list['permalink']
 				m.reply "#{phrase} - #{definition}... (#{link})", true
