@@ -95,8 +95,11 @@ Subcommand | Description
 `auth <nick>` | Make the given nick an administrator.
 `deauth <nick>` | Remove the given nick from the administrator list.
 `join <channel>` | Join the given channel on the network.
-`leave <channel>` | Leave the given channel on the network, if in it. `ignore <nick>` | Ignore messages and commands from nick.
-`unignore <nick>` | Stop ignoring messages and commands from nick.
+`leave <channel>` | Leave the given channel on the network, if in it.
+`ignore nick <nick>` | Ignore messages and commands from a nick (and the nick's hostmask as well).
+`ignore host <host>` | Ignore messages and commands from a host.
+`unignore nick <nick>` | Stop ignoring messages and commands from a nick (and the nick's hostmask as well).
+`unignore host <host>` | Stop ignoring messages and commands from a host.
 `say <channel> <message>` | Make the bot say the given message in the given channel.
 `act <channel> <message>` | Make the bot act the given message in the given channel.
 

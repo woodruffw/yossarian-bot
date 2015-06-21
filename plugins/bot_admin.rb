@@ -22,31 +22,31 @@ class BotAdmin < YossarianPlugin
 	end
 
 	def authenticate?(m)
-        if @bot.admins.include?(m.user.nick) && User(m.user.nick).authed?
-            return true
-        end
+		if @bot.admins.include?(m.user.nick) && User(m.user.nick).authed?
+			return true
+		end
 
-        m.reply "You do not have permission to do that.", true
-        return false
+		m.reply "You do not have permission to do that.", true
+		return false
 	end
 
-    hook :pre, :for => [:match], :method => :authenticate?
+	hook :pre, :for => [:match], :method => :authenticate?
 
 	match /admin plugin list/, method: :plugin_list
 
 	def plugin_list(m)
-        all_plugin_names = $BOT_PLUGINS.map { |p| p.name }
+		all_plugin_names = $BOT_PLUGINS.map { |p| p.name }
 		active_plugin_names = @bot.plugins.map { |p2| p2.class.name }
 
-        plugins = all_plugin_names.map do |apn|
+		plugins = all_plugin_names.map do |apn|
 			Format(active_plugin_names.include?(apn) ? :green : :red, apn)
 		end.join(', ')
 
-		# temporarily allow up to two messages due to to long plugin lists
-		@bot.config.max_messages = 2
+		# temporarily allow up to three messages due to long plugin lists
+		@bot.config.max_messages = 3
 		m.reply "Available plugins: #{plugins}", true
 		@bot.config.max_messages = 1
-    end
+	end
 
 
 	match /admin enable (\w+)/, method: :plugin_enable
@@ -120,56 +120,75 @@ class BotAdmin < YossarianPlugin
 	match /admin leave (\S+)/, method: :bot_leave_channel
 
 	def bot_leave_channel(m, chan)
-        if @bot.channels.include?(chan)
-            m.reply "I\'m leaving #{chan}.", true
-            @bot.part(chan)
-        else
-            m.reply "I\'m not in that channel.", true
-        end
+		if @bot.channels.include?(chan)
+			m.reply "I\'m leaving #{chan}.", true
+			@bot.part(chan)
+		else
+			m.reply "I\'m not in that channel.", true
+		end
 	end
 
-	match /admin ignore (\S+)/, method: :bot_ignore_nick
+	match /admin ignore nick (\S+)/, method: :bot_ignore_nick
 
 	def bot_ignore_nick(m, nick)
-        host = User(nick).host
+		host = User(nick).host
 
-        unless @bot.blacklist.include?(host)
-            @bot.blacklist << host
-            m.reply "Ignoring messages from #{host} (#{nick}).", true
-        else
-            m.reply "I\'m already ignoring that host.", true
-        end
+		@bot.blacklist << nick
+
+		if !host.empty?
+			@bot.blacklist << host
+			m.reply "Ignoring everything from #{host} (#{nick}).", true
+		else
+			m.reply "Ignoring everything from #{nick}.", true
+		end
 	end
 
-	match /admin unignore (\S+)/, method: :bot_unignore_nick
+	match /admin ignore host (\S+)/, method: :bot_ignore_host
+
+	def bot_ignore_host(m, host)
+		@bot.blacklist << host 
+
+		m.reply "Ignoring everything from #{host}.", true
+	end
+
+	match /admin unignore nick (\S+)/, method: :bot_unignore_nick
 
 	def bot_unignore_nick(m, nick)
-        host = User(nick).host
+		host = User(nick).host
 
-        if @bot.blacklist.include?(host)
-            @bot.blacklist.delete(host)
-            m.reply "No longer ignoring #{host} (#{nick}).", true
-        else
-            m.reply "I\'m not currently ignoring that host.", true
-        end
+		@bot.blacklist.delete(nick)
+
+		if !host.empty?
+			@bot.blacklist.delete(host)
+		end
+
+		m.reply "Removed any records associated with #{nick} from the blacklist.", true
 	end
 
-    match /admin nick (\S+)/, method: :bot_nick
+	match /admin unignore host (\S+)/, method: :bot_unignore_host
 
-    def bot_nick(m, nick)
-        m.reply "Changing my nickname to #{nick}.", true
-        @bot.nick = nick
-    end
+	def bot_unignore_host(m, host)
+		@bot.blacklist.delete(host)
+
+		m.reply "Removed #{host} from the blacklist.", true
+	end
+
+	match /admin nick (\S+)/, method: :bot_nick
+
+	def bot_nick(m, nick)
+		m.reply "Changing my nickname to #{nick}.", true
+		@bot.nick = nick
+	end
 
 	match /admin say (#\S+) (.+)/, method: :bot_say
 
 	def bot_say(m, chan, msg)
-        Channel(chan).send msg
+		Channel(chan).send msg
 	end
 
 	match /admin act (#\S+) (.+)/, method: :bot_act
 
 	def bot_act(m, chan, msg)
-        Channel(chan).action msg
+		Channel(chan).action msg
 	end
 end

@@ -48,7 +48,7 @@ class BotInfo < YossarianPlugin
 		when /^admins$/
 			m.user.notice "Admins: %s" % @bot.admins.join(', ') # notice to prevent highlight bans
 		when /^ignores$/
-			m.reply "Ignored hosts: %s" % @bot.blacklist.join(', ')
+			m.reply "Ignored set: %s" % @bot.blacklist.to_a.join(', ')
 		else
 			m.reply "I don\'t have any information on \'#{key}\'. Try !help botinfo."
 		end

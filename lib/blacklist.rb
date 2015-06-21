@@ -7,7 +7,7 @@ module Cinch
 		end
 
 		def check_blacklist(m)
-			!@bot.blacklist.include?(m.user.host)
+			!@bot.blacklist.include?(m.user.nick) && !@bot.blacklist.include?(m.user.host)
 		end
 	end
 end

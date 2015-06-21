@@ -38,7 +38,7 @@ config_options['servers'].each do |server_name, server_info|
 	server_threads << Thread.new do
 		bot = Cinch::Bot.new do
 			@admins = server_info['admins'] or []
-			@blacklist = []
+			@blacklist = Set.new
 
 			def admins
 				@admins
