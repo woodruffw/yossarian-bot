@@ -65,8 +65,8 @@ class CodeEval < YossarianPlugin
 				html = Nokogiri::HTML(mech.submit(form).body)
 				results = html.css('pre').last.text.gsub(/[\t\r\n]/, ' ')
 
-				if results.size
-					m.reply results, true
+				if results.size > 0
+					m.reply Sanitize(results), true
 				else
 					m.reply 'No output was produced.', true
 				end
