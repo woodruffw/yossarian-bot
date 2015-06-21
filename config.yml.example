@@ -39,7 +39,7 @@ available_plugins:
     - BTC
     - StockQuotes
     - WorldPopulation
-    - RubyEval
+    - CodeEval
     - Wikipedia
     - LeetSpeak
     - UserIntros

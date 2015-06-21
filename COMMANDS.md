@@ -55,7 +55,7 @@ Command Syntax | Plugin class | Description | Working?
 `!btc` | BTC | Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/). | Yes
 `!stock <symbol>` | StockQuotes | Retrieve a stock quote for the given ticker symbol. | Yes
 `!wp` | WorldPopulation | Get the current world population estimate from the [US Census](https://www.census.gov/popclock/data/population/world). | Yes
-`!rb <code>` | RubyEval | Evaluate some Ruby code on [eval.in](https://eval.in). | Yes
+`!eval <lang> <code>` | CodeEval | Evaluate some code on [eval.in](https://eval.in). | Yes
 `!wiki <search>` | Wikipedia | Search [Wikipedia](http://en.wikipedia.org). | Yes
 `!leet <text>` | LeetSpeak | Convert text to leetspeak. | Yes
 `!intro <command>` | UserIntros | Manage the intro message for your nick. [See below](#intro). | Yes
