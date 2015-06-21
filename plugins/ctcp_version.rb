@@ -51,7 +51,7 @@ class CTCPVersion < YossarianPlugin
 	def ctcp_ver_recv(m)
 		if m.ctcp_message.include?('VERSION')
 			if @sent
-				version = Sanitize(m.ctcp_message.delete('VERSION '))
+				version = Sanitize(m.ctcp_message.sub('VERSION ', ''))
 				Channel(@channel).send "#{@nick}: #{m.user.nick} is using #{version}."
 				@sent = false
 			else
