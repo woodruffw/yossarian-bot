@@ -68,7 +68,8 @@ class CodeEval < YossarianPlugin
 				if results.size > 0
 					m.reply Sanitize(results), true
 				else
-					m.reply 'No output was produced.', true
+					error = html.css('p')[1].text.strip
+					m.reply "Error: #{error}.", true
 				end
 			rescue Exception => e
 				m.reply e.to_s, true
