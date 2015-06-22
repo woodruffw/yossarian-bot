@@ -11,6 +11,7 @@ require_relative 'yossarian_plugin'
 
 	class Reminder < YossarianPlugin
 		include Cinch::Plugin
+		use_blacklist
 		
 		def usage
 			"!remind <count> <unit> 'Message'."
@@ -23,13 +24,17 @@ require_relative 'yossarian_plugin'
 	match /remind (\d+) (\w+) (.+)/, method: :set_reminder
 		
 		def convert_to_sec(count, unit)
-			count = (count*60 ) if unit =~ /min/
-			count = (count*3600) if unit =~ /hour/
-			return count
+		    if unit =~ /min/ 
+				count = (count*60 )
+			else
+				count = (count*3600)
+			end				
+			
+		  return count
 		end
 		
 		def set_reminder(m, count, unit, message)
-			  count = convert_to_sec(count, unit) if unit =~ /min|hour/
-			  Timer(count) { m.reply "#{message}" }
+		  count = convert_to_sec(count, unit) if unit =~ /min|hour/
+		  Timer(count) { m.reply "#{message}" }
 		end
 	end
