@@ -1,8 +1,8 @@
 #  -*- coding: utf-8 -*-
-#  wikipedia.rb
+#  reminder.rb
 #  Author: slackR | slackErEhth77
 #  ------------------------
-#  A Cinch plugin to get info from Wikipedia for yossarian-bot.
+#  A Cinch plugin to set reminder  for a given time.
 #  ------------------------
 #  This code is licensed by slackErEhth77 under the MIT License.
 #  http://opensource.org/licenses/MIT
