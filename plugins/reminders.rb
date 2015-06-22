@@ -35,7 +35,7 @@ class Reminders	< YossarianPlugin
 		when /^hour/
 			secs = count * 3600
 		else
-			m.reply "#{unit} is not one of my units. Try sec(s), min(s), or hour(s).", true
+			m.reply "\'#{unit}\' is not one of my units. Try sec(s), min(s), or hour(s).", true
 			return
 		end
 
