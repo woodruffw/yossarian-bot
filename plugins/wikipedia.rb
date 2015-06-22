@@ -1,6 +1,6 @@
 #  -*- coding: utf-8 -*-
 #  wikipedia.rb
-#  Author: slackR (slackErEhth77) and William Woodruff
+#  Authors: slackR (slackErEhth77) and William Woodruff
 #  ------------------------
 #  A Cinch plugin to get info from Wikipedia for yossarian-bot.
 #  ------------------------

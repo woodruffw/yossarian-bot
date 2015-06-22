@@ -46,6 +46,7 @@ available_plugins:
     - UserQuotes
     - UserMail
     - CustomTriggers
+    - Reminders
     - CTCPVersion
     - LastSeen
     - LinkTitling

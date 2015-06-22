@@ -62,6 +62,7 @@ Command Syntax | Plugin class | Description | Working?
 `!quote [nick]` | UserQuotes | Retrieve a completely random quote, or a random quote from the given nick. | Yes
 `!mail <nick> <message>` | UserMail | Send a message to a nick. Messages are delivered the next time the nick speaks. | Yes
 `!trigger <command>` | CustomTriggers | Manage custom message replies and their triggers. [See below](#trigger). | Yes
+`!remind <count> <unit> <message>` | Reminders | Set a reminder message for a time in the future. | Yes
 `!ver <nick>` | CTCPVersion | Send a CTCP VERSION request to the given nick. | Yes
 
 ### `!botinfo` keys <a name="botinfo"></a>
