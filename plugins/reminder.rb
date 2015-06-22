@@ -14,7 +14,7 @@ class Reminder	< YossarianPlugin
 		use_blacklist
 		
 		def usage
-	       "!remind <count> <unit> 'Message'."
+		  "!remind <count> <unit> 'Message'."
 		end
 		
 		def match(cmd)
