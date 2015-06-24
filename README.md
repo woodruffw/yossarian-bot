@@ -18,7 +18,7 @@ An entertaining IRC bot that's easy to extend.
 * Cleverbot discussions
 * Channel 'seen' log
 * Link compression (TinyURL)
-* ...and more!
+* ...and much more!
 
 ## Installation
 
@@ -39,7 +39,8 @@ they are exported to the environment as follows:
 * YouTube (v3) - `YOUTUBE_API_KEY`
 
 Additionally, the `fortune` utility must be present in order for Unix fortunes
-to work correctly.
+to work correctly. Some package managers also provide the `fortunes` package
+for additional fortune messages.
 
 ### Running
 
