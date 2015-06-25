@@ -7,6 +7,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require 'uri'
 require 'open-uri'
 require 'open_uri_redirections'
 require 'nokogiri'
@@ -17,7 +18,7 @@ class LinkTitling < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	match /(http(s)?:\/\/[^ \t]*)/, use_prefix: false, method: :link_title
+	match /(#{URI::regexp(['http', 'https'])})/, use_prefix: false, method: :link_title
 
 	def link_title(m, link)
 		begin
