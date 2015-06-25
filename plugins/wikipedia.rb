@@ -24,7 +24,7 @@ class Wikipedia < YossarianPlugin
 		cmd =~ /^(!)?wiki$/
 	end
 
-	match /wiki (.+)/, method: :search_wiki
+	match /wiki (.+)/, method: :search_wiki, strip_colors: true
 
 	def search_wiki(m, search)
 		query = URI.encode(search)
