@@ -32,6 +32,9 @@ the bot shouldn't be.
 Cleverbot plugin uses.
 * CustomTriggers should be able to accept sanitized/safe regular expressions.
 * HAL should learn on a per-channel basis and continuously save its brain.
+* Make LinkTitling handle certain URLs with greater detail. For example, YouTube
+URLs should be "titled" be video statistics, Amazon URLs with price, vendors,
+etc.
 
 ## New Plugin Ideas
 
