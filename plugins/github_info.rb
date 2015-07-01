@@ -2,7 +2,7 @@
 #  github_info.rb
 #  Author: William Woodruff
 #  ------------------------
-#  A Cinch plugin that gets information about a user from GitHub.
+#  A Cinch plugin that gets information about a user or repository from GitHub.
 #  ------------------------
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
