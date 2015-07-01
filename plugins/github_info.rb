@@ -17,7 +17,7 @@ class GitHubInfo < YossarianPlugin
 	use_blacklist
 
 	def usage
-		'!gh <user> - Get information about <user> on GitHub. Alias: !github.'
+		'!gh <query> - Get information about a user or repository on GitHub. Alias: !github.'
 	end
 
 	def match?(cmd)
@@ -27,8 +27,17 @@ class GitHubInfo < YossarianPlugin
 	match /gh (\S+)/, method: :github_info, strip_colors: true
 	match /github (\S+)/, method: :github_info, strip_colors: true
 
-	def github_info(m, username)
-		url = "https://api.github.com/users/#{URI.encode(username)}"
+	def github_info(m, query)
+		if query.include?('/')
+			user, repo = query.split('/')
+			github_repo_info(m, user, repo)
+		else
+			github_user_info(m, query)
+		end
+	end
+
+	def github_user_info(m, user)
+		url = "https://api.github.com/users/#{URI.encode(user)}"
 
 		begin
 			hash = JSON.parse(open(url).read)
@@ -41,8 +50,28 @@ class GitHubInfo < YossarianPlugin
 				following = hash['following']
 				m.reply "#{login} (#{name}) has #{repos} repositories, #{followers} followers, and is following #{following} people. See more at https://github.com/#{login}", true
 			else
-				m.reply "No such user \'#{username}\'.", true
+				m.reply "No such user \'#{user}\'.", true
 			end
+		rescue Exception => e
+			m.reply e.to_s, true
+		end
+	end
+
+	def github_repo_info(m, user, repo)
+		url = "https://api.github.com/repos/#{URI.encode(user)}/#{URI.encode(repo)}"
+
+		begin
+			hash = JSON.parse(open(url).read)
+
+			repo = hash['name']
+			desc = hash['description']
+			forks = hash['forks_count']
+			stars = hash['stargazers_count']
+			watchers = hash['watchers_count']
+			open_issues = hash['open_issues_count']
+			link = hash['html_url']
+
+			m.reply "#{repo} - #{desc} (#{forks} forks, #{stars} stars, #{watchers} watchers, #{open_issues} open issues) See more at #{link}", true
 		rescue Exception => e
 			m.reply e.to_s, true
 		end
