@@ -42,6 +42,7 @@ available_plugins:
     - CodeEval
     - Wikipedia
     - LeetSpeak
+    - IPInfo
     - UserIntros
     - UserQuotes
     - UserMail

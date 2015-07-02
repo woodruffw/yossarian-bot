@@ -8,6 +8,7 @@
 #  http://opensource.org/licenses/MIT
 
 require 'json'
+require 'open-uri'
 
 require_relative 'yossarian_plugin'
 
