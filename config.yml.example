@@ -37,6 +37,7 @@ available_plugins:
     - LennartQuotes
     - CBSG
     - BTC
+    - LTC
     - StockQuotes
     - WorldPopulation
     - CodeEval
