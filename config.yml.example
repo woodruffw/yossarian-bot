@@ -21,6 +21,7 @@ available_plugins:
     - Rot13
     - TinyURL
     - GitHubInfo
+    - ArtistInfo
     - XKCDComics
     - Jerkcity
     - IsItUp

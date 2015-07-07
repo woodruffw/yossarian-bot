@@ -37,6 +37,7 @@ they are exported to the environment as follows:
 * Weather Underground - `WUNDERGROUND_API_KEY`
 * Merriam-Webster - `MERRIAM_WEBSTER_API_KEY`
 * YouTube (v3) - `YOUTUBE_API_KEY`
+* Last.fm - `LASTFM_API_KEY`, `LASTFM_API_SECRET`
 
 Additionally, the `fortune` utility must be present in order for Unix fortunes
 to work correctly. Some package managers also provide the `fortunes` package
