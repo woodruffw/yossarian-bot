@@ -37,13 +37,9 @@ class ArtistInfo < YossarianPlugin
 
 				if !info['mbid'].empty?
 					name = info['name']
-					from_date = info['bio']['formationlist']['formation']['yearfrom']
-
-					if info['bio']['formationlist']['formation']['yearto'].empty?
-						to_date = Time.now.year
-					else
-						to_date = info['bio']['formationlist']['formation']['yearto']
-					end
+					url = info['url']
+					formed = info['bio']['yearformed'] || '?'
+					place = info['bio']['placeformed'] || '?'
 
 					tags = info['tags']['tag'].map do |tag|
 						tag['name'].capitalize
@@ -53,9 +49,9 @@ class ArtistInfo < YossarianPlugin
 						art['name']
 					end.join(', ')
 
-					m.reply "#{name} (#{from_date}-#{to_date}): #{tags}. Similar artists: #{artists}.", true
+					m.reply "#{name} (formed #{formed}, #{place}): #{tags}. Similar artists: #{artists}. #{url}.", true
 				else
-					m.reply "No MBID found. Did you mean \'#{info['tags']['tag'][0]['name']}\'?", true
+					m.reply "No MBID found. Best guess: \'#{info['tags']['tag'][0]['name']}\'.", true
 				end
 			rescue Exception => e
 				m.reply e.to_s.strip, true
