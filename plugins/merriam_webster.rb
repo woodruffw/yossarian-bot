@@ -7,7 +7,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'xml'
+require 'xmlsimple'
 require 'open-uri'
 
 require_relative 'yossarian_plugin'
@@ -37,13 +37,15 @@ class MerriamWebster < YossarianPlugin
 			url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/#{query}?key=#{@key}"
 
 			begin
-				doc = XML::Parser.string(open(url).string).parse
-				definition = doc.find_first('entry/def[1]/dt[1]').to_s.gsub(/(<(\/)?[A-Za-z0-9_-]+>)|(:)|([\r\n\t]+)/, '')
+				hash = XmlSimple.xml_in(open(url).read)
 
-				if definition.empty?
-					m.reply "No defintion for #{word}.", true
+				if !hash['content']
+					definition = hash['entry'].first['def'].first['dt'].first
+					definition.gsub!(':', '')
+
+					m.reply "#{word} - #{definition}", true
 				else
-					m.reply "#{word} - #{definition}.", true
+					m.reply "No defintion for #{word}.", true
 				end
 			rescue Exception => e
 				m.reply e.to_s, true

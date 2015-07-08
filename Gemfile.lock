@@ -43,7 +43,6 @@ GEM
       httparty
       xml-simple
     leetspeak (0.1.1)
-    libxml-ruby (2.8.0)
     mechanize (2.7.3)
       domain_name (~> 0.5, >= 0.5.1)
       http-cookie (~> 1.0)
@@ -109,7 +108,6 @@ DEPENDENCIES
   json
   lastfm
   leetspeak
-  libxml-ruby
   mechanize
   megahal
   nokogiri
@@ -119,6 +117,7 @@ DEPENDENCIES
   wolfram
   wunderground
   xkcd
+  xml-simple
 
 BUNDLED WITH
    1.10.4
