@@ -30,6 +30,14 @@ $ cd yossarian-bot
 $ bundle install
 ```
 
+If you get errors during the bundle installation process, make sure that:
+
+* You're using ruby 2.1 or greater
+* Ruby's development headers/files are installed (should be `ruby2.{1,2}-dev` or
+similar in your package manager)
+* LibXML's development headers/files are installed (should be `libxml2-dev` or
+similar in your package manafer)
+
 `yossarian-bot` also requires API keys for several services. Make sure that
 they are exported to the environment as follows:
 
@@ -40,8 +48,8 @@ they are exported to the environment as follows:
 * Last.fm - `LASTFM_API_KEY`, `LASTFM_API_SECRET`
 
 Additionally, the `fortune` utility must be present in order for Unix fortunes
-to work correctly. Some package managers also provide the `fortunes` package
-for additional fortune messages.
+to work correctly. Some package managers also provide the `fortunes` and
+`fortunes-off` packages for additional fortune messages.
 
 ### Running
 
