@@ -41,6 +41,7 @@ class GitHubInfo < YossarianPlugin
 
 		begin
 			hash = JSON.parse(open(url).read)
+			hash.default = '?'
 
 			if hash.has_key?('login')
 				login = hash['login']
@@ -62,6 +63,7 @@ class GitHubInfo < YossarianPlugin
 
 		begin
 			hash = JSON.parse(open(url).read)
+			hash.default = '?'
 
 			repo = hash['name']
 			desc = hash['description']

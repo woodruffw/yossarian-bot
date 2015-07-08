@@ -34,6 +34,7 @@ class ArtistInfo < YossarianPlugin
 		if ENV.has_key?('LASTFM_API_KEY') && ENV.has_key?('LASTFM_API_SECRET')
 			begin
 				info = @lastfm.artist.get_info(artist: artist)
+				info.default = '?'
 
 				if !info['mbid'].empty?
 					name = info['name']

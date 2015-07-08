@@ -39,6 +39,7 @@ class YouTubeSearch < YossarianPlugin
 
 			begin
 				hash = JSON.parse(open(url).read)
+				hash.default = '?'
 
 				unless hash['items'].empty?
 					entry = hash['items'].first
