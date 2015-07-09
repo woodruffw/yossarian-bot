@@ -39,7 +39,7 @@ class ExchangeRates < YossarianPlugin
 
 			begin
 				hash = JSON.parse(open(url).read)
-				hash.default = '?'
+				hash['rates'].default = '?'
 
 				rates = codes.map do |curr|
 					"USD/#{curr}: #{hash['rates'][curr]}"
