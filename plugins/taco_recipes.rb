@@ -9,7 +9,6 @@
 
 require 'json'
 require 'open-uri'
-require 'haste'
 
 require_relative 'yossarian_plugin'
 

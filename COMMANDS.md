@@ -55,6 +55,7 @@ Command Syntax | Plugin class | Description | Working?
 `!cbsg` | CBSG | Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live). | Yes
 `!btc` | BTC | Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/). | Yes
 `!ltc` | LTC | Get the current LTC - USD exchance rate from the [BTC-e exchange](https://btc-e.com). | Yes
+`!rate <code1 [code2...]>` | ExchangeRates | Get the currency exchange rate between USD and one or more currencies from [Open Exchange Rates](https://openexchangerates.org/). | Yes
 `!stock <symbol>` | StockQuotes | Retrieve a stock quote for the given ticker symbol. | Yes
 `!wp` | WorldPopulation | Get the current world population estimate from the [US Census](https://www.census.gov/popclock/data/population/world). | Yes
 `!eval <lang> <code>` | CodeEval | Evaluate some code on [eval.in](https://eval.in). | Yes

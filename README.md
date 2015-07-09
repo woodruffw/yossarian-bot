@@ -44,6 +44,7 @@ they are exported to the environment as follows:
 * Merriam-Webster - `MERRIAM_WEBSTER_API_KEY`
 * YouTube (v3) - `YOUTUBE_API_KEY`
 * Last.fm - `LASTFM_API_KEY`, `LASTFM_API_SECRET`
+* Open Exchange Rates - `OEX_API_KEY`
 
 Additionally, the `fortune` utility must be present in order for Unix fortunes
 to work correctly. Some package managers also provide the `fortunes` and

@@ -39,6 +39,7 @@ available_plugins:
     - CBSG
     - BTC
     - LTC
+    - ExchangeRates
     - StockQuotes
     - WorldPopulation
     - CodeEval
