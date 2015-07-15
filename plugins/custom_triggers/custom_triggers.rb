@@ -48,10 +48,12 @@ class CustomTriggers < YossarianPlugin
 	match /trigger add (\S+) (.+)/, method: :add_trigger
 
 	def add_trigger(m, trigger, response)
-		if @triggers.has_key?(m.channel.to_s)
-			@triggers[m.channel.to_s][trigger] = response
+		channel = m.channel.to_s
+
+		if @triggers.has_key?(channel)
+			@triggers[channel][trigger] = response
 		else
-			@triggers[m.channel.to_s] = {trigger => response}
+			@triggers[channel] = {trigger => response}
 		end
 
 		m.reply "Added trigger for \'#{trigger}\' -> \'#{response}\'.", true
@@ -61,8 +63,10 @@ class CustomTriggers < YossarianPlugin
 	match /trigger rm (\S+)/, method: :rm_trigger
 
 	def rm_trigger(m, trigger)
-		if @triggers.has_key?(m.channel.to_s) && @triggers[m.channel.to_s].has_key?(trigger)
-			@triggers[m.channel.to_s].delete(trigger)
+		channel = m.channel.to_s
+
+		if @triggers.has_key?(channel) && @triggers[channel].has_key?(trigger)
+			@triggers[channel].delete(trigger)
 			m.reply "Deleted the response associated with \'#{trigger}\'.", true
 			sync_triggers_file
 		else
@@ -83,8 +87,10 @@ class CustomTriggers < YossarianPlugin
 	listen_to :channel
 
 	def listen(m)
-		if @triggers.has_key?(m.channel.to_s) && @triggers[m.channel.to_s].has_key?(m.message)
-			m.reply "\u200B#{@triggers[m.channel.to_s][m.message]}"
+		channel = m.channel.to_s
+
+		if @triggers.has_key?(channel) && @triggers[channel].has_key?(m.message)
+			m.reply "\u200B#{@triggers[channel][m.message]}"
 		end
 	end
 end
