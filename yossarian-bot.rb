@@ -1,11 +1,10 @@
 #!/usr/bin/env ruby
+
 #  -*- coding: utf-8 -*-
 #  yossarian-bot.rb
 #  Author: William Woodruff
 #  ------------------------
 #  A call-and-response IRC bot for entertainment.
-#  Allows users to query UrbanDictionary, Wolfram|Alpha, and other sites.
-#  Also spits out fortunes, Catch-22 quotes, and more.
 #  ------------------------
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
