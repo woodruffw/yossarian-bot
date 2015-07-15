@@ -39,7 +39,7 @@ class CustomTriggers < YossarianPlugin
 
 	def initialize_triggers(m)
 		if File.exist?(@triggers_file)
-			@intros = YAML::load_file(@triggers_file)
+			@triggers = YAML::load_file(@triggers_file)
 		else
 			FileUtils.mkdir_p File.dirname(@triggers_file)
 		end
@@ -49,7 +49,12 @@ class CustomTriggers < YossarianPlugin
 
 	def add_trigger(m, trigger, response)
 		if trigger =~ /^\w/ && response =~ /^\w/
-			@triggers[trigger] = response
+			if @triggers.has_key?(m.channel.to_s)
+				@triggers[m.channel.to_s][trigger] = response
+			else
+				@triggers[m.channel.to_s] = {trigger => response}
+			end
+	
 			m.reply "Added trigger for \'#{trigger}\' -> \'#{response}\'.", true
 			sync_triggers_file
 		else
@@ -60,8 +65,8 @@ class CustomTriggers < YossarianPlugin
 	match /trigger rm (\S+)/, method: :rm_trigger
 
 	def rm_trigger(m, trigger)
-		if @triggers.has_key?(trigger)
-			@triggers.delete(trigger)
+		if @triggers.has_key?(m.channel.to_s) && @triggers[m.channel.to_s].has_key?(trigger)
+			@triggers[m.channel.to_s].delete(trigger)
 			m.reply "Deleted the response associated with \'#{trigger}\'.", true
 			sync_triggers_file
 		else
@@ -75,15 +80,15 @@ class CustomTriggers < YossarianPlugin
 		if @triggers.empty?
 			m.reply "I don\'t currently have any triggers."
 		else
-			m.reply @triggers.keys.join(', '), true
+			m.reply @triggers[m.channel.to_s].keys.join(', '), true
 		end
 	end
 
 	listen_to :channel
 
 	def listen(m)
-		if @triggers.has_key?(m.message)
-			m.reply @triggers[m.message]
+		if @triggers.has_key?(m.channel.to_s) && @triggers[m.channel.to_s].has_key?(m.message)
+			m.reply @triggers[m.channel.to_s][m.message]
 		end
 	end
 end

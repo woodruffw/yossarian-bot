@@ -50,11 +50,13 @@ class UserIntros < YossarianPlugin
 
 	def set_intro(m, intro)
 		intro.gsub!(/\x01/, '')
+
 		if @intros.has_key?(m.channel.to_s)
 			@intros[m.channel.to_s][m.user.nick] = intro
 		else
 			@intros[m.channel.to_s] = {m.user.nick => intro}
 		end
+
 		m.reply "#{m.user.nick}: Your intro for #{m.channel.to_s} has been set to: \'#{intro}\'."
 		sync_intros_file
 	end
