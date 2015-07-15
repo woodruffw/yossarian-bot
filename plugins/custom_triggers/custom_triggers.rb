@@ -48,18 +48,14 @@ class CustomTriggers < YossarianPlugin
 	match /trigger add (\S+) (.+)/, method: :add_trigger
 
 	def add_trigger(m, trigger, response)
-		if trigger =~ /^\w/ && response =~ /^\w/
-			if @triggers.has_key?(m.channel.to_s)
-				@triggers[m.channel.to_s][trigger] = response
-			else
-				@triggers[m.channel.to_s] = {trigger => response}
-			end
-	
-			m.reply "Added trigger for \'#{trigger}\' -> \'#{response}\'.", true
-			sync_triggers_file
+		if @triggers.has_key?(m.channel.to_s)
+			@triggers[m.channel.to_s][trigger] = response
 		else
-			m.reply 'Triggers and responses cannot be prefixed.', true
+			@triggers[m.channel.to_s] = {trigger => response}
 		end
+
+		m.reply "Added trigger for \'#{trigger}\' -> \'#{response}\'.", true
+		sync_triggers_file
 	end
 
 	match /trigger rm (\S+)/, method: :rm_trigger
@@ -78,7 +74,7 @@ class CustomTriggers < YossarianPlugin
 
 	def list_triggers(m)
 		if @triggers.empty?
-			m.reply "I don\'t currently have any triggers."
+			m.reply "I don\'t currently have any triggers.", true
 		else
 			m.reply @triggers[m.channel.to_s].keys.join(', '), true
 		end
@@ -88,7 +84,7 @@ class CustomTriggers < YossarianPlugin
 
 	def listen(m)
 		if @triggers.has_key?(m.channel.to_s) && @triggers[m.channel.to_s].has_key?(m.message)
-			m.reply @triggers[m.channel.to_s][m.message]
+			m.reply "\u200B#{@triggers[m.channel.to_s][m.message]}"
 		end
 	end
 end
