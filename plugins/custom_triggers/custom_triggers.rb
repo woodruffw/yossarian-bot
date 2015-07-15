@@ -48,7 +48,7 @@ class CustomTriggers < YossarianPlugin
 	match /trigger add (\S+) (.+)/, method: :add_trigger
 
 	def add_trigger(m, trigger, response)
-		if trigger !~ /^[!:.]/ && response !~ /^[!:.]/
+		if trigger =~ /^\w/ && response =~ /^\w/
 			@triggers[trigger] = response
 			m.reply "Added trigger for \'#{trigger}\' -> \'#{response}\'.", true
 			sync_triggers_file
