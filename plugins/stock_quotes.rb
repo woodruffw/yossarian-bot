@@ -28,13 +28,13 @@ class StockQuotes < YossarianPlugin
 
 	def stock_quote(m, symbol)
 		query = URI.encode(symbol)
-		url = "http://finance.yahoo.com/d/quotes.csv?s=#{query}&f=snl1c1"
+		url = "http://finance.yahoo.com/d/quotes.csv?s=#{query}&f=snl1p2"
 
 		begin
 			quote = CSV.parse(open(url).read).first
 			tick, name, trade, change = quote[0..3]
 			if name != 'N/A'
-				m.reply "#{name} (#{tick}) - Trading at $#{trade} (#{change}%)", true
+				m.reply "#{name} (#{tick}) - Trading at $#{trade} (#{change})", true
 			else
 				m.reply "Could not find a quote for #{tick}.", true
 			end
