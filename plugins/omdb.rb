@@ -21,7 +21,7 @@ class OMDB < YossarianPlugin
 	end
 
 	def match?(cmd)
-		cmd =~ /^(!)?omdb/
+		cmd =~ /^(!)?omdb$/
 	end
 
 	match /omdb (.+)/, method: :omdb_search, strip_colors: true
