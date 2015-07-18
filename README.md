@@ -47,8 +47,9 @@ they are exported to the environment as follows:
 * Open Exchange Rates - `OEX_API_KEY`
 
 Additionally, the `fortune` utility must be present in order for Unix fortunes
-to work correctly. Some package managers also provide the `fortunes` and
-`fortunes-off` packages for additional fortune messages.
+to work correctly. Some package managers also provide the `fortunes`,
+`fortunes-off`, and `fortunes-bofh-excuses` packages for additional fortune
+messages.
 
 ### Running
 
