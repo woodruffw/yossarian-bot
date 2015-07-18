@@ -29,7 +29,9 @@ class BOFHExcuses < YossarianPlugin
 	match /bofh$/, method: :bofh_excuse
 
 	def bofh_excuse(m)
-		m.reply @@excuses.sample, true
+		excuse = @@excuses.sample
+
+		m.reply "The cause of the problem is: #{excuse}", true
 	end
 
 	match /bofh (\S+)/, method: :bofh_excuse_nick, strip_colors: true
@@ -38,7 +40,7 @@ class BOFHExcuses < YossarianPlugin
 		if m.channel.users.has_key?(User(nick))
 			excuse = @@excuses.sample
 
-			m.reply "#{nick}: #{excuse}"
+			m.reply "#{nick}: The cause of the problem is: #{excuse}"
 		else
 			m.reply "I don\'t see #{nick} in this channel.", true
 		end
