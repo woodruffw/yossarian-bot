@@ -19,30 +19,18 @@ class BOFHExcuses < YossarianPlugin
 	@@excuses = File.readlines(EXCUSES_FILE)
 
 	def usage
-		'!bofh [nick] - Fetch a random Bastard Operator From Hell excuse and direct it at a nickname if given.'
+		'!bofh <question> - Fetch a random Bastard Operator From Hell excuse for a given question.'
 	end
 
 	def match?(cmd)
 		cmd =~ /^(!)?bofh$/
 	end
 
-	match /bofh$/, method: :bofh_excuse
+	match /bofh (.+)/, method: :bofh, strip_colors: true
 
-	def bofh_excuse(m)
+	def bofh(m)
 		excuse = @@excuses.sample
 
 		m.reply "The cause of the problem is: #{excuse}", true
-	end
-
-	match /bofh (\S+)/, method: :bofh_excuse_nick, strip_colors: true
-
-	def bofh_excuse_nick(m, nick)
-		if m.channel.users.has_key?(User(nick))
-			excuse = @@excuses.sample
-
-			m.reply "#{nick}: The cause of the problem is: #{excuse}"
-		else
-			m.reply "I don\'t see #{nick} in this channel.", true
-		end
 	end
 end

@@ -53,7 +53,7 @@ Command Syntax | Plugin class | Description | Working?
 `!luther [nick]` | LutherInsults | Get an insult from [Luther's Oeuvre](http://ergofabulous.org/luther/) and direct it at a nickname if given. | Yes
 `!theo [nick]` | TheoQuotes | Get a random Theo De Raadt quote and direct it at a nickname if given. | Yes
 `!lennart [nick]` | LennartQuotes | Get a random Lennart Poettering quote and direct it at a nickname if given. | Yes
-`!bofh [nick]` | BOFHExcuses | Get a random [BOFH excuse](http://pages.cs.wisc.edu/~ballard/bofh/) and direct it at a nickname if given. | Yes
+`!bofh [nick]` | BOFHExcuses | Get a random [BOFH excuse](http://pages.cs.wisc.edu/~ballard/bofh/) for a given question. | Yes
 `!cbsg` | CBSG | Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live). | Yes
 `!btc` | BTC | Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/). | Yes
 `!ltc` | LTC | Get the current LTC - USD exchance rate from the [BTC-e exchange](https://btc-e.com). | Yes
