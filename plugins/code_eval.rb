@@ -17,28 +17,25 @@ class CodeEval < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	def initialize(*args)
-		super
-		@url = 'http://eval.in'
-		@langs = {
-			'c' => 'c/gcc-4.9.1',
-			'c++' => 'c++/gcc-4.9.1',
-			'coffeescript' => 'coffeescript/node-0.10.29-coffee-1.7.1',
-			'fortran' => 'fortran/f95-4.4.3',
-			'haskell' => 'haskell/hugs98-sep-2006',
-			'io' => 'io/io-20131204',
-			'js' => 'javascript/node-0.10.29',
-			'lua' => 'lua/lua-5.2.3',
-			'ocaml' => 'ocaml/ocaml-4.01.0',
-			'php' => 'php/php-5.5.14',
-			'pascal' => 'pascal/fpc-2.6.4',
-			'perl' => 'perl/perl-5.20.0',
-			'python' => 'python/cpython-3.4.1',
-			'ruby' => 'ruby/mri-2.2',
-			'slash' => 'slash/slash-head',
-			'nasm' => 'assembly/nasm-2.07'
-		}
-	end
+	URL = 'http://eval.in'
+	LANGS = {
+		'c' => 'c/gcc-4.9.1',
+		'c++' => 'c++/gcc-4.9.1',
+		'coffeescript' => 'coffeescript/node-0.10.29-coffee-1.7.1',
+		'fortran' => 'fortran/f95-4.4.3',
+		'haskell' => 'haskell/hugs98-sep-2006',
+		'io' => 'io/io-20131204',
+		'js' => 'javascript/node-0.10.29',
+		'lua' => 'lua/lua-5.2.3',
+		'ocaml' => 'ocaml/ocaml-4.01.0',
+		'php' => 'php/php-5.5.14',
+		'pascal' => 'pascal/fpc-2.6.4',
+		'perl' => 'perl/perl-5.20.0',
+		'python' => 'python/cpython-3.4.1',
+		'ruby' => 'ruby/mri-2.2',
+		'slash' => 'slash/slash-head',
+		'nasm' => 'assembly/nasm-2.07'
+	}
 
 	def usage
 		'!eval <lang> <code> - Evaluate the given code with the given language on eval.in.'
@@ -53,15 +50,15 @@ class CodeEval < YossarianPlugin
 	def code_eval(m, lang, code)
 		lang.downcase!
 
-		if @langs.has_key?(lang)
+		if LANGS.has_key?(lang)
 			mech = Mechanize.new
 			mech.user_agent_alias = 'Linux Firefox'
-			page = mech.get(@url)
+			page = mech.get(URL)
 
 			begin
 				form = page.forms.first
 				form.field_with(:name => 'code').value = code
-				form.field_with(:name => 'lang').value = @langs[lang]
+				form.field_with(:name => 'lang').value = LANGS[lang]
 				html = Nokogiri::HTML(mech.submit(form).body)
 				results = html.css('pre').last.text.gsub(/[\t\r\n]/, ' ')
 

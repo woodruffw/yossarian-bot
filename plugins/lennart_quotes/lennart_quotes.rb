@@ -17,7 +17,7 @@ class LennartQuotes < YossarianPlugin
 	use_blacklist
 
 	QUOTES_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'lennart_quotes.txt'))
-	@@quotes = File.readlines(QUOTES_FILE)
+	QUOTES = File.readlines(QUOTES_FILE)
 
 	def usage
 		'!lennart [nick] - Fetch a random Lennart Poettering quote and direct it at a nickname if given.'
@@ -30,14 +30,14 @@ class LennartQuotes < YossarianPlugin
 	match /lennart$/, method: :lennart_quote
 
 	def lennart_quote(m)
-		m.reply @@quotes.sample, true
+		m.reply QUOTES.sample, true
 	end
 
 	match /lennart (\S+)/, method: :lennart_quote_nick, strip_colors: true
 
 	def lennart_quote_nick(m, nick)
 		if m.channel.users.has_key?(User(nick))
-			quote = @@quotes.sample
+			quote = QUOTES.sample
 
 			m.reply "#{nick}: #{quote}"
 		else

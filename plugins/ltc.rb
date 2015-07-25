@@ -17,10 +17,7 @@ class LTC < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	def initialize(*args)
-		super
-		@url = 'https://btc-e.com/api/3/ticker/ltc_usd'
-	end
+	URL = 'https://btc-e.com/api/3/ticker/ltc_usd'
 
 	def usage
 		'!ltc - Get the current Litecoin exchange rate in USD.'
@@ -34,7 +31,7 @@ class LTC < YossarianPlugin
 
 	def ltc_rate(m)
 		begin
-			hash = JSON.parse(open(@url).read)
+			hash = JSON.parse(open(URL).read)
 			rate = hash['ltc_usd']['buy'].round(2)
 
 			m.reply "1 LTC = #{rate} USD", true

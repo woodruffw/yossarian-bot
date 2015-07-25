@@ -17,7 +17,7 @@ class TheoQuotes < YossarianPlugin
 	use_blacklist
 
 	QUOTES_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'theo_quotes.txt'))
-	@@quotes = File.readlines(QUOTES_FILE)
+	QUOTES = File.readlines(QUOTES_FILE)
 
 	def usage
 		'!theo [nick] - Fetch a random Theo De Raadt quote and direct it at a nickname if given.'
@@ -30,14 +30,14 @@ class TheoQuotes < YossarianPlugin
 	match /theo$/, method: :theo_quote
 
 	def theo_quote(m)
-		m.reply @@quotes.sample, true
+		m.reply QUOTES.sample, true
 	end
 
 	match /theo (\S+)/, method: :theo_quote_nick, strip_colors: true
 
 	def theo_quote_nick(m, nick)
 		if m.channel.users.has_key?(User(nick))
-			quote = @@quotes.sample
+			quote = QUOTES.sample
 
 			m.reply "#{nick}: #{quote}"
 		else

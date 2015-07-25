@@ -16,9 +16,10 @@ class Jerkcity < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	URL = 'http://jerkcity.com'
+
 	def initialize(*args)
 		super
-		@url = 'http://jerkcity.com'
 		@comic_count = 0
 	end
 
@@ -34,7 +35,7 @@ class Jerkcity < YossarianPlugin
 
 	def initialize_comic_count(m)
 		begin
-			html = Nokogiri::HTML(open(@url).read)
+			html = Nokogiri::HTML(open(URL).read)
 			text = html.css('div')[3].text
 			@comic_count = text.split('|')[2].strip.gsub(/(No. )|(,)/, '').to_i
 		rescue Exception => e
@@ -47,7 +48,7 @@ class Jerkcity < YossarianPlugin
 	def jerkcity(m)
 		if @comic_count > 0
 			rand = Random.rand(1..@comic_count)
-			comic_url = "#{@url}/_jerkcity#{rand}.html"
+			comic_url = "#{URL}/_jerkcity#{rand}.html"
 			
 			begin
 				html = Nokogiri::HTML(open(comic_url).read)

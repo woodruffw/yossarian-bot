@@ -16,7 +16,7 @@ class BOFHExcuses < YossarianPlugin
 	use_blacklist
 
 	EXCUSES_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'bofh_excuses.txt'))
-	@@excuses = File.readlines(EXCUSES_FILE)
+	EXCUSES = File.readlines(EXCUSES_FILE)
 
 	def usage
 		'!bofh <question> - Fetch a random Bastard Operator From Hell excuse for a given question.'
@@ -29,7 +29,7 @@ class BOFHExcuses < YossarianPlugin
 	match /bofh (.+)/, method: :bofh, strip_colors: true
 
 	def bofh(m)
-		excuse = @@excuses.sample
+		excuse = EXCUSES.sample
 
 		m.reply "The cause of the problem is: #{excuse}", true
 	end

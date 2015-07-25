@@ -16,10 +16,7 @@ class LutherInsults < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	def initialize(*args)
-		super
-		@url = 'http://ergofabulous.org/luther/'
-	end
+	URL = 'http://ergofabulous.org/luther/'
 
 	def usage
 		'!luther [nick] - Fetch a random insult from Martin Luther\'s oeuvre and direct it at a nickname if given.'
@@ -32,7 +29,7 @@ class LutherInsults < YossarianPlugin
 	match /luther$/, method: :luther_insult
 
 	def luther_insult(m)
-		page = Nokogiri::HTML(open(@url).read)
+		page = Nokogiri::HTML(open(URL).read)
 		insult = page.css('p').first.text
 
 		m.reply insult, true
@@ -43,7 +40,7 @@ class LutherInsults < YossarianPlugin
 	def luther_insult_nick(m, nick)
 		if m.channel.users.has_key?(User(nick))
 			begin
-				page = Nokogiri::HTML(open(@url).read)
+				page = Nokogiri::HTML(open(URL).read)
 				insult = page.css('p').first.text
 
 				m.reply "#{nick}: #{insult}"

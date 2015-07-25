@@ -17,10 +17,7 @@ class WorldPopulation < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	def initialize(*args)
-		super
-		@url = 'https://www.census.gov/popclock/data/population/world'
-	end
+	URL = 'https://www.census.gov/popclock/data/population/world'
 
 	def usage
 		'!wp - Get the approximate world population and growth rate. Alias: !population.'
@@ -34,7 +31,7 @@ class WorldPopulation < YossarianPlugin
 
 	def world_population(m)
 		begin
-			hash = JSON.parse(open(@url).read)
+			hash = JSON.parse(open(URL).read)
 			pop = hash['world']['population']
 			rate = hash['world']['population_rate']
 			m.reply "World population: #{pop} (#{rate}/second)", true

@@ -16,10 +16,7 @@ class CBSG < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	def initialize(*args)
-		super
-		@url = 'http://cbsg.sourceforge.net/cgi-bin/live'
-	end
+	URL = 'http://cbsg.sourceforge.net/cgi-bin/live'
 
 	def usage
 		'!cbsg - Spew some corporate bullshit.'
@@ -33,7 +30,7 @@ class CBSG < YossarianPlugin
 
 	def cbsg(m)
 		begin
-			page = Nokogiri::HTML(open(@url).read)
+			page = Nokogiri::HTML(open(URL).read)
 
 			m.reply page.css('li').first.text, true
 		rescue Exception => e

@@ -16,10 +16,7 @@ class YouTubeSearch < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	def initialize(*args)
-		super
-		@key = ENV['YOUTUBE_API_KEY']
-	end
+	KEY = ENV['YOUTUBE_API_KEY']
 
 	def usage
 		'!yt <search> - Search YouTube. Alias: !youtube.'
@@ -33,9 +30,9 @@ class YouTubeSearch < YossarianPlugin
 	match /youtube (.+)/, method: :youtube_search, strip_colors: true
 
 	def youtube_search(m, search)
-		if @key
+		if KEY
 			query = URI.encode(search)
-			url = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=#{query}&key=#{@key}"
+			url = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=#{query}&key=#{KEY}"
 
 			begin
 				hash = JSON.parse(open(url).read)

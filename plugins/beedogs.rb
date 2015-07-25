@@ -14,10 +14,7 @@ class Beedogs < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	def initialize(*args)
-		super
-		@count = 327
-	end
+	COUNT = 327
 
 	def usage
 		'!beedog - Retrieve a random picture of a beedog.'
@@ -30,7 +27,7 @@ class Beedogs < YossarianPlugin
 	match /beedog$/, method: :beedog
 
 	def beedog(m)
-		num = '%03d' % rand(1..@count)
+		num = '%03d' % rand(1..COUNT)
 
 		m.reply "http://beedogs.com/index_files/image#{num}.jpg", true
 	end

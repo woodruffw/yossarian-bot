@@ -15,11 +15,8 @@ class BotInfo < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	def initialize(*args)
-		super
-		@bot_version = 2.30
-		@bot_starttime = Time.now
-	end
+	BOT_VERSION = 2.32
+	BOT_STARTTIME = Time.now
 
 	def usage
 		'!bi [key] - Retrieve information about the bot. Keys: ver, src, author, uptime, chans, admins, ignores. Alias: !botinfo.'
@@ -35,13 +32,13 @@ class BotInfo < YossarianPlugin
 	def bot_info(m, key)
 		case key
 		when /(^version$)|(^vers?$)/
-			m.reply "yossarian-bot #{@bot_version} running on ruby #{RUBY_VERSION}."
+			m.reply "yossarian-bot #{BOT_VERSION} running on ruby #{RUBY_VERSION}."
 		when /(^source$)|(^src$)/
 			m.reply 'https://github.com/woodruffw/yossarian-bot'
 		when /^author$/
 			m.reply 'Author: woodruffw'
 		when /^uptime$/
-			diff = TimeDifference.between(@bot_starttime, Time.now).in_general
+			diff = TimeDifference.between(BOT_STARTTIME, Time.now).in_general
 			m.reply "I\'ve been online for %d days, %d hours, %d minutes, and %d seconds." % [diff[:days], diff[:hours], diff[:minutes], diff[:seconds]]
 		when /^chan(nel)?s$/
 			m.reply "Channels: %s" % @bot.channels.join(', ')

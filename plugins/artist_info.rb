@@ -15,11 +15,12 @@ class ArtistInfo < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	KEY = ENV['LASTFM_API_KEY']
+	SECRET = ENV['LASTFM_API_SECRET']
+
 	def initialize(*args)
 		super
-		@key = ENV['LASTFM_API_KEY']
-		@secret = ENV['LASTFM_API_SECRET']
-		@lastfm = Lastfm.new(@key, @secret)
+		@lastfm = Lastfm.new(KEY, SECRET)
 	end
 
 	def usage
@@ -33,7 +34,7 @@ class ArtistInfo < YossarianPlugin
 	match /artist (.+)/, method: :artist_info, strip_colors: true
 
 	def artist_info(m, artist)
-		if @key && @secret
+		if KEY && SECRET
 			begin
 				info = @lastfm.artist.get_info(artist: artist)
 				info.default = '?'

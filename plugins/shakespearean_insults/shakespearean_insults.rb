@@ -16,12 +16,8 @@ class ShakespeareanInsults < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	@@insults_file = File.expand_path(File.join(File.dirname(__FILE__), 'shakespearean_insults.yml'))
-
-	def initialize(*args)
-		super
-		@insults = YAML::load_file(@@insults_file);
-	end
+	INSULTS_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'shakespearean_insults.yml'))
+	INSULTS = YAML::load_file(INSULTS_FILE)
 
 	def usage
 		'!insult [nick] - Generate a Shakespearean insult, and insult someone if given.'
@@ -34,9 +30,9 @@ class ShakespeareanInsults < YossarianPlugin
 	match /insult$/, method: :insult
 
 	def insult(m)
-		col1 = @insults['column1'].sample
-		col2 = @insults['column2'].sample
-		col3 = @insults['column3'].sample
+		col1 = INSULTS['column1'].sample
+		col2 = INSULTS['column2'].sample
+		col3 = INSULTS['column3'].sample
 
 		m.reply "Thou art a #{col1}, #{col2} #{col3}!", true
 	end
@@ -45,9 +41,9 @@ class ShakespeareanInsults < YossarianPlugin
 
 	def insult_nick(m, nick)
 		if m.channel.users.has_key?(User(nick))
-			col1 = @insults['column1'].sample
-			col2 = @insults['column2'].sample
-			col3 = @insults['column3'].sample
+			col1 = INSULTS['column1'].sample
+			col2 = INSULTS['column2'].sample
+			col3 = INSULTS['column3'].sample
 
 			m.reply "#{nick} is a #{col1}, #{col2} #{col3}!"
 		else

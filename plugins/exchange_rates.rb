@@ -17,10 +17,8 @@ class ExchangeRates < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	def initialize(*args)
-		super
-		@key = ENV['OEX_API_KEY']
-	end
+	KEY = ENV['OEX_API_KEY']
+	URL = "https://openexchangerates.org/api/latest.json?app_id=#{KEY}"
 
 	def usage
 		'!rate <code [code2...]> - Get the currency exchange rate between USD and one or more currencies.'
@@ -33,12 +31,11 @@ class ExchangeRates < YossarianPlugin
 	match /rate (.+)/, method: :exchange_rate, strip_colors: true
 
 	def exchange_rate(m, code)
-		if @key
+		if KEY
 			codes = code.upcase.split
-			url = "https://openexchangerates.org/api/latest.json?app_id=#{@key}"
 
 			begin
-				hash = JSON.parse(open(url).read)
+				hash = JSON.parse(open(URL).read)
 				hash['rates'].default = '?'
 
 				rates = codes.map do |curr|

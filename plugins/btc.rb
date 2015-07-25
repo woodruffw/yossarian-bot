@@ -16,10 +16,7 @@ class BTC < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	def initialize(*args)
-		super
-		@url = 'https://api.bitcoinaverage.com/ticker/global/USD/last'
-	end
+	URL = 'https://api.bitcoinaverage.com/ticker/global/USD/last'
 
 	def usage
 		'!btc - Get the current Bitcoin exchange rate in USD.'
@@ -33,7 +30,7 @@ class BTC < YossarianPlugin
 
 	def btc_rate(m)
 		begin
-			rate = open(@url).read
+			rate = open(URL).read
 			m.reply "1 BTC = #{rate} USD", true
 		rescue Exception => e
 			m.reply e.to_s, true

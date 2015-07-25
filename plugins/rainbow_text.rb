@@ -13,10 +13,7 @@ class RainbowText < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	def initialize(*args)
-		super
-		@colors = ['03', '04', '06', '07', '08', '09', '11', '13']
-	end
+	COLORS = ['03', '04', '06', '07', '08', '09', '11', '13']
 
 	def usage
 		'!rainbow <text> - Vomit out rainbowified text. Alias: !vomit.'
@@ -31,7 +28,7 @@ class RainbowText < YossarianPlugin
 
 	def rainbow_text(m, text)
 		color_text = text.chars.map do |c|
-			"\x03#{@colors.sample}#{c}\x0F"
+			"\x03#{COLORS.sample}#{c}\x0F"
 		end.join('')
 
 		m.reply color_text, true

@@ -16,10 +16,7 @@ class TacoRecipes < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	def initialize(*args)
-		super
-		@url = 'http://taco-randomizer.herokuapp.com/random/?full-taco=true'
-	end
+	URL = 'http://taco-randomizer.herokuapp.com/random/?full-taco=true'
 
 	def usage
 		'!taco - Get a random taco recipe from the Taco Randomizer.'
@@ -33,7 +30,7 @@ class TacoRecipes < YossarianPlugin
 
 	def random_taco(m)
 		begin
-			hash = JSON.parse(open(@url).read)
+			hash = JSON.parse(open(URL).read)
 			recipe_url = hash['url'].gsub(/(raw\.github.com)|(\/master\/)/, 'raw.github.com' => 'github.com', '/master/' => '/blob/master/')
 
 			m.reply "#{hash['name']} - #{recipe_url}", true
