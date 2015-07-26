@@ -12,13 +12,12 @@
 require 'cinch'
 require 'yaml'
 
-require_relative 'lib/blacklist'
+require_relative 'extend/blacklist'
 
 Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |plugin|
 	require plugin
 end
 
-$BOT_PLUGINS = []
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
 config_options = {}
 server_threads = []
@@ -38,6 +37,9 @@ config_options['servers'].each do |server_name, server_info|
 		bot = Cinch::Bot.new do
 			@admins = server_info['admins'] or []
 			@blacklist = Set.new
+			@all_plugins = config_options['available_plugins'].map do |plugin|
+				Object.const_get(plugin)
+			end
 
 			def admins
 				@admins
@@ -45,6 +47,10 @@ config_options['servers'].each do |server_name, server_info|
 
 			def blacklist
 				@blacklist
+			end
+
+			def all_plugins
+				@all_plugins
 			end
 
 			configure do |conf|

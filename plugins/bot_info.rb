@@ -15,7 +15,7 @@ class BotInfo < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	BOT_VERSION = 2.32
+	BOT_VERSION = 2.33
 	BOT_STARTTIME = Time.now
 
 	def usage
