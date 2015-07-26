@@ -31,6 +31,6 @@ class BOFHExcuses < YossarianPlugin
 	def bofh(m)
 		excuse = EXCUSES.sample
 
-		m.reply "The cause of the problem is: #{excuse}", true
+		m.reply "The cause of the problem is: #{excuse}"
 	end
 end
