@@ -38,6 +38,11 @@ class MerriamWebster < YossarianPlugin
 
 				if !hash['content']
 					definition = hash['entry'].first['def'].first['dt'].first
+
+					if definition.is_a?(Hash)
+						definition = definition["content"].join
+					end
+
 					definition.gsub!(':', '')
 
 					m.reply "#{word} - #{definition}", true
