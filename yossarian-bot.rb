@@ -28,10 +28,6 @@ else
 	abort('Fatal: Could not find a config.yml to load from.')
 end
 
-$BOT_PLUGINS = config_options['available_plugins'].map do |plugin|
-	Object.const_get(plugin)
-end
-
 config_options['servers'].each do |server_name, server_info|
 	server_threads << Thread.new do
 		bot = Cinch::Bot.new do
@@ -73,7 +69,7 @@ config_options['servers'].each do |server_name, server_info|
 				conf.port = server_info['port'] or 6667
 				conf.ssl.use = server_info['ssl'] or false
 				conf.plugins.prefix = Regexp.new(server_info['prefix']) or /^!/
-				conf.plugins.plugins = $BOT_PLUGINS.dup
+				conf.plugins.plugins = @all_plugins.dup
 
 				server_info['disabled_plugins'].each do |plugin|
 					conf.plugins.plugins.delete(Object.const_get(plugin))
