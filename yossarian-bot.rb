@@ -35,10 +35,20 @@ end
 config_options['servers'].each do |server_name, server_info|
 	server_threads << Thread.new do
 		bot = Cinch::Bot.new do
+			@starttime = Time.now
+			@version = config_options['bot_version']
 			@admins = server_info['admins'] or []
 			@blacklist = Set.new
 			@all_plugins = config_options['available_plugins'].map do |plugin|
 				Object.const_get(plugin)
+			end
+
+			def starttime
+				@starttime
+			end
+
+			def version
+				@version
 			end
 
 			def admins
