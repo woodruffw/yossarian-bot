@@ -8,7 +8,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    cinch (2.2.5)
+    cinch (2.2.6)
     cld (0.7.0)
       ffi
     cleverbot-api (0.0.4)
@@ -117,7 +117,6 @@ DEPENDENCIES
   wolfram
   wunderground
   xkcd
-  xml-simple
 
 BUNDLED WITH
    1.10.4
