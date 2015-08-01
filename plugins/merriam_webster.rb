@@ -7,7 +7,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'xmlsimple'
+require 'nokogiri'
 require 'open-uri'
 
 require_relative 'yossarian_plugin'
@@ -34,20 +34,16 @@ class MerriamWebster < YossarianPlugin
 			url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/#{query}?key=#{KEY}"
 
 			begin
-				hash = XmlSimple.xml_in(open(url).read)
+				xml = Nokogiri::XML(open(url).read)
 
-				if !hash['content']
-					definition = hash['entry'].first['def'].first['dt'].first
+				def_elem = xml.xpath('//entry_list/entry/def/dt').first
 
-					if definition.is_a?(Hash)
-						definition = definition["content"].join
-					end
+				if def_elem
+					definition = def_elem.text.sub(/^:/, '')
 
-					definition.gsub!(':', '')
-
-					m.reply "#{word} - #{definition}", true
+					m.reply "#{word} - #{definition}.", true
 				else
-					m.reply "No defintion for #{word}.", true
+					m.reply "No definition for #{word}.", true
 				end
 			rescue Exception => e
 				m.reply e.to_s, true
