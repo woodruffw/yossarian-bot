@@ -39,7 +39,7 @@ class MerriamWebster < YossarianPlugin
 				def_elem = xml.xpath('//entry_list/entry/def/dt').first
 
 				if def_elem
-					definition = def_elem.text.sub(/^:/, '')
+					definition = def_elem.text.gsub(':', '')
 
 					m.reply "#{word} - #{definition}.", true
 				else
