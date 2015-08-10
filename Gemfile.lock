@@ -71,6 +71,7 @@ GEM
     open_uri_redirections (0.2.1)
     ruby-progressbar (1.7.5)
     ruby-termios (0.9.6)
+    ruby-upworthy (0.0.2)
     rubyzip (1.1.7)
     sooth (1.0.2)
     telegraph (1.0.1)
@@ -112,6 +113,7 @@ DEPENDENCIES
   megahal
   nokogiri
   open_uri_redirections
+  ruby-upworthy
   telegraph
   time_difference
   wolfram

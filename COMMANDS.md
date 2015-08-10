@@ -55,6 +55,7 @@ Command Syntax | Plugin class | Description | Working?
 `!lennart` | LennartQuotes | Get a random Lennart Poettering quote. | Yes
 `!bofh <question>` | BOFHExcuses | Get a random [BOFH excuse](http://pages.cs.wisc.edu/~ballard/bofh/) for a given question. | Yes
 `!cbsg` | CBSG | Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live). | Yes
+`!clickbait` | Clickbait | Generate a clickbait-y title. | Yes
 `!btc` | BTC | Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/). | Yes
 `!ltc` | LTC | Get the current LTC - USD exchance rate from the [BTC-e exchange](https://btc-e.com). | Yes
 `!rate <code1 [code2...]>` | ExchangeRates | Get the currency exchange rate between USD and one or more currencies from [Open Exchange Rates](https://openexchangerates.org/). | Yes

@@ -42,6 +42,7 @@ available_plugins:
     - LennartQuotes
     - BOFHExcuses
     - CBSG
+    - Clickbait
     - BTC
     - LTC
     - ExchangeRates
