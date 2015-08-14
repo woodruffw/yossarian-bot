@@ -26,7 +26,7 @@ class UserMail < YossarianPlugin
 	def initialize(*args)
 		super
 		@mbox_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_mail.yml'))
-		@mbox = {}
+		@mbox = Hash.new { |h, k| h[k] = [] }
 	end
 
 	def sync_mbox_file
@@ -48,6 +48,7 @@ class UserMail < YossarianPlugin
 	def initialize_mbox(m)
 		if File.exist?(@mbox_file)
 			@mbox = YAML::load_file(@mbox_file)
+			@mbox.default_proc = Proc.new { |h, k| h[k] = [] }
 		else
 			FileUtils.mkdir_p File.dirname(@mbox_file)
 		end
@@ -75,11 +76,7 @@ class UserMail < YossarianPlugin
 		if nick.downcase == @bot.nick.downcase
 			m.reply 'That\'s not going to work.', true
 		else
-			if @mbox.has_key?(nick.downcase)
-				@mbox[nick.downcase] << MboxMessageStruct.new(m.user.nick, Time.now, msg)
-			else
-				@mbox[nick.downcase] = [MboxMessageStruct.new(m.user.nick, Time.now, msg)]
-			end
+			@mbox[nick.downcase] << MboxMessageStruct.new(m.user.nick, Time.now, msg)
 
 			m.reply "I\'ll give your message to #{nick} the next time I see them.", true
 			sync_mbox_file

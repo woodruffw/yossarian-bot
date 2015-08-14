@@ -90,7 +90,7 @@ class UserQuotes < YossarianPlugin
 		unless chan == nil || @quotes[chan] == nil
 			nick = @quotes[chan].keys.sample
 			quote = @quotes[chan][nick].sample
-			m.reply "#{quote} [#{nick} on #{chan}]"
+			m.reply "\u200B#{quote} [#{nick} on #{chan}]"
 		else
 			m.reply "I don\'t have any quotes on this channel yet. Check back in a bit."
 		end
@@ -103,7 +103,7 @@ class UserQuotes < YossarianPlugin
 
 		if @quotes.has_key?(chan) && @quotes[chan].has_key?(nick)
 			quote = @quotes[chan][nick].sample
-			m.reply "#{quote} [#{nick}]"
+			m.reply "\u200B#{quote} [#{nick}]"
 		else
 			m.reply "I don\'t have any quotes for #{nick} on this channel."
 		end

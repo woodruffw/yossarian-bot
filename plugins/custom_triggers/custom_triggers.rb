@@ -53,7 +53,7 @@ class CustomTriggers < YossarianPlugin
 		if @triggers.has_key?(channel)
 			@triggers[channel][trigger] = response
 		else
-			@triggers[channel] = {trigger => response}
+			@triggers[channel] = { trigger => response }
 		end
 
 		m.reply "Added trigger for \'#{trigger}\' -> \'#{response}\'.", true

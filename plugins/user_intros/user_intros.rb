@@ -54,7 +54,7 @@ class UserIntros < YossarianPlugin
 		if @intros.has_key?(m.channel.to_s)
 			@intros[m.channel.to_s][m.user.nick] = intro
 		else
-			@intros[m.channel.to_s] = {m.user.nick => intro}
+			@intros[m.channel.to_s] = { m.user.nick => intro }
 		end
 
 		m.reply "#{m.user.nick}: Your intro for #{m.channel.to_s} has been set to: \'#{intro}\'."
