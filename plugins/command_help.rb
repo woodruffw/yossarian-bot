@@ -21,8 +21,6 @@ class CommandHelp < YossarianPlugin
 		cmd =~ /^(!)?help$/
 	end
 
-	set :prefix, /^[.!:]/
-
 	match /help$/, method: :help
 
 	def help(m)
