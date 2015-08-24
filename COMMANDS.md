@@ -81,6 +81,7 @@ Key | Description
 --- | ------
 `ver` (or `version`) | Get `yossarian-bot`'s version.
 `src` (or `source`) | Get a link to `yossarian-bot`'s source code.
+`contrib` (or `todo`) | Get a link to `yossarian-bot`'s TODO list.
 `author` | Get `yossarian-bot`'s author.
 `uptime` | Get `yossarian-bot`'s running time.
 `chans` (or `channels`) | List the channels the bot is currently on.

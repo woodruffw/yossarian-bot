@@ -16,7 +16,7 @@ class BotInfo < YossarianPlugin
 	use_blacklist
 
 	def usage
-		'!bi [key] - Retrieve information about the bot. Keys: ver, src, author, uptime, chans, admins, ignores. Alias: !botinfo.'
+		'!bi [key] - Retrieve information about the bot. See link in !help for keys. Alias: !botinfo.'
 	end
 
 	def match?(cmd)
@@ -29,11 +29,13 @@ class BotInfo < YossarianPlugin
 	def bot_info(m, key)
 		case key
 		when /(^version$)|(^vers?$)/
-			m.reply "yossarian-bot #{@bot.version} running on ruby #{RUBY_VERSION}."
+			m.reply "yossarian-bot #{@bot.version} running on ruby #{RUBY_VERSION} (#{RUBY_PLATFORM})."
 		when /(^source$)|(^src$)/
-			m.reply 'https://github.com/woodruffw/yossarian-bot'
+			m.reply 'yossarian-bot\'s source code can be found here: http://git.io/vs65u'
+		when /(^contrib)|(^todo$)/
+			m.reply 'Want to contribute? Here are some things to do: http://git.io/vIfc1'
 		when /^author$/
-			m.reply 'Author: woodruffw'
+			m.reply 'Author: William Woodruff (woodruffw, yossarian)'
 		when /^uptime$/
 			diff = TimeDifference.between(@bot.starttime, Time.now).in_general
 			m.reply "I\'ve been online for %d days, %d hours, %d minutes, and %d seconds." % [diff[:days], diff[:hours], diff[:minutes], diff[:seconds]]

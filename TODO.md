@@ -1,6 +1,15 @@
 TODO
 ====
 
+It might be worth reading [the style guide](WRITING_PLUGINS.md) before working
+on some of these.
+
+## Documentation/Meta
+
+* Document plugins/core better (YARD?)
+* Alphabetize [COMMANDS.md](COMMANDS.md) and the plugins collect for better
+organization.
+
 ## Core
 
 * Make a yossarian_bot.rb a YossarianBot class that encapsulates everything
