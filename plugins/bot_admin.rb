@@ -21,6 +21,8 @@ class BotAdmin < YossarianPlugin
 		cmd =~ /^(!)?admin$/
 	end
 
+	hook :pre, :for => [:match], :method => :authenticate?
+
 	def authenticate?(m)
 		if @bot.admins.include?(m.user.nick) && User(m.user.nick).authed?
 			return true
@@ -29,8 +31,6 @@ class BotAdmin < YossarianPlugin
 		m.reply "You do not have permission to do that.", true
 		return false
 	end
-
-	hook :pre, :for => [:match], :method => :authenticate?
 
 	match /admin plugin list/, method: :plugin_list
 
@@ -53,7 +53,7 @@ class BotAdmin < YossarianPlugin
 
 	def plugin_enable(m, name)
 		@bot.all_plugins.each do |plugin|
-			if plugin.name == name && !@bot.plugins.include?(plugin)
+			if plugin.name == name && @bot.plugins.exclude?(plugin)
 				@bot.plugins.register_plugin(plugin)
 				m.reply "#{m.user.nick}: #{name} has been enabled."
 				return
@@ -109,7 +109,7 @@ class BotAdmin < YossarianPlugin
 	match /admin join (\S+)/, method: :bot_join_channel
 
 	def bot_join_channel(m, chan)
-		if !@bot.channels.include?(chan)
+		if @bot.channels.exclude?(chan)
 			@bot.join(chan)
 			m.reply "I\'ve joined #{chan}.", true
 		else

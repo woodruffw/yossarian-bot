@@ -12,7 +12,9 @@
 require 'cinch'
 require 'yaml'
 
-require_relative 'extend/blacklist'
+Dir[File.dirname(__FILE__) + '/extend/**/*.rb'].each do |extension|
+	require extension
+end
 
 Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |plugin|
 	require plugin
