@@ -66,6 +66,7 @@ Command Syntax | Plugin class | Description | Working?
 `!leet <text>` | LeetSpeak | Convert text to leetspeak. | Yes
 `!ipinfo <ip>` | IPInfo | Perform a lookup on the given IP on [ipinfo.io](https://ipinfo.io). | Yes
 `!beedog` | Beedogs | Retrieve a random picture of a beedog from [beedogs.com](http://beedogs.com). | Yes
+`!dinner` | Dinner | Retrieve a random dinner recipe from [whatthefuckshouldimakefordinner.com](http://whatthefuckshouldimakefordinner.com). | Yes
 `!intro <command>` | UserIntros | Manage the intro message for your nick. [See below](#intro). | Yes
 `!quote [nick]` | UserQuotes | Retrieve a completely random quote, or a random quote from the given nick. | Yes
 `!mail <nick> <message>` | UserMail | Send a message to a nick. Messages are delivered the next time the nick speaks. | Yes

@@ -53,6 +53,7 @@ available_plugins:
     - LeetSpeak
     - IPInfo
     - Beedogs
+    - Dinner
     - UserIntros
     - UserQuotes
     - UserMail
