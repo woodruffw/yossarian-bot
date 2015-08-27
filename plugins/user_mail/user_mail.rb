@@ -59,7 +59,7 @@ class UserMail < YossarianPlugin
 	def listen(m)
 		nick = m.user.nick.downcase
 
-		if @mbox.has_key?(nick)
+		if @mbox.key?(nick)
 			m.user.send "Here is your mail. Use !mail <nick> <message> to reply in turn."
 
 			@mbox[nick].each do |msg|

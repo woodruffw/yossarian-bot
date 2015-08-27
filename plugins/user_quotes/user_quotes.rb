@@ -60,8 +60,8 @@ class UserQuotes < YossarianPlugin
 		if m.message !~ /^[!:.]/
 			@@message_count += 1
 
-			if @quotes.has_key?(chan)
-				if @quotes[chan].has_key?(nick)
+			if @quotes.key?(chan)
+				if @quotes[chan].key?(nick)
 					if @quotes[chan][nick].size < @@user_quote_limit
 						@quotes[chan][nick] << m.message
 					else
@@ -101,7 +101,7 @@ class UserQuotes < YossarianPlugin
 	def random_quote_user(m, nick)
 		chan = m.channel.to_s
 
-		if @quotes.has_key?(chan) && @quotes[chan].has_key?(nick)
+		if @quotes.key?(chan) && @quotes[chan].key?(nick)
 			quote = @quotes[chan][nick].sample
 			m.reply "\u200B#{quote} [#{nick}]"
 		else

@@ -46,7 +46,7 @@ class GitHubInfo < YossarianPlugin
 			hash = JSON.parse(open(url).read)
 			hash.default = '?'
 
-			if hash.has_key?('login')
+			if hash.key?('login')
 				login = hash['login']
 				name = hash['name'] || 'No name given'
 				repos = hash['public_repos']

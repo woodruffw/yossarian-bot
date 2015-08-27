@@ -50,7 +50,7 @@ class CustomTriggers < YossarianPlugin
 	def add_trigger(m, trigger, response)
 		channel = m.channel.to_s
 
-		if @triggers.has_key?(channel)
+		if @triggers.key?(channel)
 			@triggers[channel][trigger] = response
 		else
 			@triggers[channel] = { trigger => response }
@@ -65,7 +65,7 @@ class CustomTriggers < YossarianPlugin
 	def rm_trigger(m, trigger)
 		channel = m.channel.to_s
 
-		if @triggers.has_key?(channel) && @triggers[channel].has_key?(trigger)
+		if @triggers.key?(channel) && @triggers[channel].key?(trigger)
 			@triggers[channel].delete(trigger)
 			m.reply "Deleted the response associated with \'#{trigger}\'.", true
 			sync_triggers_file
@@ -89,7 +89,7 @@ class CustomTriggers < YossarianPlugin
 	def listen(m)
 		channel = m.channel.to_s
 
-		if @triggers.has_key?(channel) && @triggers[channel].has_key?(m.message)
+		if @triggers.key?(channel) && @triggers[channel].key?(m.message)
 			m.reply "\u200B#{@triggers[channel][m.message]}"
 		end
 	end

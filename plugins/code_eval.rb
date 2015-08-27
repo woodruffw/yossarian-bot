@@ -50,7 +50,7 @@ class CodeEval < YossarianPlugin
 	def code_eval(m, lang, code)
 		lang.downcase!
 
-		if LANGS.has_key?(lang)
+		if LANGS.key?(lang)
 			mech = Mechanize.new
 			mech.user_agent_alias = 'Linux Firefox'
 			page = mech.get(URL)

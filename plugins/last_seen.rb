@@ -47,7 +47,7 @@ class LastSeen < YossarianPlugin
 			m.reply "That\'s not going to work.", true
 		elsif nick.downcase == m.user.nick.downcase
 			m.reply "You\'re online right now.", true
-		elsif @users.has_key?(nick.downcase)
+		elsif @users.key?(nick.downcase)
 			m.reply @users[nick.downcase].to_s, true
 		else
 			m.reply "I\'ve never seen #{nick}.", true

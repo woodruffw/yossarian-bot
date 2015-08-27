@@ -36,7 +36,7 @@ class OMDB < YossarianPlugin
 			hash = JSON.parse(open(url).read)
 			hash.default = '?'
 
-			if !hash.has_key?('Error')
+			if !hash.key?('Error')
 				title = hash['Title']
 				year = hash['Year']
 				genres = hash['Genre']

@@ -38,7 +38,7 @@ class IPInfo < YossarianPlugin
 				hash = JSON.parse(open(url).read)
 				hash.default = '?'
 
-				if !hash.has_key?('bogon')
+				if !hash.key?('bogon')
 					host = hash['hostname']
 					city = hash['city']
 					region = hash['region']
