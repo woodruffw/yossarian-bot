@@ -1,7 +1,5 @@
 ---
 
-bot_version: 2.35 # required
-
 available_plugins:
     - IBIP
     - CommandHelp

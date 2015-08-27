@@ -21,23 +21,24 @@ Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |plugin|
 end
 
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
-config_options = {}
+version_file = File.expand_path(File.join(File.dirname(__FILE__), 'version.yml'))
 server_threads = []
 
-if File.file?(config_file)
-	config_options = YAML::load_file(config_file)
+if File.file?(config_file) && File.file?(version_file)
+	config = YAML::load_file(config_file)
+	version = YAML::load_file(version_file)
 else
-	abort('Fatal: Could not find a config.yml to load from.')
+	abort('Fatal: Could not find either config.yml or version.yml.')
 end
 
-config_options['servers'].each do |server_name, server_info|
+config['servers'].each do |server_name, server_info|
 	server_threads << Thread.new do
 		bot = Cinch::Bot.new do
 			@starttime = Time.now
-			@version = config_options['bot_version']
+			@version = ['major', 'minor', 'step'].map { |v| version[v] }.join('.')
 			@admins = server_info['admins'] or []
 			@blacklist = Set.new
-			@all_plugins = config_options['available_plugins'].map do |plugin|
+			@all_plugins = config['available_plugins'].map do |plugin|
 				Object.const_get(plugin)
 			end
 
