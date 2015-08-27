@@ -7,12 +7,12 @@ on some of these.
 ## Documentation/Meta
 
 * Document plugins/core better (YARD?)
-* Alphabetize [COMMANDS.md](COMMANDS.md) and the plugins collect for better
+* Alphabetize [COMMANDS.md](COMMANDS.md) and plugins for better
 organization.
 
 ## Core
 
-* Make a yossarian_bot.rb a YossarianBot class that encapsulates everything
+* Make a `yossarian_bot.rb` a `YossarianBot` class that encapsulates everything
 as an object instead of the current imperative approach.
 * Make plugin management more granular (per-channel)
 * ~~Expand configuration file to remove the need for argument flags~~
@@ -23,6 +23,8 @@ Cinch instances/Threads.
 
 ## Plugins
 
+* Improve DRYness of all plugins (methods for common operations instead of
+repeating self for each `match`).
 * ~~CTCPVersion currently listens for all CTCP messages, and then filters them
 for 'VERSION'. This causes two bugs: `!ver yossarian-bot` doesn't work, and
 users with multiple CTCP VERSION messages set can spam the channel via
