@@ -18,6 +18,8 @@ class IPInfo < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	URL = 'http://ipinfo.io/%{ip}/json'
+
 	def usage
 		'!ipinfo <ip> - Look up information about the given IP.'
 	end
@@ -30,17 +32,18 @@ class IPInfo < YossarianPlugin
 
 	def ipinfo(m, ip)
 		if ip =~ Resolv::IPv4::Regex || ip =~ Resolv::IPv6::Regex
-			url = "http://ipinfo.io/#{URI.encode(ip)}/json"
+			url = URL % { ip: URI.encode(ip) }
 
 			begin
 				hash = JSON.parse(open(url).read)
+				hash.default = '?'
 
-				if !hash['bogon']
-					host = hash['hostname'] || 'No hostname given'
-					city = hash['city'] || '?'
-					region = hash['region'] || '?'
-					country = hash['country'] || '?'
-					org = hash['org'] || '(No organization given)'
+				if !hash.has_key?('bogon')
+					host = hash['hostname']
+					city = hash['city']
+					region = hash['region']
+					country = hash['country']
+					org = hash['org']
 
 					m.reply "#{ip} (#{host}) - Owner: #{org} - City: #{city}, Region: #{region}, Country: #{country}.", true
 				else

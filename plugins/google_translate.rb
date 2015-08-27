@@ -16,6 +16,8 @@ class GoogleTranslate < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	URL = 'https://translate.googleapis.com/translate_a/t?client=a&sl=auto&tl=en&q=%{query}'
+
 	def usage
 		'!tr <text>- Translate <text> to English. Alias: !translate.'
 	end
@@ -27,9 +29,10 @@ class GoogleTranslate < YossarianPlugin
 	match /tr(?:anslate)? (.+)/, method: :google_translate_auto, strip_colors: true
 
 	def google_translate_auto(m, msg)
+		query = URI.encode(msg)
+		url = URL % { query: query }
+
 		begin
-			query = URI.encode(msg)
-			url = "https://translate.googleapis.com/translate_a/t?client=a&sl=auto&tl=en&q=#{query}"
 			hash = JSON.parse(open(url).read)
 			result = hash['sentences'].first['trans']
 			m.reply result, true

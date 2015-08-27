@@ -17,6 +17,7 @@ class MerriamWebster < YossarianPlugin
 	use_blacklist
 
 	KEY = ENV['MERRIAM_WEBSTER_API_KEY']
+	URL = 'http://www.dictionaryapi.com/api/v1/references/collegiate/xml/%{query}?key=%{key}'
 
 	def usage
 		'!define <word> - Get the Merriam-Webster defintion of <word>.'
@@ -31,7 +32,7 @@ class MerriamWebster < YossarianPlugin
 	def define_word(m, word)
 		if KEY
 			query = URI.encode(word)
-			url = "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/#{query}?key=#{KEY}"
+			url = URL % { query: query, key: KEY }
 
 			begin
 				xml = Nokogiri::XML(open(url).read)

@@ -16,6 +16,9 @@ class GitHubInfo < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	USER_URL = 'https://api.github.com/users/%{user}'
+	REPO_URL = 'https://api.github.com/repos/%{user}/%{repo}'
+
 	def usage
 		'!gh <query> - Get information about a user or repository on GitHub. Alias: !github.'
 	end
@@ -37,7 +40,7 @@ class GitHubInfo < YossarianPlugin
 	end
 
 	def github_user_info(m, user)
-		url = "https://api.github.com/users/#{URI.encode(user)}"
+		url = USER_URL % { user: URI.encode(user) }
 
 		begin
 			hash = JSON.parse(open(url).read)
@@ -59,7 +62,7 @@ class GitHubInfo < YossarianPlugin
 	end
 
 	def github_repo_info(m, user, repo)
-		url = "https://api.github.com/repos/#{URI.encode(user)}/#{URI.encode(repo)}"
+		url = REPO_URL % { user: URI.encode(user), repo: URI.encode(repo) }
 
 		begin
 			hash = JSON.parse(open(url).read)

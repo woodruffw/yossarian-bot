@@ -16,6 +16,8 @@ class Wikipedia < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	URL = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=%{query}"
+
 	def usage
 		'!wiki <search> - Search Wikipedia for the given <search>.'
 	end
@@ -28,7 +30,7 @@ class Wikipedia < YossarianPlugin
 
 	def search_wiki(m, search)
 		query = URI.encode(search)
-		url = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=#{query}"
+		url = URL % { query: query }
 
 		begin
 			results = JSON.parse(open(url).read)

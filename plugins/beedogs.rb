@@ -15,6 +15,7 @@ class Beedogs < YossarianPlugin
 	use_blacklist
 
 	COUNT = 327
+	URL = 'http://beedogs.com/index_files/image%{num}.jpg'
 
 	def usage
 		'!beedog - Retrieve a random picture of a beedog.'
@@ -28,7 +29,8 @@ class Beedogs < YossarianPlugin
 
 	def beedog(m)
 		num = '%03d' % rand(1..COUNT)
+		url = URL % { num: num }
 
-		m.reply "http://beedogs.com/index_files/image#{num}.jpg", true
+		m.reply url, true
 	end
 end

@@ -15,19 +15,21 @@ class TinyURL < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	URL = 'http://tinyurl.com/api-create.php?url=%{link}'
+
 	def usage
 		'!turl <url> - Shorten the given <url> using TinyURL. Alias: !tinyurl.'
 	end
 
 	def match?(cmd)
-		cmd =~ /^(!)?(tinyurl)|(turl)$/
+		cmd =~ /^(!)?t(?:iny)?url$/
 	end
 
-	match /turl (#{URI::regexp(['http', 'https'])})/, method: :tinyurl, strip_colors: true
-	match /tinyurl (#{URI::regexp(['http', 'https'])})/, method: :tinyurl, strip_colors: true
+	match /t(?:iny)?url (#{URI::regexp(['http', 'https'])})/, method: :tinyurl, strip_colors: true
 
 	def tinyurl(m, link)
-		url = "http://tinyurl.com/api-create.php?url=#{URI.encode(link)}"
+		url = URL % { link: URI.encode(link) }
+
 		begin
 			short_link = open(url).read
 			m.reply short_link, true

@@ -16,6 +16,8 @@ class GoogleSearch < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	URL = 'https://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=small&safe=active&q=%{query}&max-results=1&v=2&alt=json'
+
 	def usage
 		'!g <search> - Search Google. Alias: !google.'
 	end
@@ -28,7 +30,7 @@ class GoogleSearch < YossarianPlugin
 	
 	def google_search(m, search)
 		query = URI.encode(search)
-		url = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=large&safe=active&q=#{query}&max-results=1&v=2&prettyprint=false&alt=json"
+		url = URL % { query: query }
 
 		begin
 			hash = JSON.parse(open(url).read)

@@ -17,6 +17,7 @@ class YouTubeSearch < YossarianPlugin
 	use_blacklist
 
 	KEY = ENV['YOUTUBE_API_KEY']
+	URL = 'https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=%{query}&key=%{key}'
 
 	def usage
 		'!yt <search> - Search YouTube. Alias: !youtube.'
@@ -32,7 +33,7 @@ class YouTubeSearch < YossarianPlugin
 	def youtube_search(m, search)
 		if KEY
 			query = URI.encode(search)
-			url = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=#{query}&key=#{KEY}"
+			url = URL % { query: query, key: KEY }
 
 			begin
 				hash = JSON.parse(open(url).read)

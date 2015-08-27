@@ -16,6 +16,8 @@ class IsItUp < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	URL = 'http://isitup.org/%{domain}.json'
+
 	def usage
 		'!isitup <site> - Check whether or not <site> is currently online. Alias: !up.'
 	end
@@ -27,19 +29,24 @@ class IsItUp < YossarianPlugin
 	match /(?:isit)?up (.+)/, method: :isitup, strip_colors: true
 
 	def isitup(m, site)
-		domain = site.gsub(/^http(?:s)?:\/\//, '')
-		url = "http://isitup.org/#{URI.encode(domain)}.json"
-		hash = JSON.parse(open(url).read)
+		domain = URI.encode(site.gsub(/^http(?:s)?:\/\//, ''))
+		url = URL % { domain: domain }
 
-		response_code = hash['response_code']
+		begin
+			hash = JSON.parse(open(url).read)
 
-		case hash['status_code']
-		when 1
-			m.reply "#{domain} is currently online [#{response_code}].", true
-		when 2
-			m.reply "#{domain} is currently offline.", true
-		when 3
-			m.reply "#{domain} is not a valid domain.", true
+			response_code = hash['response_code']
+
+			case hash['status_code']
+			when 1
+				m.reply "#{domain} is currently online [#{response_code}].", true
+			when 2
+				m.reply "#{domain} is currently offline.", true
+			when 3
+				m.reply "#{domain} is not a valid domain.", true
+			end
+		rescue Exception => e
+			m.reply e.to_s, true
 		end
 	end
 end

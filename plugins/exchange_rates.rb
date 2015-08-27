@@ -18,7 +18,7 @@ class ExchangeRates < YossarianPlugin
 	use_blacklist
 
 	KEY = ENV['OEX_API_KEY']
-	URL = "https://openexchangerates.org/api/latest.json?app_id=#{KEY}"
+	URL = "https://openexchangerates.org/api/latest.json?app_id=%{key}"
 
 	def usage
 		'!rate <code [code2...]> - Get the currency exchange rate between USD and one or more currencies.'
@@ -32,10 +32,11 @@ class ExchangeRates < YossarianPlugin
 
 	def exchange_rate(m, code)
 		if KEY
+			url = URL % { key: KEY }
 			codes = code.upcase.split
 
 			begin
-				hash = JSON.parse(open(URL).read)
+				hash = JSON.parse(open(url).read)
 				hash['rates'].default = '?'
 
 				rates = codes.map do |curr|

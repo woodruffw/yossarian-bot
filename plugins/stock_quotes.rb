@@ -16,6 +16,8 @@ class StockQuotes < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	URL = 'http://finance.yahoo.com/d/quotes.csv?s=%{query}&f=snl1p2'
+
 	def usage
 		'!stock <symbol> - Retrieve a stock quote for the given ticker symbol.'
 	end
@@ -28,7 +30,7 @@ class StockQuotes < YossarianPlugin
 
 	def stock_quote(m, symbol)
 		query = URI.encode(symbol)
-		url = "http://finance.yahoo.com/d/quotes.csv?s=#{query}&f=snl1p2"
+		url = URL % { query: query }
 
 		begin
 			quote = CSV.parse(open(url).read).first

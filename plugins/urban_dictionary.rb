@@ -16,6 +16,8 @@ class UrbanDictionary < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	URL = 'http://api.urbandictionary.com/v0/define?term=%{query}'
+
 	def usage
 		'!ud <phrase> - Look up <phrase> on UrbanDictionary. Alias: !urban.'
 	end
@@ -29,7 +31,7 @@ class UrbanDictionary < YossarianPlugin
 
 	def urban_dict(m, phrase)
 		query = URI.encode(phrase)
-		url = "http://api.urbandictionary.com/v0/define?term=#{query}"
+		url = URL % { query: query }
 
 		begin
 			hash = JSON.parse(open(url).read)
