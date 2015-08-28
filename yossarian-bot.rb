@@ -74,8 +74,10 @@ config['servers'].each do |server_name, server_info|
 				conf.plugins.prefix = Regexp.new(server_info['prefix']) or /^!/
 				conf.plugins.plugins = @all_plugins.dup
 
-				server_info['disabled_plugins'].each do |plugin|
-					conf.plugins.plugins.delete(Object.const_get(plugin))
+				if server_info.key?('disabled_plugins')
+					server_info['disabled_plugins'].each do |plugin|
+						conf.plugins.plugins.delete(Object.const_get(plugin))
+					end
 				end
 			end
 		end.start

@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.3)
+    activesupport (4.2.4)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -29,7 +29,7 @@ GEM
     haste (0.2.1)
       faraday
       json
-    highline (1.7.2)
+    highline (1.7.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     httparty (0.13.5)
@@ -38,7 +38,7 @@ GEM
     httpclient (2.6.0.1)
     i18n (0.7.0)
     json (1.8.3)
-    lastfm (1.26.0)
+    lastfm (1.27.0)
       activesupport (>= 3.2.0)
       httparty
       xml-simple
@@ -60,7 +60,7 @@ GEM
       sooth (~> 1.0)
     mime-types (2.6.1)
     mini_portile (0.6.2)
-    minitest (5.7.0)
+    minitest (5.8.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     net-http-digest_auth (1.4)
