@@ -22,13 +22,15 @@ end
 
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
 version_file = File.expand_path(File.join(File.dirname(__FILE__), 'version.yml'))
+plugins_file = File.expand_path(File.join(File.dirname(__FILE__), 'plugins.yml'))
 server_threads = []
 
-if File.file?(config_file) && File.file?(version_file)
+if File.file?(config_file) && File.file?(version_file) && File.file?(plugins_file)
 	config = YAML::load_file(config_file)
 	version = YAML::load_file(version_file)
+	plugins = YAML::load_file(plugins_file)['plugins']
 else
-	abort('Fatal: Could not find either config.yml or version.yml.')
+	abort('Fatal: Missing one of: config.yml, version.yml, plugins.yml.')
 end
 
 config['servers'].each do |server_name, server_info|
@@ -38,7 +40,7 @@ config['servers'].each do |server_name, server_info|
 			@version = ['major', 'minor', 'patch'].map { |v| version[v] }.join('.')
 			@admins = server_info['admins'] or []
 			@blacklist = Set.new
-			@all_plugins = config['available_plugins'].map do |plugin|
+			@all_plugins = plugins.map do |plugin|
 				Object.const_get(plugin)
 			end
 
