@@ -12,6 +12,7 @@ require_relative 'yossarian_plugin'
 class BotAdmin < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
+	use_auth
 
 	def usage
 		'!admin <commands> - Control bot operation with <commands>. See !help for a link to admin commands.'
@@ -19,17 +20,6 @@ class BotAdmin < YossarianPlugin
 
 	def match?(cmd)
 		cmd =~ /^(!)?admin$/
-	end
-
-	hook :pre, :for => [:match], :method => :authenticate?
-
-	def authenticate?(m)
-		if @bot.admins.include?(m.user.nick) && User(m.user.nick).authed?
-			return true
-		end
-
-		m.reply "You do not have permission to do that.", true
-		return false
 	end
 
 	match /admin plugin list/, method: :plugin_list

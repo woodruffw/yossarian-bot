@@ -17,6 +17,7 @@ require_relative './yossarian_plugin'
 class FooBar < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
+	use_auth # if you need to restrict commands to admins
 
 	def usage
 		'!foo <bar> - Use foo with bar on baz.'
@@ -43,6 +44,11 @@ plugin is a good example of both of these rules - `Btc` and
 
 * You should **always** call `use_blacklist`. It makes sure that your plugin
 obeys the list of ignored nicknames/hostmasks.
+
+* You should call `use_auth` instead of reimplementing `yossarian-bot`'s
+authentication system if your plugin needs to be restricted to only
+authenticated admins. Be aware that `use_auth` restricts *all* commands in the
+plugin.
 
 * You should (re)define `usage` and `match?(cmd)` to meet your plugin's
 functionality and invocation, respectively. `yossarian-bot` uses these two
