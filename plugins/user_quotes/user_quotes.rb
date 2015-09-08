@@ -87,7 +87,7 @@ class UserQuotes < YossarianPlugin
 	def random_quote(m)
 		chan = m.channel.to_s
 
-		unless chan == nil || @quotes[chan] == nil
+		if chan && @quotes[chan]
 			nick = @quotes[chan].keys.sample
 			quote = @quotes[chan][nick].sample
 			m.reply "\u200B#{quote} [#{nick} on #{chan}]"

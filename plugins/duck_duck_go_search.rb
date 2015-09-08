@@ -33,7 +33,7 @@ class DuckDuckGoSearch < YossarianPlugin
 	def ddg_search(m, search)
 		zci = @ddg.zeroclickinfo(search)
 
-		unless zci.abstract_text == nil
+		if zci.abstract_text
 			m.reply zci.abstract_text, true
 		else
 			m.reply "No results for #{search}.", true
