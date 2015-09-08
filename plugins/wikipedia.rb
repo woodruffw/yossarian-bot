@@ -34,7 +34,7 @@ class Wikipedia < YossarianPlugin
 
 		begin
 			results = JSON.parse(open(url).read)
-			unless results[1].empty?
+			if !results[1].empty?
 				if results[2].first.empty?
 					content = "No extract provided."
 				else

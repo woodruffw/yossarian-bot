@@ -39,7 +39,7 @@ class YouTubeSearch < YossarianPlugin
 				hash = JSON.parse(open(url).read)
 				hash.default = '?'
 
-				unless hash['items'].empty?
+				if !hash['items'].empty?
 					entry = hash['items'].first
 					title = entry['snippet']['title']
 					uploader = entry['snippet']['channelTitle']

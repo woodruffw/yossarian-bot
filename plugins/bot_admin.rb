@@ -77,7 +77,7 @@ class BotAdmin < YossarianPlugin
 	match /admin auth (\S+)/, method: :bot_add_admin
 
 	def bot_add_admin(m, nick)
-		unless @bot.admins.include?(nick)
+		if @bot.admins.exclude?(nick)
 			@bot.admins << nick
 			m.reply "Added #{nick} as an admin.", true
 		else

@@ -35,7 +35,7 @@ class GoogleSearch < YossarianPlugin
 		begin
 			hash = JSON.parse(open(url).read)
 
-			unless hash['responseData']['results'].empty?
+			if !hash['responseData']['results'].empty?
 				site = URI.unescape(hash['responseData']['results'].first['url'])
 				content = hash['responseData']['results'].first['content'].gsub(/([\t\r\n])|(<(\/)?b>)/, '')
 				content.gsub!(/(&amp;)|(&quot;)|(&lt;)|(&gt;)|(&#39;)/, '&amp;' => '&', '&quot;' => '"', '&lt;' => '<', '&gt;' => '>', '&#39;' => '\'')
