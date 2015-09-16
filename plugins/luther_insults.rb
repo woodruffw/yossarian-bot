@@ -35,7 +35,7 @@ class LutherInsults < YossarianPlugin
 		m.reply insult, true
 	end
 
-	match /luther (\S+)/, method: :luther_insult_nick
+	match /luther (\S+)/, method: :luther_insult_nick, strip_colors: true
 
 	def luther_insult_nick(m, nick)
 		if m.channel.users.key?(User(nick))
