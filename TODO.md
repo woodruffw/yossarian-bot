@@ -23,6 +23,8 @@ Cinch instances/Threads.
 
 ## Plugins
 
+* Add an `!admin update` or something similar to pull in updated plugins
+instead of restarting the bot.
 * Improve DRYness of all plugins (methods for common operations instead of
 repeating self for each `match`).
 * ~~CTCPVersion currently listens for all CTCP messages, and then filters them
