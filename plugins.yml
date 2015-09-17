@@ -34,6 +34,7 @@ plugins:
     - RainbowText
     - FlipText
     - MorseCode
+    - CuteFaces
     - ShakespeareanInsults
     - LutherInsults
     - TheoQuotes

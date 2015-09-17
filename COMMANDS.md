@@ -49,6 +49,7 @@ Command Syntax | Plugin class | Description | Working?
 `!rainbow <text>` | RainbowText | Vomit out rainbowified text. | Yes
 `!flip <down|up> <text>` | FlipText | Flip text upside down or rightside up. | Yes
 `!morse <text>` | MorseCode | Convert text to Morse Code. | Yes
+`!cute <nick>` | CuteFaces | Send a cute face to the given nick. | Yes
 `!insult [nick]` | ShakespeareanInsults | Generate a Shakespearean insult and direct it at a nickname if given. | Yes
 `!luther [nick]` | LutherInsults | Get an insult from [Luther's Oeuvre](http://ergofabulous.org/luther/) and direct it at a nickname if given. | Yes
 `!theo` | TheoQuotes | Get a random Theo De Raadt quote. | Yes
