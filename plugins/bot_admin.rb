@@ -118,6 +118,18 @@ class BotAdmin < YossarianPlugin
 		end
 	end
 
+	match /admin cycle (\S+)/, method: :bot_cycle_channel
+
+	def bot_cycle_channel(m, chan)
+		if @bot.channels.include?(chan)
+			m.reply "I\'m cycling on #{chan}.", true
+			@bot.part(chan)
+			@bot.join(chan)
+		else
+			m.reply "I\'m not in that channel.", true
+		end
+	end
+
 	match /admin ignore nick (\S+)/, method: :bot_ignore_nick
 
 	def bot_ignore_nick(m, nick)

@@ -108,6 +108,7 @@ Subcommand | Description
 `deauth <nick>` | Remove the given nick from the administrator list.
 `join <channel>` | Join the given channel on the network.
 `leave <channel>` | Leave the given channel on the network, if in it.
+`cycle <channel>` | Leave and re-join the given channel on the network, if in it.
 `ignore nick <nick>` | Ignore messages and commands from a nick (and the nick's hostmask as well).
 `ignore host <host>` | Ignore messages and commands from a host.
 `unignore nick <nick>` | Stop ignoring messages and commands from a nick (and the nick's hostmask as well).
