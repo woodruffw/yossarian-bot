@@ -32,6 +32,7 @@ class CodeEval < YossarianPlugin
 		'pascal' => 'pascal/fpc-2.6.4',
 		'perl' => 'perl/perl-5.20.0',
 		'python' => 'python/cpython-3.4.1',
+		'python2' => 'python/cpython-2.7.8',
 		'ruby' => 'ruby/mri-2.2',
 		'slash' => 'slash/slash-head',
 		'nasm' => 'assembly/nasm-2.07'
