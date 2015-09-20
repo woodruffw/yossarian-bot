@@ -38,7 +38,7 @@ class BotInfo < YossarianPlugin
 			m.reply 'Author: William Woodruff (woodruffw, yossarian)'
 		when /^uptime$/
 			diff = TimeDifference.between(@bot.starttime, Time.now).in_general
-			m.reply "I\'ve been online for %d days, %d hours, %d minutes, and %d seconds." % [diff[:days], diff[:hours], diff[:minutes], diff[:seconds]]
+			m.reply "I\'ve been online for %{days} days, %{hours} hours, %{minutes} minutes, and %{seconds} seconds." % diff
 		when /^chan(nel)?s$/
 			m.reply "Channels: %s" % @bot.channels.join(', ')
 		when /^admins$/
