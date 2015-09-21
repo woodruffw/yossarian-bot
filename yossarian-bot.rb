@@ -10,6 +10,7 @@
 #  http://opensource.org/licenses/MIT
 
 require 'cinch'
+require 'cinch/plugins/identify'
 require 'yaml'
 
 Dir[File.dirname(__FILE__) + '/extend/**/*.rb'].each do |extension|
@@ -75,6 +76,10 @@ config['servers'].each do |server_name, server_info|
 				conf.ssl.use = server_info['ssl'] or false
 				conf.plugins.prefix = Regexp.new(server_info['prefix']) or /^!/
 				conf.plugins.plugins = @all_plugins.dup
+
+				if server_info.key?('auth')
+					conf.plugins.options[Cinch::Plugins::Identify] = server_info['auth']
+				end
 
 				if server_info.key?('disabled_plugins')
 					server_info['disabled_plugins'].each do |plugin|
