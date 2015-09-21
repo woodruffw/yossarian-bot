@@ -15,6 +15,11 @@ class ChannelAdmin < YossarianPlugin
 	use_auth
 	use_opped
 
+	def initialize(*args)
+		super
+		@topic_delim = ' || '
+	end
+
 	def usage
 		'!channel <commands> - Administrate the current channel (admin required). See !help for a link to channel commands.'
 	end
@@ -62,7 +67,34 @@ class ChannelAdmin < YossarianPlugin
 		if matching_masks.nonempty?
 			matching_masks.each { |mask| m.channel.unban mask }
 		else
-			m.reply "I couldn\'t find any bans on '#{nick}'.", true
+			m.reply "I couldn\'t find any bans on \'#{nick}\'.", true
 		end
+	end
+
+	match /channel topic delim (.+)/, method: :channel_set_topic_delim
+
+	def channel_set_topic_delim(m, delim)
+		@topic_delim = " #{delim} "
+		m.reply "Using '#{delim}' as the channel topic delimiter."
+	end
+
+	match /channel topic push (.+)/, method: :channel_push_topic
+
+	def channel_push_topic(m, update)
+		topic_arr = m.channel.topic.split(@topic_delim)
+		topic_arr << update
+		new_topic = topic_arr.join("#{@topic_delim}")
+
+		m.channel.topic = new_topic
+	end
+
+	match /channel topic pop/, method: :channel_pop_topic
+
+	def channel_pop_topic(m)
+		topic_arr = m.channel.topic.split(@topic_delim)
+		topic_arr.pop
+		new_topic = topic_arr.join("#{@topic_delim}")
+
+		m.channel.topic = new_topic
 	end
 end
