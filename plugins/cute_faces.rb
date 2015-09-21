@@ -35,7 +35,7 @@ class CuteFaces < YossarianPlugin
 	match /cute (\S+)/, method: :cute, strip_colors: true
 
 	def cute(m, nick)
-		if m.channel.users.key?(User(nick))
+		if m.channel.has_user?(nick)
 			cute = FACES.sample % {user: m.user.nick, nick: nick}
 			m.reply cute
 		else

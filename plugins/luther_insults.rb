@@ -38,7 +38,7 @@ class LutherInsults < YossarianPlugin
 	match /luther (\S+)/, method: :luther_insult_nick, strip_colors: true
 
 	def luther_insult_nick(m, nick)
-		if m.channel.users.key?(User(nick))
+		if m.channel.has_user?(nick)
 			begin
 				page = Nokogiri::HTML(open(URL).read)
 				insult = page.css('p').first.text

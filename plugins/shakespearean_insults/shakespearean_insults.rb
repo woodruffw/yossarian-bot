@@ -40,7 +40,7 @@ class ShakespeareanInsults < YossarianPlugin
 	match /insult (\S+)/, method: :insult_nick, strip_colors: true
 
 	def insult_nick(m, nick)
-		if m.channel.users.key?(User(nick))
+		if m.channel.has_user?(nick)
 			col1 = INSULTS['column1'].sample
 			col2 = INSULTS['column2'].sample
 			col3 = INSULTS['column3'].sample

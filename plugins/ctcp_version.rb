@@ -32,7 +32,7 @@ class CTCPVersion < YossarianPlugin
 	match /ver(?:sion)? (\S+)/, method: :ctcp_ver_req
 
 	def ctcp_ver_req(m, nick)
-		if m.channel.users.key?(User(nick))
+		if m.channel.has_user?(nick)
 			if nick == @bot.nick
 				m.reply 'See !botinfo version for my version.', true
 			else

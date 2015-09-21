@@ -24,7 +24,7 @@ class Slap < YossarianPlugin
 	match /slap (\S+)/, method: :slap, strip_colors: true
 
 	def slap(m, nick)
-		if m.channel.users.key?(User(nick))
+		if m.channel.has_user?(nick)
 			m.action_reply "slaps #{nick} with a large trout"
 		else
 			m.reply "I don\'t see #{nick} in this channel."
