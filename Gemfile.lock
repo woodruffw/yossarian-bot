@@ -9,6 +9,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     cinch (2.2.6)
+    cinch-identify (1.7.0)
+      cinch (~> 2.0)
     cld (0.7.0)
       ffi
     cleverbot-api (0.0.4)
@@ -101,6 +103,7 @@ PLATFORMS
 
 DEPENDENCIES
   cinch
+  cinch-identify
   cleverbot-api
   daemons
   duck-duck-go
