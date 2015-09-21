@@ -9,10 +9,10 @@ module Cinch
 		def authenticated?(m)
 			if @bot.admins.include?(m.user.nick) && User(m.user.nick).authed?
 				return true
+			else
+				m.reply "You do not have permission to do that.", true
+				return false
 			end
-
-			m.reply "You do not have permission to do that.", true
-			return false
 		end
 	end
 end

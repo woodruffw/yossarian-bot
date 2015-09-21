@@ -35,13 +35,14 @@ class UrbanDictionary < YossarianPlugin
 
 		begin
 			hash = JSON.parse(open(url).read)
-			if hash['list'].empty?
-				m.reply "UrbanDictionary has nothing for #{phrase}."
-			else
+
+			if hash['list'].nonempty?
 				list = hash['list'].first
 				definition = list['definition'][0..255].gsub(/[\r\n]/, '')
 				link = list['permalink']
 				m.reply "#{phrase} - #{definition}... (#{link})", true
+			else
+				m.reply "UrbanDictionary has nothing for #{phrase}."
 			end
 		rescue Exception => e
 			m.reply e.to_s, true

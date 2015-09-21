@@ -18,6 +18,7 @@ class FooBar < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 	use_auth # if you need to restrict commands to admins
+	use_opped # if the bot needs to be an op
 
 	def usage
 		'!foo <bar> - Use foo with bar on baz.'
@@ -48,6 +49,10 @@ obeys the list of ignored nicknames/hostmasks.
 * You should call `use_auth` instead of reimplementing `yossarian-bot`'s
 authentication system if your plugin needs to be restricted to only
 authenticated admins. Be aware that `use_auth` restricts *all* commands in the
+plugin.
+
+* You should call `use_opped` if the bot needs to be a channel operator to
+perform an action. Be aware that `use_opped` restricts *all* commands in the
 plugin.
 
 * You should (re)define `usage` and `match?(cmd)` to meet your plugin's

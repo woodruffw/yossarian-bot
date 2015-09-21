@@ -19,7 +19,8 @@ Command Syntax | Plugin class | Description | Working?
 `{.!:}help [cmd]` | CommandHelp | Announce general help or help on a specific command if provided. | Yes
 `!ping` | Ping | Ping the bot for a timestamped response. | Yes
 `!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
-`!admin <subcommand>` | BotAdmin | Administrate the bot with an authorized user. [See below](#admin). | Yes
+`!admin <commands>` | BotAdmin | Administrate the bot. [See below](#admin). | Yes
+`!channel <commands>` | ChannelAdmin | Administrate the current channel. [See below](#chanadmin). | Yes
 `!fortune` | Fortune | Get a Unix fortune. | Yes
 `!c22` | Catch22 | Get a Catch-22 quote. | Yes
 `!ud <query>` | UrbanDictionary | Look up the given query on [UrbanDictionary](http://www.urbandictionary.com/). | Yes
@@ -115,6 +116,20 @@ Subcommand | Description
 `unignore host <host>` | Stop ignoring messages and commands from a host.
 `say <channel> <message>` | Make the bot say the given message in the given channel.
 `act <channel> <message>` | Make the bot act the given message in the given channel.
+
+### `!channel` subcommands <a href="chanadmin"></a>
+
+In order to administrate the channel via the bot, you must an an admin (of the
+bot) **and** the bot must be a channel operator.
+
+The `!channel` command can take several subcommands:
+
+Subcommand | Description
+-----------|------------
+`kick <nick> [reason]` | Kick `nick` from the channel if present, with an optional reason.
+`ban <nick>` | Ban `nick` from the channel using either their current hostmask or a wildcard if not in the channel.
+`kickban <nick> [reason]` | Ban and kick `nick` from the channel (if present), with an optional reason.
+`unban <nick>` | Remove all masks associated with `nick` from the channel's banlist.
 
 ### `!intro` subcommands <a name="intro"></a>
 

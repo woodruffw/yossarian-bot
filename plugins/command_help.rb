@@ -31,7 +31,7 @@ class CommandHelp < YossarianPlugin
 
 	def help_cmd(m, cmd)
 		@bot.plugins.each do |plugin|
-			if plugin.match?(cmd)
+			if plugin.respond_to?(:match?) && plugin.match?(cmd)
 				m.reply plugin.usage, true
 				return
 			end

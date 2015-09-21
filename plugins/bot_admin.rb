@@ -15,7 +15,7 @@ class BotAdmin < YossarianPlugin
 	use_auth
 
 	def usage
-		'!admin <commands> - Control bot operation with <commands>. See !help for a link to admin commands.'
+		'!admin <commands> - Administrate the bot. See !help for a link to admin commands.'
 	end
 
 	def match?(cmd)

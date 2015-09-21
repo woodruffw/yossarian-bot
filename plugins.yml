@@ -6,6 +6,7 @@ plugins:
     - Ping
     - BotInfo
     - BotAdmin
+    - ChannelAdmin
     - Catch22
     - UrbanDictionary
     - WolframAlpha
