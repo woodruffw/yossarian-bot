@@ -76,6 +76,7 @@ config['servers'].each do |server_name, server_info|
 				conf.ssl.use = server_info['ssl'] or false
 				conf.plugins.prefix = Regexp.new(server_info['prefix']) or /^!/
 				conf.plugins.plugins = @all_plugins.dup
+				conf.plugins.plugins << Cinch::Plugins::Identify
 
 				if server_info.key?('auth')
 					conf.plugins.options[Cinch::Plugins::Identify] = {
