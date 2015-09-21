@@ -26,10 +26,10 @@ class BotAdmin < YossarianPlugin
 
 	def plugin_list(m)
 		all_plugin_names = @bot.all_plugins.map { |p| p.name }
-		active_plugin_names = @bot.plugins.map { |p2| p2.class.name }
+		active_plugin_names = @bot.plugins.map { |p| p.class.name }
 
-		plugins = all_plugin_names.map do |apn|
-			Format(active_plugin_names.include?(apn) ? :green : :red, apn)
+		plugins = all_plugin_names.map do |pn|
+			Format(active_plugin_names.include?(pn) ? :green : :red, pn)
 		end.join(', ')
 
 		# temporarily allow up to three messages due to long plugin lists
