@@ -79,7 +79,7 @@ config['servers'].each do |server_name, server_info|
 
 				if server_info.key?('auth')
 					conf.plugins.options[Cinch::Plugins::Identify] = {
-						type: server_info['auth']['type'].to_sym
+						type: server_info['auth']['type'].to_sym,
 						password: server_info['auth']['password']
 					}
 				end
