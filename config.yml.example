@@ -3,6 +3,9 @@
 servers:
     irc.rizon.net: # at least one server entry is mandatory
         nick: 'yossarian-bot' # optional
+        auth: # optional, needed if the nick is registered
+            type: 'nickserv'
+            password: 'example'
         prefix: '^!' # optional
         admins: # optional
             - 'cpt_yossarian'
