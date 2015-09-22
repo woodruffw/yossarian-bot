@@ -3,18 +3,18 @@ module Cinch
 		module ClassMethods
 			def use_opped(silent: false)
 				if silent
-					hook :pre, :for => [:match], :method => :is_opped_silent?
+					hook :pre, :for => [:match], :method => :opped_silent?
 				else
-					hook :pre, :for => [:match], :method => :is_opped?
+					hook :pre, :for => [:match], :method => :opped?
 				end
 			end
 		end
 
-		def is_opped_silent?(m)
+		def opped_silent?(m)
 			m.channel && m.channel.opped?(@bot.nick)
 		end
 
-		def is_opped?(m)
+		def opped?(m)
 			if is_opped_silent?(m)
 				return true
 			else
