@@ -15,7 +15,7 @@ module Cinch
 		end
 
 		def opped?(m)
-			if is_opped_silent?(m)
+			if opped_silent?(m)
 				return true
 			else
 				m.reply "I can\'t administrate this channel.", true
