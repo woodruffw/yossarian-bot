@@ -18,7 +18,7 @@ class FooBar < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 	use_auth # if you need to restrict commands to admins
-	use_opped # if the bot needs to be an op
+	use_opped silent: true # if the bot needs to be an op
 
 	def usage
 		'!foo <bar> - Use foo with bar on baz.'
@@ -53,7 +53,8 @@ plugin.
 
 * You should call `use_opped` if the bot needs to be a channel operator to
 perform an action. Be aware that `use_opped` restricts *all* commands in the
-plugin.
+plugin. The optional argument `silent:` takes a boolean that stops the bot from
+complaining when asked to do a channel operation without being opped.
 
 * You should (re)define `usage` and `match?(cmd)` to meet your plugin's
 functionality and invocation, respectively. `yossarian-bot` uses these two
