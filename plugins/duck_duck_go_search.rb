@@ -31,13 +31,15 @@ class DuckDuckGoSearch < YossarianPlugin
 	match /ddg (.+)/, method: :ddg_search, strip_colors: true
 
 	def ddg_search(m, search)
-		zci = @ddg.zeroclickinfo(search)
-
-		if zci.abstract_text
-			m.reply zci.abstract_text, true
-		else
-			m.reply "No results for #{search}.", true
+		begin
+			zci = @ddg.zeroclickinfo(search)
+			response = zci.abstract_text || "No results for '#{search}'."
+		rescue JSON::ParserError => e
+			# known bug in gem: https://github.com/andrewrjones/ruby-duck-duck-go/issues/6
+			response = "No results for '#{search}'."
 		end
+
+		m.reply response, true
 	end
 end
 
