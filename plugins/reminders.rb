@@ -35,15 +35,19 @@ class Reminders	< YossarianPlugin
 		when /^hour/
 			secs = count * 3600
 		else
-			m.reply "\'#{unit}\' is not one of my units. Try sec(s), min(s), or hour(s).", true
+			m.reply "'#{unit}' is not one of my units. Try sec(s), min(s), or hour(s).", true
 			return
 		end
 
-		m.reply "I\'ll tell you about #{msg} in #{secs} second(s).", true
+		if secs <= 14400
+			m.reply "I'll tell you about #{msg} in #{secs} second(s).", true
 
-		Thread.new do
-			sleep secs
-			m.reply "#{msg}", true
-		end.join
+			Thread.new do
+				sleep secs
+				m.reply "#{msg}", true
+			end.join
+		else
+			m.reply "Reminders longer than 4 hours are not allowed.", true
+		end
 	end
 end
