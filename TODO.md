@@ -6,6 +6,10 @@ on some of these.
 
 ## Documentation/Meta
 
+* There is currently a bounty on bugs that cause `yossarian-bot` to crash or
+busy loop (causing a DoS). The first three reproducible bugs reported that
+meet these requirements will receive free
+[Club-Mates](https://en.wikipedia.org/wiki/Club-Mate).
 * Document plugins/core better (YARD?)
 * Alphabetize [COMMANDS.md](COMMANDS.md) and plugins for better
 organization.
@@ -48,6 +52,8 @@ Cleverbot plugin uses.
 * Make LinkTitling handle certain URLs with greater detail. For example, YouTube
 URLs should be "titled" be video statistics, Amazon URLs with price, vendors,
 etc.
+* Plugins need to be thorougly tested for race conditions and side cases when
+pulling data from web services.
 
 ## New Plugin Ideas
 
@@ -55,3 +61,6 @@ etc.
 * [Crypto Research Topic Generator](http://cseweb.ucsd.edu/~mihir/crypto-topic-generator.html)
 * [CS Research Topic Generator](https://www.cs.purdue.edu/homes/dec/essay.topic.generator.html)
 * [Fake identity generator](https://fakena.me/random/)
+* Channel greeter for new nicks (probably requires an extensive DB and
+restriction system, maybe `use_opped`)
+* Scraper for random [Dinosaur Comics](http://www.qwantz.com/index.php)
