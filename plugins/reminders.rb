@@ -12,6 +12,11 @@ require_relative 'yossarian_plugin'
 class Reminders	< YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
+
+	def initialize(*args)
+		super
+		@threads = 0
+	end
 	
 	def usage
 		'!remind <count> <unit> <message> - Set a reminder message for a time in the future.'
@@ -39,13 +44,17 @@ class Reminders	< YossarianPlugin
 			return
 		end
 
-		if secs <= 14400
+		if secs <= 14400 && @threads < 5
 			m.reply "I'll tell you about #{msg} in #{secs} second(s).", true
 
 			Thread.new do
+				@threads += 1
 				sleep secs
 				m.reply "#{msg}", true
+				@threads -= 1
 			end.join
+		elsif @threads >= 5
+			m.reply "I already have a maximum number of reminders pending.", true
 		else
 			m.reply "Reminders longer than 4 hours are not allowed.", true
 		end
