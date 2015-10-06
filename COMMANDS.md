@@ -130,9 +130,9 @@ Subcommand | Description
 `ban <nick>` | Ban `nick` from the channel using either their current hostmask or a wildcard if not in the channel.
 `kickban <nick> [reason]` | Ban and kick `nick` from the channel (if present), with an optional reason.
 `unban <nick>` | Remove all masks associated with `nick` from the channel's banlist.
-`channel topic delim <delim>` | Set the delimiter used to manage the channel's topic. Default: `||`.
-`channel topic push <update>` | Push an update to the channel topic, using the delimiter.
-`channel topic pop` | Remove the most recent update to the channel topic, using the delimiter.
+`topic delim <delim>` | Set the delimiter used to manage the channel's topic. Default: `||`.
+`topic push <update>` | Push an update to the channel topic, using the delimiter.
+`topic pop` | Remove the most recent update to the channel topic, using the delimiter.
 
 ### `!intro` subcommands <a name="intro"></a>
 
