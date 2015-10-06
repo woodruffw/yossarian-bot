@@ -67,7 +67,13 @@ class CodeEval < YossarianPlugin
 					m.reply Sanitize(results), true
 				else
 					error = html.css('p')[1].text.strip
-					m.reply "Error: #{error}.", true
+
+					# 'Error: OK' is a terrible error message
+					if error !~ /^OK/
+						m.reply "Error: #{error}.", true
+					else
+						m.reply 'Error: No output produced.', true
+					end
 				end
 			rescue Exception => e
 				m.reply e.to_s, true
