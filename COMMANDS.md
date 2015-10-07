@@ -72,6 +72,7 @@ Command Syntax | Plugin class | Description | Working?
 `!intro <command>` | UserIntros | Manage the intro message for your nick. [See below](#intro). | Yes
 `!quote [nick]` | UserQuotes | Retrieve a completely random quote, or a random quote from the given nick. | Yes
 `!mail <nick> <message>` | UserMail | Send a message to a nick. Messages are delivered the next time the nick speaks. | Yes
+`!point <command> <nick>` | UserPoints | Give or take points away from a nickname. [See below](#point). | Yes
 `!trigger <command>` | CustomTriggers | Manage custom message replies and their triggers. [See below](#trigger). | Yes
 `!remind <count> <unit> <message>` | Reminders | Set a reminder message for a time in the future. | Yes
 `!ver <nick>` | CTCPVersion | Send a CTCP VERSION request to the given nick. | Yes
@@ -145,6 +146,16 @@ Subcommand | Description
 `add <intro>` | Set your nick's introduction message to the given intro.
 `rm` | Delete your nick's introduction message.
 `show` | Show your nick's introduction message.
+
+### `!point` subcommands <a name="point"></a>
+
+The `!point` command takes one of three subcommands:
+
+Subcommand | Description
+---------- | -----------
+`add <nick>` | Give a point to `nick`.
+`rm <nick>` | Take a point away from `nick`.
+`show <nick>` | Show `nick`'s current points.
 
 ### `!trigger` subcommands <a name="trigger"></a>
 

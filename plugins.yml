@@ -57,6 +57,7 @@ plugins:
     - UserIntros
     - UserQuotes
     - UserMail
+    - UserPoints
     - CustomTriggers
     - Reminders
     - CTCPVersion
