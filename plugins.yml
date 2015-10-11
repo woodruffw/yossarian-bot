@@ -27,6 +27,7 @@ plugins:
     - OMDB
     - XKCDComics
     - Jerkcity
+    - Giphy
     - IsItUp
     - Hastebin
     - Slap

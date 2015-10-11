@@ -42,6 +42,7 @@ Command Syntax | Plugin class | Description | Working?
 `!omdb <title>` | OMDB | Get information about a movie or show from [The Open Movie Database](http://www.omdbapi.com/). | Yes
 `!xkcd [search]` | XKCDComics | Get a random [XKCD](http://xkcd.com/) comic, or one related to a search. | Yes
 `!jerkcity` | Jerkcity | Get a random [Jerkcity](http://jerkcity.com/) comic. | Yes
+`!gif <search>` | Giphy | Search [Giphy](http://giphy.com/) for GIFs. | Yes
 `!isitup <site>` | IsItUp | Check whether or not a given site is currently online. | Yes
 `!haste <text>` | Hastebin | Post text to [Hastebin](http://hastebin.com/). | Yes
 `!slap <nick>` | Slap | Slap someone with a large trout. | Yes
