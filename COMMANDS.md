@@ -53,7 +53,7 @@ Command Syntax | Plugin class | Description | Working?
 `!morse <text>` | MorseCode | Convert text to Morse Code. | Yes
 `!cute <nick>` | CuteFaces | Send a cute face to the given nick. | Yes
 `!insult [nick]` | ShakespeareanInsults | Generate a Shakespearean insult and direct it at a nickname if given. | Yes
-`!luther [nick]` | LutherInsults | Get an insult from [Luther's Oeuvre](http://ergofabulous.org/luther/) and direct it at a nickname if given. | Yes
+`!luther [nick]` | LutherInsults | Get an insult from Luther's Oeuvre and direct it at a nickname if given. | Yes
 `!theo` | TheoQuotes | Get a random Theo De Raadt quote. | Yes
 `!lennart` | LennartQuotes | Get a random Lennart Poettering quote. | Yes
 `!bofh <question>` | BOFHExcuses | Get a random [BOFH excuse](http://pages.cs.wisc.edu/~ballard/bofh/) for a given question. | Yes
