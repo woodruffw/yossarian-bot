@@ -72,7 +72,7 @@ class GitHubInfo < YossarianPlugin
 			desc = hash['description']
 			forks = hash['forks_count']
 			stars = hash['stargazers_count']
-			watchers = hash['watchers_count']
+			watchers = hash['subscribers_count']
 			open_issues = hash['open_issues_count']
 			link = hash['html_url']
 
