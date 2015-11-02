@@ -66,3 +66,5 @@ sanitized regex and kicks users who trigger it.
 * Channel greeter for new nicks (probably requires an extensive DB and
 restriction system, maybe `use_opped`)
 * Scraper for random [Dinosaur Comics](http://www.qwantz.com/index.php)
+* [The proof is trivial!](http://www.theproofistrivial.com/)
+* [Tech idea generator](http://bwasti.com/techideas)
