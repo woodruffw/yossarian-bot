@@ -21,6 +21,7 @@ Command Syntax | Plugin class | Description | Working?
 `!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
 `!admin <commands>` | BotAdmin | Administrate the bot. [See below](#admin). | Yes
 `!channel <commands>` | ChannelAdmin | Administrate the current channel. [See below](#chanadmin). | Yes
+`!moderator <commands>` | ChannelModerator | Configure channel moderation. [See below](#chanmod). | Yes
 `!fortune` | Fortune | Get a Unix fortune. | Yes
 `!c22` | Catch22 | Get a Catch-22 quote. | Yes
 `!ud <query>` | UrbanDictionary | Look up the given query on [UrbanDictionary](http://www.urbandictionary.com/). | Yes
@@ -123,6 +124,18 @@ Subcommand | Description
 
 In order to administrate the channel via the bot, you must an an admin (of the
 bot) **and** the bot must be a channel operator.
+
+### `!moderator` subcommands <a href="chanmod"></a>
+
+In order to add moderation rules for the current channel, you must be an admin
+(of the bot). In addition, the bot must be a channel operator to perform
+moderation actions.
+
+Subcommand | Description
+-----------|------------
+`add /<regex>/` | Add `regex` to the list of moderated patterns.
+`del /<regex>/` | Remove `regex` from the list of moderated patterns.
+`show` | Show a list of all moderated patterns.
 
 The `!channel` command can take several subcommands:
 

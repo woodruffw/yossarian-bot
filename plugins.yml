@@ -7,6 +7,7 @@ plugins:
     - BotInfo
     - BotAdmin
     - ChannelAdmin
+    - ChannelModerator
     - Catch22
     - UrbanDictionary
     - WolframAlpha
