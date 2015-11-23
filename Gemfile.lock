@@ -1,14 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (4.2.4)
+    activesupport (4.2.5)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    cinch (2.3.0)
+    cinch (2.3.1)
     cinch-identify (1.7.0)
       cinch (~> 2.0)
     cld (0.7.0)
@@ -37,7 +37,7 @@ GEM
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
-    httpclient (2.6.0.1)
+    httpclient (2.7.0.1)
     i18n (0.7.0)
     json (1.8.3)
     lastfm (1.27.0)
@@ -60,14 +60,14 @@ GEM
       ruby-progressbar (~> 1.7)
       rubyzip (~> 1.1)
       sooth (~> 1.0)
-    mime-types (2.6.2)
+    mime-types (2.99)
     mini_portile (0.6.2)
-    minitest (5.8.2)
+    minitest (5.8.3)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
-    nokogiri (1.6.6.2)
+    nokogiri (1.6.6.4)
       mini_portile (~> 0.6.0)
     ntlm-http (0.1.1)
     open_uri_redirections (0.2.1)
@@ -124,4 +124,4 @@ DEPENDENCIES
   xkcd
 
 BUNDLED WITH
-   1.10.4
+   1.10.6
