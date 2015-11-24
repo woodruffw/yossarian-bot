@@ -67,3 +67,4 @@ plugins:
     - LinkTitling
     - RegexReplace
     - LinusQuotes
+    - RMSQuotes
