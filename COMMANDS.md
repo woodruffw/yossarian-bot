@@ -56,6 +56,7 @@ Command Syntax | Plugin class | Description | Working?
 `!insult [nick]` | ShakespeareanInsults | Generate a Shakespearean insult and direct it at a nickname if given. | Yes
 `!luther [nick]` | LutherInsults | Get an insult from Luther's Oeuvre and direct it at a nickname if given. | Yes
 `!theo` | TheoQuotes | Get a random Theo De Raadt quote. | Yes
+`!linus` | LinusQuotes | Get a random Linus Torvalds quote. | Yes
 `!lennart` | LennartQuotes | Get a random Lennart Poettering quote. | Yes
 `!bofh <question>` | BOFHExcuses | Get a random [BOFH excuse](http://pages.cs.wisc.edu/~ballard/bofh/) for a given question. | Yes
 `!cbsg` | CBSG | Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live). | Yes
