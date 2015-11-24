@@ -66,3 +66,4 @@ plugins:
     - LastSeen
     - LinkTitling
     - RegexReplace
+    - LinusQuotes

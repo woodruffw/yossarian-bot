@@ -1,0 +1,137 @@
+I'm doing a (free) operating system (just a hobby, won't be big and professional like gnu) for 386(486) AT clones.
+Do you pine for the nice days of minix-1.1, when men were men and wrote their own device drivers? [...] I can (well, almost) hear you asking yourselves "why?". Hurd will be out in a year (or two, or next month, who knows), and I've already got minix.
+Your job is being a professor and researcher: That's one hell of a good excuse for some of the brain-damages of Minix.
+Portability is for people who cannot write new programs.
+Well, with a subject like this, I'm afraid I'll have to reply. Apologies to minix-users who have heard enough about linux anyway. I'd like to be able to just "ignore the bait", but ... time for some serious flamefesting!
+Well, I probably won't get too good grades even without you: I had an argument (completely unrelated -- not even pertaining to OS's) with the person here at the university that teaches OS design. I wonder when I'll learn :)
+No. That's it. The cool name, that is. We worked very hard on creating a name that would appeal to the majority of people, and it certainly paid off: thousands of people are using linux just to be able to say "OS/2? Hah. I've got Linux. What a cool name". 386BSD made the mistake of putting a lot of numbers and weird abbreviations into the name, and is scaring away a lot of people just because it sounds too technical.
+When you say, "I wrote a program that crashed Windows," people just stare at you blankly and say, "Hey, I got those with the system, *for free*."
+If you need more than 3 levels of indentation, you're screwed anyway, and should fix your program.
+You know you're brilliant, but maybe you'd like to understand what you did 2 weeks from now.
+An infinite number of monkeys typing into GNU emacs would never make a good program.
+It's a bird ... it's a plane ... no, it's KernelMan, faster than a speeding bullet, to your rescue. Doing new kernel versions in under 5 seconds flat ...
+The main reason there are no raw devices [in Linux] is that I personally think that raw devices are a stupid idea.
+Some people have told me they don't think a fat penguin really embodies the grace of Linux, which just tells me they have never seen an angry penguin charging at them in excess of 100 mph. They'd be a lot more careful about what they say if they had.
+Only wimps use tape backup: *real* men just upload their important stuff on ftp, and let the rest of the world mirror it ;)
+If you still don't like it, that's OK: that's why I'm boss. I simply know better than you do.
+...the Linux philosophy is "laugh in the face of danger". Oops. Wrong one. "Do it yourself". That's it.
+See, you not only have to be a good coder to create a system like Linux, you have to be a sneaky bastard too ;-)
+Making Linux GPL'd was definitely the best thing I ever did.
+(In answer to the question: In the extreme case, if it was just you doing all the code, and the rest of the world quietly used it, would it make sense to give it away free? Unless you're particularly grateful for other free things you've got off the Net, would the answer be No?":)
+"Regression testing"? What's that? If it compiles, it is good; if it boots up, it is perfect.
+I'd like to say that I knew this would happen, that it's all part of the plan for world domination.
+Note that nobody reads every post in linux-kernel. In fact, nobody who expects to have time left over to actually do any real kernel work will read even half. Except Alan Cox, but he's actually not human, but about a thousand gnomes working in under-ground caves in Swansea. None of the individual gnomes read all the postings either, they just work together really well.
+Talk is cheap. Show me the code.
+I'm a bastard. I have absolutely no clue why people can ever think otherwise. Yet they do. People think I'm a nice guy, and the fact is that I'm a scheming, conniving bastard who doesn't care for any hurt feelings or lost hours of work, if it just results in what I consider to be a better system. And I'm not just saying that. I'm really not a very nice person. I can say "I don't care" with a straight face, and really mean it.
+In short: just say NO TO DRUGS, and maybe you won't end up like the Hurd people.
+Yeah. And as Linus once said: most numerical problems today in pure CPU cycles are actually 3D games. ... It's not "incorrect" to say that you want the result faster, even if that result doesn't match your theoretical models.
+Once you realize that documentation should be laughed at, peed upon, put on fire, and just ridiculed in general, THEN, and only then, have you reached the level where you can safely read it and try to use it to actually implement a driver.
+Personally, I'm *not* interested in making device drivers look like user-level. They aren't, they shouldn't be, and microkernels are just stupid.
+I allege that SCO is full of it.
+Those that can, do. Those that can't, complain.
+Really, I'm not out to destroy Microsoft. That will just be a completely unintentional side effect.
+Modern PCs are horrible. ACPI is a complete design disaster in every way. But we're kind of stuck with it. If any Intel people are listening to this and you had anything to do with ACPI, shoot yourself now, before you reproduce.
+They are smoking crack.
+There are literally several levels of SCO being wrong. And even if we were to live in that alternate universe where SCO would be right, they'd still be wrong.
+The NIH syndrome (Not Invented Here) is a disease.
+Anybody who tells me I can't use a program because it's not open source, go suck on rms. I'm not interested. 99% of that I run tends to be open source, but that's *my* choice, dammit.
+My name is Linus Torvalds and I am your god.
+Oh fuck. If I kill this guy, I'll have millions of nerds on my case.
+My personal opinion of Mach is not very high. Frankly, it's a piece of crap. It contains all the design mistakes you can make, and even managed to make up a few of its own.
+You see. I don't think any new thoughts. I think thoughts that other people have thought, and I rearrange them. But Sara, she thinks thoughts that never were before.
+Most days I wake up thinking I'm the luckiest bastard alive.
+I'm personally convinced that computer science has a lot in common with physics. Both are about how the world works at a rather fundamental level. The difference, of course, is that while in physics you're supposed to figure out how the world is made up, in computer science you create the world. Within the confines of the computer, you're the creator. You get to ultimately control everything that happens. If you're good enough, you can be God. On a small scale.
+A lot of people still like Solaris, but I'm in active competition with them, and so I hope they die.
+2.6.<odd>: still a stable kernel, but accept bigger changes leading up to it (timeframe: a month or two). 2.<odd>.x: aim for big changes that may destabilize the kernel for several releases (timeframe: a year or two) <odd>.x.x: Linus went crazy, broke absolutely *everything*, and rewrote the kernel to be a microkernel using a special message-passing version of Visual Basic. (timeframe: "we expect that he will be released from the mental institution in a decade or two").
+Which mindset is right? Mine, of course. People who disagree with me are by definition crazy. (Until I change my mind, when they can suddenly become upstanding citizens. I'm flexible, and not black-and-white.)
+Don't bother. Bram doesn't know what he's talking about.
+It was *such* a relief to program in user mode for a change. Not having to care about the small stuff is wonderful.
+I chose 1000 originally partly as a way to make sure that people that assumed HZ was 100 would get a swift kick in the pants.
+I'm always right. This time I'm just even more right than usual.
+The fact that ACPI was designed by a group of monkeys high on LSD, and is some of the worst designs in the industry obviously makes running it at *any* point pretty damn ugly.
+I personally just encourage people to switch to KDE. This "users are idiots, and are confused by functionality" mentality of Gnome is a disease. If you think your users are idiots, only idiots will use it. I don't use Gnome, because in striving to be simple, it has long since reached the point where it simply doesn't do what I need it to do. Please, just tell people to use KDE.
+For example, the GPLv2 in no way limits your use of the software. If you're a mad scientist, you can use GPLv2'd software for your evil plans to take over the world ("Sharks with lasers on their heads!!"), and the GPLv2 just says that you have to give source code back. And that's OK by me. I like sharks with lasers. I just want the mad scientists of the world to pay me back in kind. I made source code available to them, they have to make their changes to it available to me. After that, they can fry me with their shark-mounted lasers all they want.
+I claim that Mach people (and apparently FreeBSD) are incompetent idiots.
+I like colorized diffs, but let's face it, those particular color choices will make most people decide to pick out their eyes with a fondue fork. And that's not good. Digging in your eye-sockets with a fondue fork is strictly considered to be bad for your health, and seven out of nine optometrists are dead set against the practice. So in order to avoid a lot of blind git users, please apply this patch.
+...git actually has a simple design, with stable and reasonably well-documented data structures. In fact, I'm a huge proponent of designing your code around the data, rather than the other way around, and I think it's one of the reasons git has been fairly successful [...] I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
+EFI is this other Intel brain-damage (the first one being ACPI).
+... even if the Hurd didn't depend on Linux code (and as far as I know, it does, but since I think they have their design heads firmly up their *sses anyway with that whole microkernel thing, I've never felt it was worth my time even looking at their code), I don't believe a religiously motivated development community can ever generate as good code except by pure chance.
+I'm a huge believer in evolution (not in the sense that "it happened" -- anybody who doesn't believe that is either uninformed or crazy, but in the sense "the processes of evolution are really fundamental, and should probably be at least *thought* about in pretty much any context").
+Dijkstra probably hates me.
+It's one of those rare "perfect" kernels. So if it doesn't happen to compile with your config (or it does compile, but then does unspeakable acts of perversion with your pet dachshund), you can rest easy knowing that it's all your own damn fault, and you should just fix your evil ways.
+Gcc is crap.
+Friends don't let friends use [gcc] "-W".
+I think people can generally trust me, but they can trust me exactly because they know they don't *have* to.
+Nobody actually creates perfect code the first time around, except me. But there's only one of me.
+If you have ever done any security work -- and it did not involve the concept of "network of trust" -- it wasn't security work, it was -- masturbation. I don't know what you were doing. But trust me, it's the only way you can do security, it's the only way you can do development.
+So the whole "We have a list and we're not telling you" should tell you something. Don't you think that if Microsoft actually had some really foolproof patent, they'd just tell us and go, "nyaah, nyaah, nyaah!"?
+You try to claim that the GPLv3 causes "More developers", and that, my idiotic penpal, is just crazy talk that you made up.
+I don't ask for money. I don't ask for sexual favors. I don't ask for access to the hardware you design and sell. I just ask for the thing I gave you: source code that I can use myself.
+Controlling a laser with Linux is crazy, but everyone in this room is crazy in his own way. So if you want to use Linux to control an industrial welding laser, I have no problem with your using PREEMPT_RT.
+Is "I hope you all die a painful death" too strong?
+C++ is a horrible language. It's made more horrible by the fact that a lot of substandard programmers use it, to the point where it's much much easier to generate total and utter crap with it.
+C++ is in that inconvenient spot where it doesn't help make things simple enough to be truly usable for prototyping or simple GUI programming, and yet isn't the lean system programming language that C is that actively encourages you to use simple and direct constructs.
+I'm an egotistical bastard, and I name all my projects after myself. First Linux, now git.
+Me, I just don't care about proprietary software. It's not "evil" or "immoral," it just doesn't matter. I think that Open Source can do better, and I'm willing to put my money where my mouth is by working on Open Source, but it's not a crusade -- it's just a superior way of working together and generating code.
+I have an ego the size of a small planet, but I'm not _always_ right [...].
+It has nothing to do with dinosaurs. Good taste doesn't go out of style
+Your problem has nothing to do with git, and everything to do with emacs. And then you have the *gall* to talk about "Unix design" and not gumming programs together, when you yourself use the most gummed-up piece of absolute sh*t there is!
+The fact is, there aren't just two sides to any issue, there's almost always a range of responses, and "it depends" is almost always the right answer in any big question.
+Real quality means making sure that people are proud of the code they write, that they're involved and taking it personally.
+Security people are often the black-and-white kind of people that I can't stand. I think the OpenBSD crowd is a bunch of masturbating monkeys, in that they make such a big deal about concentrating on security to the point where they pretty much admit that nothing else matters to them.
+It's what I call "mental masturbation", when you engage is some pointless intellectual exercise that has no possible meaning.
+Sometimes "pi = 3.14" is (a) infinitely faster than the "correct" answer and (b) the difference between the "correct" and the "wrong" answer is meaningless. And this is why I get upset when somebody dismisses performance issues based on "correctness". The thing is, some specious value of "correctness" is often irrelevant because it doesn't matter. While performance almost *always* matters. And I absolutely *detest* the fact that people so often dismiss performance concerns so readily.
+I think Leopard is a much better system [than Windows Vista] ... but OS X in some ways is actually worse than Windows to program for. Their file system is complete and utter crap, which is scary.
+And what's the Internet without the rick-roll?
+Crying that it's an application bug is like crying over the speed of light: you should deal with *reality*, not what you wish reality was.
+Theory and practice sometimes clash. And when that happens, theory loses. Every single time.
+The thing that has always disturbed me about O_DIRECT is that the whole interface is just stupid, and was probably designed by a deranged monkey on some serious mind-controlling substances. In other words, it's an Oracleism.
+I may make jokes about Microsoft at times, but at the same time, I think the Microsoft hatred is a disease.
+There are "extremists" in the free software world, but that's one major reason why I don't call what I do "free software" any more. I don't want to be associated with the people for whom it's about exclusion and hatred.
+Your code is shit.. your argument is shit.
+Standards are paper. I use paper to wipe my butt every day. That's how much that paper is worth.
+Every time I see some piece of medical research saying that caffeine is good for you, I high-five myself. Because I'm going to live forever.
+Toto, I don't think we're talking white-socks-and-sandals any more.
+Why don't we write code that just works? Or absent a "just works" set of patches, why don't we revert to code that has years of testing? This kind of "I broke things, so now I will jiggle things randomly until they unbreak" is not acceptable. [...] Don't just make random changes. There really are only two acceptable models of development: "think and analyze" or "years and years of testing on thousands of machines". Those two really do work.
+We're not masturbating around with some research project.  We never were. Even when Linux was young, the whole and only point was to make a *usable* system. It's why it's not some crazy drug-induced microkernel or other random crazy thing.
+[In response to [http://www.oregonlive.com/portland/index.ssf/2012/07/northeast_portland_man_who_str.html]] Good job. More public indecency, less TSA, that's what I say.
+Somebody is trying to kill all the kernel developers.
+I really hate big laptops. I can't understand people who lug around 15" (or 17"!) monsters. The right weight for a laptop is 1kg, no more.
+Obsessing about things is important, and things really do matter, but if you can't let go of them, you'll end up crazy.
+WE DO NOT BREAK USERSPACE!
+I'm not sentimental. Good riddance.
+Of course, I'd also suggest that whoever was the genius who thought it was a good idea to read things ONE F*CKING BYTE AT A TIME with system calls for each byte should be retroactively aborted. Who the f*ck does idiotic things like that? How did they noty die as babies, considering that they were likely too stupid to find a tit to suck on?
+People say that you should not micro-optimize. But if what you love is micro-optimization... that's what you should do.
+I like offending people, because I think people who get offended *should* be offended.
+Nvidia, fuck you!
+I wish everybody was as nice as I am.
+I started Linux as a desktop operating system. And it's the only area where Linux hasn't completely taken over. That just annoys the hell out of me.
+I realize that lawyers are brought up (probably from small children) to think that "technically true" is what matters, but when you make public PR statements, they should be more than "technically" true. They should be honest. There's a big f*cking difference.
+But this is definitely another of those "This is our most desperate hour. Help me, Al-biwan Ke-Viro, you're my only hope" issues. Al? Please don't make me wear that golden bikini.
+I hope I won't end up having to hunt you all down and kill you in your sleep.
+Whoever came up with "hold the shift key for eight seconds to turn on 'your keyboard is buggered' mode" should be shot.
+There aren't enough swear-words in the English language, so now I'll have to call you perkeleen vittupää just to express my disgust and frustration with this crap.
+That's the spirit. Greg has taught you well. You have controlled your fear. Now, release your anger. Only your hatred can destroy me. Come to the dark side, Sarah. We have cookies.
+XML is crap. Really. There are no excuses. XML is nasty to parse for humans, and it's a disaster to parse even for computers. There's just no reason for that horrible crap to exist.
+Lookie here, your compiler does some absolutely insane things with the spilling, including spilling a *constant*. For chrissake, that compiler shouldn't have been allowed to graduate from kindergarten. We're talking "sloth that was dropped on the head as a baby" level retardation levels here.
+I don't respect people unless I think they deserve the respect. There are people who think that respect is something that should be given, and I happen to be one of the people who is perfectly happy saying no; respect should be earned. And without being earned, you don't get it. It's really that simple.
+One of the things, none of the distributions have ever done right is application packaging [...] making binaries for linux desktop applications is a major fucking pain in the ass.
+[GPL] version 3 was not a good "here we give you version 2" and then we try to sneak in this new rules and try force everyone to upgrade; that was the part I disliked. The FSF did really sneaky stuff, downright immoral in my opinion.
+On the internet nobody can hear you being subtle.
+I don’t care about you.
+the most important part of open source is that people are allowed to do what they are good at
+all that [diversity] stuff is just details and not really important.
+I am a lazy person, which is why I like open source, for other people to do work for me.
+Christ, people. Learn C, instead of just stringing random characters together until it compiles (with warnings).
+Get rid of it. And I don't *ever* want to see that shit again.
+If 386BSD had been available when I started on Linux, Linux would probably never had happened.
+Software is like sex; it's better when it's free.
+The memory management on the PowerPC can be used to frighten small children.
+OK, I admit it. I was just a front-man for the real fathers of Linux, the Tooth Fairy and Santa Claus.
+95 percent of all software developers believe they are in the top 5 percent when it comes to knowledge and skills.
+Guess what? Wheels have been round for a really long time, and anybody who "reinvents" the new wheel is generally considered a crackpot. It turns out that "round" is simply a good form for a wheel to have. It may be boring, but it just tends to roll better than a square, and "hipness" has nothing what-so-ever to do with it.
+I don't doubt at all that virtualization is useful in some areas. What I doubt rather strongly is that it will ever have the kind of impact that the people involved in virtualization want it to have.
+Now, most of you are probably going to be totally bored out of your minds on Christmas day, and here's the perfect distraction. Test 2.6.15-rc7. All the stores will be closed, and there's really nothing better to do in between meals.
+So LSM stays in. No ifs, buts, maybes or anything else. When I see the security people making sane arguments and agreeing on something, that will change. Quite frankly, I expect hell to freeze over before that happens, and pigs will be nesting in trees. But hey, I can hope.
+So I would not be surprised if the globbing libraries, for example, will do NFD-mangling in order to glob "correctly", so even programs ported from real Unix might end up getting pathnames subtly changed into NFD as part of some hot library-on-library action with UTF hackery inside.
+
