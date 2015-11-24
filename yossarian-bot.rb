@@ -74,7 +74,7 @@ config['servers'].each do |server_name, server_info|
 				conf.channels = server_info['channels']
 				conf.port = server_info['port'] or 6667
 				conf.ssl.use = server_info['ssl'] or false
-				conf.plugins.prefix = Regexp.new(server_info['prefix']) or /^!/
+				conf.plugins.prefix = Regexp.new(server_info['prefix'] or /^!/)
 				conf.plugins.plugins = @all_plugins.dup
 				conf.plugins.plugins << Cinch::Plugins::Identify
 
