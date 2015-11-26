@@ -40,6 +40,7 @@ users with multiple CTCP VERSION messages set can spam the channel via
 continue working.~~
 * GoogleTranslate also relies on a now-deprecated API and may need to be updated
 or switched to a non-paid service.
+[Here's a possible alternative.](http://mymemory.translated.net/doc/spec.php)
 * There are probably race conditions in some of the plugins.
 * LastSeen should probably be rewritten/changed to be persistent across bot
 reboots.
