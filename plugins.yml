@@ -1,70 +1,70 @@
 ---
 
 plugins:
-    - IBIP
-    - CommandHelp
-    - Ping
+    - ArtistInfo
+    - BTC
+    - Beedogs
+    - BOFHExcuses
     - BotInfo
-    - BotAdmin
+    - BotAdmin 
+    - Catch22
+    - CBSG
     - ChannelAdmin
     - ChannelModerator
-    - Catch22
-    - UrbanDictionary
-    - WolframAlpha
-    - Weather
+    - Cleverbot
+    - Clickbait
+    - CommandHelp
+    - CodeEval
+    - CTCPVersion
+    - CustomTriggers
+    - CuteFaces
+    - Dinner
+    - DuckDuckGoSearch
+    - ExchangeRates
+    - FlipText
+    - Fortune
+    - GitHubInfo
+    - Giphy
     - GoogleSearch
     - GoogleTranslate
-    - YouTubeSearch
-    - DuckDuckGoSearch
+    - HAL
+    - Hastebin
+    - IBIP
+    - IsItUp
+    - IPInfo
+    - Jerkcity
+    - LastSeen
+    - LeetSpeak
+    - LennartQuotes
+    - LinkTitling
+    - LinusQuotes
+    - LTC
+    - LutherInsults
     - Magic8Ball
     - MerriamWebster
-    - Cleverbot
-    - HAL
-    - Fortune
-    - Rot13
-    - TinyURL
-    - GitHubInfo
-    - ArtistInfo
-    - OMDB
-    - XKCDComics
-    - Jerkcity
-    - Giphy
-    - IsItUp
-    - Hastebin
-    - Slap
-    - Zalgo
-    - TacoRecipes
-    - RainbowText
-    - FlipText
     - MorseCode
-    - CuteFaces
+    - OMDB
+    - Ping
+    - RainbowText
+    - RegexReplace
+    - Reminders
+    - RMSQuotes
+    - Rot13
     - ShakespeareanInsults
-    - LutherInsults
-    - TheoQuotes
-    - LennartQuotes
-    - BOFHExcuses
-    - CBSG
-    - Clickbait
-    - BTC
-    - LTC
-    - ExchangeRates
+    - Slap
     - StockQuotes
-    - WorldPopulation
-    - CodeEval
-    - Wikipedia
-    - LeetSpeak
-    - IPInfo
-    - Beedogs
-    - Dinner
+    - TacoRecipes
+    - TheoQuotes
+    - TinyURL
     - UserIntros
     - UserQuotes
     - UserMail
     - UserPoints
-    - CustomTriggers
-    - Reminders
-    - CTCPVersion
-    - LastSeen
-    - LinkTitling
-    - RegexReplace
-    - LinusQuotes
-    - RMSQuotes
+    - UrbanDictionary
+    - Weather
+    - Wikipedia
+    - WolframAlpha
+    - WorldPopulation
+    - XKCDComics
+    - YouTubeSearch
+    - Zalgo
