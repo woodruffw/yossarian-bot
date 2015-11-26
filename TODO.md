@@ -11,7 +11,7 @@ busy loop (causing a DoS). The first three reproducible bugs reported that
 meet these requirements will receive free
 [Club-Mates](https://en.wikipedia.org/wiki/Club-Mate).
 * Document plugins/core better (YARD?)
-* Alphabetize [COMMANDS.md](COMMANDS.md) and plugins for better
+* ~Alphabetize [COMMANDS.md](COMMANDS.md)~ and plugins for better
 organization.
 
 ## Core
@@ -54,8 +54,9 @@ URLs should be "titled" be video statistics, Amazon URLs with price, vendors,
 etc.
 * Plugins need to be thorougly tested for race conditions and side cases when
 pulling data from web services.
-* ChannelAdmin should have a `!channel kickon <regex>` command that takes a
-sanitized regex and kicks users who trigger it.
+* ~ChannelAdmin should have a `!channel kickon <regex>` command that takes a
+sanitized regex and kicks users who trigger it.~ Taken care of in
+ChannelModerator.
 
 ## New Plugin Ideas
 
