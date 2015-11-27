@@ -6,7 +6,7 @@ plugins:
     - Beedogs
     - BOFHExcuses
     - BotInfo
-    - BotAdmin 
+    - BotAdmin
     - Catch22
     - CBSG
     - ChannelAdmin
@@ -26,7 +26,7 @@ plugins:
     - GitHubInfo
     - Giphy
     - GoogleSearch
-    - GoogleTranslate
+#   - GoogleTranslate # deprecated
     - HAL
     - Hastebin
     - IBIP

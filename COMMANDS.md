@@ -18,7 +18,7 @@ Command Syntax | Plugin class | Description | Working?
 `!8ball <question>` | Magic8Ball | Ask the Magic 8 Ball a question. | Yes
 `!admin <commands>` | BotAdmin | Administrate the bot. [See below](#admin). | Yes
 `!artist <artist>` | ArtistInfo | Get information about an artist from [Last.fm](http://last.fm). | Yes
-`!beedog` | Beedogs | Retrieve a random picture of a beedog from [beedogs.com](http://beedogs.com). | Yes
+`!beedog` | Beedogs | Retrieve a random picture of a beedog from [beedogs.com](http://beedogs.com). | No (Website offline)
 `{.!:}bots` | IBIP | Announce this bot to the channel. | Yes
 `!bofh <question>` | BOFHExcuses | Get a random [BOFH excuse](http://pages.cs.wisc.edu/~ballard/bofh/) for a given question. | Yes
 `!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
@@ -68,7 +68,7 @@ Command Syntax | Plugin class | Description | Working?
 `!stock <symbol>` | StockQuotes | Retrieve a stock quote for the given ticker symbol. | Yes
 `!taco` | TacoRecipes | Get a random taco recipe, courtesy of the [Taco Randomizer](http://taco-randomizer.herokuapp.com/). | Yes
 `!theo` | TheoQuotes | Get a random Theo De Raadt quote. | Yes
-`!tr <text>` | GoogleTranslate | Translate text to English with [Google Translate](https://translate.google.com). | Broken (API changed)
+`!tr <text>` | GoogleTranslate | Translate text to English with [Google Translate](https://translate.google.com). | Deprecated (API removed)
 `!trigger <command>` | CustomTriggers | Manage custom message replies and their triggers. [See below](#trigger). | Yes
 `!turl <url>` | TinyURL | Create a short link to the given url with [TinyURL](http://tinyurl.com/). | Yes
 `!ud <query>` | UrbanDictionary | Look up the given query on [UrbanDictionary](http://www.urbandictionary.com/). | Yes
