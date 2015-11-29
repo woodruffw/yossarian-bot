@@ -81,20 +81,6 @@ Command Syntax | Plugin class | Description | Working?
 `!yt <search>` | YouTubeSearch | Search [YouTube](https://youtube.com). | Yes
 `!zalgo <text>` | Zalgo | Summon Zalgo with some text. | Yes
 
-### `!botinfo` keys <a name="botinfo"></a>
-
-The `!botinfo` command takes one of the following keys:
-
-Key | Description
---- | ------
-`ver` (or `version`) | Get `yossarian-bot`'s version.
-`src` (or `source`) | Get a link to `yossarian-bot`'s source code.
-`contrib` (or `todo`) | Get a link to `yossarian-bot`'s TODO list.
-`author` | Get `yossarian-bot`'s author.
-`uptime` | Get `yossarian-bot`'s running time.
-`chans` (or `channels`) | List the channels the bot is currently on.
-`admins` | List the nicks of the admins currently registered to the bot.
-`ignores` | List nicks currently ignored by the bot.
 
 ### `!admin` subcommands <a name="admin"></a>
 
@@ -122,10 +108,41 @@ Subcommand | Description
 `say <channel> <message>` | Make the bot say the given message in the given channel.
 `act <channel> <message>` | Make the bot act the given message in the given channel.
 
+
+### `!botinfo` keys <a name="botinfo"></a>
+
+The `!botinfo` command takes one of the following keys:
+
+Key | Description
+--- | ------
+`ver` (or `version`) | Get `yossarian-bot`'s version.
+`src` (or `source`) | Get a link to `yossarian-bot`'s source code.
+`contrib` (or `todo`) | Get a link to `yossarian-bot`'s TODO list.
+`author` | Get `yossarian-bot`'s author.
+`uptime` | Get `yossarian-bot`'s running time.
+`chans` (or `channels`) | List the channels the bot is currently on.
+`admins` | List the nicks of the admins currently registered to the bot.
+`ignores` | List nicks currently ignored by the bot.
+
+
 ### `!channel` subcommands <a href="chanadmin"></a>
 
 In order to administrate the channel via the bot, you must an an admin (of the
 bot) **and** the bot must be a channel operator.
+
+
+### `!intro` subcommands <a name="intro"></a>
+
+Each nickname is allowed to have a single introduction per channel registered
+with the bot, which will be said whenever that nickname is seen joining the
+channel in question.
+
+Subcommand | Description
+---------- | ----------
+`add <intro>` | Set your nick's introduction message to the given intro.
+`rm` | Delete your nick's introduction message.
+`show` | Show your nick's introduction message.
+
 
 ### `!moderator` subcommands <a href="chanmod"></a>
 
@@ -151,17 +168,6 @@ Subcommand | Description
 `topic push <update>` | Push an update to the channel topic, using the delimiter.
 `topic pop` | Remove the most recent update to the channel topic, using the delimiter.
 
-### `!intro` subcommands <a name="intro"></a>
-
-Each nickname is allowed to have a single introduction per channel registered
-with the bot, which will be said whenever that nickname is seen joining the
-channel in question.
-
-Subcommand | Description
----------- | ----------
-`add <intro>` | Set your nick's introduction message to the given intro.
-`rm` | Delete your nick's introduction message.
-`show` | Show your nick's introduction message.
 
 ### `!point` subcommands <a name="point"></a>
 
@@ -173,6 +179,7 @@ Subcommand | Description
 `rm <nick>` | Take a point away from `nick`.
 `show <nick>` | Show `nick`'s current points.
 
+
 ### `!trigger` subcommands <a name="trigger"></a>
 
 The `!trigger` command takes one of three subcommands:
@@ -182,3 +189,4 @@ Subcommand | Description
 `add <trigger> <response>` | Make the bot say the given response whenever the given trigger is typed.
 `rm <trigger>` | Remove the given trigger and the response associated with it.
 `list` | List all triggers currently stored by `yossarian-bot`. Responses are not listed for the sake of brevity.
+
