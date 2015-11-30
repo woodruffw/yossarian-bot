@@ -18,7 +18,13 @@ class CustomTriggers < YossarianPlugin
 	def initialize(*args)
 		super
 		@triggers_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'custom_triggers.yml'))
-		@triggers = {}
+
+		if File.file?(@triggers_file)
+			@triggers = YAML::load_file(@triggers_file)
+		else
+			FileUtils.mkdir_p File.dirname(@triggers_file)
+			@triggers = {}
+		end
 	end
 
 	def sync_triggers_file
@@ -33,16 +39,6 @@ class CustomTriggers < YossarianPlugin
 
 	def match?(cmd)
 		cmd =~ /^(!)?(trigger$)|(reply$)/
-	end
-
-	listen_to :connect, method: :initialize_triggers
-
-	def initialize_triggers(m)
-		if File.exist?(@triggers_file)
-			@triggers = YAML::load_file(@triggers_file)
-		else
-			FileUtils.mkdir_p File.dirname(@triggers_file)
-		end
 	end
 
 	match /trigger add (\S+) (.+)/, method: :add_trigger

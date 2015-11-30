@@ -24,7 +24,13 @@ class UserQuotes < YossarianPlugin
 	def initialize(*args)
 		super
 		@quotes_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_quotes.yml'))
-		@quotes = {}
+
+		if File.file?(@quotes_file)
+			@quotes = YAML::load_file(@quotes_file)
+		else
+			FileUtils.mkdir_p File.dirname(@quotes_file)
+			@quotes = {}
+		end
 	end
 
 	def sync_quotes_file
@@ -39,16 +45,6 @@ class UserQuotes < YossarianPlugin
 
 	def match?(cmd)
 		cmd =~ /^(!)?quote$/
-	end
-
-	listen_to :connect, method: :initialize_quotes
-
-	def initialize_quotes(m)
-		if File.exist?(@quotes_file)
-			@quotes = YAML::load_file(@quotes_file)
-		else
-			FileUtils.mkdir_p File.dirname(@quotes_file)
-		end
 	end
 
 	listen_to :channel

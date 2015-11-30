@@ -19,7 +19,13 @@ class UserIntros < YossarianPlugin
 	def initialize(*args)
 		super
 		@intros_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_intros.yml'))
-		@intros = {}
+
+		if File.file?(@intros_file)
+			@intros = YAML::load_file(@intros_file)
+		else
+			FileUtils.mkdir_p File.dirname(@intros_file)
+			@intros = {}
+		end
 	end
 
 	def sync_intros_file
@@ -34,16 +40,6 @@ class UserIntros < YossarianPlugin
 
 	def match?(cmd)
 		cmd =~ /^(!)?intro$/
-	end
-
-	listen_to :connect, method: :initialize_intros
-
-	def initialize_intros(m)
-		if File.exist?(@intros_file)
-			@intros = YAML::load_file(@intros_file)
-		else
-			FileUtils.mkdir_p File.dirname(@intros_file)
-		end
 	end
 
 	match /intro add (.+)/, method: :set_intro

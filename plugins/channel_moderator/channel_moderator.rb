@@ -19,7 +19,15 @@ class ChannelModerator < YossarianPlugin
 	def initialize(*args)
 		super
 		@rules_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'rules.yml'))
-		@rules = Hash.new { |h, k| h[k] = [] }
+
+		if File.file?(@rules_file)
+			@rules = @rules = YAML::load_file(@rules_file)
+			@rules.default_proc = Proc.new { |h, k| h[k] = [] }
+		else
+			FileUtils.mkdir_p File.dirname(@rules_file)
+			@rules = Hash.new { |h, k| h[k] = [] }
+		end
+
 		@warned = Hash.new { |h, k| h[k] = [] }
 	end
 
@@ -38,15 +46,6 @@ class ChannelModerator < YossarianPlugin
 	end
 
 	listen_to :connect, method: :initialize_rules
-
-	def initialize_rules(m)
-		if File.exist?(@rules_file)
-			@rules = YAML::load_file(@rules_file)
-			@rules.default_proc = Proc.new { |h, k| h[k] = [] }
-		else
-			FileUtils.mkdir_p File.dirname(@rules_file)
-		end
-	end
 
 	match /moderator add \/(.+)\//, method: :moderator_add_rule, strip_colors: true
 

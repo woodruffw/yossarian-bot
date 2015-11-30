@@ -19,7 +19,14 @@ class UserPoints < YossarianPlugin
 	def initialize(*args)
 		super
 		@points_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_points.yml'))
-		@points = Hash.new { |h, k| h[k] = 0 }
+
+		if File.file?(@points_file)
+			@points = YAML::load_file(@points_file)
+			@points.default_proc = Proc.new { |h, k| h[k] = 0 }
+		else
+			FileUtils.mkdir_p File.dirname(@points_file)
+			@points = Hash.new { |h, k| h[k] = 0 }
+		end
 	end
 
 	def sync_points_file
@@ -34,17 +41,6 @@ class UserPoints < YossarianPlugin
 
 	def match?(cmd)
 		cmd =~ /^(!)?point$/
-	end
-
-	listen_to :connect, method: :initialize_points
-
-	def initialize_points(m)
-		if File.exist?(@points_file)
-			@points = YAML::load_file(@points_file)
-			@points.default_proc = Proc.new { |h, k| h[k] = 0 }
-		else
-			FileUtils.mkdir_p File.dirname(@points_file)
-		end
 	end
 
 	match /point add (\S+)/, method: :add_point

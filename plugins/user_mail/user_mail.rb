@@ -26,7 +26,14 @@ class UserMail < YossarianPlugin
 	def initialize(*args)
 		super
 		@mbox_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_mail.yml'))
-		@mbox = Hash.new { |h, k| h[k] = [] }
+
+		if File.file?(@mbox_file)
+			@mbox = YAML::load_file(@mbox_file)
+			@mbox.default_proc = Proc.new { |h, k| h[k] = [] }
+		else
+			FileUtils.mkdir_p File.dirname(@mbox_file)
+			@mbox = Hash.new { |h, k| h[k] = [] }
+		end
 	end
 
 	def sync_mbox_file
@@ -41,17 +48,6 @@ class UserMail < YossarianPlugin
 
 	def match?(cmd)
 		cmd =~ /^(!)?mail$/
-	end
-
-	listen_to :connect, method: :initialize_mbox
-
-	def initialize_mbox(m)
-		if File.exist?(@mbox_file)
-			@mbox = YAML::load_file(@mbox_file)
-			@mbox.default_proc = Proc.new { |h, k| h[k] = [] }
-		else
-			FileUtils.mkdir_p File.dirname(@mbox_file)
-		end
 	end
 
 	listen_to :channel
