@@ -21,6 +21,7 @@ class Jerkcity < YossarianPlugin
 	def initialize(*args)
 		super
 		@comic_count = 0
+		initialize_comic_count
 	end
 
 	def usage
@@ -31,9 +32,7 @@ class Jerkcity < YossarianPlugin
 		cmd =~ /^(!)?jerkcity$/
 	end
 
-	listen_to :connect, method: :initialize_comic_count
-
-	def initialize_comic_count(m)
+	def initialize_comic_count
 		begin
 			html = Nokogiri::HTML(open(URL).read)
 			text = html.css('div')[3].text
@@ -49,7 +48,7 @@ class Jerkcity < YossarianPlugin
 		if @comic_count > 0
 			rand = Random.rand(1..@comic_count)
 			comic_url = "#{URL}/_jerkcity#{rand}.html"
-			
+
 			begin
 				html = Nokogiri::HTML(open(comic_url).read)
 				text_array = html.css('div')[3].text.split('|')
