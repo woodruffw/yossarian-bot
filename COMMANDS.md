@@ -18,7 +18,7 @@ Command Syntax | Plugin class | Description | Working?
 `!8ball <question>` | Magic8Ball | Ask the Magic 8 Ball a question. | Yes
 `!admin <commands>` | BotAdmin | Administrate the bot. [See below](#admin). | Yes
 `!artist <artist>` | ArtistInfo | Get information about an artist from [Last.fm](http://last.fm). | Yes
-`!beedog` | Beedogs | Retrieve a random picture of a beedog from [beedogs.com](http://beedogs.com). | No (Website offline)
+`!beedog` | Beedogs | Retrieve a random picture of a beedog from [beedog.github.io](http://beedog.github.io). | Yes
 `{.!:}bots` | IBIP | Announce this bot to the channel. | Yes
 `!bofh <question>` | BOFHExcuses | Get a random [BOFH excuse](http://pages.cs.wisc.edu/~ballard/bofh/) for a given question. | Yes
 `!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes

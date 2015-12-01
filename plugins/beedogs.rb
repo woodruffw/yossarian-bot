@@ -4,6 +4,7 @@
 #  ------------------------
 #  A Cinch plugin that retrieves pictures of Beedogs for yossarian-bot.
 #  Beedogs curated by Gina Zycher: http://beedogs.com
+#  Now that http://beedogs.com is dead, http://beedog.github.io is used instead.
 #  ------------------------
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
