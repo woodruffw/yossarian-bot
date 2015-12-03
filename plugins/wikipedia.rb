@@ -16,7 +16,7 @@ class Wikipedia < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
-	URL = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=%{query}"
+	URL = 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&redirects=resolve&search=%{query}'
 
 	def usage
 		'!wiki <search> - Search Wikipedia for the given <search>.'
