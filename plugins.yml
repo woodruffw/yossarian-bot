@@ -23,6 +23,7 @@ plugins:
     - ExchangeRates
     - FlipText
     - Fortune
+    - Genres
     - GitHubInfo
     - Giphy
     - GoogleSearch
