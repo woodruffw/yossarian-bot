@@ -36,6 +36,7 @@ Command Syntax | Plugin class | Description | Working?
 `!flip <down|up> <text>` | FlipText | Flip text upside down or rightside up. | Yes
 `!fortune` | Fortune | Get a Unix fortune. | Yes
 `!g <search>` | GoogleSearch | Search [Google](https://google.com). | Yes
+`!genre` | Genres | Generate a random music genre. | Yes
 `!gh <query>` | GitHubInfo | Get statistics about a [GitHub](https://github.com/) user or repository. | Yes
 `!gif <search>` | Giphy | Search [Giphy](http://giphy.com/) for GIFs. | Yes
 `!hal9000 <message>` | HAL | Talk to MegaHAL. | Yes
