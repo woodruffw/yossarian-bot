@@ -18,7 +18,7 @@ An entertaining IRC bot that's easy to extend.
 * Cleverbot discussions
 * Channel 'seen' log
 * Link compression (TinyURL)
-* ...and much more!
+* ...and [much more](COMMANDS.md)!
 
 ## Installation
 
