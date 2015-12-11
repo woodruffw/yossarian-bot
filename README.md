@@ -46,6 +46,7 @@ they are exported to the environment as follows:
 * Last.fm - `LASTFM_API_KEY`, `LASTFM_API_SECRET`
 * Open Exchange Rates - `OEX_API_KEY`
 * Giphy - `GIPHY_API_KEY`
+* Goodreads - `GOODREADS_API_KEY`
 
 Additionally, the `fortune` utility must be present in order for Unix fortunes
 to work correctly. Some package managers also provide the `fortunes`,

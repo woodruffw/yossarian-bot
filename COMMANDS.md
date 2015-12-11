@@ -21,6 +21,7 @@ Command Syntax | Plugin class | Description | Working?
 `!beedog` | Beedogs | Retrieve a random picture of a beedog from [beedog.github.io](http://beedog.github.io). | Yes
 `{.!:}bots` | IBIP | Announce this bot to the channel. | Yes
 `!bofh <question>` | BOFHExcuses | Get a random [BOFH excuse](http://pages.cs.wisc.edu/~ballard/bofh/) for a given question. | Yes
+`!book <book>` | BookInfo | Get information about a book from [Goodreads](https://www.goodreads.com/). | Yes
 `!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
 `!btc` | BTC | Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/). | Yes
 `!c22` | Catch22 | Get a Catch-22 quote. | Yes

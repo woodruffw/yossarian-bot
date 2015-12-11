@@ -5,6 +5,7 @@ plugins:
     - BTC
     - Beedogs
     - BOFHExcuses
+    - BookInfo
     - BotInfo
     - BotAdmin
     - Catch22
