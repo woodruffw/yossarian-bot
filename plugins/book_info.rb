@@ -54,9 +54,15 @@ class BookInfo < YossarianPlugin
 				ratings_count = book_info['ratings_count']
 				link = book_info['link']
 
-				similar_books = book_info['similar_books']['book'][0...3].map do |b|
-					b['title_without_series']
-				end.join(', ')
+				similar_books = book_info['similar_books']['book']
+
+				if similar_books
+					similar_books = similar_books[0...3].map do |b|
+						b['title_without_series']
+					end.join(', ')
+				else
+					similar_books = 'None'
+				end
 
 				m.reply "#{title} (#{authors}, published #{year}). Rated #{rating}/5 by #{ratings_count} people. Similar books: #{similar_books}. More information at #{link}", true
 			rescue Goodreads::NotFound
