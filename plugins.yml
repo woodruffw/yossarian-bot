@@ -16,6 +16,7 @@ plugins:
     - Clickbait
     - CommandHelp
     - CodeEval
+    - CSTopics
     - CTCPVersion
     - CustomTriggers
     - CuteFaces

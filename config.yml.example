@@ -28,4 +28,3 @@ servers:
         channels:
             - '#bots'
         disabled_plugins: []
-
