@@ -21,9 +21,10 @@ class CustomTriggers < YossarianPlugin
 
 		if File.file?(@triggers_file)
 			@triggers = YAML::load_file(@triggers_file)
+			@triggers.default_proc = Proc.new { |h, k| h[k] = {} }
 		else
 			FileUtils.mkdir_p File.dirname(@triggers_file)
-			@triggers = {}
+			@triggers = Hash.new { |h, k| h[k] = {} }
 		end
 	end
 
@@ -46,11 +47,7 @@ class CustomTriggers < YossarianPlugin
 	def add_trigger(m, trigger, response)
 		channel = m.channel.to_s
 
-		if @triggers.key?(channel)
-			@triggers[channel][trigger] = response
-		else
-			@triggers[channel] = { trigger => response }
-		end
+		@triggers[channel][trigger] = response
 
 		m.reply "Added trigger for \'#{trigger}\' -> \'#{response}\'.", true
 		sync_triggers_file

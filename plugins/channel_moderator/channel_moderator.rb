@@ -80,12 +80,13 @@ class ChannelModerator < YossarianPlugin
 		m.reply "Current channel rules: #{rules}"
 	end
 
-	listen_to :channel
+	listen_to :channel, strip_colors: true
 
 	def listen(m)
 		channel = m.channel.to_s
+		message = m.message.delete("\u200B")
 
-		if @rules.key?(channel) && Regexp.union(@rules[channel]).match(m.message) && !m.channel.opped?(m.user)
+		if @rules.key?(channel) && Regexp.union(@rules[channel]).match(message) && !m.channel.opped?(m.user)
 			if @warned[channel].exclude?(m.user.nick)
 				@warned[channel] << m.user.nick
 				m.channel.kick m.user, "First rule violation."
