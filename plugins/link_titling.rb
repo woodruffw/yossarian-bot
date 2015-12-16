@@ -18,18 +18,51 @@ class LinkTitling < YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
 
+	YOUTUBE_KEY = ENV['YOUTUBE_API_KEY']
+	YOUTUBE_URL = "https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=%{id}&key=%{key}"
+
 	match /(#{URI::regexp(['http', 'https'])})/, use_prefix: false, method: :link_title
 
 	def link_title(m, link)
-		begin
-			html = Nokogiri::HTML(open(link, {:read_timeout => 3, :allow_redirections => :safe}))
-			title = html.css('title').text.gsub(/\s+/, ' ').strip
+		uri = URI(link)
 
-			if !title.empty?
-				m.reply "Title: \'#{title}\'"
-			end
+		case uri.host
+		when /youtube.com/, /youtu.be/
+			title = youtube_title(uri)
+		else
+			title = generic_title(uri)
+		end
+
+		if title && !title.empty?
+			m.reply "Title: #{title}"
+		end
+	end
+
+	def generic_title(uri)
+		begin
+			html = Nokogiri::HTML(open(uri, { :read_timeout => 3, :allow_redirections => :safe }))
+			html.css('title').text.gsub(/\s+/, ' ').strip
 		rescue Exception => e
-			m.reply e.to_s, true
+			'Unknown'
+		end
+	end
+
+	def youtube_title(uri)
+		query = uri.query || ''
+		id = URI::decode_www_form(query).to_h['v']
+
+		if id.nil?
+			'generic'
+			# generic_title(uri)
+		else
+			api_url = YOUTUBE_URL % { id: id, key: YOUTUBE_KEY }
+
+			begin
+				hash = JSON.parse(open(api_url).read)['items'].first
+				hash['snippet']['title']
+			rescue Exception => e
+				'Unknown'
+			end
 		end
 	end
 end
