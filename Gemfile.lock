@@ -81,6 +81,7 @@ GEM
     ntlm-http (0.1.1)
     oauth (0.4.7)
     open_uri_redirections (0.2.1)
+    research_topicgen (0.1.0)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -132,6 +133,7 @@ DEPENDENCIES
   megahal
   nokogiri
   open_uri_redirections
+  research_topicgen
   ruby-upworthy
   telegraph
   time_difference
