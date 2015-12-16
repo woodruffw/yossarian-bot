@@ -52,8 +52,7 @@ class LinkTitling < YossarianPlugin
 		id = URI::decode_www_form(query).to_h['v']
 
 		if id.nil?
-			'generic'
-			# generic_title(uri)
+			generic_title(uri)
 		else
 			api_url = YOUTUBE_URL % { id: id, key: YOUTUBE_KEY }
 
