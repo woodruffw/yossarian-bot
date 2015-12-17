@@ -139,7 +139,7 @@ class BotAdmin < YossarianPlugin
 
 		@bot.blacklist << nick
 
-		if !host.empty?
+		if host && !host.empty?
 			@bot.blacklist << host
 			m.reply "Ignoring everything from #{host} (#{nick}).", true
 		else
@@ -150,7 +150,7 @@ class BotAdmin < YossarianPlugin
 	match /admin ignore host (\S+)/, method: :bot_ignore_host
 
 	def bot_ignore_host(m, host)
-		@bot.blacklist << host 
+		@bot.blacklist << host
 
 		m.reply "Ignoring everything from #{host}.", true
 	end
