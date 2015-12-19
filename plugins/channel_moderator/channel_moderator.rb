@@ -84,7 +84,7 @@ class ChannelModerator < YossarianPlugin
 
 	def listen(m)
 		channel = m.channel.to_s
-		message = m.message.delete("\u200B")
+		message = Sanitize(m.message.delete("\u200B"))
 
 		if @rules.key?(channel) && Regexp.union(@rules[channel]).match(message) && !m.channel.opped?(m.user)
 			if @warned[channel].exclude?(m.user.nick)
