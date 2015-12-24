@@ -71,7 +71,7 @@ Command Syntax | Plugin class | Description | Working?
 `!taco` | TacoRecipes | Get a random taco recipe, courtesy of the [Taco Randomizer](http://taco-randomizer.herokuapp.com/). | Yes
 `!theo` | TheoQuotes | Get a random Theo De Raadt quote. | Yes
 `!tr <text>` | GoogleTranslate | Translate text to English with [Google Translate](https://translate.google.com). | Deprecated (API removed)
-`topic <cs|system|crypto|random>` | CSTopics | Generate worthy CS, System, Crypto research topics. | Yes
+`!topic <cs|system|crypto|random>` | CSTopics | Generate worthy CS, System, Crypto research topics. | Yes
 `!trigger <command>` | CustomTriggers | Manage custom message replies and their triggers. [See below](#trigger). | Yes
 `!turl <url>` | TinyURL | Create a short link to the given url with [TinyURL](http://tinyurl.com/). | Yes
 `!ud <query>` | UrbanDictionary | Look up the given query on [UrbanDictionary](http://www.urbandictionary.com/). | Yes
