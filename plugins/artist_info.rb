@@ -45,13 +45,21 @@ class ArtistInfo < YossarianPlugin
 					formed = info['bio']['yearformed'] || '?'
 					place = info['bio']['placeformed'] || '?'
 
-					tags = info['tags']['tag'].map do |tag|
-						tag['name'].capitalize
-					end.join(', ')
+					if info['tags'] && info['tags']['tag']
+						tags = info['tags']['tag'].map do |tag|
+							tag['name'].capitalize
+						end.join(', ')
+					else
+						tags = 'None'
+					end
 
-					artists = info['similar']['artist'].map do |art|
-						art['name']
-					end.join(', ')
+					if info['similar'] && info['similar']['artist']
+						artists = info['similar']['artist'].map do |art|
+							art['name']
+						end.join(', ')
+					else
+						artists = 'None'
+					end
 
 					m.reply "#{name} (formed #{formed}, #{place}): #{tags}. Similar artists: #{artists}. #{url}.", true
 				else
