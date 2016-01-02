@@ -38,7 +38,7 @@ config['servers'].each do |server_name, server_info|
 	server_threads << Thread.new do
 		Cinch::Bot.new do
 			@starttime = Time.now
-			@version = ['major', 'minor', 'patch'].map { |v| version[v] }.join('.')
+			@version = version
 			@admins = server_info['admins'] or []
 			@blacklist = Set.new
 			@all_plugins = plugins.map do |plugin|
