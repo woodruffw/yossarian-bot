@@ -29,7 +29,6 @@ plugins:
     - GitHubInfo
     - Giphy
     - GoogleSearch
-#   - GoogleTranslate # deprecated
     - HAL
     - Hastebin
     - IBIP
