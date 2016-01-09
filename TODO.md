@@ -56,8 +56,8 @@ URLs should be "titled" be video statistics, Amazon URLs with price, vendors,
 etc.
 * Plugins need to be thoroughly tested for race conditions and side cases when
 pulling data from web services.
-* ~ChannelAdmin should have a `!channel kickon <regex>` command that takes a
-sanitized regex and kicks users who trigger it.~ Taken care of in
+* ~~ChannelAdmin should have a `!channel kickon <regex>` command that takes a
+sanitized regex and kicks users who trigger it.~~ Taken care of in
 ChannelModerator.
 
 ## New Plugin Ideas
