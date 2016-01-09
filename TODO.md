@@ -11,8 +11,8 @@ busy loop (causing a DoS). The first three reproducible bugs reported that
 meet these requirements will receive free
 [Club-Mates](https://en.wikipedia.org/wiki/Club-Mate).
 * Document plugins/core better (YARD?)
-* ~Alphabetize [COMMANDS.md](COMMANDS.md)~ and plugins for better
-organization.
+* ~~Alphabetize [COMMANDS.md](COMMANDS.md) and plugins for better
+organization.~~
 
 ## Core
 
