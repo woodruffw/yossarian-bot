@@ -62,9 +62,9 @@ ChannelModerator.
 
 ## New Plugin Ideas
 
-* [Systems Research Topic Generator](http://dept.cs.williams.edu/~barath/systems-topic-generator.html)
-* [Crypto Research Topic Generator](http://cseweb.ucsd.edu/~mihir/crypto-topic-generator.html)
-* [CS Research Topic Generator](https://www.cs.purdue.edu/homes/dec/essay.topic.generator.html)
+* ~~[Systems Research Topic Generator](http://dept.cs.williams.edu/~barath/systems-topic-generator.html)~~
+* ~~[Crypto Research Topic Generator](http://cseweb.ucsd.edu/~mihir/crypto-topic-generator.html)~~
+* ~~[CS Research Topic Generator](https://www.cs.purdue.edu/homes/dec/essay.topic.generator.html)~~
 * [Fake identity generator](https://fakena.me/random/)
 * Channel greeter for new nicks (probably requires an extensive DB and
 restriction system, maybe `use_opped`)
@@ -73,3 +73,4 @@ restriction system, maybe `use_opped`)
 * [Tech idea generator](http://bwasti.com/techideas)
 * [Hacker News search](https://hn.algolia.com/api)
 * [Location Information via Google Maps API](https://developers.google.com/places/web-service/)
+* [Deepak Chopra Quote Generator](http://wisdomofchopra.com/)
