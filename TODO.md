@@ -74,3 +74,4 @@ restriction system, maybe `use_opped`)
 * [Hacker News search](https://hn.algolia.com/api)
 * [Location Information via Google Maps API](https://developers.google.com/places/web-service/)
 * [Deepak Chopra Quote Generator](http://wisdomofchopra.com/)
+* [ArXiv](http://arxiv.org/) paper search
