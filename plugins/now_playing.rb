@@ -43,7 +43,10 @@ class NowPlaying < YossarianPlugin
 				info = @lastfm.user.get_recent_tracks(username, 1)
 
 				if info
-					info = info.first
+					# APIs should always return a uniform type...
+					if info.is_a?(Array)
+						info = info.first
+					end
 
 					if info['nowplaying']
 						active = 'is now playing'
@@ -55,7 +58,11 @@ class NowPlaying < YossarianPlugin
 					song = info['name']
 					album = info['album']['content']
 
-					m.reply "#{username} #{active} \"#{song}\" by #{artist} on #{album}.", true
+					if album
+						m.reply "#{username} #{active} \"#{song}\" by #{artist} on #{album}.", true
+					else
+						m.reply "#{username} #{active} \"#{song}\" by #{artist}.", true
+					end
 				else
 					m.reply "#{username} has no scrobbles.", true
 				end
