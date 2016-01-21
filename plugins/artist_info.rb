@@ -20,7 +20,10 @@ class ArtistInfo < YossarianPlugin
 
 	def initialize(*args)
 		super
-		@lastfm = Lastfm.new(KEY, SECRET)
+
+		if KEY && SECRET
+			@lastfm = Lastfm.new(KEY, SECRET)
+		end
 	end
 
 	def usage
@@ -34,7 +37,7 @@ class ArtistInfo < YossarianPlugin
 	match /artist (.+)/, method: :artist_info, strip_colors: true
 
 	def artist_info(m, artist)
-		if KEY && SECRET
+		if @lastfm
 			begin
 				info = @lastfm.artist.get_info(artist: artist)
 				info.default = '?'
@@ -69,7 +72,7 @@ class ArtistInfo < YossarianPlugin
 				m.reply e.to_s.strip, true
 			end
 		else
-			m.reply 'Internal error (missing API key).'
+			m.reply "#{self.class.name}: Internal error (missing API key(s))."
 		end
 	end
 end

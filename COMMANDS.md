@@ -56,6 +56,7 @@ Command Syntax | Plugin class | Description | Working?
 `!mail <nick> <message>` | UserMail | Send a message to a nick. Messages are delivered the next time the nick speaks. | Yes
 `!moderator <commands>` | ChannelModerator | Configure channel moderation. [See below](#chanmod). | Yes
 `!morse <text>` | MorseCode | Convert text to Morse Code. | Yes
+`!np <username>` | NowPlaying | Get a Last.fm user's last played track. | Yes
 `!omdb <title>` | OMDB | Get information about a movie or show from [The Open Movie Database](http://www.omdbapi.com/). | Yes
 `!ping` | Ping | Ping the bot for a timestamped response. | Yes
 `!point <command> <nick>` | UserPoints | Give or take points away from a nickname. [See below](#point). | Yes
