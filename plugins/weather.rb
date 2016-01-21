@@ -42,7 +42,7 @@ class Weather < YossarianPlugin
 				m.reply "Bad query for location \'#{location}\'.", true
 			end
 		else
-			m.reply 'Internal error (missing API key).'
+			m.reply "#{self.class.name}: Internal error (missing API key)."
 		end
 	end
 end

@@ -71,7 +71,7 @@ class BookInfo < YossarianPlugin
 				m.reply e.to_s, true
 			end
 		else
-			m.reply 'Internal error (missing API key).'
+			m.reply "#{self.class.name}: Internal error (missing API key)."
 		end
 	end
 end
