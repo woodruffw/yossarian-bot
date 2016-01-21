@@ -40,19 +40,25 @@ class NowPlaying < YossarianPlugin
 	def now_playing(m, username)
 		if @lastfm
 			begin
-				info = @lastfm.user.get_recent_tracks(username, 1).first
+				info = @lastfm.user.get_recent_tracks(username, 1)
 
-				if info['nowplaying']
-					active = 'is now playing'
+				if info
+					info = info.first
+
+					if info['nowplaying']
+						active = 'is now playing'
+					else
+						active = 'last played'
+					end
+
+					artist = info['artist']['content']
+					song = info['name']
+					album = info['album']['content']
+
+					m.reply "#{username} #{active} \"#{song}\" by #{artist} on #{album}.", true
 				else
-					active = 'last played'
+					m.reply "#{username} has no scrobbles.", true
 				end
-
-				artist = info['artist']['content']
-				song = info['name']
-				album = info['album']['content']
-
-				m.reply "#{username} #{active} \"#{song}\" by #{artist} on #{album}.", true
 			rescue Exception => e
 				m.reply e.to_s.strip, true
 				raise e
