@@ -28,9 +28,9 @@ class IPInfo < YossarianPlugin
 		cmd =~ /^(!)?ipinfo$/
 	end
 
-	match /ipinfo (.+)/, method: :ipinfo, strip_colors: true
+	match /ipinfo (.+)/, method: :ip_info, strip_colors: true
 
-	def ipinfo(m, ip)
+	def ip_info(m, ip)
 		if ip =~ Resolv::IPv4::Regex || ip =~ Resolv::IPv6::Regex
 			url = URL % { ip: URI.encode(ip) }
 

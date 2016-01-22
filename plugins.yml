@@ -47,6 +47,7 @@ plugins:
     - MorseCode
     - NowPlaying
     - OMDB
+    - PhoneInfo
     - Ping
     - RainbowText
     - RegexReplace
