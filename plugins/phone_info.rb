@@ -33,7 +33,7 @@ class PhoneInfo < YossarianPlugin
 
 	def phone_info(m, number)
 		# some secret...
-		secret = Digest::MD5.hexdigest(Time.now + Time.zone_offset('MST')).strftime '%y.%m.%d'
+		secret = Digest::MD5.hexdigest(Time.now + Time.zone_offset('MST').strftime '%y.%m.%d')
 		url = URL % { secret: secret, number: number }
 
 		begin
