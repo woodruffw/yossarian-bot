@@ -75,4 +75,5 @@ restriction system, maybe `use_opped`)
 * [Location Information via Google Maps API](https://developers.google.com/places/web-service/)
 * [Deepak Chopra Quote Generator](http://wisdomofchopra.com/)
 * [ArXiv](http://arxiv.org/) paper search
-* [Reverse Phone Lookup](https://numverify.com/)
+* ~~[Reverse Phone Lookup](https://numverify.com/)~~
+* Flight data/plane lookup ([Flightaware?](http://flightaware.com/commercial/flightxml/))
