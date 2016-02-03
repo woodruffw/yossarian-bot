@@ -78,3 +78,4 @@ restriction system, maybe `use_opped`)
 * ~~[Reverse Phone Lookup](https://numverify.com/)~~
 * Flight data/plane lookup ([Flightaware?](http://flightaware.com/commercial/flightxml/))
 * [MeetBot](https://wiki.debian.org/MeetBot)-like plugin
+* "Now Reading" plugin (Goodreads)
