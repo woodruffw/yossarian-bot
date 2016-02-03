@@ -13,6 +13,7 @@ meet these requirements will receive free
 * Document plugins/core better (YARD?)
 * ~~Alphabetize [COMMANDS.md](COMMANDS.md) and plugins for better
 organization.~~
+* Turn the bot into a gem?
 
 ## Core
 
