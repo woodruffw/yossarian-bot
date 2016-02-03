@@ -77,3 +77,4 @@ restriction system, maybe `use_opped`)
 * [ArXiv](http://arxiv.org/) paper search
 * ~~[Reverse Phone Lookup](https://numverify.com/)~~
 * Flight data/plane lookup ([Flightaware?](http://flightaware.com/commercial/flightxml/))
+* [MeetBot](https://wiki.debian.org/MeetBot)-like plugin
