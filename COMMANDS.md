@@ -56,7 +56,7 @@ Command Syntax | Plugin class | Description | Working?
 `!mail <nick> <message>` | UserMail | Send a message to a nick. Messages are delivered the next time the nick speaks. | Yes
 `!moderator <commands>` | ChannelModerator | Configure channel moderation. [See below](#chanmod). | Yes
 `!morse <text>` | MorseCode | Convert text to Morse Code. | Yes
-`!np <username>` | NowPlaying | Get a Last.fm user's last played track. | Yes
+`!np <commands>` | NowPlaying | Get a Last.fm user's last played track. [See below](#nowplaying). | Yes
 `!omdb <title>` | OMDB | Get information about a movie or show from [The Open Movie Database](http://www.omdbapi.com/). | Yes
 `!phoneinfo <number>` | PhoneInfo | Look up information about the given phone number via [Numverify](https://numverify.com/). | Yes
 `!ping` | Ping | Ping the bot for a timestamped response. | Yes
@@ -173,6 +173,15 @@ Subcommand | Description
 `topic push <update>` | Push an update to the channel topic, using the delimiter.
 `topic pop` | Remove the most recent update to the channel topic, using the delimiter.
 
+
+### `!np` subcommands <a name="nowplaying"></a>
+
+The `!np` command takes one of two subcommands:
+
+Subcommand | Description
+-----------|------------
+`link <username>` | Link the Last.fm user `<username>` to your nick.
+`[nick]` | Gets the currently playing status of `nick` (or your nick, if not provided).
 
 ### `!point` subcommands <a name="point"></a>
 
