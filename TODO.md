@@ -44,6 +44,7 @@ URLs should be "titled" be video statistics, Amazon URLs with price, vendors,
 etc.
 * Plugins need to be thoroughly tested for race conditions and side cases when
 pulling data from web services.
+* CodeEval should use the `ruby-eval-in` gem for DRYness.
 
 ## New Plugin Ideas
 
