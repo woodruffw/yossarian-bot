@@ -73,9 +73,9 @@ class ChannelModerator < YossarianPlugin
 		end
 	end
 
-	match /moderator show/, method: :moderator_show_rules, strip_colors: true
+	match /moderator list/, method: :moderator_list_rules, strip_colors: true
 
-	def moderator_show_rules(m)
+	def moderator_list_rules(m)
 		rules = @rules[m.channel.to_s].map { |r| "/#{r}/" }.join(', ')
 		m.reply "Current channel rules: #{rules}"
 	end
@@ -89,11 +89,11 @@ class ChannelModerator < YossarianPlugin
 		if @rules.key?(channel) && Regexp.union(@rules[channel]).match(message) && !m.channel.opped?(m.user)
 			if @warned[channel].exclude?(m.user.nick)
 				@warned[channel] << m.user.nick
-				m.channel.kick m.user, "First rule violation."
+				m.channel.kick m.user, "That was your first rule violation."
 			else
 				@warned[channel].delete(m.user.nick)
 				m.channel.ban m.user
-				m.channel.kick m.user, "Second rule violation."
+				m.channel.kick m.user, "That was your second rule violation."
 			end
 		end
 	end
