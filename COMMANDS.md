@@ -159,7 +159,7 @@ Subcommand | Description
 -----------|------------
 `add /<regex>/` | Add `regex` to the list of moderated patterns.
 `del /<regex>/` | Remove `regex` from the list of moderated patterns.
-`show` | Show a list of all moderated patterns.
+`list` | List all moderated patterns.
 
 The `!channel` command can take several subcommands:
 
