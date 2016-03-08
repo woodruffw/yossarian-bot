@@ -4,4 +4,4 @@ yossarian-bot.rb.pid
 !plugins.yml
 !plugins/shakespearean_insults/shakespearean_insults.yml
 *.swp
-
+*~
