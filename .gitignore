@@ -5,3 +5,5 @@ yossarian-bot.rb.pid
 !plugins/shakespearean_insults/shakespearean_insults.yml
 *.swp
 *~
+.bundle/
+vendor/
