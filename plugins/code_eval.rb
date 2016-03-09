@@ -61,7 +61,7 @@ class CodeEval < YossarianPlugin
 				form.field_with(:name => 'code').value = code
 				form.field_with(:name => 'lang').value = LANGS[lang]
 				html = Nokogiri::HTML(mech.submit(form).body)
-				results = html.css('pre').last.text.gsub(/[\t\r\n]/, ' ')
+				results = html.css('pre').last.text.normalize_whitespace
 
 				if results.size > 0
 					m.reply Sanitize(results), true

@@ -34,7 +34,7 @@ class WolframAlpha < YossarianPlugin
 			result = Wolfram.fetch(query).pods[1]
 
 			if result && !result.plaintext.empty?
-				m.reply result.plaintext.gsub(/[\t\r\n]/, ''), true
+				m.reply result.plaintext.normalize_whitespace, true
 			else
 				m.reply "Wolfram|Alpha has nothing for #{query}", true
 			end

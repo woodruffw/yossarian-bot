@@ -38,7 +38,7 @@ class UrbanDictionary < YossarianPlugin
 
 			if hash['list'].nonempty?
 				list = hash['list'].first
-				definition = list['definition'][0..255].gsub(/[\r\n]+/, ' ')
+				definition = list['definition'][0..255].normalize_whitespace
 				link = list['permalink']
 				m.reply "#{phrase} - #{definition}... (#{link})", true
 			else
