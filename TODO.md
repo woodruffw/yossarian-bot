@@ -12,6 +12,7 @@ meet these requirements will receive free
 [Club-Mates](https://en.wikipedia.org/wiki/Club-Mate).
 * Document plugins/core better (YARD?)
 * Turn the bot into a gem?
+* Move documentation (COMMANDS.md) to a dedicated site?
 
 ## Core
 
