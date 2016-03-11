@@ -41,7 +41,7 @@ class LinkTitling < YossarianPlugin
 	def generic_title(uri)
 		begin
 			html = Nokogiri::HTML(open(uri, { :read_timeout => 3, :allow_redirections => :safe }))
-			html.css('title').text.gsub(/\s+/, ' ').strip
+			html.css('title').text.normalize_whitespace
 		rescue Exception => e
 			'Unknown'
 		end
