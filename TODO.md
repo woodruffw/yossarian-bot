@@ -63,3 +63,4 @@ restriction system, maybe `use_opped`)
 * [MeetBot](https://wiki.debian.org/MeetBot)-like plugin
 * "Now Reading" plugin (Goodreads)
 * WHOIS query plugin
+* [Have I Been Pwned? API](https://haveibeenpwned.com/API/v2)
