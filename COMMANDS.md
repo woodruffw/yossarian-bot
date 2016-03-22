@@ -40,6 +40,7 @@ Command Syntax | Plugin class | Description | Working?
 `!genre` | Genres | Generate a random music genre. | Yes
 `!gh <query>` | GitHubInfo | Get statistics about a [GitHub](https://github.com/) user or repository. | Yes
 `!gif <search>` | Giphy | Search [Giphy](http://giphy.com/) for GIFs. | Yes
+`!guinea` | GuineaPigs | Grabs a guinea pig picture from an [imgur album](http://imgur.com/r/guineapigs/). | Yes
 `!hal9000 <message>` | HAL | Talk to MegaHAL. | Yes
 `!haste <text>` | Hastebin | Post text to [Hastebin](http://hastebin.com/). | Yes
 `{.!:}help [cmd]` | CommandHelp | Announce general help or help on a specific command if provided. | Yes
@@ -85,7 +86,7 @@ Command Syntax | Plugin class | Description | Working?
 `!xkcd [search]` | XKCDComics | Get a random [XKCD](http://xkcd.com/) comic, or one related to a search. | Yes
 `!yt <search>` | YouTubeSearch | Search [YouTube](https://youtube.com). | Yes
 `!zalgo <text>` | Zalgo | Summon Zalgo with some text. | Yes
-
+`!guinea` | GuineaPigs | Grabs a guinea pig picture from an [imgur album](http://imgur.com/r/guineapigs/). | Yes
 
 ### `!admin` subcommands <a name="admin"></a>
 
