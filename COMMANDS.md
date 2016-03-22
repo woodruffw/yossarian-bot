@@ -85,7 +85,7 @@ Command Syntax | Plugin class | Description | Working?
 `!xkcd [search]` | XKCDComics | Get a random [XKCD](http://xkcd.com/) comic, or one related to a search. | Yes
 `!yt <search>` | YouTubeSearch | Search [YouTube](https://youtube.com). | Yes
 `!zalgo <text>` | Zalgo | Summon Zalgo with some text. | Yes
-
+`!guinea` | GuineaPigs | Grabs a guinea pig picture from an [imgur album](http://imgur.com/r/guineapigs/). | Yes
 
 ### `!admin` subcommands <a name="admin"></a>
 

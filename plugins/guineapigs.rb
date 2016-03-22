@@ -2,7 +2,7 @@
 # guinea.rb
 # Author: Bryan Hernandez
 # -----------------------
-# Display Guinea Pigs images from an imgurl album
+# Display Guinea Pigs images from an imgur album
 # -----------------------
 #
 
@@ -27,8 +27,7 @@ class GuineaPigs < YossarianPlugin
 
     def guinea(m)
         html = Nokogiri::HTML(open("http://imgur.com/r/guineapigs/").read)
-        img = html.css("a[class=image-list-link]")[Random.rand(59)]['href']
-        url = "http://imgur.com#{img}" 
-        m.reply url, true
+        img = html.css("a[class=image-list-link]")[rand(1..60)]['href']
+        m.reply "http://imgur.com#{img}", true
     end
 end
