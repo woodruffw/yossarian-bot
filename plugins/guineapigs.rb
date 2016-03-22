@@ -23,8 +23,7 @@ class GuineaPigs < YossarianPlugin
         cmd =~ /^(!)?guinea/
     end
 
-    match /guinea/, method: :guinea, strip_colors: true
-
+    match /guinea/, method: :guinea
     def guinea(m)
         html = Nokogiri::HTML(open("http://imgur.com/r/guineapigs/").read)
         img = html.css("a[class=image-list-link]")[rand(1..60)]['href']
