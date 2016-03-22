@@ -29,6 +29,7 @@ plugins:
     - GitHubInfo
     - Giphy
     - GoogleSearch
+    - GuineaPigs
     - HAL
     - Hastebin
     - IBIP
