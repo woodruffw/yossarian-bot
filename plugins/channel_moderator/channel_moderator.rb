@@ -42,7 +42,7 @@ class ChannelModerator < YossarianPlugin
 	end
 
 	def match?(cmd)
-		cmd =~ /^(!)?moderator/
+		cmd =~ /^(!)?moderator$/
 	end
 
 	listen_to :connect, method: :initialize_rules
@@ -73,7 +73,7 @@ class ChannelModerator < YossarianPlugin
 		end
 	end
 
-	match /moderator list/, method: :moderator_list_rules, strip_colors: true
+	match /moderator list$/, method: :moderator_list_rules, strip_colors: true
 
 	def moderator_list_rules(m)
 		rules = @rules[m.channel.to_s].map { |r| "/#{r}/" }.join(', ')

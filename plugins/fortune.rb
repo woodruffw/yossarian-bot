@@ -21,7 +21,7 @@ class Fortune < YossarianPlugin
 		cmd =~ /^(!)?fortune$/
 	end
 
-	match /fortune/, method: :unix_fortune
+	match /fortune$/, method: :unix_fortune
 
 	def unix_fortune(m)
 		if system('which fortune 2> /dev/null')

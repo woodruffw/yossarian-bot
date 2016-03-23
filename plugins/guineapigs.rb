@@ -21,10 +21,10 @@ class GuineaPigs < YossarianPlugin
 	end
 
 	def match?(cmd)
-		cmd =~ /^(!)?guinea/
+		cmd =~ /^(!)?guinea$/
 	end
 
-	match /guinea/, method: :guinea
+	match /guinea$/, method: :guinea
 
 	def guinea(m)
 		html = Nokogiri::HTML(open("http://imgur.com/r/guineapigs/").read)
