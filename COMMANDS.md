@@ -98,8 +98,8 @@ The `!admin` command can take several subcommands:
 Subcommand | Description
 ---------- | ----------
 `plugin list` | List all plugins currently *available*. This includes *all* plugins visible to `yossarian-bot`, not just enabled ones.
-`enable <plugin>` | Enable the given plugin. The plugin *must* be the *class name* of the plugin.
-`disable <plugin>` | Disable the given plugin. Like `enable`, the given plugin must be a class name.
+`plugin enable <plugin>` | Enable the given plugin. The plugin *must* be the *class name* of the plugin.
+`plugin disable <plugin>` | Disable the given plugin. Like `enable`, the given plugin must be a class name.
 `quit` | Gracefully kill the bot. This is the preferred way to terminate `yossarian-bot`.
 `auth <nick>` | Make the given nick an administrator.
 `deauth <nick>` | Remove the given nick from the administrator list.

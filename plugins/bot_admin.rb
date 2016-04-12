@@ -39,7 +39,7 @@ class BotAdmin < YossarianPlugin
 	end
 
 
-	match /admin enable (\w+)/, method: :plugin_enable
+	match /admin plugin enable (\w+)/, method: :plugin_enable
 
 	def plugin_enable(m, name)
 		active_plugin_names = @bot.plugins.map(&:class).map(&:name)
@@ -47,7 +47,7 @@ class BotAdmin < YossarianPlugin
 		@bot.all_plugins.each do |plugin|
 			if plugin.name == name && active_plugin_names.exclude?(plugin.name)
 				@bot.plugins.register_plugin(plugin)
-				m.reply "#{m.user.nick}: #{name} has been enabled."
+				m.reply "#{name} has been enabled.", true
 				return
 			end
 		end
@@ -55,7 +55,7 @@ class BotAdmin < YossarianPlugin
 		m.reply "#{name} is already enabled or does not exist.", true
 	end
 
-	match /admin disable (\w+)/, method: :plugin_disable
+	match /admin plugin disable (\w+)/, method: :plugin_disable
 
 	def plugin_disable(m, name)
 		@bot.plugins.each do |plugin|
