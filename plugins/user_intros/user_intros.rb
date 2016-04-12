@@ -53,7 +53,7 @@ class UserIntros < YossarianPlugin
 			@intros[m.channel.to_s] = { m.user.nick => intro }
 		end
 
-		m.reply "#{m.user.nick}: Your intro for #{m.channel.to_s} has been set to: \'#{intro}\'."
+		m.reply "Your intro for #{m.channel.to_s} has been set to: \'#{intro}\'.", true
 		sync_intros_file
 	end
 
@@ -62,10 +62,10 @@ class UserIntros < YossarianPlugin
 	def remove_intro(m)
 		if @intros.key?(m.channel.to_s) && @intros[m.channel.to_s].key?(m.user.nick)
 			@intros[m.channel.to_s].delete(m.user.nick)
-			m.reply "#{m.user.nick}: Your intro for #{m.channel.to_s} has been removed."
+			m.reply "Your intro for #{m.channel.to_s} has been removed.", true
 			sync_intros_file
 		else
-			m.reply "#{m.user.nick}: You don't currently have an intro."
+			m.reply "You don't currently have an intro.", true
 		end
 	end
 
@@ -73,9 +73,9 @@ class UserIntros < YossarianPlugin
 
 	def show_intro(m)
 		if @intros.key?(m.channel.to_s) && @intros[m.channel.to_s].key?(m.user.nick)
-			m.reply "#{m.user.nick}: Your intro is currently \'#{@intros[m.channel.to_s][m.user.nick]}\'."
+			m.reply "Your intro is currently \'#{@intros[m.channel.to_s][m.user.nick]}\'.", true
 		else
-			m.reply "#{m.user.nick}: You don't currently have an intro."
+			m.reply "You don't currently have an intro.", true
 		end
 	end
 
