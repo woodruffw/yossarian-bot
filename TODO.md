@@ -19,6 +19,8 @@ meet these requirements will receive free
 * Make a `yossarian_bot.rb` a `YossarianBot` class that encapsulates everything
 as an object instead of the current imperative approach.
 * Make plugin management more granular (per-channel)
+* Allow
+[SASL](http://www.rubydoc.info/github/cinchrb/cinch/Cinch/SASL).
 
 ## Plugins
 
