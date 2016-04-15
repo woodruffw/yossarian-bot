@@ -33,7 +33,7 @@ class BotInfo < YossarianPlugin
 		when /(^source$)|(^src$)/
 			m.reply 'yossarian-bot\'s source code can be found here: http://git.io/vs65u'
 		when /(^contrib)|(^todo$)/
-			m.reply 'Want to contribute? See the \'todo\' label under the issue tracker.'
+			m.reply 'Want to contribute? Here are some things to do: https://git.io/vwTmA'
 		when /^author$/
 			m.reply 'Author: William Woodruff (woodruffw, yossarian)'
 		when /^uptime$/
