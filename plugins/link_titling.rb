@@ -11,6 +11,7 @@ require 'uri'
 require 'open-uri'
 require 'open_uri_redirections'
 require 'nokogiri'
+require 'timeout'
 
 require_relative 'yossarian_plugin'
 
@@ -40,9 +41,11 @@ class LinkTitling < YossarianPlugin
 
 	def generic_title(uri)
 		begin
-			html = Nokogiri::HTML(open(uri, { :read_timeout => 3, :allow_redirections => :safe }))
-			html.css('title').text.normalize_whitespace
-		rescue Exception => e
+			Timeout::timeout(5) do
+				html = Nokogiri::HTML(open(uri, { :allow_redirections => :safe }))
+				html.css('title').text.normalize_whitespace
+			end
+		rescue Exception
 			'Unknown'
 		end
 	end
