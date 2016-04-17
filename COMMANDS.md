@@ -30,6 +30,7 @@ Command Syntax | Plugin class | Description | Working?
 `!channel <commands>` | ChannelAdmin | Administrate the current channel. [See below](#chanadmin). | Yes
 `!clickbait` | Clickbait | Generate a clickbait-y title. | Yes
 `!cute <nick>` | CuteFaces | Send a cute face to the given nick. | Yes
+`!decide <x or y || z>` | Decisions | Decide between choices. | Yes
 `!ddg <search>` | DuckDuckGoSearch | Search [DuckDuckGo](https://duckduckgo.com)'s Zero Click Info database. | Yes
 `!define <word>` | MerriamWebster | Get the [Merriam-Webster](http://www.merriam-webster.com/) definiton of a word. | Yes
 `!dinner` | Dinner | Retrieve a random dinner recipe from [whatthefuckshouldimakefordinner.com](http://whatthefuckshouldimakefordinner.com). | Yes
