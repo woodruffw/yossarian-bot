@@ -24,7 +24,7 @@ class Decisions < YossarianPlugin
 	match /decide (.+)/, method: :decide, strip_colors: true
 
 	def decide(m, query)
-		choices = query.split(/ or|\|\|/ ).map(&:strip).uniq
+		choices = query.split(/ or|\|\| /).map(&:strip).uniq
 		if choices.size < 2
 			m.reply "I need more than one option to choose from.", true
 		else
