@@ -25,7 +25,7 @@ Command Syntax | Plugin class | Description | Working?
 `!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
 `!btc` | BTC | Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/). | Yes
 `!c22` | Catch22 | Get a Catch-22 quote. | Yes
-`!cb <message>` | Cleverbot | Talk to [CleverBot](http://www.cleverbot.com/). | Broken (API changed)
+`!cb <message>` | Cleverbot | Talk to [CleverBot](http://www.cleverbot.com/). | Deprecated (API changed)
 `!cbsg` | CBSG | Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live). | Yes
 `!channel <commands>` | ChannelAdmin | Administrate the current channel. [See below](#chanadmin). | Yes
 `!clickbait` | Clickbait | Generate a clickbait-y title. | Yes
