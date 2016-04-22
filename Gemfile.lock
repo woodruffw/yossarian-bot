@@ -86,6 +86,8 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    ruby-eval-in (0.0.4)
+      nokogiri
     ruby-progressbar (1.7.5)
     ruby-termios (0.9.6)
     ruby-upworthy (0.0.2)
@@ -134,6 +136,7 @@ DEPENDENCIES
   nokogiri
   open_uri_redirections
   research_topicgen
+  ruby-eval-in
   ruby-upworthy
   telegraph
   time_difference
@@ -142,4 +145,4 @@ DEPENDENCIES
   xkcd
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
