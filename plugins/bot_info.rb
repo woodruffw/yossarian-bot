@@ -2,7 +2,7 @@
 #  bot_info.rb
 #  Author: William Woodruff
 #  ------------------------
-#  A Cinch plugin that retrives info on yossarian-bot.
+#  A Cinch plugin that retrieves info on yossarian-bot.
 #  ------------------------
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
