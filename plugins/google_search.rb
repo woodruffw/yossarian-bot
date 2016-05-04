@@ -27,7 +27,7 @@ class GoogleSearch < YossarianPlugin
 	end
 
 	match /g(?:oogle)? (.+)/, method: :google_search, strip_colors: true
-	
+
 	def google_search(m, search)
 		query = URI.encode(search)
 		url = URL % { query: query }
