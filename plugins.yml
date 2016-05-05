@@ -28,7 +28,6 @@ plugins:
     - Genres
     - GitHubInfo
     - Giphy
-    - GoogleSearch
     - GuineaPigs
     - HAL
     - Hastebin
@@ -55,6 +54,7 @@ plugins:
     - Reminders
     - RMSQuotes
     - Rot13
+    - Searx
     - ShakespeareanInsults
     - Slap
     - StockQuotes
