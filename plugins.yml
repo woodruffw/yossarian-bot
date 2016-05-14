@@ -4,6 +4,7 @@ plugins:
     - ArtistInfo
     - BTC
     - Beedogs
+    - BeerSearch
     - BOFHExcuses
     - BookInfo
     - BotInfo

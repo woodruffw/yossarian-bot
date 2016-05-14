@@ -19,6 +19,7 @@ Command Syntax | Plugin class | Description | Working?
 `!admin <commands>` | BotAdmin | Administrate the bot. [See below](#admin). | Yes
 `!artist <artist>` | ArtistInfo | Get information about an artist from [Last.fm](http://last.fm). | Yes
 `!beedog` | Beedogs | Retrieve a random picture of a beedog from [beedog.github.io](http://beedog.github.io). | Yes
+`!beer <name>` | BeerSearch | Search for beer information on [BreweryDB](http://www.brewerydb.com/). | Yes
 `{.!:}bots` | IBIP | Announce this bot to the channel. | Yes
 `!bofh <question>` | BOFHExcuses | Get a random [BOFH excuse](http://pages.cs.wisc.edu/~ballard/bofh/) for a given question. | Yes
 `!book <book>` | BookInfo | Get information about a book from [Goodreads](https://www.goodreads.com/). | Yes
