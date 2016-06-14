@@ -98,8 +98,8 @@ If you're writing a plugin, check out the
 [quick style guide](WRITING_PLUGINS.md) to writing plugins for `yossarian-bot`.
 
 If you'd like to contribute but don't have any contributions in mind, check out
-the [TODO](TODO.md) file. It contains a list of things that can be fixed,
-improved, and added.
+the [open issues](https://github.com/woodruffw/yossarian-bot/issues?q=is%3Aopen+is%3Aissue).
+They're regularly updated with things that can be fixed, improved, and added.
 
 ## License
 
