@@ -36,10 +36,14 @@ class CuteFaces < YossarianPlugin
 
 	def cute(m, nick)
 		if m.channel.has_user?(nick)
-			cute = FACES.sample % {user: m.user.nick, nick: nick}
-			m.reply cute
+			if m.user.nick.downcase != nick.downcase
+				cute = FACES.sample % {user: m.user.nick, nick: nick}
+				m.reply cute
+			else
+				m.reply "I can\'t let you do that.", true
+			end
 		else
-			m.reply "I don\'t see #{nick} in this channel."
+			m.reply "I don\'t see #{nick} in this channel.", true
 		end
 	end
 end
