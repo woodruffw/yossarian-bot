@@ -27,8 +27,6 @@ class ChannelModerator < YossarianPlugin
 			FileUtils.mkdir_p File.dirname(@rules_file)
 			@rules = Hash.new { |h, k| h[k] = [] }
 		end
-
-		@warned = Hash.new { |h, k| h[k] = [] }
 	end
 
 	def sync_rules_file
@@ -87,14 +85,10 @@ class ChannelModerator < YossarianPlugin
 		message = Sanitize(m.message.delete("\u200B"))
 
 		if @rules.key?(channel) && Regexp.union(@rules[channel]).match(message) && !m.channel.opped?(m.user)
-			if @warned[channel].exclude?(m.user.nick)
-				@warned[channel] << m.user.nick
-				m.channel.kick m.user, "That was your first rule violation."
-			else
-				@warned[channel].delete(m.user.nick)
-				m.channel.ban m.user
-				m.channel.kick m.user, "That was your second rule violation."
-			end
+			m.channel.kick m.user, "Please follow channel rules. I\'ve sent them to you in a private message."
+			m.user.send "Your message triggered one of these patterns:"
+			m.user.send @rules[m.channel.to_s].map { |r| "/#{r}/" }.join(', ')
+			m.user.send "If you think a mistake was made, please contact a channel operator."
 		end
 	end
 end
