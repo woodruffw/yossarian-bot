@@ -18,7 +18,7 @@ class RMSQuotes < YossarianPlugin
 	QUOTES = File.readlines(QUOTES_FILE)
 
 	def usage
-		'!rms [nick] - Fetch a random Richard Stallman quote. Aliases: !stallman.'
+		'!rms - Fetch a random Richard Stallman quote. Aliases: !stallman.'
 	end
 
 	def match?(cmd)
