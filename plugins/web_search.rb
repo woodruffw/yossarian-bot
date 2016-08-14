@@ -40,7 +40,7 @@ class WebSearch < YossarianPlugin
 
 			if result
 				site = result['url']
-				content = Sanitize.clean(result['content'])
+				content = Sanitize.clean(result['content']).normalize_whitespace
 
 				m.reply "#{site} - #{content}"
 			else
