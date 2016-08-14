@@ -44,7 +44,7 @@ class WebSearch < YossarianPlugin
 
 				m.reply "#{site} - #{content}"
 			else
-				m.reply "No Searx results for '#{search}'.", true
+				m.reply "No results for '#{search}'.", true
 			end
 		rescue Exception => e
 			m.reply e.to_s, true
