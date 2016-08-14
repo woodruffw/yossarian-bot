@@ -55,7 +55,6 @@ plugins:
     - Reminders
     - RMSQuotes
     - Rot13
-    - Searx
     - ShakespeareanInsults
     - Slap
     - StockQuotes
@@ -68,6 +67,7 @@ plugins:
     - UserPoints
     - UrbanDictionary
     - Weather
+    - WebSearch
     - Wikipedia
     - WolframAlpha
     - WorldPopulation

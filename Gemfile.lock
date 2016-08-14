@@ -14,6 +14,7 @@ GEM
       ffi
     cleverbot-api (0.0.4)
     concurrent-ruby (1.0.2)
+    crass (1.0.2)
     daemons (1.2.4)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
@@ -78,6 +79,8 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    nokogumbo (1.4.9)
+      nokogiri
     ntlm-http (0.1.1)
     oauth (0.5.1)
     open_uri_redirections (0.2.1)
@@ -93,6 +96,10 @@ GEM
     ruby-termios (1.0.2)
     ruby-upworthy (0.0.2)
     rubyzip (1.2.0)
+    sanitize (4.1.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.4.4)
+      nokogumbo (~> 1.4.1)
     sooth (2.0.0)
     telegraph (1.0.1)
     thread_safe (0.3.5)
@@ -139,6 +146,7 @@ DEPENDENCIES
   research_topicgen
   ruby-eval-in
   ruby-upworthy
+  sanitize
   telegraph
   time_difference
   wolfram

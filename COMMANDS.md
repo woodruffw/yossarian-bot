@@ -26,7 +26,6 @@ Command Syntax | Plugin class | Description | Working?
 `!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
 `!btc` | BTC | Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/). | Yes
 `!c22` | Catch22 | Get a Catch-22 quote. | Yes
-`!cb <message>` | Cleverbot | Talk to [CleverBot](http://www.cleverbot.com/). | Deprecated (API changed)
 `!cbsg` | CBSG | Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live). | Yes
 `!channel <commands>` | ChannelAdmin | Administrate the current channel. [See below](#chanadmin). | Yes
 `!clickbait` | Clickbait | Generate a clickbait-y title. | Yes
@@ -38,7 +37,6 @@ Command Syntax | Plugin class | Description | Working?
 `!eval <lang> <code>` | CodeEval | Evaluate some code on [eval.in](https://eval.in). | Yes
 `!flip <down|up> <text>` | FlipText | Flip text upside down or rightside up. | Yes
 `!fortune` | Fortune | Get a Unix fortune. | Yes
-`!g <search>` | GoogleSearch | Search [Google](https://google.com). | Deprecated (API removed)
 `!genre` | Genres | Generate a random music genre. | Yes
 `!gh <query>` | GitHubInfo | Get statistics about a [GitHub](https://github.com/) user or repository. | Yes
 `!gif <search>` | Giphy | Search [Giphy](http://giphy.com/) for GIFs. | Yes
@@ -70,12 +68,12 @@ Command Syntax | Plugin class | Description | Working?
 `!remind <count> <unit> <message>` | Reminders | Set a reminder message for a time in the future. | Yes
 `!rms` | RMSQuotes | Get a random Richard Stallman (rms) quote. | Yes
 `!rot13 <text>` | Rot13 | "Encrypt" some text with the ROT-13 cipher. | Yes
+`!s <search>` | WebSearch | Search the web using [Faroo](http://faroo.com). | Yes
 `!seen <nick>` | LastSeen | Check the last time `yossarian-bot` saw someone. | Yes
 `!slap <nick>` | Slap | Slap someone with a large trout. | Yes
 `!stock <symbol>` | StockQuotes | Retrieve a stock quote for the given ticker symbol. | Yes
 `!taco` | TacoRecipes | Get a random taco recipe, courtesy of the [Taco Randomizer](http://taco-randomizer.herokuapp.com/). | Yes
 `!theo` | TheoQuotes | Get a random Theo De Raadt quote. | Yes
-`!tr <text>` | GoogleTranslate | Translate text to English with [Google Translate](https://translate.google.com). | Deprecated (API removed)
 `!topic <cs|system|crypto|random>` | CSTopics | Generate worthy CS, System, Crypto research topics. | Yes
 `!trigger <command>` | CustomTriggers | Manage custom message replies and their triggers. [See below](#trigger). | Yes
 `!turl <url>` | TinyURL | Create a short link to the given url with [TinyURL](http://tinyurl.com/). | Yes
