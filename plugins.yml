@@ -1,6 +1,7 @@
 ---
 
 plugins:
+    - AirQuality
     - ArtistInfo
     - BTC
     - Beedogs

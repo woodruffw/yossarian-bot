@@ -48,6 +48,7 @@ they are exported to the environment as follows:
 * Giphy - `GIPHY_API_KEY`
 * Goodreads - `GOODREADS_API_KEY`
 * BreweryDB - `BREWERYDB_API_KEY`
+* AirQuality - `AIRNOW_API_KEY`
 
 Additionally, the `fortune` utility must be present in order for Unix fortunes
 to work correctly. Some package managers also provide the `fortunes`,
