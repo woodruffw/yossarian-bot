@@ -32,8 +32,8 @@ $ bundle install
 
 If you get errors during the bundle installation process, make sure that:
 
-* You're using ruby 2.1 or greater
-* Ruby's development headers/files are installed (should be `ruby2.{1,2}-dev` or
+* You're using ruby 2.3 or greater
+* Ruby's development headers/files are installed (should be `ruby2.3-dev` or
 similar in your package manager)
 
 `yossarian-bot` also requires API keys for several services. Make sure that
