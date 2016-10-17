@@ -18,6 +18,8 @@ servers:
             - 'LinkTitling'
             - 'UserIntros'
             - 'RegexReplace'
+        blacklist: # optional
+            - 'spammer1'
     irc.freenode.net:
         nick: 'yossarian-bot'
         prefix: '^!'

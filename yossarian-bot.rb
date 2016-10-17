@@ -9,6 +9,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require 'set'
 require 'cinch'
 require 'cinch/plugins/identify'
 require 'yaml'
@@ -39,8 +40,8 @@ config['servers'].each do |server_name, server_info|
 		Cinch::Bot.new do
 			@starttime = Time.now
 			@version = version
-			@admins = server_info['admins'] or []
-			@blacklist = Set.new
+			@admins = server_info['admins'] || []
+			@blacklist = server_info['blacklist']&.to_set || Set.new
 			@all_plugins = plugins.map do |plugin|
 				Object.const_get(plugin)
 			end
