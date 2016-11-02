@@ -40,9 +40,9 @@ class ArtistInfo < YossarianPlugin
 		if @lastfm
 			begin
 				info = @lastfm.artist.get_info(artist: artist)
-				info.default = '?'
 
-				if !info['mbid'].empty?
+				if indo && !info['mbid'].empty?
+					info.default = '?'
 					name = info['name']
 					url = info['url']
 					formed = info['bio']['yearformed'] || '?'
