@@ -14,7 +14,7 @@ class Slap < YossarianPlugin
 	use_blacklist
 
 	def usage
-		'!slap <nick> - Slap <nick> with a large trout.'
+		'!slap <nick> - Slap <nick> with a large fishbot.'
 	end
 
 	def match?(cmd)
@@ -25,7 +25,7 @@ class Slap < YossarianPlugin
 
 	def slap(m, nick)
 		if m.channel.has_user?(nick)
-			m.action_reply "slaps #{nick} with a large trout"
+			m.action_reply "slaps #{nick} with a large fishbot"
 		else
 			m.reply "I don\'t see #{nick} in this channel."
 		end
