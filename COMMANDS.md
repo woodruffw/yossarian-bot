@@ -71,7 +71,7 @@ Command Syntax | Plugin class | Description | Working?
 `!rot13 <text>` | Rot13 | "Encrypt" some text with the ROT-13 cipher. | Yes
 `!s <search>` | WebSearch | Search the web using [Faroo](http://faroo.com). | Yes
 `!seen <nick>` | LastSeen | Check the last time `yossarian-bot` saw someone. | Yes
-`!slap <nick>` | Slap | Slap someone with a large trout. | Yes
+`!slap <nick>` | Slap | Slap someone with a large fishbot. | Yes
 `!stock <symbol>` | StockQuotes | Retrieve a stock quote for the given ticker symbol. | Yes
 `!taco` | TacoRecipes | Get a random taco recipe, courtesy of the [Taco Randomizer](http://taco-randomizer.herokuapp.com/). | Yes
 `!theo` | TheoQuotes | Get a random Theo De Raadt quote. | Yes
