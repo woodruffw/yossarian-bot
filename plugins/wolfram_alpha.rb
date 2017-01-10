@@ -35,7 +35,8 @@ class WolframAlpha < YossarianPlugin
 
 			if result && !result.plaintext.empty?
 				# wolfram alpha formats unicode as \:xxxx for some unknown reason
-				text = result.plaintext.gsub!("\\:", "\\u")
+				text = result.plaintext.gsub("\\:", "\\u")
+
 				text.unescape_unicode!
 				text.normalize_whitespace!
 
