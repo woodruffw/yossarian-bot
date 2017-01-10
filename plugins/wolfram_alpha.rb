@@ -34,7 +34,12 @@ class WolframAlpha < YossarianPlugin
 			result = Wolfram.fetch(query).pods[1]
 
 			if result && !result.plaintext.empty?
-				m.reply result.plaintext.normalize_whitespace, true
+				# wolfram alpha formats unicode as \:xxxx for some unknown reason
+				text = result.plaintext.gsub!("\\:", "\\u")
+				text.unescape_unicode!
+				text.normalize_whitespace!
+
+				m.reply text, true
 			else
 				m.reply "Wolfram|Alpha has nothing for #{query}", true
 			end
