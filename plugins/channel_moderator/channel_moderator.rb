@@ -75,7 +75,7 @@ class ChannelModerator < YossarianPlugin
 
 	def moderator_list_rules(m)
 		rules = @rules[m.channel.to_s].map { |r| "/#{r}/" }.join(', ')
-		m.reply "Current channel rules: #{rules}"
+		m.reply "Current moderation expressions: #{rules}"
 	end
 
 	listen_to :channel, strip_colors: true
