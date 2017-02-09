@@ -14,7 +14,7 @@ class Decisions < YossarianPlugin
 	use_blacklist
 
 	def usage
-		'!decide <x or y || z> - Decide between choices. Delimiters are \'or\' and \'||\'.'
+		'!decide <w OR x or y || z> - Decide between choices. Delimiters are \'OR\', \'or\', and \'||\'.'
 	end
 
 	def match?(cmd)
@@ -24,7 +24,7 @@ class Decisions < YossarianPlugin
 	match /decide (.+)/, method: :decide, strip_colors: true
 
 	def decide(m, query)
-		choices = query.split(/ or|\|\| /).map(&:strip).map(&:downcase).uniq
+		choices = query.split(/ OR|or|\|\| /).map(&:strip).map(&:downcase).uniq
 		if choices.size < 2
 			m.reply "I need more than one option to choose from.", true
 		else
