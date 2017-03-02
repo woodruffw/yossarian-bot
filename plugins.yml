@@ -25,6 +25,7 @@ plugins:
     - Dinner
     - DuckDuckGoSearch
     - ExchangeRates
+    - FieriQuotes
     - FlipText
     - Fortune
     - Genres
