@@ -18,7 +18,7 @@ class LinusQuotes < YossarianPlugin
 	QUOTES = File.readlines(QUOTES_FILE)
 
 	def usage
-		'!linus [nick] - Fetch a random Linus Torvalds quote. Aliases: !torvalds.'
+		'!linus - Fetch a random Linus Torvalds quote. Aliases: !torvalds.'
 	end
 
 	def match?(cmd)

@@ -18,7 +18,7 @@ class LennartQuotes < YossarianPlugin
 	QUOTES = File.readlines(QUOTES_FILE)
 
 	def usage
-		'!lennart [nick] - Fetch a random Lennart Poettering quote.'
+		'!lennart - Fetch a random Lennart Poettering quote.'
 	end
 
 	def match?(cmd)

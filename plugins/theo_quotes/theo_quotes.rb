@@ -18,7 +18,7 @@ class TheoQuotes < YossarianPlugin
 	QUOTES = File.readlines(QUOTES_FILE)
 
 	def usage
-		'!theo [nick] - Fetch a random Theo De Raadt quote.'
+		'!theo - Fetch a random Theo De Raadt quote.'
 	end
 
 	def match?(cmd)
