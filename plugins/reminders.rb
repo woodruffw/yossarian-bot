@@ -7,8 +7,8 @@
 #  This code is licensed by slackErEhth77 under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative 'yossarian_plugin' 
- 
+require_relative 'yossarian_plugin'
+
 class Reminders	< YossarianPlugin
 	include Cinch::Plugin
 	use_blacklist
@@ -17,15 +17,15 @@ class Reminders	< YossarianPlugin
 		super
 		@threads = 0
 	end
-	
+
 	def usage
 		'!remind <count> <unit> <message> - Set a reminder message for a time in the future.'
 	end
-	
+
 	def match(cmd)
 		cmd =~ /^(!)?remind$/
 	end
-	
+
 	match /remind (\d+) (\w+) (.+)/, method: :set_reminder
 
 	def set_reminder(m, count, unit, msg)
@@ -39,12 +39,14 @@ class Reminders	< YossarianPlugin
 			secs = count * 60
 		when /^hour/
 			secs = count * 3600
+		when /^day/
+			secs = count * 86400
 		else
 			m.reply "'#{unit}' is not one of my units. Try sec(s), min(s), or hour(s).", true
 			return
 		end
 
-		if secs <= 14400 && @threads < 5
+		if secs <= 604800 && @threads < 5
 			m.reply "I'll tell you about #{msg} in #{secs} second(s).", true
 
 			Thread.new do
@@ -56,7 +58,7 @@ class Reminders	< YossarianPlugin
 		elsif @threads >= 5
 			m.reply "I already have a maximum number of reminders pending.", true
 		else
-			m.reply "Reminders longer than 4 hours are not allowed.", true
+			m.reply "Reminders longer than 7 days are not allowed.", true
 		end
 	end
 end
