@@ -35,6 +35,7 @@ Command Syntax | Plugin class | Description | Working?
 `!ddg <search>` | DuckDuckGoSearch | Search [DuckDuckGo](https://duckduckgo.com)'s Zero Click Info database. | Yes
 `!define <word>` | MerriamWebster | Get the [Merriam-Webster](http://www.merriam-webster.com/) definiton of a word. | Yes
 `!dinner` | Dinner | Retrieve a random dinner recipe from [whatthefuckshouldimakefordinner.com](http://whatthefuckshouldimakefordinner.com). | Yes
+`!eth` | ETH | Get the current ETH - USD exchange rate from <https://coinmarketcap-nexuist.rhcloud.com/api/eth>. | Yes
 `!eval <lang> <code>` | CodeEval | Evaluate some code on [eval.in](https://eval.in). | Yes
 `!fieri` | FieriQuotes | Get an random Guy Fieri quote. | Yes
 `!flip <down|up> <text>` | FlipText | Flip text upside down or rightside up. | Yes
