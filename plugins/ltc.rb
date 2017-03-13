@@ -19,6 +19,11 @@ class LTC < YossarianPlugin
 
 	URL = 'https://btc-e.com/api/3/ticker/ltc_usd'
 
+  def initialize(*args)
+    super
+    @last_trade = nil
+  end
+
 	def usage
 		'!ltc - Get the current Litecoin exchange rate in USD.'
 	end
@@ -34,7 +39,15 @@ class LTC < YossarianPlugin
 			hash = JSON.parse(open(URL).read)
 			rate = hash['ltc_usd']['buy'].round(2)
 
-			m.reply "1 LTC = #{rate} USD", true
+      if @last_trade.nil?
+        m.reply "1 LTC = #{rate} USD", true
+      else
+        direction = (@last_trade < rate ? "↑" : "↓")
+        m.reply "1 LTC = #{rate} USD | #{direction}", true
+      end
+
+      @last_trade = rate
+
 		rescue Exception => e
 			m.reply e.to_s, true
 		end
