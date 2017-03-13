@@ -19,6 +19,11 @@ class ETH < YossarianPlugin
 
   URL = 'https://coinmarketcap-nexuist.rhcloud.com/api/eth'
 
+  def initialize(*args)
+    super
+    @last_trade = nil
+  end
+
   def usage
     '!eth - Get the current Ethereum exchange rate in USD.'
   end
@@ -34,7 +39,15 @@ class ETH < YossarianPlugin
       hash = JSON.parse(open(URL).read)
       rate = hash["price"]["usd"].round(2)
 
-      m.reply "1 ETH = #{rate} USD", true
+      if @last_trade.nil?
+        m.reply "1 ETH = #{rate} USD", true
+      else
+        direction = (@last_trade < rate ? "↑" : "↓")
+        m.reply "1 ETH = #{rate} USD | #{direction}", true
+      end
+
+      @last_trade = rate
+
     rescue Exception => e
       m.reply e.to_s, true
     end
