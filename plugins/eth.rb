@@ -1,5 +1,5 @@
 #  -*- coding: utf-8 -*-
-#  btc.rb
+#  eth.rb
 #  Author: William Woodruff
 #  ------------------------
 #  A Cinch plugin that retrieves Ethereum exchange rates for yossarian-bot.
