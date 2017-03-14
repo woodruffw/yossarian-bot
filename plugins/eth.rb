@@ -36,13 +36,14 @@ class ETH < YossarianPlugin
 
   def eth_rate(m)
     begin
-      hash = JSON.parse(open(URL).read)
-      rate = hash["price"]["usd"].round(2)
+      hash   = JSON.parse(open(URL).read)
+      rate   = hash["price"]["usd"].round(2)
+      change = hash["change"].to_f
 
       if @last_trade.nil?
         m.reply "1 ETH = #{rate} USD", true
       else
-        direction = (@last_trade < rate ? "↑" : "↓")
+        direction = (change > 0 ? "↑" : "↓")
         m.reply "1 ETH = #{rate} USD | #{direction}", true
       end
 
