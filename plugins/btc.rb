@@ -18,6 +18,11 @@ class BTC < YossarianPlugin
 
 	URL = 'https://api.bitcoinaverage.com/ticker/global/USD/last'
 
+  def initialize(*args)
+    super
+    @last_trade = nil
+  end
+
 	def usage
 		'!btc - Get the current Bitcoin exchange rate in USD.'
 	end
@@ -31,7 +36,16 @@ class BTC < YossarianPlugin
 	def btc_rate(m)
 		begin
 			rate = open(URL).read
-			m.reply "1 BTC = #{rate} USD", true
+
+      if @last_trade.nil?
+        m.reply "1 BTC = #{rate} USD", true
+      else
+        direction = (@last_trade < rate ? "↑" : "↓")
+        m.reply "1 BTC = #{rate} USD | #{direction}", true
+      end
+
+      @last_trade = rate
+
 		rescue Exception => e
 			m.reply e.to_s, true
 		end
