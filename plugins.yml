@@ -3,7 +3,6 @@
 plugins:
     - AirQuality
     - ArtistInfo
-    - BTC
     - Beedogs
     - BeerSearch
     - BOFHExcuses
@@ -17,6 +16,7 @@ plugins:
     - Clickbait
     - CommandHelp
     - CodeEval
+    - Crypto
     - CSTopics
     - CTCPVersion
     - CustomTriggers
@@ -24,7 +24,6 @@ plugins:
     - Decisions
     - Dinner
     - DuckDuckGoSearch
-    - ETH
     - ExchangeRates
     - FieriQuotes
     - FlipText
@@ -44,7 +43,6 @@ plugins:
     - LennartQuotes
     - LinkTitling
     - LinusQuotes
-    - LTC
     - LutherInsults
     - Magic8Ball
     - MerriamWebster
