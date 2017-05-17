@@ -44,7 +44,6 @@ Command Syntax | Plugin class | Description | Working?
 `!gif <search>` | Giphy | Search [Giphy](http://giphy.com/) for GIFs. | Yes
 `!guinea` | GuineaPigs | Grabs a guinea pig picture from an [imgur album](http://imgur.com/r/guineapigs/). | Yes
 `!hal9000 <message>` | HAL | Talk to MegaHAL. | Yes
-`!haste <text>` | Hastebin | Post text to [Hastebin](http://hastebin.com/). | Yes
 `{.!:}help [cmd]` | CommandHelp | Announce general help or help on a specific command if provided. | Yes
 `!insult [nick]` | ShakespeareanInsults | Generate a Shakespearean insult and direct it at a nickname if given. | Yes
 `!intro <command>` | UserIntros | Manage the intro message for your nick. [See below](#intro). | Yes
