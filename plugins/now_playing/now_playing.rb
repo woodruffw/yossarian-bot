@@ -55,7 +55,7 @@ class NowPlaying < YossarianPlugin
 	match /np link (\S+)/, method: :link_account, strip_colors: true
 
 	def link_account(m, username)
-		@usernames[m.user.nick] = username
+		@usernames[m.user.nick.downcase] = username
 		sync_username_file
 
 		m.reply "#{username} is now associated with your nick.", true
@@ -73,7 +73,7 @@ class NowPlaying < YossarianPlugin
 				nick = m.user.nick
 			end
 
-			username = @usernames[nick]
+			username = @usernames[nick.downcase]
 
 			if username
 				begin
