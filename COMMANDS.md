@@ -31,7 +31,7 @@ Command Syntax | Plugin class | Description | Working?
 `!clickbait` | Clickbait | Generate a clickbait-y title. | Yes
 `!crypto <coin> [currency]` | Crypto | Retrieve current prices for a given coin from [CoinMarketCap](https://coinmarketcap.com/api/) and optionally convert to a given currency | Yes
 `!cute <nick>` | CuteFaces | Send a cute face to the given nick. | Yes
-`!decide <w OR x or y || z>` | Decisions | Decide between choices. | Yes
+`!decide <w OR x or y \|\| z>` | Decisions | Decide between choices. | Yes
 `!ddg <search>` | DuckDuckGoSearch | Search [DuckDuckGo](https://duckduckgo.com)'s Zero Click Info database. | Yes
 `!define <word>` | MerriamWebster | Get the [Merriam-Webster](http://www.merriam-webster.com/) definiton of a word. | Yes
 `!dinner` | Dinner | Retrieve a random dinner recipe from [whatthefuckshouldimakefordinner.com](http://whatthefuckshouldimakefordinner.com). | Yes
@@ -44,7 +44,6 @@ Command Syntax | Plugin class | Description | Working?
 `!gif <search>` | Giphy | Search [Giphy](http://giphy.com/) for GIFs. | Yes
 `!guinea` | GuineaPigs | Grabs a guinea pig picture from an [imgur album](http://imgur.com/r/guineapigs/). | Yes
 `!hal9000 <message>` | HAL | Talk to MegaHAL. | Yes
-`!haste <text>` | Hastebin | Post text to [Hastebin](http://hastebin.com/). | Yes
 `{.!:}help [cmd]` | CommandHelp | Announce general help or help on a specific command if provided. | Yes
 `!insult [nick]` | ShakespeareanInsults | Generate a Shakespearean insult and direct it at a nickname if given. | Yes
 `!intro <command>` | UserIntros | Manage the intro message for your nick. [See below](#intro). | Yes
