@@ -25,17 +25,16 @@ Command Syntax | Plugin class | Description | Working?
 `!bofh <question>` | BOFHExcuses | Get a random [BOFH excuse](http://pages.cs.wisc.edu/~ballard/bofh/) for a given question. | Yes
 `!book <book>` | BookInfo | Get information about a book from [Goodreads](https://www.goodreads.com/). | Yes
 `!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
-`!btc` | BTC | Get the current BTC - USD exchange rate from the [BitcoinAverage Price Index](https://bitcoinaverage.com/). | Yes
 `!c22` | Catch22 | Get a Catch-22 quote. | Yes
 `!cbsg` | CBSG | Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live). | Yes
 `!channel <commands>` | ChannelAdmin | Administrate the current channel. [See below](#chanadmin). | Yes
 `!clickbait` | Clickbait | Generate a clickbait-y title. | Yes
+`!crypto <coin> [currency]` | Crypto | Retrieve current prices for a given coin from [CoinMarketCap](https://coinmarketcap.com/api/) and optionally convert to a given currency | Yes
 `!cute <nick>` | CuteFaces | Send a cute face to the given nick. | Yes
-`!decide <w OR x or y || z>` | Decisions | Decide between choices. | Yes
+`!decide <w OR x or y \|\| z>` | Decisions | Decide between choices. | Yes
 `!ddg <search>` | DuckDuckGoSearch | Search [DuckDuckGo](https://duckduckgo.com)'s Zero Click Info database. | Yes
 `!define <word>` | MerriamWebster | Get the [Merriam-Webster](http://www.merriam-webster.com/) definiton of a word. | Yes
 `!dinner` | Dinner | Retrieve a random dinner recipe from [whatthefuckshouldimakefordinner.com](http://whatthefuckshouldimakefordinner.com). | Yes
-`!eth` | ETH | Get the current ETH - USD exchange rate from <https://coinmarketcap-nexuist.rhcloud.com/api/eth>. | Yes
 `!eval <lang> <code>` | CodeEval | Evaluate some code on [eval.in](https://eval.in). | Yes
 `!fieri` | FieriQuotes | Get an random Guy Fieri quote. | Yes
 `!flip <down|up> <text>` | FlipText | Flip text upside down or rightside up. | Yes
@@ -45,7 +44,6 @@ Command Syntax | Plugin class | Description | Working?
 `!gif <search>` | Giphy | Search [Giphy](http://giphy.com/) for GIFs. | Yes
 `!guinea` | GuineaPigs | Grabs a guinea pig picture from an [imgur album](http://imgur.com/r/guineapigs/). | Yes
 `!hal9000 <message>` | HAL | Talk to MegaHAL. | Yes
-`!haste <text>` | Hastebin | Post text to [Hastebin](http://hastebin.com/). | Yes
 `{.!:}help [cmd]` | CommandHelp | Announce general help or help on a specific command if provided. | Yes
 `!insult [nick]` | ShakespeareanInsults | Generate a Shakespearean insult and direct it at a nickname if given. | Yes
 `!intro <command>` | UserIntros | Manage the intro message for your nick. [See below](#intro). | Yes
@@ -55,7 +53,6 @@ Command Syntax | Plugin class | Description | Working?
 `!leet <text>` | LeetSpeak | Convert text to leetspeak. | Yes
 `!lennart` | LennartQuotes | Get a random Lennart Poettering quote. | Yes
 `!linus` | LinusQuotes | Get a random Linus Torvalds quote. | Yes
-`!ltc` | LTC | Get the current LTC - USD exchance rate from the [BTC-e exchange](https://btc-e.com). | Yes
 `!luther [nick]` | LutherInsults | Get an insult from Luther's Oeuvre and direct it at a nickname if given. | Yes
 `!mail <nick> <message>` | UserMail | Send a message to a nick. Messages are delivered the next time the nick speaks. | Yes
 `!moderator <commands>` | ChannelModerator | Configure channel moderation. [See below](#chanmod). | Yes
@@ -207,4 +204,3 @@ Subcommand | Description
 `add <trigger> <response>` | Make the bot say the given response whenever the given trigger is typed.
 `rm <trigger>` | Remove the given trigger and the response associated with it.
 `list` | List all triggers currently stored by `yossarian-bot`. Responses are not listed for the sake of brevity.
-
