@@ -37,7 +37,7 @@ class Crypto < YossarianPlugin
         sym, price, change = coin_info(hash, coin, currency)
         direction = (change.to_f > 0 ? "↑" : "↓")
 
-        m.reply "1 #{sym} = #{price.to_f.round(2)} | 1 hour change: #{direction} #{change}%", true
+        m.reply "1 #{sym} = #{price.to_f.round(3)} | 1 hour change: #{direction} #{change}%", true
       end
     rescue OpenURI::HTTPError => e
       handle_error(m, e.io.status)
