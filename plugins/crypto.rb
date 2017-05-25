@@ -21,19 +21,13 @@ class Crypto < YossarianPlugin
 
   def crypto(m, payload)
     begin
-      coin, currency = payload.split(' ')
-      coin           = normalize(coin)
-      api_endpoint   = build_url(coin, currency)
-      res            = JSON.parse(open(api_endpoint).read)
+      coin_name, currency = payload.split(' ')
+      api_endpoint        = build_url(currency)
+      res                 = JSON.parse(open(api_endpoint).read)
 
-      if coin.nil? || res.length > 1
-        m.reply "This API is not tracking \"#{coin}\" or you entered an invalid coin", true
-      else
-        hash = res.first
-        sym, price, change, direction, currency = parse_coin_info(hash, currency)
+      coin = parse_coin_info(res, coin_name, currency)
 
-        m.reply "1 #{sym} = #{price.to_f.round(3)} #{currency.upcase} | 1 hour change: #{direction} #{change}%", true
-      end
+      m.reply "1 #{coin[:sym]} = #{coin[:price].to_f.round(3)} #{coin[:currency].upcase} | 1 hour change: #{coin[:direction]} #{coin[:change]}%", true
     rescue OpenURI::HTTPError => e
       handle_error(m, e.io.status)
     rescue Exception => e
@@ -43,33 +37,35 @@ class Crypto < YossarianPlugin
 
   private
 
-  def normalize(coin)
-    all_coins = JSON.parse(open(BASE_URL).read)
-
-    all_coins.each do |c|
-      if c['name'] == coin || c['symbol'] == coin.upcase
-        return c['name']
+  def find_matching_coin(res, coin_name)
+    res.each do |c|
+      if c['name'].downcase == coin_name || c['symbol'] == coin_name.upcase
+        return c
       end
     end
 
+    raise "No matching coin found for #{coin_name}"
   end
 
-  def parse_coin_info(hash, currency)
+  def parse_coin_info(res, coin_name, currency)
+    hash = find_matching_coin(res, coin_name)
+
     # If we cannot find the requested currency, default to usd
     if currency.nil? || hash["price_#{currency.downcase}"].nil?
       currency = 'usd'
     end
 
-    sym       = hash['symbol']
-    price     = hash["price_#{currency}"]
-    change    = hash['percent_change_1h']
-    direction = (change.to_f > 0 ? "↑" : "↓")
-
-    [sym, price, change, direction, currency]
+    {
+      sym: hash['symbol'],
+      price: hash["price_#{currency}"],
+      change: hash['percent_change_1h'],
+      direction: (hash['percent_change_1h'].to_f > 0 ? "↑" : "↓"),
+      currency: currency
+    }
   end
 
-  def build_url(coin, currency)
-    url = BASE_URL + coin
+  def build_url(currency)
+    url = BASE_URL
 
     if currency
       url = url + '/?convert=' + currency
