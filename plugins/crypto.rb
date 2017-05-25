@@ -22,6 +22,7 @@ class Crypto < YossarianPlugin
   def crypto(m, payload)
     begin
       coin, currency = payload.split(' ')
+      coin           = normalize(coin)
       api_endpoint   = build_url(coin, currency)
       res            = JSON.parse(open(api_endpoint).read)
 
@@ -29,15 +30,9 @@ class Crypto < YossarianPlugin
         m.reply "This API is not tracking \"#{coin}\" or you entered an invalid coin", true
       else
         hash = res.first
-        # If we cannot find the requested currency, default to usd
-        if currency.nil? || hash["price_#{currency.downcase}"].nil?
-          currency = 'usd'
-        end
+        sym, price, change, direction, currency = parse_coin_info(hash, currency)
 
-        sym, price, change = coin_info(hash, coin, currency)
-        direction = (change.to_f > 0 ? "↑" : "↓")
-
-        m.reply "1 #{sym} = #{price.to_f.round(3)} | 1 hour change: #{direction} #{change}%", true
+        m.reply "1 #{sym} = #{price.to_f.round(3)} #{currency.upcase} | 1 hour change: #{direction} #{change}%", true
       end
     rescue OpenURI::HTTPError => e
       handle_error(m, e.io.status)
@@ -48,12 +43,29 @@ class Crypto < YossarianPlugin
 
   private
 
-  def coin_info(hash, coin, currency)
-    sym    = hash['symbol']
-    price  = hash["price_#{currency}"]
-    change = hash['percent_change_1h']
+  def normalize(coin)
+    all_coins = JSON.parse(open(BASE_URL).read)
 
-    [sym, price, change]
+    all_coins.each do |c|
+      if c['name'] == coin || c['symbol'] == coin.upcase
+        return c['name']
+      end
+    end
+
+  end
+
+  def parse_coin_info(hash, currency)
+    # If we cannot find the requested currency, default to usd
+    if currency.nil? || hash["price_#{currency.downcase}"].nil?
+      currency = 'usd'
+    end
+
+    sym       = hash['symbol']
+    price     = hash["price_#{currency}"]
+    change    = hash['percent_change_1h']
+    direction = (change.to_f > 0 ? "↑" : "↓")
+
+    [sym, price, change, direction, currency]
   end
 
   def build_url(coin, currency)
@@ -71,7 +83,7 @@ class Crypto < YossarianPlugin
     err  = status[1]
 
     if code == 404
-      m.reply "Could not find that coin. Make sure you use the full name (i.e. bitcoin, ethereum, etc.)", true
+      m.reply "Could not find that coin", true
     else
       m.reply "[#{code}] #{err}", true
     end
