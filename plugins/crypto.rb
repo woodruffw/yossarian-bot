@@ -27,7 +27,8 @@ class Crypto < YossarianPlugin
 
       coin = parse_coin_info(res, coin_name, currency)
 
-      m.reply "1 #{coin[:sym]} = #{coin[:price].to_f.round(3)} #{coin[:currency].upcase} | 1 hour change: #{coin[:direction]} #{coin[:change]}%", true
+      m.reply "1 #{coin[:sym]} = #{coin[:price].to_f.round(3)} #{coin[:currency].upcase} | #{fmt_changes(coin[:changes])}", true
+
     rescue OpenURI::HTTPError => e
       handle_error(m, e.io.status)
     rescue Exception => e
@@ -47,6 +48,13 @@ class Crypto < YossarianPlugin
     raise "No matching coin found for #{coin_name}"
   end
 
+  def fmt_changes(changes)
+    changes.map do |k,v|
+      direction = v.to_f > 0 ? "↑" : "↓"
+      "#{k.to_s.capitalize} #{direction} #{v}%"
+    end.join(' | ')
+  end
+
   def parse_coin_info(res, coin_name, currency)
     hash = find_matching_coin(res, coin_name)
 
@@ -58,8 +66,11 @@ class Crypto < YossarianPlugin
     {
       sym: hash['symbol'],
       price: hash["price_#{currency}"],
-      change: hash['percent_change_1h'],
-      direction: (hash['percent_change_1h'].to_f > 0 ? "↑" : "↓"),
+      changes: {
+        hourly: hash['percent_change_1h'],
+        daily: hash['percent_change_24h'],
+        weekly: hash['percent_change_7d']
+      },
       currency: currency
     }
   end
