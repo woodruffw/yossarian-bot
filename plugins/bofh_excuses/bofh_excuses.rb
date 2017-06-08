@@ -19,18 +19,18 @@ class BOFHExcuses < YossarianPlugin
 	EXCUSES = File.readlines(EXCUSES_FILE)
 
 	def usage
-		'!bofh <question> - Fetch a random Bastard Operator From Hell excuse for a given question.'
+		'!bofh - Fetch a random Bastard Operator From Hell excuse.'
 	end
 
 	def match?(cmd)
 		cmd =~ /^(!)?bofh$/
 	end
 
-	match /bofh (.+)/, method: :bofh, strip_colors: true
+	match /bofh/, method: :bofh, strip_colors: true
 
 	def bofh(m)
 		excuse = EXCUSES.sample
 
-		m.reply "The cause of the problem is: #{excuse}"
+		m.reply excuse
 	end
 end
