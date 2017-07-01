@@ -37,7 +37,7 @@ Command Syntax | Plugin class | Description | Working?
 `!dinner` | Dinner | Retrieve a random dinner recipe from [whatthefuckshouldimakefordinner.com](http://whatthefuckshouldimakefordinner.com). | Yes
 `!eval <lang> <code>` | CodeEval | Evaluate some code on [eval.in](https://eval.in). | Yes
 `!fieri` | FieriQuotes | Get an random Guy Fieri quote. | Yes
-`!flip <down|up> <text>` | FlipText | Flip text upside down or rightside up. | Yes
+`!flip <down\|up> <text>` | FlipText | Flip text upside down or rightside up. | Yes
 `!fortune` | Fortune | Get a Unix fortune. | Yes
 `!genre` | Genres | Generate a random music genre. | Yes
 `!gh <query>` | GitHubInfo | Get statistics about a [GitHub](https://github.com/) user or repository. | Yes
