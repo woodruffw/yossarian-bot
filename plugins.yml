@@ -70,7 +70,6 @@ plugins:
     - WebSearch
     - Wikipedia
     - WolframAlpha
-    - WorldPopulation
     - XKCDComics
     - YouTubeSearch
     - Zalgo

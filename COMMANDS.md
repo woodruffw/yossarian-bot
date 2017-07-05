@@ -82,7 +82,6 @@ Command Syntax | Plugin class | Description | Working?
 `!w <location>` | Weather | Get the weather for the given location from [Wunderground](https://www.wunderground.com/). | Yes
 `!wa <query>` | WolframAlpha | Ask [Wolfram\|Alpha](http://www.wolframalpha.com/) about something. | Yes
 `!wiki <search>` | Wikipedia | Search [Wikipedia](http://en.wikipedia.org). | Yes
-`!wp` | WorldPopulation | Get the current world population estimate from the [US Census](https://www.census.gov/popclock/data/population/world). | Yes
 `!xkcd [search]` | XKCDComics | Get a random [XKCD](http://xkcd.com/) comic, or one related to a search. | Yes
 `!yt <search>` | YouTubeSearch | Search [YouTube](https://youtube.com). | Yes
 `!zalgo <text>` | Zalgo | Summon Zalgo with some text. | Yes
