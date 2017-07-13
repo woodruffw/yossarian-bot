@@ -10,21 +10,21 @@
 require_relative 'yossarian_plugin'
 
 class Rot13 < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	def usage
-		'!r13 <message> - \'Encrypt\' <message> with the ROT-13 cipher. Alias: !rot13.'
-	end
+  def usage
+    '!r13 <message> - \'Encrypt\' <message> with the ROT-13 cipher. Alias: !rot13.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?(r13)|(rot13)$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?(r13)|(rot13)$/
+  end
 
-	match /r13 (.+)/, method: :rot13
-	match /rot13 (.+)/, method: :rot13
+  match /r13 (.+)/, method: :rot13
+  match /rot13 (.+)/, method: :rot13
 
-	def rot13(m, text)
-		m.reply text.tr("A-Ma-mN-Zn-z", "N-Zn-zA-Ma-m"), true
-	end
+  def rot13(m, text)
+    m.reply text.tr("A-Ma-mN-Zn-z", "N-Zn-zA-Ma-m"), true
+  end
 end

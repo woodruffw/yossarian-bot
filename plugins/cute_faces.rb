@@ -11,39 +11,39 @@
 require_relative 'yossarian_plugin'
 
 class CuteFaces < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	FACES = [
-		"(✿◠‿◠)っ~ ♥ %{nick}", "⊂◉‿◉つ ❤ %{nick}", "( ´・‿-) ~ ♥ %{nick}",
-		"(っ⌒‿⌒)っ~ ♥ %{nick}", "ʕ´•ᴥ•`ʔσ” BEARHUG %{nick}",
-		"%{user} ~(=^･ω･^)ヾ(^^ ) %{nick}",
-		"%{user} (◎｀・ω・´)人(´・ω・｀*) %{nick}",
-		"%{user} (*´・ω・)ノ(-ω-｀*) %{nick}", "%{user} (ɔ ˘⌣˘)˘⌣˘ c) %{nick}",
-		"%{nick} (´ε｀ )♡",	"(⊃｡•́‿•̀｡)⊃ U GONNA GET HUGGED %{nick}",
-		"%{user} (◦˘ З(◦’ںˉ◦)♡ %{nick}",  "( ＾◡＾)っ~ ❤ %{nick}"
-	]
+  FACES = [
+    "(✿◠‿◠)っ~ ♥ %{nick}", "⊂◉‿◉つ ❤ %{nick}", "( ´・‿-) ~ ♥ %{nick}",
+    "(っ⌒‿⌒)っ~ ♥ %{nick}", "ʕ´•ᴥ•`ʔσ” BEARHUG %{nick}",
+    "%{user} ~(=^･ω･^)ヾ(^^ ) %{nick}",
+    "%{user} (◎｀・ω・´)人(´・ω・｀*) %{nick}",
+    "%{user} (*´・ω・)ノ(-ω-｀*) %{nick}", "%{user} (ɔ ˘⌣˘)˘⌣˘ c) %{nick}",
+    "%{nick} (´ε｀ )♡",  "(⊃｡•́‿•̀｡)⊃ U GONNA GET HUGGED %{nick}",
+    "%{user} (◦˘ З(◦’ںˉ◦)♡ %{nick}",  "( ＾◡＾)っ~ ❤ %{nick}"
+  ]
 
-	def usage
-		'!cute <nick> - Send a cute face to the given nick.'
-	end
+  def usage
+    '!cute <nick> - Send a cute face to the given nick.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?cute$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?cute$/
+  end
 
-	match /cute (\S+)/, method: :cute, strip_colors: true
+  match /cute (\S+)/, method: :cute, strip_colors: true
 
-	def cute(m, nick)
-		if m.channel.has_user?(nick)
-			if m.user.nick.downcase != nick.downcase
-				cute = FACES.sample % {user: m.user.nick, nick: nick}
-				m.reply cute
-			else
-				m.reply "I can\'t let you do that.", true
-			end
-		else
-			m.reply "I don\'t see #{nick} in this channel.", true
-		end
-	end
+  def cute(m, nick)
+    if m.channel.has_user?(nick)
+      if m.user.nick.downcase != nick.downcase
+        cute = FACES.sample % {user: m.user.nick, nick: nick}
+        m.reply cute
+      else
+        m.reply "I can\'t let you do that.", true
+      end
+    else
+      m.reply "I don\'t see #{nick} in this channel.", true
+    end
+  end
 end

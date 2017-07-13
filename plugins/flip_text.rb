@@ -12,26 +12,26 @@ require 'flippy'
 require_relative 'yossarian_plugin'
 
 class FlipText < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	def usage
-		'!flip <down|up> <text> - Flip text upside down or rightside up.'
-	end
+  def usage
+    '!flip <down|up> <text> - Flip text upside down or rightside up.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?flip$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?flip$/
+  end
 
-	match /flip down (.+)/, method: :flip_text, strip_colors: true
+  match /flip down (.+)/, method: :flip_text, strip_colors: true
 
-	def flip_text(m, text)
-		m.reply text.flip, true
-	end
+  def flip_text(m, text)
+    m.reply text.flip, true
+  end
 
-	match /flip up (.+)/, method: :unflip_text, strip_colors: true
+  match /flip up (.+)/, method: :unflip_text, strip_colors: true
 
-	def unflip_text(m, text)
-		m.reply text.unflip, true
-	end
+  def unflip_text(m, text)
+    m.reply text.unflip, true
+  end
 end

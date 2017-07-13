@@ -14,29 +14,29 @@ require 'json'
 require_relative 'yossarian_plugin'
 
 class WorldPopulation < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	URL = 'https://www.census.gov/popclock/data/population/world'
+  URL = 'https://www.census.gov/popclock/data/population/world'
 
-	def usage
-		'!wp - Get the approximate world population and growth rate. Alias: !population.'
-	end
+  def usage
+    '!wp - Get the approximate world population and growth rate. Alias: !population.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?(wp$)|(population$)/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?(wp$)|(population$)/
+  end
 
-	match /(wp$)|(population$)/, method: :world_population
+  match /(wp$)|(population$)/, method: :world_population
 
-	def world_population(m)
-		begin
-			hash = JSON.parse(open(URL).read)
-			pop = hash['world']['population']
-			rate = hash['world']['population_rate']
-			m.reply "World population: #{pop} (#{rate}/second)", true
-		rescue Exception => e
-			m.reply e.to_s, true
-		end
-	end
+  def world_population(m)
+    begin
+      hash = JSON.parse(open(URL).read)
+      pop = hash['world']['population']
+      rate = hash['world']['population_rate']
+      m.reply "World population: #{pop} (#{rate}/second)", true
+    rescue Exception => e
+      m.reply e.to_s, true
+    end
+  end
 end

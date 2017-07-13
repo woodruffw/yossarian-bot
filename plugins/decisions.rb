@@ -10,25 +10,25 @@
 require_relative 'yossarian_plugin'
 
 class Decisions < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	def usage
-		'!decide <w OR x or y || z> - Decide between choices. Delimiters are \'OR\', \'or\', and \'||\'.'
-	end
+  def usage
+    '!decide <w OR x or y || z> - Decide between choices. Delimiters are \'OR\', \'or\', and \'||\'.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?decide$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?decide$/
+  end
 
-	match /decide (.+)/, method: :decide, strip_colors: true
+  match /decide (.+)/, method: :decide, strip_colors: true
 
-	def decide(m, query)
-		choices = query.split(/ (?:OR|or|\|\|) /).map(&:strip).map(&:downcase).uniq
-		if choices.size < 2
-			m.reply "I need more than one option to choose from.", true
-		else
-			m.reply choices.sample, true
-		end
-	end
+  def decide(m, query)
+    choices = query.split(/ (?:OR|or|\|\|) /).map(&:strip).map(&:downcase).uniq
+    if choices.size < 2
+      m.reply "I need more than one option to choose from.", true
+    else
+      m.reply choices.sample, true
+    end
+  end
 end

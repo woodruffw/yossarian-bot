@@ -12,20 +12,20 @@ require_relative 'yossarian_plugin'
 require 'genregen'
 
 class Genres < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	def usage
-		'!genre - Generate a random music genre.'
-	end
+  def usage
+    '!genre - Generate a random music genre.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?genre$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?genre$/
+  end
 
-	match /genre$/, method: :genre
+  match /genre$/, method: :genre
 
-	def genre(m)
-		m.reply GenreGen.generate, true
-	end
+  def genre(m)
+    m.reply GenreGen.generate, true
+  end
 end

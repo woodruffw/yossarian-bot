@@ -13,41 +13,41 @@ require 'yaml'
 require_relative '../yossarian_plugin'
 
 class ShakespeareanInsults < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	INSULTS_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'shakespearean_insults.yml'))
-	INSULTS = YAML::load_file(INSULTS_FILE)
+  INSULTS_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'shakespearean_insults.yml'))
+  INSULTS = YAML::load_file(INSULTS_FILE)
 
-	def usage
-		'!insult [nick] - Generate a Shakespearean insult, and insult someone if given.'
-	end
+  def usage
+    '!insult [nick] - Generate a Shakespearean insult, and insult someone if given.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?insult$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?insult$/
+  end
 
-	match /insult$/, method: :insult
+  match /insult$/, method: :insult
 
-	def insult(m)
-		col1 = INSULTS['column1'].sample
-		col2 = INSULTS['column2'].sample
-		col3 = INSULTS['column3'].sample
+  def insult(m)
+    col1 = INSULTS['column1'].sample
+    col2 = INSULTS['column2'].sample
+    col3 = INSULTS['column3'].sample
 
-		m.reply "Thou art a #{col1}, #{col2} #{col3}!", true
-	end
+    m.reply "Thou art a #{col1}, #{col2} #{col3}!", true
+  end
 
-	match /insult (\S+)/, method: :insult_nick, strip_colors: true
+  match /insult (\S+)/, method: :insult_nick, strip_colors: true
 
-	def insult_nick(m, nick)
-		if m.channel.has_user?(nick)
-			col1 = INSULTS['column1'].sample
-			col2 = INSULTS['column2'].sample
-			col3 = INSULTS['column3'].sample
+  def insult_nick(m, nick)
+    if m.channel.has_user?(nick)
+      col1 = INSULTS['column1'].sample
+      col2 = INSULTS['column2'].sample
+      col3 = INSULTS['column3'].sample
 
-			m.reply "#{nick} is a #{col1}, #{col2} #{col3}!"
-		else
-			m.reply "I don\'t see #{nick} in this channel."
-		end
-	end
+      m.reply "#{nick} is a #{col1}, #{col2} #{col3}!"
+    else
+      m.reply "I don\'t see #{nick} in this channel."
+    end
+  end
 end

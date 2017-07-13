@@ -13,44 +13,44 @@ require 'open-uri'
 require_relative 'yossarian_plugin'
 
 class MerriamWebster < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	KEY = ENV['MERRIAM_WEBSTER_API_KEY']
-	URL = 'http://www.dictionaryapi.com/api/v1/references/collegiate/xml/%{query}?key=%{key}'
+  KEY = ENV['MERRIAM_WEBSTER_API_KEY']
+  URL = 'http://www.dictionaryapi.com/api/v1/references/collegiate/xml/%{query}?key=%{key}'
 
-	def usage
-		'!define <word> - Get the Merriam-Webster defintion of <word>.'
-	end
+  def usage
+    '!define <word> - Get the Merriam-Webster defintion of <word>.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?define$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?define$/
+  end
 
-	match /define (\S+)/, method: :define_word, strip_colors: true
+  match /define (\S+)/, method: :define_word, strip_colors: true
 
-	def define_word(m, word)
-		if KEY
-			query = URI.encode(word)
-			url = URL % { query: query, key: KEY }
+  def define_word(m, word)
+    if KEY
+      query = URI.encode(word)
+      url = URL % { query: query, key: KEY }
 
-			begin
-				xml = Nokogiri::XML(open(url).read)
+      begin
+        xml = Nokogiri::XML(open(url).read)
 
-				def_elem = xml.xpath('//entry_list/entry/def/dt').first
+        def_elem = xml.xpath('//entry_list/entry/def/dt').first
 
-				if def_elem
-					definition = def_elem.text.gsub(':', '')
+        if def_elem
+          definition = def_elem.text.gsub(':', '')
 
-					m.reply "#{word} - #{definition}.", true
-				else
-					m.reply "No definition for #{word}.", true
-				end
-			rescue Exception => e
-				m.reply e.to_s, true
-			end
-		else
-			m.reply 'Internal error (missing API key).'
-		end
-	end
+          m.reply "#{word} - #{definition}.", true
+        else
+          m.reply "No definition for #{word}.", true
+        end
+      rescue Exception => e
+        m.reply e.to_s, true
+      end
+    else
+      m.reply 'Internal error (missing API key).'
+    end
+  end
 end

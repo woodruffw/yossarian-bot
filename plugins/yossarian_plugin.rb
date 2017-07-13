@@ -8,13 +8,13 @@
 #  http://opensource.org/licenses/MIT
 
 class YossarianPlugin
-	# default usage stub
-	def usage
-		''
-	end
+  # default usage stub
+  def usage
+    ''
+  end
 
-	#default match stub
-	def match?(cmd)
-		false
-	end
+  #default match stub
+  def match?(cmd)
+    false
+  end
 end

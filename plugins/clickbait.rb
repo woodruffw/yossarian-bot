@@ -12,20 +12,20 @@ require 'upworthy'
 require_relative 'yossarian_plugin'
 
 class Clickbait < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	def usage
-		'!clickbait - Generate a clickbait-y title.'
-	end
+  def usage
+    '!clickbait - Generate a clickbait-y title.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?clickbait$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?clickbait$/
+  end
 
-	match /clickbait$/, method: :clickbait
+  match /clickbait$/, method: :clickbait
 
-	def clickbait(m)
-		m.reply Upworthy.headline, true
-	end
+  def clickbait(m)
+    m.reply Upworthy.headline, true
+  end
 end

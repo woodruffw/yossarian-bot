@@ -13,35 +13,35 @@ require 'csv'
 require_relative 'yossarian_plugin'
 
 class StockQuotes < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	URL = 'http://finance.yahoo.com/d/quotes.csv?s=%{query}&f=snl1p2'
+  URL = 'http://finance.yahoo.com/d/quotes.csv?s=%{query}&f=snl1p2'
 
-	def usage
-		'!stock <symbol> - Retrieve a stock quote for the given ticker symbol.'
-	end
+  def usage
+    '!stock <symbol> - Retrieve a stock quote for the given ticker symbol.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?stock$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?stock$/
+  end
 
-	match /stock (\w+)$/, method: :stock_quote, strip_colors: true
+  match /stock (\w+)$/, method: :stock_quote, strip_colors: true
 
-	def stock_quote(m, symbol)
-		query = URI.encode(symbol)
-		url = URL % { query: query }
+  def stock_quote(m, symbol)
+    query = URI.encode(symbol)
+    url = URL % { query: query }
 
-		begin
-			quote = CSV.parse(open(url).read).first
-			tick, name, trade, change = quote[0..3]
-			if name != 'N/A'
-				m.reply "#{name} (#{tick}) - Trading at $#{trade} (#{change})", true
-			else
-				m.reply "Could not find a quote for #{tick}.", true
-			end
-		rescue Exception => e
-			m.reply e.to_s, true
-		end
-	end
+    begin
+      quote = CSV.parse(open(url).read).first
+      tick, name, trade, change = quote[0..3]
+      if name != 'N/A'
+        m.reply "#{name} (#{tick}) - Trading at $#{trade} (#{change})", true
+      else
+        m.reply "Could not find a quote for #{tick}.", true
+      end
+    rescue Exception => e
+      m.reply e.to_s, true
+    end
+  end
 end

@@ -14,30 +14,30 @@ require 'json'
 require_relative 'yossarian_plugin'
 
 class LTC < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	URL = 'https://btc-e.com/api/3/ticker/ltc_usd'
+  URL = 'https://btc-e.com/api/3/ticker/ltc_usd'
 
   def initialize(*args)
     super
     @last_trade = nil
   end
 
-	def usage
-		'!ltc - Get the current Litecoin exchange rate in USD.'
-	end
+  def usage
+    '!ltc - Get the current Litecoin exchange rate in USD.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?ltc$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?ltc$/
+  end
 
-	match /ltc$/, method: :ltc_rate
+  match /ltc$/, method: :ltc_rate
 
-	def ltc_rate(m)
-		begin
-			hash = JSON.parse(open(URL).read)
-			rate = hash['ltc_usd']['buy'].round(2)
+  def ltc_rate(m)
+    begin
+      hash = JSON.parse(open(URL).read)
+      rate = hash['ltc_usd']['buy'].round(2)
 
       if @last_trade.nil?
         m.reply "1 LTC = #{rate} USD", true
@@ -48,8 +48,8 @@ class LTC < YossarianPlugin
 
       @last_trade = rate
 
-		rescue Exception => e
-			m.reply e.to_s, true
-		end
-	end
+    rescue Exception => e
+      m.reply e.to_s, true
+    end
+  end
 end

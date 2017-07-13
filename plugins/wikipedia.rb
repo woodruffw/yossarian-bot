@@ -13,41 +13,41 @@ require 'open-uri'
 require_relative 'yossarian_plugin'
 
 class Wikipedia < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	URL = 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&redirects=resolve&search=%{query}'
+  URL = 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&redirects=resolve&search=%{query}'
 
-	def usage
-		'!wiki <search> - Search Wikipedia for the given <search>.'
-	end
+  def usage
+    '!wiki <search> - Search Wikipedia for the given <search>.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?wiki$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?wiki$/
+  end
 
-	match /wiki (.+)/, method: :search_wiki, strip_colors: true
+  match /wiki (.+)/, method: :search_wiki, strip_colors: true
 
-	def search_wiki(m, search)
-		query = URI.encode(search)
-		url = URL % { query: query }
+  def search_wiki(m, search)
+    query = URI.encode(search)
+    url = URL % { query: query }
 
-		begin
-			results = JSON.parse(open(url).read)
-			if results[1].nonempty?
-				if results[2].first.empty?
-					content = "No extract provided."
-				else
-					content = results[2].first
-				end
-				link = results[3].first.sub('https://en.wikipedia.org/wiki/', 'http://enwp.org/')
+    begin
+      results = JSON.parse(open(url).read)
+      if results[1].nonempty?
+        if results[2].first.empty?
+          content = "No extract provided."
+        else
+          content = results[2].first
+        end
+        link = results[3].first.sub('https://en.wikipedia.org/wiki/', 'http://enwp.org/')
 
-				m.reply "#{link} - #{content}", true
-			else
-				m.reply "No results for #{search}.", true
-			end
-		rescue Exception => e
-			m.reply e.to_s, true
-		end
-	end
+        m.reply "#{link} - #{content}", true
+      else
+        m.reply "No results for #{search}.", true
+      end
+    rescue Exception => e
+      m.reply e.to_s, true
+    end
+  end
 end

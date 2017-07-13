@@ -11,23 +11,23 @@
 require_relative '../yossarian_plugin'
 
 class TheoQuotes < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	QUOTES_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'theo_quotes.txt'))
-	QUOTES = File.readlines(QUOTES_FILE)
+  QUOTES_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'theo_quotes.txt'))
+  QUOTES = File.readlines(QUOTES_FILE)
 
-	def usage
-		'!theo - Fetch a random Theo De Raadt quote.'
-	end
+  def usage
+    '!theo - Fetch a random Theo De Raadt quote.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?theo$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?theo$/
+  end
 
-	match /theo$/, method: :theo_quote
+  match /theo$/, method: :theo_quote
 
-	def theo_quote(m)
-		m.reply QUOTES.sample
-	end
+  def theo_quote(m)
+    m.reply QUOTES.sample
+  end
 end

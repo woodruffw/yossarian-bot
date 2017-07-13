@@ -10,20 +10,20 @@
 require_relative 'yossarian_plugin'
 
 class IBIP < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	def usage
-		'[.!:]bots - Announce this bot to the channel.'
-	end
+  def usage
+    '[.!:]bots - Announce this bot to the channel.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^([.!:])?bots$/
-	end
+  def match?(cmd)
+    cmd =~ /^([.!:])?bots$/
+  end
 
-	match /bots$/, method: :ibip, prefix: /^[.!:]/
+  match /bots$/, method: :ibip, prefix: /^[.!:]/
 
-	def ibip(m)
-		m.reply 'Reporting in! [Ruby] See !help.'
-	end
+  def ibip(m)
+    m.reply 'Reporting in! [Ruby] See !help.'
+  end
 end

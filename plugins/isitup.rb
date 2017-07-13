@@ -13,40 +13,40 @@ require 'open-uri'
 require_relative 'yossarian_plugin'
 
 class IsItUp < YossarianPlugin
-	include Cinch::Plugin
-	use_blacklist
+  include Cinch::Plugin
+  use_blacklist
 
-	URL = 'https://isitup.org/%{domain}.json'
+  URL = 'https://isitup.org/%{domain}.json'
 
-	def usage
-		'!isitup <site> - Check whether or not <site> is currently online. Alias: !up.'
-	end
+  def usage
+    '!isitup <site> - Check whether or not <site> is currently online. Alias: !up.'
+  end
 
-	def match?(cmd)
-		cmd =~ /^(!)?(?:isit)?up$/
-	end
+  def match?(cmd)
+    cmd =~ /^(!)?(?:isit)?up$/
+  end
 
-	match /(?:isit)?up (.+)/, method: :isitup, strip_colors: true
+  match /(?:isit)?up (.+)/, method: :isitup, strip_colors: true
 
-	def isitup(m, site)
-		domain = URI.encode(site.gsub(/^http(?:s)?:\/\//, ''))
-		url = URL % { domain: domain }
+  def isitup(m, site)
+    domain = URI.encode(site.gsub(/^http(?:s)?:\/\//, ''))
+    url = URL % { domain: domain }
 
-		begin
-			hash = JSON.parse(open(url).read)
+    begin
+      hash = JSON.parse(open(url).read)
 
-			response_code = hash['response_code']
+      response_code = hash['response_code']
 
-			case hash['status_code']
-			when 1
-				m.reply "#{domain} is currently online [#{response_code}].", true
-			when 2
-				m.reply "#{domain} is currently offline.", true
-			when 3
-				m.reply "#{domain} is not a valid domain.", true
-			end
-		rescue Exception => e
-			m.reply e.to_s, true
-		end
-	end
+      case hash['status_code']
+      when 1
+        m.reply "#{domain} is currently online [#{response_code}].", true
+      when 2
+        m.reply "#{domain} is currently offline.", true
+      when 3
+        m.reply "#{domain} is not a valid domain.", true
+      end
+    rescue Exception => e
+      m.reply e.to_s, true
+    end
+  end
 end
