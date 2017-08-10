@@ -27,7 +27,7 @@ class Crypto < YossarianPlugin
 
       coin = parse_coin_info(res, coin_name, currency)
 
-      m.reply "1 #{coin[:sym]} = #{coin[:price].to_f.round(3)} #{coin[:currency].upcase} | #{fmt_changes(coin[:changes])}", true
+      m.reply "1 #{coin[:sym]} (#{coin[:name]}) = #{coin[:price].to_f.round(3)} #{coin[:currency].upcase} | #{fmt_changes(coin[:changes])}", true
 
     rescue OpenURI::HTTPError => e
       handle_error(m, e.io.status)
@@ -64,6 +64,7 @@ class Crypto < YossarianPlugin
     end
 
     {
+      name: hash['name'],
       sym: hash['symbol'],
       price: hash["price_#{currency}"],
       changes: {
