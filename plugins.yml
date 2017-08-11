@@ -1,7 +1,6 @@
 ---
 
 plugins:
-    - AirQuality
     - ArtistInfo
     - Beedogs
     - BeerSearch

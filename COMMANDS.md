@@ -17,7 +17,6 @@ Command Syntax | Plugin class | Description | Working?
 -------------- | ------------ | ----------- | -------
 `!8ball <question>` | Magic8Ball | Ask the Magic 8 Ball a question. | Yes
 `!admin <commands>` | BotAdmin | Administrate the bot. [See below](#admin). | Yes
-`!aq <zip>` | AirQuality | Retrieve air quality for a zip code, using [AirNow](https://airnow.gov/). | Yes
 `!artist <artist>` | ArtistInfo | Get information about an artist from [Last.fm](http://last.fm). | Yes
 `!beedog` | Beedogs | Retrieve a random picture of a beedog from [beedog.github.io](http://beedog.github.io). | Yes
 `!beer <name>` | BeerSearch | Search for beer information on [BreweryDB](http://www.brewerydb.com/). | Yes
