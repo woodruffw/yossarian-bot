@@ -16,7 +16,7 @@ class StockQuotes < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'http://finance.yahoo.com/d/quotes.csv?s=%{query}&f=snl1p2'
+  URL = 'https://finance.yahoo.com/d/quotes.csv?s=%{query}&f=snl1p2'
 
   def usage
     '!stock <symbol> - Retrieve a stock quote for the given ticker symbol.'
