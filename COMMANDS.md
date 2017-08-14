@@ -199,6 +199,6 @@ The `!trigger` command takes one of three subcommands:
 
 Subcommand | Description
 ---------- | ----------
-`add <trigger> <response>` | Make the bot say the given response whenever the given trigger is typed.
+`add <trigger> -> <response>` | Make the bot say the given response whenever the given trigger is typed. Note that there is a mandatory " -> " delimiter to separate the trigger and the response (and the spaces will not be included in either argument).
 `rm <trigger>` | Remove the given trigger and the response associated with it.
 `list` | List all triggers currently stored by `yossarian-bot`. Responses are not listed for the sake of brevity.
