@@ -46,12 +46,13 @@ class UserPoints < YossarianPlugin
   match /point add (\S+)/, method: :add_point
 
   def add_point(m, nick)
-    if m.user.nick != nick
-      @points[nick] += 1
-      m.reply "#{nick} now has #{@points[nick]} points.", true
-    else
-      @points[nick] -= 1
-      m.reply "Nice try. You now have #{@points[nick]} points.", true
+    lc_nick = nick.downcase # so we can still use the orig requested nickname
+    if m.user.nick.downcase != lc_nick
+      @points[lc_nick] += 1
+      m.reply "#{nick} now has #{@points[lc_nick]} points.", true
+    else # penalize for trying to self-upvote
+      @points[lc_nick] -= 1
+      m.reply "Nice try. You now have #{@points[lc_nick]} points.", true
     end
 
     sync_points_file
@@ -60,14 +61,15 @@ class UserPoints < YossarianPlugin
   match /point rm (\S+)/, method: :remove_point
 
   def remove_point(m, nick)
-    @points[nick] -= 1
-    m.reply "#{nick} now has #{@points[nick]} points.", true
+    lc_nick = nick.downcase
+    @points[lc_nick] -= 1
+    m.reply "#{nick} now has #{@points[lc_nick]} points.", true
     sync_points_file
   end
 
   match /point show (\S+)/, method: :show_intro
 
-  def show_intro(m, nick)
-    m.reply "#{nick} has #{@points[nick]} points.", true
+  def show_intro(m, nick) # one downcase call, no need for extra var
+    m.reply "#{nick} has #{@points[nick.downcase]} points.", true
   end
 end
