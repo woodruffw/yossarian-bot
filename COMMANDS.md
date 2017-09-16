@@ -191,6 +191,7 @@ Subcommand | Description
 `add <nick>` | Give a point to `nick`.
 `rm <nick>` | Take a point away from `nick`.
 `show <nick>` | Show `nick`'s current points.
+`leaderboard` | Show the top 5 `nick`s and their points.
 
 
 ### `!trigger` subcommands <a name="trigger"></a>

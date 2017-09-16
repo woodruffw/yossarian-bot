@@ -70,4 +70,17 @@ class UserPoints < YossarianPlugin
   def show_intro(m, nick)
     m.reply "#{nick} has #{@points[nick]} points.", true
   end
+
+  match /point leaderboard/, method: :show_leaderboard
+
+  def show_leaderboard(m)
+    top5 = @points.max_by(5) { |_, p| p }
+
+    leaderboard = if top5.empty?
+                    "Empty"
+                  else
+                    top5.map { |u, p| "#{u}: #{p}" }.join ", "
+                  end
+    m.reply "Leaderboard: #{leaderboard}.", true
+  end
 end
