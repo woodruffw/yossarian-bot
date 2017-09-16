@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+# frozen_string_literal: true
 
 #  -*- coding: utf-8 -*-
 #  yossarian-bot.rb
