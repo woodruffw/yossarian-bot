@@ -42,7 +42,7 @@ class CustomTriggers < YossarianPlugin
     cmd =~ /^(!)?(trigger$)|(reply$)/
   end
 
-  match /trigger add (\S+.+) -> (.+)/, method: :add_trigger # Note: mandatory " -> " string
+  match /trigger add (\S.+) -> (.+)/, method: :add_trigger # Note: mandatory " -> " string
 
   def add_trigger(m, trigger, response)
     channel = m.channel.to_s
@@ -53,7 +53,7 @@ class CustomTriggers < YossarianPlugin
     sync_triggers_file
   end
 
-  match /trigger rm (\S+)/, method: :rm_trigger
+  match /trigger rm (\S.+)/, method: :rm_trigger
 
   def rm_trigger(m, trigger)
     channel = m.channel.to_s
