@@ -57,7 +57,6 @@ Command Syntax | Plugin class | Description | Working?
 `!moderator <commands>` | ChannelModerator | Configure channel moderation. [See below](#chanmod). | Yes
 `!morse <text>` | MorseCode | Convert text to Morse Code. | Yes
 `!np <commands>` | NowPlaying | Get a Last.fm user's last played track. [See below](#nowplaying). | Yes
-`!omdb <title>` | OMDB | Get information about a movie or show from [The Open Movie Database](http://www.omdbapi.com/). | Yes
 `!phoneinfo <number>` | PhoneInfo | Look up information about the given phone number via [Numverify](https://numverify.com/). | Yes
 `!ping` | Ping | Ping the bot for a timestamped response. | Yes
 `!point <command> <nick>` | UserPoints | Give or take points away from a nickname. [See below](#point). | Yes
