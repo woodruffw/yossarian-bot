@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  zalgo_text.rb
 #  Author: Alex Young
 #  Modified by: William Woodruff

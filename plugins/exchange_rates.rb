@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  exchange_rates.rb
 #  Author: William Woodruff
 #  ------------------------

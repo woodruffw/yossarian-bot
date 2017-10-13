@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  web_search.rb
 #  Author: William Woodruff
 #  ------------------------

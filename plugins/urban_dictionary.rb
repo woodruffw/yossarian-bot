@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  urban_dictionary.rb
 #  Author: William Woodruff
 #  ------------------------

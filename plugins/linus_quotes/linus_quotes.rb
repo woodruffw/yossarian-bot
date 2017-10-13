@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  linus_quotes.rb
 #  Author: Winston Weinert
 #  ------------------------

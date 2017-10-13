@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  command_help.rb
 #  Author: William Woodruff
 #  ------------------------
