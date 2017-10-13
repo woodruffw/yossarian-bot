@@ -19,7 +19,7 @@ class LastSeen < YossarianPlugin
 
   class LastSeenStruct < Struct.new(:who, :where, :what, :time)
     def to_s
-      return "#{who} was last seen on #{time.asctime} in #{where} saying #{what}"
+      "#{who} was last seen on #{time.asctime} in #{where} saying #{what}"
     end
   end
 
