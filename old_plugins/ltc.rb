@@ -37,21 +37,19 @@ class LTC < YossarianPlugin
   match /ltc$/, method: :ltc_rate
 
   def ltc_rate(m)
-    begin
-      hash = JSON.parse(open(URL).read)
-      rate = hash["ltc_usd"]["buy"].round(2)
+    hash = JSON.parse(open(URL).read)
+    rate = hash["ltc_usd"]["buy"].round(2)
 
-      if @last_trade.nil?
-        m.reply "1 LTC = #{rate} USD", true
-      else
-        direction = (@last_trade < rate ? "↑" : "↓")
-        m.reply "1 LTC = #{rate} USD | #{direction}", true
-      end
-
-      @last_trade = rate
-
-    rescue Exception => e
-      m.reply e.to_s, true
+    if @last_trade.nil?
+      m.reply "1 LTC = #{rate} USD", true
+    else
+      direction = (@last_trade < rate ? "↑" : "↓")
+      m.reply "1 LTC = #{rate} USD | #{direction}", true
     end
+
+    @last_trade = rate
+
+  rescue Exception => e
+    m.reply e.to_s, true
   end
 end

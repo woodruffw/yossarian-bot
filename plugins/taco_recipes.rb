@@ -31,13 +31,11 @@ class TacoRecipes < YossarianPlugin
   match /taco$/, method: :random_taco
 
   def random_taco(m)
-    begin
-      hash = JSON.parse(open(URL).read)
-      recipe_url = hash["url"].gsub(/(raw\.github.com)|(\/master\/)/, "raw.github.com" => "github.com", "/master/" => "/blob/master/")
+    hash = JSON.parse(open(URL).read)
+    recipe_url = hash["url"].gsub(/(raw\.github.com)|(\/master\/)/, "raw.github.com" => "github.com", "/master/" => "/blob/master/")
 
-      m.reply "#{hash['name']} - #{recipe_url}", true
-    rescue Exception => e
-      m.reply e.to_s, true
-    end
+    m.reply "#{hash['name']} - #{recipe_url}", true
+  rescue Exception => e
+    m.reply e.to_s, true
   end
 end

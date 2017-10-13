@@ -32,16 +32,14 @@ class ETH < YossarianPlugin
   match /eth$/, method: :eth_rate
 
   def eth_rate(m)
-    begin
-      hash   = JSON.parse(open(URL).read)
-      rate   = hash["price"]["usd"].round(2)
-      change = hash["change"].to_f
+    hash   = JSON.parse(open(URL).read)
+    rate   = hash["price"]["usd"].round(2)
+    change = hash["change"].to_f
 
-      direction = (change > 0 ? "↑" : "↓")
-      m.reply "1 ETH = #{rate} USD | #{direction}", true
+    direction = (change > 0 ? "↑" : "↓")
+    m.reply "1 ETH = #{rate} USD | #{direction}", true
 
-    rescue Exception => e
-      m.reply e.to_s, true
-    end
+  rescue Exception => e
+    m.reply e.to_s, true
   end
 end

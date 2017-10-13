@@ -22,20 +22,18 @@ class Crypto < YossarianPlugin
   match /crypto (.+)/, method: :crypto, strip_colors: true
 
   def crypto(m, payload)
-    begin
-      coin_name, currency = payload.split(" ")
-      api_endpoint        = build_url(currency)
-      res                 = JSON.parse(open(api_endpoint).read)
+    coin_name, currency = payload.split(" ")
+    api_endpoint        = build_url(currency)
+    res                 = JSON.parse(open(api_endpoint).read)
 
-      coin = parse_coin_info(res, coin_name, currency)
+    coin = parse_coin_info(res, coin_name, currency)
 
-      m.reply "1 #{coin[:sym]} (#{coin[:name]}) = #{coin[:price].to_f.round(3)} #{coin[:currency].upcase} | #{fmt_changes(coin[:changes])}", true
+    m.reply "1 #{coin[:sym]} (#{coin[:name]}) = #{coin[:price].to_f.round(3)} #{coin[:currency].upcase} | #{fmt_changes(coin[:changes])}", true
 
-    rescue OpenURI::HTTPError => e
-      handle_error(m, e.io.status)
-    rescue Exception => e
-      m.reply e.to_s, true
-    end
+  rescue OpenURI::HTTPError => e
+    handle_error(m, e.io.status)
+  rescue Exception => e
+    m.reply e.to_s, true
   end
 
   private
