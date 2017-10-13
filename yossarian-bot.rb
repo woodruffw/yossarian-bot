@@ -46,25 +46,15 @@ config["servers"].each do |server_name, server_info|
         Object.const_get(plugin)
       end
 
-      def starttime
-        @starttime
-      end
+      attr_reader :starttime
 
-      def version
-        @version
-      end
+      attr_reader :version
 
-      def admins
-        @admins
-      end
+      attr_reader :admins
 
-      def blacklist
-        @blacklist
-      end
+      attr_reader :blacklist
 
-      def all_plugins
-        @all_plugins
-      end
+      attr_reader :all_plugins
 
       configure do |conf|
         conf.nick = server_info["nick"] || "yossarian-bot"
