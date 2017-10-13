@@ -23,7 +23,7 @@ class UserPoints < YossarianPlugin
     @points_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_points.yml"))
 
     if File.file?(@points_file)
-      @points = YAML::load_file(@points_file)
+      @points = YAML.load_file(@points_file)
       @points.default_proc = Proc.new { |h, k| h[k] = 0 }
     else
       FileUtils.mkdir_p File.dirname(@points_file)

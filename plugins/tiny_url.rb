@@ -27,7 +27,7 @@ class TinyURL < YossarianPlugin
     cmd =~ /^(!)?t(?:iny)?url$/
   end
 
-  match /t(?:iny)?url (#{URI::regexp(['http', 'https'])})/, method: :tinyurl, strip_colors: true
+  match /t(?:iny)?url (#{URI.regexp(['http', 'https'])})/, method: :tinyurl, strip_colors: true
 
   def tinyurl(m, link)
     url = URL % { link: URI.encode(link) }

@@ -28,7 +28,7 @@ class UserQuotes < YossarianPlugin
     @quotes_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_quotes.yml"))
 
     if File.file?(@quotes_file)
-      @quotes = YAML::load_file(@quotes_file)
+      @quotes = YAML.load_file(@quotes_file)
     else
       FileUtils.mkdir_p File.dirname(@quotes_file)
       @quotes = {}

@@ -28,7 +28,7 @@ class NowPlaying < YossarianPlugin
     @username_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "lastfm_usernames.yml"))
 
     if File.file?(@username_file)
-      @usernames = YAML::load_file(@username_file)
+      @usernames = YAML.load_file(@username_file)
     else
       FileUtils.mkdir_p File.dirname(@username_file)
       @usernames = {}

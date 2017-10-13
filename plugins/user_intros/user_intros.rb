@@ -23,7 +23,7 @@ class UserIntros < YossarianPlugin
     @intros_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_intros.yml"))
 
     if File.file?(@intros_file)
-      @intros = YAML::load_file(@intros_file)
+      @intros = YAML.load_file(@intros_file)
     else
       FileUtils.mkdir_p File.dirname(@intros_file)
       @intros = {}
