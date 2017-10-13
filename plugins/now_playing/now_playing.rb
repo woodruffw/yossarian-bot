@@ -34,9 +34,7 @@ class NowPlaying < YossarianPlugin
       @usernames = {}
     end
 
-    if KEY && SECRET
-      @lastfm = Lastfm.new(KEY, SECRET)
-    end
+    @lastfm = Lastfm.new(KEY, SECRET) if KEY && SECRET
   end
 
   def sync_username_file
@@ -71,9 +69,7 @@ class NowPlaying < YossarianPlugin
     return if nick == "link" # ew
 
     if @lastfm
-      if nick.empty?
-        nick = m.user.nick
-      end
+      nick = m.user.nick if nick.empty?
 
       username = @usernames[nick.downcase]
 
@@ -83,9 +79,7 @@ class NowPlaying < YossarianPlugin
 
           if info
             # APIs should always return a uniform type...
-            if info.is_a?(Array)
-              info = info.first
-            end
+            info = info.first if info.is_a?(Array)
 
             if info["nowplaying"]
               active = "is now playing"

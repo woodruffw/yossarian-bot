@@ -164,9 +164,7 @@ class BotAdmin < YossarianPlugin
 
     @bot.blacklist.delete(nick)
 
-    if !host.empty?
-      @bot.blacklist.delete(host)
-    end
+    @bot.blacklist.delete(host) if !host.empty?
 
     m.reply "Removed any records associated with #{nick} from the blacklist.", true
   end

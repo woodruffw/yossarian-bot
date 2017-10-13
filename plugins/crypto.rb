@@ -59,9 +59,7 @@ class Crypto < YossarianPlugin
     hash = find_matching_coin(res, coin_name)
 
     # If we cannot find the requested currency, default to usd
-    if currency.nil? || hash["price_#{currency.downcase}"].nil?
-      currency = "usd"
-    end
+    currency = "usd" if currency.nil? || hash["price_#{currency.downcase}"].nil?
 
     {
       name: hash["name"],
@@ -79,9 +77,7 @@ class Crypto < YossarianPlugin
   def build_url(currency)
     url = BASE_URL
 
-    if currency
-      url = url + "/?convert=" + currency
-    end
+    url = url + "/?convert=" + currency if currency
 
     url
   end

@@ -36,9 +36,7 @@ class LinkTitling < YossarianPlugin
       title = generic_title(uri)
     end
 
-    if title && !title.empty?
-      m.reply "Title: #{title}"
-    end
+    m.reply "Title: #{title}" if title && !title.empty?
   end
 
   def generic_title(uri)
