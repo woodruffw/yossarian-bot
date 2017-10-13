@@ -9,17 +9,17 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class BOFHExcuses < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  EXCUSES_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'bofh_excuses.txt'))
+  EXCUSES_FILE = File.expand_path(File.join(File.dirname(__FILE__), "bofh_excuses.txt"))
   EXCUSES = File.readlines(EXCUSES_FILE)
 
   def usage
-    '!bofh - Fetch a random Bastard Operator From Hell excuse.'
+    "!bofh - Fetch a random Bastard Operator From Hell excuse."
   end
 
   def match?(cmd)

@@ -8,20 +8,20 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'json'
-require 'open-uri'
-require 'sanitize'
+require "json"
+require "open-uri"
+require "sanitize"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class WebSearch < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'http://www.faroo.com/instant.json?q=%{query}&start=1&l=en&src=web&i=false&c=true'
+  URL = "http://www.faroo.com/instant.json?q=%{query}&start=1&l=en&src=web&i=false&c=true"
 
   def usage
-    '!s <search> - Search the web.'
+    "!s <search> - Search the web."
   end
 
   def match?(cmd)
@@ -36,11 +36,11 @@ class WebSearch < YossarianPlugin
 
     begin
       hash = JSON.parse(open(url, "Referer" => "http://faroo.com").read)
-      result = hash['results'].first
+      result = hash["results"].first
 
       if result
-        site = result['url']
-        content = Sanitize.clean(result['content']).normalize_whitespace
+        site = result["url"]
+        content = Sanitize.clean(result["content"]).normalize_whitespace
 
         m.reply "#{site} - #{content}"
       else

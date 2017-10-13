@@ -7,7 +7,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class BotAdmin < YossarianPlugin
   include Cinch::Plugin
@@ -15,7 +15,7 @@ class BotAdmin < YossarianPlugin
   use_auth
 
   def usage
-    '!admin <commands> - Administrate the bot. See !help for a link to admin commands.'
+    "!admin <commands> - Administrate the bot. See !help for a link to admin commands."
   end
 
   def match?(cmd)
@@ -30,7 +30,7 @@ class BotAdmin < YossarianPlugin
 
     plugins = all_plugin_names.map do |pn|
       Format(active_plugin_names.include?(pn) ? :green : :red, pn)
-    end.join(', ')
+    end.join(", ")
 
     # temporarily allow up to three messages due to long plugin lists
     @bot.config.max_messages = 3
@@ -72,7 +72,7 @@ class BotAdmin < YossarianPlugin
   match /admin quit/, method: :bot_quit
 
   def bot_quit(m)
-    m.reply 'Goodbye!'
+    m.reply "Goodbye!"
     @bot.quit
   end
 

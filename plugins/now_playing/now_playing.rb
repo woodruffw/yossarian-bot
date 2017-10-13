@@ -7,23 +7,23 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'yaml'
-require 'fileutils'
-require 'lastfm'
+require "yaml"
+require "fileutils"
+require "lastfm"
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class NowPlaying < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  KEY = ENV['LASTFM_API_KEY']
-  SECRET = ENV['LASTFM_API_SECRET']
+  KEY = ENV["LASTFM_API_KEY"]
+  SECRET = ENV["LASTFM_API_SECRET"]
 
   def initialize(*args)
     super
 
-    @username_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'lastfm_usernames.yml'))
+    @username_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "lastfm_usernames.yml"))
 
     if File.file?(@username_file)
       @usernames = YAML::load_file(@username_file)
@@ -66,7 +66,7 @@ class NowPlaying < YossarianPlugin
   match /np(?:$| )(\S*)/, method: :now_playing, strip_colors: true
 
   def now_playing(m, nick)
-    return if nick == 'link' # ew
+    return if nick == "link" # ew
 
     if @lastfm
       if nick.empty?
@@ -85,15 +85,15 @@ class NowPlaying < YossarianPlugin
               info = info.first
             end
 
-            if info['nowplaying']
-              active = 'is now playing'
+            if info["nowplaying"]
+              active = "is now playing"
             else
-              active = 'last played'
+              active = "last played"
             end
 
-            artist = info['artist']['content']
-            song = info['name']
-            album = info['album']['content']
+            artist = info["artist"]["content"]
+            song = info["name"]
+            album = info["album"]["content"]
 
             if album
               m.reply "#{username} #{active} \"#{song}\" by #{artist} on #{album}.", true

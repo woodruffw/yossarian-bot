@@ -7,18 +7,18 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'open-uri'
+require "open-uri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class TinyURL < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'http://tinyurl.com/api-create.php?url=%{link}'
+  URL = "http://tinyurl.com/api-create.php?url=%{link}"
 
   def usage
-    '!turl <url> - Shorten the given <url> using TinyURL. Alias: !tinyurl.'
+    "!turl <url> - Shorten the given <url> using TinyURL. Alias: !tinyurl."
   end
 
   def match?(cmd)

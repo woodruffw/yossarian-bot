@@ -63,7 +63,7 @@ module ZalgoText
   end
 
   def self.he_comes(text, options = {})
-    result = ''
+    result = ""
     options = { :up => true, :mid => true, :down => true }.merge options
 
     text.each_char.each do |char|

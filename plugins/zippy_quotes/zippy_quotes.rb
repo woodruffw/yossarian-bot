@@ -8,17 +8,17 @@
 #  This code is licensed by Winston Weinert under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class ZippyQuotes < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  QUOTES_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'zippy_quotes.txt'))
+  QUOTES_FILE = File.expand_path(File.join(File.dirname(__FILE__), "zippy_quotes.txt"))
   QUOTES = File.readlines(QUOTES_FILE)
 
   def usage
-    '!zippy - Fetch a random Zippy the Pinhead quote. Aliases: !pinhead.'
+    "!zippy - Fetch a random Zippy the Pinhead quote. Aliases: !pinhead."
   end
 
   def match?(cmd)

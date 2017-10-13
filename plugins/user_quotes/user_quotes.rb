@@ -8,10 +8,10 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'yaml'
-require 'fileutils'
+require "yaml"
+require "fileutils"
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class UserQuotes < YossarianPlugin
   include Cinch::Plugin
@@ -23,7 +23,7 @@ class UserQuotes < YossarianPlugin
 
   def initialize(*args)
     super
-    @quotes_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_quotes.yml'))
+    @quotes_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_quotes.yml"))
 
     if File.file?(@quotes_file)
       @quotes = YAML::load_file(@quotes_file)
@@ -40,7 +40,7 @@ class UserQuotes < YossarianPlugin
   end
 
   def usage
-    '!quote [nick] - Retrieve a random quote. If a nick is provided, a quote from that user is retrieved.'
+    "!quote [nick] - Retrieve a random quote. If a nick is provided, a quote from that user is retrieved."
   end
 
   def match?(cmd)

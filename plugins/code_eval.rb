@@ -8,16 +8,16 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'eval-in'
+require "eval-in"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class CodeEval < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
   def usage
-    '!eval <lang> <code> - Evaluate the given code with the given language on eval.in.'
+    "!eval <lang> <code> - Evaluate the given code with the given language on eval.in."
   end
 
   def match?(cmd)

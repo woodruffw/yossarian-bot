@@ -15,7 +15,7 @@ class Zalgo < YossarianPlugin
   use_blacklist
 
   def usage
-    '!zalgo <text> - Summon Zalgo with the given text.'
+    "!zalgo <text> - Summon Zalgo with the given text."
   end
 
   def match?(cmd)

@@ -8,19 +8,19 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'nokogiri'
-require 'open-uri'
+require "nokogiri"
+require "open-uri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class Dinner < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'http://whatthefuckshouldimakefordinner.com'
+  URL = "http://whatthefuckshouldimakefordinner.com"
 
   def usage
-    '!dinner - Retrieve a random dinner recipe.'
+    "!dinner - Retrieve a random dinner recipe."
   end
 
   def match?(cmd)
@@ -33,8 +33,8 @@ class Dinner < YossarianPlugin
     begin
       page = Nokogiri::HTML(open(URL).read)
 
-      food = page.css('dl').map(&:text).join.strip.gsub("\n", ' ')
-      link = page.css('dt')[1].css('a').first['href']
+      food = page.css("dl").map(&:text).join.strip.gsub("\n", " ")
+      link = page.css("dt")[1].css("a").first["href"]
 
       m.reply "#{food}. #{link}", true
     rescue Exception => e

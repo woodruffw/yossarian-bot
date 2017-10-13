@@ -7,10 +7,10 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'yaml'
-require 'fileutils'
+require "yaml"
+require "fileutils"
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class UserIntros < YossarianPlugin
   include Cinch::Plugin
@@ -18,7 +18,7 @@ class UserIntros < YossarianPlugin
 
   def initialize(*args)
     super
-    @intros_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_intros.yml'))
+    @intros_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_intros.yml"))
 
     if File.file?(@intros_file)
       @intros = YAML::load_file(@intros_file)
@@ -35,7 +35,7 @@ class UserIntros < YossarianPlugin
   end
 
   def usage
-    '!intro <command> - Manage the intro message for your nick. Commands are add, rm, and show.'
+    "!intro <command> - Manage the intro message for your nick. Commands are add, rm, and show."
   end
 
   def match?(cmd)
@@ -45,7 +45,7 @@ class UserIntros < YossarianPlugin
   match /intro add (.+)/, method: :set_intro
 
   def set_intro(m, intro)
-    intro.gsub!(/\x01/, '')
+    intro.gsub!(/\x01/, "")
 
     if @intros.key?(m.channel.to_s)
       @intros[m.channel.to_s][m.user.nick] = intro

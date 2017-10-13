@@ -7,16 +7,16 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'lastfm'
+require "lastfm"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class ArtistInfo < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  KEY = ENV['LASTFM_API_KEY']
-  SECRET = ENV['LASTFM_API_SECRET']
+  KEY = ENV["LASTFM_API_KEY"]
+  SECRET = ENV["LASTFM_API_SECRET"]
 
   def initialize(*args)
     super
@@ -27,7 +27,7 @@ class ArtistInfo < YossarianPlugin
   end
 
   def usage
-    '!artist <artist> - Get information about an artist from Last.fm.'
+    "!artist <artist> - Get information about an artist from Last.fm."
   end
 
   def match?(cmd)
@@ -41,27 +41,27 @@ class ArtistInfo < YossarianPlugin
       begin
         info = @lastfm.artist.get_info(artist: artist)
 
-        if !info['mbid']&.empty?
-          info.default = '?'
-          name = info['name']
-          url = info['url']
-          formed = info['bio']['yearformed'] || '?'
-          place = info['bio']['placeformed'] || '?'
+        if !info["mbid"]&.empty?
+          info.default = "?"
+          name = info["name"]
+          url = info["url"]
+          formed = info["bio"]["yearformed"] || "?"
+          place = info["bio"]["placeformed"] || "?"
 
-          if info['tags'] && info['tags']['tag']
-            tags = info['tags']['tag'].map do |tag|
-              tag['name'].capitalize
-            end.join(', ')
+          if info["tags"] && info["tags"]["tag"]
+            tags = info["tags"]["tag"].map do |tag|
+              tag["name"].capitalize
+            end.join(", ")
           else
-            tags = 'None'
+            tags = "None"
           end
 
-          if info['similar'] && info['similar']['artist']
-            artists = info['similar']['artist'].map do |art|
-              art['name']
-            end.join(', ')
+          if info["similar"] && info["similar"]["artist"]
+            artists = info["similar"]["artist"].map do |art|
+              art["name"]
+            end.join(", ")
           else
-            artists = 'None'
+            artists = "None"
           end
 
           m.reply "#{name} (formed #{formed}, #{place}): #{tags}. Similar artists: #{artists}. #{url}.", true

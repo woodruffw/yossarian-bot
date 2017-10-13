@@ -8,16 +8,16 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'open-uri'
-require 'json'
+require "open-uri"
+require "json"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class LTC < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'https://btc-e.com/api/3/ticker/ltc_usd'
+  URL = "https://btc-e.com/api/3/ticker/ltc_usd"
 
   def initialize(*args)
     super
@@ -25,7 +25,7 @@ class LTC < YossarianPlugin
   end
 
   def usage
-    '!ltc - Get the current Litecoin exchange rate in USD.'
+    "!ltc - Get the current Litecoin exchange rate in USD."
   end
 
   def match?(cmd)
@@ -37,7 +37,7 @@ class LTC < YossarianPlugin
   def ltc_rate(m)
     begin
       hash = JSON.parse(open(URL).read)
-      rate = hash['ltc_usd']['buy'].round(2)
+      rate = hash["ltc_usd"]["buy"].round(2)
 
       if @last_trade.nil?
         m.reply "1 LTC = #{rate} USD", true

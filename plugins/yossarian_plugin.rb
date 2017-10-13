@@ -10,7 +10,7 @@
 class YossarianPlugin
   # default usage stub
   def usage
-    ''
+    ""
   end
 
   #default match stub

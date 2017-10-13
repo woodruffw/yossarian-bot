@@ -7,19 +7,19 @@
 #  This code is licensed by slackErEhth77 under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'json'
-require 'open-uri'
+require "json"
+require "open-uri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class Wikipedia < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&redirects=resolve&search=%{query}'
+  URL = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&redirects=resolve&search=%{query}"
 
   def usage
-    '!wiki <search> - Search Wikipedia for the given <search>.'
+    "!wiki <search> - Search Wikipedia for the given <search>."
   end
 
   def match?(cmd)
@@ -40,7 +40,7 @@ class Wikipedia < YossarianPlugin
         else
           content = results[2].first
         end
-        link = results[3].first.sub('https://en.wikipedia.org/wiki/', 'http://enwp.org/')
+        link = results[3].first.sub("https://en.wikipedia.org/wiki/", "http://enwp.org/")
 
         m.reply "#{link} - #{content}", true
       else

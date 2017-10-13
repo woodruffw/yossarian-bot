@@ -7,19 +7,19 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'json'
-require 'open-uri'
+require "json"
+require "open-uri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class Searx < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'https://searx.me/?q=%{query}&format=json'
+  URL = "https://searx.me/?q=%{query}&format=json"
 
   def usage
-    '!s <search> - Search Searx.'
+    "!s <search> - Search Searx."
   end
 
   def match?(cmd)
@@ -34,11 +34,11 @@ class Searx < YossarianPlugin
 
     begin
       hash = JSON.parse(open(url).read)
-      result = hash['results'].first
+      result = hash["results"].first
 
       if result
-        site = result['url']
-        content = result['content']
+        site = result["url"]
+        content = result["content"]
 
         m.reply "#{site} - #{content}"
       else
