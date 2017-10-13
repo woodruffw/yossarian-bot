@@ -55,7 +55,7 @@ module ZalgoText
       }
     end
 
-    def self.all 
+    def self.all
       up + down + mid
     end
 
