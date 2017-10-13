@@ -32,13 +32,11 @@ class WorldPopulation < YossarianPlugin
   match /(wp$)|(population$)/, method: :world_population
 
   def world_population(m)
-    begin
-      hash = JSON.parse(open(URL).read)
-      pop = hash["world"]["population"]
-      rate = hash["world"]["population_rate"]
-      m.reply "World population: #{pop} (#{rate}/second)", true
-    rescue Exception => e
-      m.reply e.to_s, true
-    end
+    hash = JSON.parse(open(URL).read)
+    pop = hash["world"]["population"]
+    rate = hash["world"]["population_rate"]
+    m.reply "World population: #{pop} (#{rate}/second)", true
+  rescue Exception => e
+    m.reply e.to_s, true
   end
 end

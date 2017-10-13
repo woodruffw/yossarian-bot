@@ -29,14 +29,12 @@ class CodeEval < YossarianPlugin
   match /eval (\S+) (.+)/, method: :code_eval, strip_colors: true
 
   def code_eval(m, lang, code)
-    begin
-      result = EvalIn.eval(lang, code)
+    result = EvalIn.eval(lang, code)
 
-      m.reply result.output.normalize_whitespace, true
-    rescue EvalIn::BadLanguageError
-      m.reply "I don\'t know #{lang}.", true
-    rescue EvalIn::ConnectionError
-      m.reply "Failure while connecting to evaluation service.", true
-    end
+    m.reply result.output.normalize_whitespace, true
+  rescue EvalIn::BadLanguageError
+    m.reply "I don\'t know #{lang}.", true
+  rescue EvalIn::ConnectionError
+    m.reply "Failure while connecting to evaluation service.", true
   end
 end

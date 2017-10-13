@@ -35,13 +35,11 @@ class Jerkcity < YossarianPlugin
   end
 
   def initialize_comic_count
-    begin
-      html = Nokogiri::HTML(open(URL).read)
-      text = html.css("div")[3].text
-      @comic_count = text.split("|")[2].strip.gsub(/(No. )|(,)/, "").to_i
-    rescue Exception => e
-      debug e.to_s
-    end
+    html = Nokogiri::HTML(open(URL).read)
+    text = html.css("div")[3].text
+    @comic_count = text.split("|")[2].strip.gsub(/(No. )|(,)/, "").to_i
+  rescue Exception => e
+    debug e.to_s
   end
 
   match /jerkcity$/, method: :jerkcity
