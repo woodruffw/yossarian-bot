@@ -31,7 +31,7 @@ class Hastebin < YossarianPlugin
   def hastebin(m, text)
     haste = Haste::Uploader.new
     key = haste.upload_raw text
-    
+
     m.reply "http://hastebin.com/#{key}", true
   end
 end
