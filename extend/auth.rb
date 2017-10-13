@@ -18,10 +18,10 @@ module Cinch
 
     def authed?(m)
       if authed_silent?(m)
-        return true
+        true
       else
         m.reply "You do not have permission to do that.", true
-        return false
+        false
       end
     end
   end
