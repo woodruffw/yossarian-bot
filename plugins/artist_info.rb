@@ -23,9 +23,7 @@ class ArtistInfo < YossarianPlugin
   def initialize(*args)
     super
 
-    if KEY && SECRET
-      @lastfm = Lastfm.new(KEY, SECRET)
-    end
+    @lastfm = Lastfm.new(KEY, SECRET) if KEY && SECRET
   end
 
   def usage
