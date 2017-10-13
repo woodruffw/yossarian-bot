@@ -7,10 +7,10 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'yaml'
-require 'fileutils'
+require "yaml"
+require "fileutils"
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class UserPoints < YossarianPlugin
   include Cinch::Plugin
@@ -18,7 +18,7 @@ class UserPoints < YossarianPlugin
 
   def initialize(*args)
     super
-    @points_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_points.yml'))
+    @points_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_points.yml"))
 
     if File.file?(@points_file)
       @points = YAML::load_file(@points_file)
@@ -36,7 +36,7 @@ class UserPoints < YossarianPlugin
   end
 
   def usage
-    '!point <command> <nick> - Give or take points away from a nickname. Commands are add, rm, and show.'
+    "!point <command> <nick> - Give or take points away from a nickname. Commands are add, rm, and show."
   end
 
   def match?(cmd)

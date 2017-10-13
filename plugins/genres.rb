@@ -8,15 +8,15 @@
 #  This code is licensed by Winston Weinert under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative 'yossarian_plugin'
-require 'genregen'
+require_relative "yossarian_plugin"
+require "genregen"
 
 class Genres < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
   def usage
-    '!genre - Generate a random music genre.'
+    "!genre - Generate a random music genre."
   end
 
   def match?(cmd)

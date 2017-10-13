@@ -8,15 +8,15 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'open-uri'
+require "open-uri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class BTC < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'https://api.bitcoinaverage.com/ticker/global/USD/last'
+  URL = "https://api.bitcoinaverage.com/ticker/global/USD/last"
 
   def initialize(*args)
     super
@@ -24,7 +24,7 @@ class BTC < YossarianPlugin
   end
 
   def usage
-    '!btc - Get the current Bitcoin exchange rate in USD.'
+    "!btc - Get the current Bitcoin exchange rate in USD."
   end
 
   def match?(cmd)

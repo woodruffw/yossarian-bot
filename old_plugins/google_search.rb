@@ -7,19 +7,19 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'json'
-require 'open-uri'
+require "json"
+require "open-uri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class GoogleSearch < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'https://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=small&safe=active&q=%{query}&max-results=1&v=2&alt=json'
+  URL = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&rsz=small&safe=active&q=%{query}&max-results=1&v=2&alt=json"
 
   def usage
-    '!g <search> - Search Google. Alias: !google.'
+    "!g <search> - Search Google. Alias: !google."
   end
 
   def match?(cmd)
@@ -35,10 +35,10 @@ class GoogleSearch < YossarianPlugin
     begin
       hash = JSON.parse(open(url).read)
 
-      if hash['responseData']['results'].nonempty?
-        site = URI.unescape(hash['responseData']['results'].first['url'])
-        content = hash['responseData']['results'].first['content'].gsub(/([\t\r\n])|(<(\/)?b>)/, '')
-        content.gsub!(/(&amp;)|(&quot;)|(&lt;)|(&gt;)|(&#39;)/, '&amp;' => '&', '&quot;' => '"', '&lt;' => '<', '&gt;' => '>', '&#39;' => '\'')
+      if hash["responseData"]["results"].nonempty?
+        site = URI.unescape(hash["responseData"]["results"].first["url"])
+        content = hash["responseData"]["results"].first["content"].gsub(/([\t\r\n])|(<(\/)?b>)/, "")
+        content.gsub!(/(&amp;)|(&quot;)|(&lt;)|(&gt;)|(&#39;)/, "&amp;" => "&", "&quot;" => '"', "&lt;" => "<", "&gt;" => ">", "&#39;" => '\'')
         m.reply "#{site} - #{content}", true
       else
         m.reply "No Google results for #{search}.", true

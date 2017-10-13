@@ -7,7 +7,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class Magic8Ball < YossarianPlugin
   include Cinch::Plugin
@@ -37,7 +37,7 @@ class Magic8Ball < YossarianPlugin
   ]
 
   def usage
-    '!8ball <question> - Ask the Magic 8 Ball a question. Alias: !8b.'
+    "!8ball <question> - Ask the Magic 8 Ball a question. Alias: !8b."
   end
 
   def match?(cmd)

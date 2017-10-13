@@ -8,17 +8,17 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class TheoQuotes < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  QUOTES_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'theo_quotes.txt'))
+  QUOTES_FILE = File.expand_path(File.join(File.dirname(__FILE__), "theo_quotes.txt"))
   QUOTES = File.readlines(QUOTES_FILE)
 
   def usage
-    '!theo - Fetch a random Theo De Raadt quote.'
+    "!theo - Fetch a random Theo De Raadt quote."
   end
 
   def match?(cmd)

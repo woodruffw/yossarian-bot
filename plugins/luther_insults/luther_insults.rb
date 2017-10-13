@@ -8,16 +8,16 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'nokogiri'
-require 'open-uri'
+require "nokogiri"
+require "open-uri"
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class LutherInsults < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  INSULTS_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'luther_insults.txt'))
+  INSULTS_FILE = File.expand_path(File.join(File.dirname(__FILE__), "luther_insults.txt"))
   INSULTS = File.readlines(INSULTS_FILE)
 
   def usage

@@ -7,16 +7,16 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'haste'
+require "haste"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class Hastebin < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
   def usage
-    '!hb <text> - Post text to Hastebin. Aliases: !haste, !hastebin.'
+    "!hb <text> - Post text to Hastebin. Aliases: !haste, !hastebin."
   end
 
   def match?(cmd)

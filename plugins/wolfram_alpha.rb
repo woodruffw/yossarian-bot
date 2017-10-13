@@ -7,18 +7,18 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'wolfram'
+require "wolfram"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class WolframAlpha < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  KEY = ENV['WOLFRAM_ALPHA_APPID_KEY']
+  KEY = ENV["WOLFRAM_ALPHA_APPID_KEY"]
 
   def usage
-    '!wa <query> - Ask Wolfram|Alpha about <query>. Alias: !wolfram.'
+    "!wa <query> - Ask Wolfram|Alpha about <query>. Alias: !wolfram."
   end
 
   def match?(cmd)

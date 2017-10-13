@@ -7,16 +7,16 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'telegraph'
+require "telegraph"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class MorseCode < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
   def usage
-    '!morse <text> - Convert the given text to Morse code.'
+    "!morse <text> - Convert the given text to Morse code."
   end
 
   def match?(cmd)

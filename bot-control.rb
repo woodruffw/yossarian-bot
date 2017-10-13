@@ -8,6 +8,6 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'daemons'
+require "daemons"
 
-Daemons.run('yossarian-bot.rb')
+Daemons.run("yossarian-bot.rb")

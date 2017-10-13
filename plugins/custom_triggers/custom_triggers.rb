@@ -7,9 +7,9 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'yaml'
+require "yaml"
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class CustomTriggers < YossarianPlugin
   include Cinch::Plugin
@@ -17,7 +17,7 @@ class CustomTriggers < YossarianPlugin
 
   def initialize(*args)
     super
-    @triggers_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'custom_triggers.yml'))
+    @triggers_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "custom_triggers.yml"))
 
     if File.file?(@triggers_file)
       @triggers = YAML::load_file(@triggers_file)
@@ -35,7 +35,7 @@ class CustomTriggers < YossarianPlugin
   end
 
   def usage
-    '!trigger <command> - Manage custom triggers. Commands are add, rm, and list. Alias: !reply.'
+    "!trigger <command> - Manage custom triggers. Commands are add, rm, and list. Alias: !reply."
   end
 
   def match?(cmd)
@@ -73,7 +73,7 @@ class CustomTriggers < YossarianPlugin
     if @triggers.empty?
       m.reply "I don\'t currently have any triggers.", true
     else
-      m.reply @triggers[m.channel.to_s].keys.join(', '), true
+      m.reply @triggers[m.channel.to_s].keys.join(", "), true
     end
   end
 

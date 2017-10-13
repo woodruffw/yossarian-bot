@@ -8,19 +8,19 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'open-uri'
-require 'json'
+require "open-uri"
+require "json"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class ETH < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'https://coinmarketcap-nexuist.rhcloud.com/api/eth'
+  URL = "https://coinmarketcap-nexuist.rhcloud.com/api/eth"
 
   def usage
-    '!eth - Get the current Ethereum exchange rate in USD.'
+    "!eth - Get the current Ethereum exchange rate in USD."
   end
 
   def match?(cmd)

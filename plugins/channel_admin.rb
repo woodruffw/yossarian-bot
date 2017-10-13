@@ -7,7 +7,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class ChannelAdmin < YossarianPlugin
   include Cinch::Plugin
@@ -17,11 +17,11 @@ class ChannelAdmin < YossarianPlugin
 
   def initialize(*args)
     super
-    @topic_delim = ' || '
+    @topic_delim = " || "
   end
 
   def usage
-    '!channel <commands> - Administrate the current channel (admin required). See !help for a link to channel commands.'
+    "!channel <commands> - Administrate the current channel (admin required). See !help for a link to channel commands."
   end
 
   def match?(cmd)

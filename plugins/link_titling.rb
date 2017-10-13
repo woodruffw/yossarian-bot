@@ -7,19 +7,19 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'uri'
-require 'open-uri'
-require 'open_uri_redirections'
-require 'nokogiri'
-require 'timeout'
+require "uri"
+require "open-uri"
+require "open_uri_redirections"
+require "nokogiri"
+require "timeout"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class LinkTitling < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  YOUTUBE_KEY = ENV['YOUTUBE_API_KEY']
+  YOUTUBE_KEY = ENV["YOUTUBE_API_KEY"]
   YOUTUBE_URL = "https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=%{id}&key=%{key}"
 
   match /(#{URI::regexp(['http', 'https'])})/, use_prefix: false, method: :link_title
@@ -43,16 +43,16 @@ class LinkTitling < YossarianPlugin
     begin
       Timeout::timeout(5) do
         html = Nokogiri::HTML(open(uri, { :allow_redirections => :safe }))
-        html.css('title').text.normalize_whitespace
+        html.css("title").text.normalize_whitespace
       end
     rescue Exception
-      'Unknown'
+      "Unknown"
     end
   end
 
   def youtube_title(uri)
-    query = uri.query || ''
-    id = URI::decode_www_form(query).to_h['v']
+    query = uri.query || ""
+    id = URI::decode_www_form(query).to_h["v"]
 
     if id.nil?
       generic_title(uri)
@@ -60,10 +60,10 @@ class LinkTitling < YossarianPlugin
       api_url = YOUTUBE_URL % { id: id, key: YOUTUBE_KEY }
 
       begin
-        hash = JSON.parse(open(api_url).read)['items'].first
-        hash['snippet']['title']
+        hash = JSON.parse(open(api_url).read)["items"].first
+        hash["snippet"]["title"]
       rescue Exception => e
-        'Unknown'
+        "Unknown"
       end
     end
   end
