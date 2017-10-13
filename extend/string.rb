@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class String
   def normalize_whitespace
     self.gsub(/\s+/, " ")

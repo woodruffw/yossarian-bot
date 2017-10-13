@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  channel_moderator.rb
 #  Author: William Woodruff
 #  ------------------------

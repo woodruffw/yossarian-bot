@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Cinch
   module Plugin
     module ClassMethods

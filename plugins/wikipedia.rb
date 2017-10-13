@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  wikipedia.rb
 #  Authors: slackR (slackErEhth77) and William Woodruff
 #  ------------------------
