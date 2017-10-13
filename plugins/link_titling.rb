@@ -44,7 +44,7 @@ class LinkTitling < YossarianPlugin
   def generic_title(uri)
     begin
       Timeout::timeout(5) do
-        html = Nokogiri::HTML(open(uri, { :allow_redirections => :safe }))
+        html = Nokogiri::HTML(open(uri, { allow_redirections: :safe }))
         html.css("title").text.normalize_whitespace
       end
     rescue Exception

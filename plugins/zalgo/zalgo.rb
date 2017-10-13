@@ -27,6 +27,6 @@ class Zalgo < YossarianPlugin
   match /zalgo (.+)/, method: :zalgo, strip_colors: true
 
   def zalgo(m, text)
-    m.reply ZalgoText.he_comes(text, {:up => false, :down => false}), true
+    m.reply ZalgoText.he_comes(text, {up: false, down: false}), true
   end
 end
