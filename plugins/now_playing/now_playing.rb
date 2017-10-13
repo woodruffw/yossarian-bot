@@ -81,11 +81,11 @@ class NowPlaying < YossarianPlugin
             # APIs should always return a uniform type...
             info = info.first if info.is_a?(Array)
 
-            if info["nowplaying"]
-              active = "is now playing"
-            else
-              active = "last played"
-            end
+            active = if info["nowplaying"]
+                       "is now playing"
+                     else
+                       "last played"
+                     end
 
             artist = info["artist"]["content"]
             song = info["name"]

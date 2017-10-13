@@ -43,13 +43,13 @@ class BookInfo < YossarianPlugin
         title = book_info["title"]
         authors = book_info["authors"]["author"]
 
-        if authors.is_a? Array
-          authors = authors.map do |a|
-            a["name"]
-          end.join(", ")
-        else
-          authors = authors["name"]
-        end
+        authors = if authors.is_a? Array
+                    authors.map do |a|
+                      a["name"]
+                    end.join(", ")
+                  else
+                    authors["name"]
+                  end
 
         year = book_info["work"]["original_publication_year"] || book_info["publication_year"]
         rating = book_info["average_rating"]
@@ -58,13 +58,13 @@ class BookInfo < YossarianPlugin
 
         similar_books = book_info["similar_books"]["book"]
 
-        if similar_books
-          similar_books = similar_books[0...3].map do |b|
-            b["title_without_series"]
-          end.join(", ")
-        else
-          similar_books = "None"
-        end
+        similar_books = if similar_books
+                          similar_books[0...3].map do |b|
+                            b["title_without_series"]
+                          end.join(", ")
+                        else
+                          "None"
+                        end
 
         m.reply "#{title} (#{authors}, published #{year}). Rated #{rating}/5 by #{ratings_count} people. Similar books: #{similar_books}. More information at #{link}", true
       rescue Goodreads::NotFound
