@@ -19,7 +19,7 @@ class ShakespeareanInsults < YossarianPlugin
   use_blacklist
 
   INSULTS_FILE = File.expand_path(File.join(File.dirname(__FILE__), "shakespearean_insults.yml"))
-  INSULTS = YAML::load_file(INSULTS_FILE)
+  INSULTS = YAML.load_file(INSULTS_FILE)
 
   def usage
     "!insult [nick] - Generate a Shakespearean insult, and insult someone if given."

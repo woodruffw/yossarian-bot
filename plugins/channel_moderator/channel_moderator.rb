@@ -23,7 +23,7 @@ class ChannelModerator < YossarianPlugin
     @rules_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "rules.yml"))
 
     if File.file?(@rules_file)
-      @rules = @rules = YAML::load_file(@rules_file)
+      @rules = @rules = YAML.load_file(@rules_file)
       @rules.default_proc = Proc.new { |h, k| h[k] = [] }
     else
       FileUtils.mkdir_p File.dirname(@rules_file)

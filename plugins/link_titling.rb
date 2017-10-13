@@ -24,7 +24,7 @@ class LinkTitling < YossarianPlugin
   YOUTUBE_KEY = ENV["YOUTUBE_API_KEY"]
   YOUTUBE_URL = "https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=%{id}&key=%{key}"
 
-  match /(#{URI::regexp(['http', 'https'])})/, use_prefix: false, method: :link_title
+  match /(#{URI.regexp(['http', 'https'])})/, use_prefix: false, method: :link_title
 
   def link_title(m, link)
     uri = URI(link)
@@ -43,7 +43,7 @@ class LinkTitling < YossarianPlugin
 
   def generic_title(uri)
     begin
-      Timeout::timeout(5) do
+      Timeout.timeout(5) do
         html = Nokogiri::HTML(open(uri, { allow_redirections: :safe }))
         html.css("title").text.normalize_whitespace
       end
@@ -54,7 +54,7 @@ class LinkTitling < YossarianPlugin
 
   def youtube_title(uri)
     query = uri.query || ""
-    id = URI::decode_www_form(query).to_h["v"]
+    id = URI.decode_www_form(query).to_h["v"]
 
     if id.nil?
       generic_title(uri)

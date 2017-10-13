@@ -22,7 +22,7 @@ class CustomTriggers < YossarianPlugin
     @triggers_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "custom_triggers.yml"))
 
     if File.file?(@triggers_file)
-      @triggers = YAML::load_file(@triggers_file)
+      @triggers = YAML.load_file(@triggers_file)
       @triggers.default_proc = Proc.new { |h, k| h[k] = {} }
     else
       FileUtils.mkdir_p File.dirname(@triggers_file)
