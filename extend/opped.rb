@@ -5,9 +5,9 @@ module Cinch
     module ClassMethods
       def use_opped(silent: false)
         if silent
-          hook :pre, :for => [:match], :method => :opped_silent?
+          hook :pre, for: [:match], method: :opped_silent?
         else
-          hook :pre, :for => [:match], :method => :opped?
+          hook :pre, for: [:match], method: :opped?
         end
       end
     end

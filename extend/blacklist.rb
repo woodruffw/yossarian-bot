@@ -4,7 +4,7 @@ module Cinch
   module Plugin
     module ClassMethods
       def use_blacklist
-        hook :pre, :for => [:match, :listen_to], :method => :not_blacklisted?
+        hook :pre, for: [:match, :listen_to], method: :not_blacklisted?
       end
     end
 

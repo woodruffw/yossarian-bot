@@ -66,13 +66,13 @@ module ZalgoText
 
   def self.he_comes(text, options = {})
     result = ""
-    options = { :up => true, :mid => true, :down => true }.merge options
+    options = { up: true, mid: true, down: true }.merge options
 
     text.each_char.each do |char|
       next if Characters.is_char? char
 
       result << char
-      counts = { :up => 0, :mid => 0, :down => 0 }
+      counts = { up: 0, mid: 0, down: 0 }
 
       case options[:size]
       when :mini

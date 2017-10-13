@@ -5,9 +5,9 @@ module Cinch
     module ClassMethods
       def use_auth(silent: false)
         if silent
-          hook :pre, :for => [:match], :method => :authed_silent?
+          hook :pre, for: [:match], method: :authed_silent?
         else
-          hook :pre, :for => [:match], :method => :authed?
+          hook :pre, for: [:match], method: :authed?
         end
       end
     end
