@@ -19,7 +19,7 @@ class CodeEval < YossarianPlugin
   use_blacklist
 
   def usage
-    "!eval <lang> <code> - Evaluate the given code with the given language on eval.in."
+    "!eval <lang> <code> - Evaluate the given code with the given language on eval.in. (Use `!eval' to get a list of languages.)"
   end
 
   def match?(cmd)
@@ -36,5 +36,11 @@ class CodeEval < YossarianPlugin
     m.reply "I don\'t know #{lang}.", true
   rescue EvalIn::ConnectionError
     m.reply "Failure while connecting to evaluation service.", true
+  end
+
+  match /eval$/, method: :list_languages, strip_colors: true
+
+  def list_languages(m)
+    m.reply "Known language: #{EvalIn::Result::LANGS.keys * ", "}", true
   end
 end
