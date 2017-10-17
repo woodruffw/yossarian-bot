@@ -41,6 +41,7 @@ class CodeEval < YossarianPlugin
   match /eval$/, method: :list_languages, strip_colors: true
 
   def list_languages(m)
-    m.reply "Known language: #{EvalIn::Result::LANGS.keys * ", "}", true
+    langs = EvalIn::Result::LANGS.keys * ", "
+    m.reply "Known language: #{langs}", true
   end
 end
