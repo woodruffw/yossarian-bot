@@ -42,7 +42,7 @@ class MyAnimeListSearch < YossarianPlugin
       res = nil
     end
 
-    if !res.nil? && res.any? then
+    if res&.any?
       first = res.first
 
       url = "http://myanimelist.net/#{type}/#{first['id']}"
