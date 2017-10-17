@@ -1,3 +1,5 @@
+#  frozen_string_literal: true
+
 #  -*- coding: utf-8 -*-
 #  myanimelist.rb
 #  Author: Winston Weinert
@@ -45,16 +47,16 @@ class MyAnimeListSearch < YossarianPlugin
     if res&.any?
       first = res.first
 
-      url = "http://myanimelist.net/#{type}/#{first['id']}"
+      url = "http://myanimelist.net/#{type}/#{first["id"]}"
       title = first["title"].strip
 
       syn = @entities.decode(first["synopsis"]).strip
       truncated = syn[0..147].strip
       syn = "#{truncated}..." if syn != truncated
 
-      if first["english"] then
+      if first["english"]
         english = first["english"].strip
-        maybe_english = english != title ? " (#{english})" : "";
+        maybe_english = english != title ? " (#{english})" : ""
       else
         maybe_english = ""
       end
@@ -65,4 +67,3 @@ class MyAnimeListSearch < YossarianPlugin
     end
   end
 end
-
