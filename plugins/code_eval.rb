@@ -42,6 +42,6 @@ class CodeEval < YossarianPlugin
 
   def list_languages(m)
     langs = EvalIn::Result::LANGS.keys * ", "
-    m.reply "Known language: #{langs}", true
+    m.reply "Known languages: #{langs}", true
   end
 end
