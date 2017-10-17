@@ -142,8 +142,8 @@ channel in question.
 
 Subcommand | Description
 ---------- | ----------
-`add <intro>` | Set your nick's introduction message to the given intro.
-`rm` | Delete your nick's introduction message.
+`set <intro>` | Set your nick's introduction message to the given intro. (Alias: `add`)
+`clear` | Delete your nick's introduction message. (Aliases: `rm`, `remove`, `del`, `delete`)
 `show` | Show your nick's introduction message.
 
 
