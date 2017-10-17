@@ -39,24 +39,29 @@ class MyAnimeListSearch < YossarianPlugin
     begin
       res = type == 'anime' ? MyAnimeList.search_anime(query) : MyAnimeList.search_manga(query)
     rescue MyAnimeList::ApiException
-      m.reply 'No results for ' + type + ' "' + query + '".', true
-      return
+      res = nil
     end
 
-    if res.any? then
+    if !res.nil? && res.any? then
       first = res.first
-      s = 'http://myanimelist.net/' + type + '/' + first['id']
-      s << ' ' + first['title'] + ' '
-      if first['english'] && first['english'] != first['title'] then
-        s << '(' + first['english'] + ') '
+
+      url = "http://myanimelist.net/#{type}/#{first['id']}"
+      title = first['title'].strip
+
+      syn = @entities.decode(first['synopsis']).strip
+      truncated = syn[0..147].strip
+      syn = "#{truncated}..." if syn != truncated
+
+      if first['english'] then
+        english = first['english'].strip
+        maybe_english = english != title ? " (#{english})" : '';
+      else
+        maybe_english = ''
       end
-      syn = @entities.decode(first['synopsis'])
-      truncated = syn[0..147]
-      syn = truncated + '...' if syn != truncated
-      s << '-- ' + syn
-      m.reply s, true
+
+      m.reply "#{url} #{title}#{maybe_english} -- #{syn}", true
     else
-      m.reply 'No results for ' + type + ' "' + query + '".', true
+      m.reply "No results for #{type} \"#{query}\"", true
     end
   end
 end
