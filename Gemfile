@@ -27,5 +27,5 @@ gem "time_difference"
 gem "wolfram"
 gem "wunderground"
 gem "xkcd"
-gem 'myanimelist', '~> 1.0'
-gem 'htmlentities'
+gem "myanimelist", "~> 1.0"
+gem "htmlentities"
