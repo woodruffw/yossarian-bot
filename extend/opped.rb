@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 module Cinch
   module Plugin
     module ClassMethods
       def use_opped(silent: false)
         if silent
-          hook :pre, :for => [:match], :method => :opped_silent?
+          hook :pre, for: [:match], method: :opped_silent?
         else
-          hook :pre, :for => [:match], :method => :opped?
+          hook :pre, for: [:match], method: :opped?
         end
       end
     end
@@ -16,10 +18,10 @@ module Cinch
 
     def opped?(m)
       if opped_silent?(m)
-        return true
+        true
       else
         m.reply "I can\'t administrate this channel.", true
-        return false
+        false
       end
     end
   end

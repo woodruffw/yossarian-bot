@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  link_titling.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,22 +9,22 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'uri'
-require 'open-uri'
-require 'open_uri_redirections'
-require 'nokogiri'
-require 'timeout'
+require "uri"
+require "open-uri"
+require "open_uri_redirections"
+require "nokogiri"
+require "timeout"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class LinkTitling < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  YOUTUBE_KEY = ENV['YOUTUBE_API_KEY']
+  YOUTUBE_KEY = ENV["YOUTUBE_API_KEY"]
   YOUTUBE_URL = "https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&id=%{id}&key=%{key}"
 
-  match /(#{URI::regexp(['http', 'https'])})/, use_prefix: false, method: :link_title
+  match /(#{URI.regexp(['http', 'https'])})/, use_prefix: false, method: :link_title
 
   def link_title(m, link)
     uri = URI(link)
@@ -34,25 +36,21 @@ class LinkTitling < YossarianPlugin
       title = generic_title(uri)
     end
 
-    if title && !title.empty?
-      m.reply "Title: #{title}"
-    end
+    m.reply "Title: #{title}" if title && !title.empty?
   end
 
   def generic_title(uri)
-    begin
-      Timeout::timeout(5) do
-        html = Nokogiri::HTML(open(uri, { :allow_redirections => :safe }))
-        html.css('title').text.normalize_whitespace
-      end
-    rescue Exception
-      'Unknown'
+    Timeout.timeout(5) do
+      html = Nokogiri::HTML(open(uri, { allow_redirections: :safe }))
+      html.css("title").text.normalize_whitespace
     end
+  rescue Exception
+    "Unknown"
   end
 
   def youtube_title(uri)
-    query = uri.query || ''
-    id = URI::decode_www_form(query).to_h['v']
+    query = uri.query || ""
+    id = URI.decode_www_form(query).to_h["v"]
 
     if id.nil?
       generic_title(uri)
@@ -60,10 +58,10 @@ class LinkTitling < YossarianPlugin
       api_url = YOUTUBE_URL % { id: id, key: YOUTUBE_KEY }
 
       begin
-        hash = JSON.parse(open(api_url).read)['items'].first
-        hash['snippet']['title']
+        hash = JSON.parse(open(api_url).read)["items"].first
+        hash["snippet"]["title"]
       rescue Exception => e
-        'Unknown'
+        "Unknown"
       end
     end
   end

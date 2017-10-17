@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #  -*- coding: utf-8 -*-
 #  omdb.rb
 #  Author: William Woodruff
@@ -7,19 +9,19 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'json'
-require 'open-uri'
+require "json"
+require "open-uri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class OMDB < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'http://www.omdbapi.com/?t=%{query}&plot=short&r=json'
+  URL = "https://www.omdbapi.com/?t=%<query>s&plot=short&r=json"
 
   def usage
-    '!omdb <title> - Look up a movie or show on the Open Movie Database.'
+    "!omdb <title> - Look up a movie or show on the Open Movie Database."
   end
 
   def match?(cmd)
@@ -34,22 +36,21 @@ class OMDB < YossarianPlugin
 
     begin
       hash = JSON.parse(open(url).read)
-      hash.default = '?'
+      hash.default = "?"
 
-      if !hash.key?('Error')
-        title = hash['Title']
-        year = hash['Year']
-        genres = hash['Genre']
-        plot = hash['Plot']
-        imdb_rating = hash['imdbRating']
-        imdb_link = "http://imdb.com/title/#{hash['imdbID']}"
+      if !hash.key?("Error")
+        title = hash["Title"]
+        year = hash["Year"]
+        genres = hash["Genre"]
+        plot = hash["Plot"]
+        imdb_rating = hash["imdbRating"]
+        imdb_link = "http://imdb.com/title/#{hash["imdbID"]}"
 
         m.reply "#{title} (#{year}) (#{genres}). #{plot} IMDB rating: #{imdb_rating}/10. More at #{imdb_link}.", true
       else
-        m.reply "Error: #{hash['Error']}", true
+        m.reply "Error: #{hash["Error"]}", true
       end
     rescue Exception => e
-      debug e
       m.reply e.to_s, true
     end
   end

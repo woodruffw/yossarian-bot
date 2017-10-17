@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  cstopic.rb
 #  Author: slackR
 #  ------------------------
@@ -7,16 +9,16 @@
 #  This code is licensed by slackR under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'research_topicgen'
+require "research_topicgen"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class CSTopics < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
   def usage
-    '!topic <cs|system|crypto> - Generate worthy research topics.'
+    "!topic <cs|system|crypto> - Generate worthy research topics."
   end
 
   match /topic (.+)/, method: :topic

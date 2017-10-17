@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  flip_text.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,16 +9,16 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'flippy'
+require "flippy"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class FlipText < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
   def usage
-    '!flip <down|up> <text> - Flip text upside down or rightside up.'
+    "!flip <down|up> <text> - Flip text upside down or rightside up."
   end
 
   def match?(cmd)

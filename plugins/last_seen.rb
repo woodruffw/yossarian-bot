@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  last_seen.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -9,7 +11,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class LastSeen < YossarianPlugin
   include Cinch::Plugin
@@ -17,7 +19,7 @@ class LastSeen < YossarianPlugin
 
   class LastSeenStruct < Struct.new(:who, :where, :what, :time)
     def to_s
-      return "#{who} was last seen on #{time.asctime} in #{where} saying #{what}"
+      "#{who} was last seen on #{time.asctime} in #{where} saying #{what}"
     end
   end
 
@@ -27,7 +29,7 @@ class LastSeen < YossarianPlugin
   end
 
   def usage
-    '!seen <nick> - Check the last time <nick> was seen.'
+    "!seen <nick> - Check the last time <nick> was seen."
   end
 
   def match?(cmd)

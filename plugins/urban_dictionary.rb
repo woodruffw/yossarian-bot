@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  urban_dictionary.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,19 +9,19 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'json'
-require 'open-uri'
+require "json"
+require "open-uri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class UrbanDictionary < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'http://api.urbandictionary.com/v0/define?term=%{query}'
+  URL = "http://api.urbandictionary.com/v0/define?term=%{query}"
 
   def usage
-    '!ud <phrase> - Look up <phrase> on UrbanDictionary. Alias: !urban.'
+    "!ud <phrase> - Look up <phrase> on UrbanDictionary. Alias: !urban."
   end
 
   def match?(cmd)
@@ -36,10 +38,10 @@ class UrbanDictionary < YossarianPlugin
     begin
       hash = JSON.parse(open(url).read)
 
-      if hash['list'].nonempty?
-        list = hash['list'].first
-        definition = list['definition'][0..255].normalize_whitespace
-        link = list['permalink']
+      if hash["list"].nonempty?
+        list = hash["list"].first
+        definition = list["definition"][0..255].normalize_whitespace
+        link = list["permalink"]
         m.reply "#{phrase} - #{definition}... (#{link})", true
       else
         m.reply "UrbanDictionary has nothing for #{phrase}."

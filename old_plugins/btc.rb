@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  btc.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -8,15 +10,15 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'open-uri'
+require "open-uri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class BTC < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'https://api.bitcoinaverage.com/ticker/global/USD/last'
+  URL = "https://api.bitcoinaverage.com/ticker/global/USD/last"
 
   def initialize(*args)
     super
@@ -24,7 +26,7 @@ class BTC < YossarianPlugin
   end
 
   def usage
-    '!btc - Get the current Bitcoin exchange rate in USD.'
+    "!btc - Get the current Bitcoin exchange rate in USD."
   end
 
   def match?(cmd)
@@ -34,20 +36,18 @@ class BTC < YossarianPlugin
   match /btc$/, method: :btc_rate
 
   def btc_rate(m)
-    begin
-      rate = open(URL).read
+    rate = open(URL).read
 
-      if @last_trade.nil?
-        m.reply "1 BTC = #{rate} USD", true
-      else
-        direction = (@last_trade < rate ? "↑" : "↓")
-        m.reply "1 BTC = #{rate} USD | #{direction}", true
-      end
-
-      @last_trade = rate
-
-    rescue Exception => e
-      m.reply e.to_s, true
+    if @last_trade.nil?
+      m.reply "1 BTC = #{rate} USD", true
+    else
+      direction = (@last_trade < rate ? "↑" : "↓")
+      m.reply "1 BTC = #{rate} USD | #{direction}", true
     end
+
+    @last_trade = rate
+
+  rescue Exception => e
+    m.reply e.to_s, true
   end
 end

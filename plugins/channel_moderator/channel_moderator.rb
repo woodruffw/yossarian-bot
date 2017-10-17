@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  channel_moderator.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,9 +9,9 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'yaml'
+require "yaml"
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class ChannelModerator < YossarianPlugin
   include Cinch::Plugin
@@ -18,10 +20,10 @@ class ChannelModerator < YossarianPlugin
 
   def initialize(*args)
     super
-    @rules_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'rules.yml'))
+    @rules_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "rules.yml"))
 
     if File.file?(@rules_file)
-      @rules = @rules = YAML::load_file(@rules_file)
+      @rules = @rules = YAML.load_file(@rules_file)
       @rules.default_proc = Proc.new { |h, k| h[k] = [] }
     else
       FileUtils.mkdir_p File.dirname(@rules_file)
@@ -36,7 +38,7 @@ class ChannelModerator < YossarianPlugin
   end
 
   def usage
-    '!moderator <commands> - Configure channel moderation (admin required). See !help for a link to moderator commands.'
+    "!moderator <commands> - Configure channel moderation (admin required). See !help for a link to moderator commands."
   end
 
   def match?(cmd)
@@ -74,7 +76,7 @@ class ChannelModerator < YossarianPlugin
   match /moderator list$/, method: :moderator_list_rules, strip_colors: true
 
   def moderator_list_rules(m)
-    rules = @rules[m.channel.to_s].map { |r| "/#{r}/" }.join(', ')
+    rules = @rules[m.channel.to_s].map { |r| "/#{r}/" }.join(", ")
     m.reply "Current moderation expressions: #{rules}"
   end
 
@@ -87,7 +89,7 @@ class ChannelModerator < YossarianPlugin
     if @rules.key?(channel) && Regexp.union(@rules[channel]).match(message) && !m.channel.opped?(m.user)
       m.channel.kick m.user, "Please follow channel rules. I\'ve sent them to you in a private message."
       m.user.send "Your message triggered one of these patterns:"
-      m.user.send @rules[m.channel.to_s].map { |r| "/#{r}/" }.join(', ')
+      m.user.send @rules[m.channel.to_s].map { |r| "/#{r}/" }.join(", ")
       m.user.send "If you think a mistake was made, please contact a channel operator."
     end
   end

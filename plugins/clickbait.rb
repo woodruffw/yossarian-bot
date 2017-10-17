@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  clickbait.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,16 +9,16 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'upworthy'
+require "upworthy"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class Clickbait < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
   def usage
-    '!clickbait - Generate a clickbait-y title.'
+    "!clickbait - Generate a clickbait-y title."
   end
 
   def match?(cmd)

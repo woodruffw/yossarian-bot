@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  reminders.rb
 #  Authors: slackR (slackErEhth77) and William Woodruff
 #  ------------------------
@@ -7,7 +9,7 @@
 #  This code is licensed by slackErEhth77 under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class Reminders < YossarianPlugin
   include Cinch::Plugin
@@ -19,7 +21,7 @@ class Reminders < YossarianPlugin
   end
 
   def usage
-    '!remind <count> <unit> <message> - Set a reminder message for a time in the future.'
+    "!remind <count> <unit> <message> - Set a reminder message for a time in the future."
   end
 
   def match(cmd)

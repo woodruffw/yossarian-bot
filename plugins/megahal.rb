@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  bot_info.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,9 +9,9 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'megahal'
+require "megahal"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class HAL < YossarianPlugin
   include Cinch::Plugin
@@ -21,7 +23,7 @@ class HAL < YossarianPlugin
   end
 
   def usage
-    '!hal9000 <message> - Talk to MegaHAL. Alias: !hal9k.'
+    "!hal9000 <message> - Talk to MegaHAL. Alias: !hal9k."
   end
 
   def match?(cmd)

@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  zalgo_text.rb
 #  Author: Alex Young
 #  Modified by: William Woodruff
@@ -53,7 +55,7 @@ module ZalgoText
       }
     end
 
-    def self.all 
+    def self.all
       up + down + mid
     end
 
@@ -63,14 +65,14 @@ module ZalgoText
   end
 
   def self.he_comes(text, options = {})
-    result = ''
-    options = { :up => true, :mid => true, :down => true }.merge options
+    result = ""
+    options = { up: true, mid: true, down: true }.merge options
 
     text.each_char.each do |char|
       next if Characters.is_char? char
 
       result << char
-      counts = { :up => 0, :mid => 0, :down => 0 }
+      counts = { up: 0, mid: 0, down: 0 }
 
       case options[:size]
       when :mini

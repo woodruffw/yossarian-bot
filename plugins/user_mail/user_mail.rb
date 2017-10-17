@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  user_mail.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,10 +9,10 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'yaml'
-require 'fileutils'
+require "yaml"
+require "fileutils"
 
-require_relative '../yossarian_plugin.rb'
+require_relative "../yossarian_plugin.rb"
 
 class UserMail < YossarianPlugin
   include Cinch::Plugin
@@ -25,10 +27,10 @@ class UserMail < YossarianPlugin
 
   def initialize(*args)
     super
-    @mbox_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_mail.yml'))
+    @mbox_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_mail.yml"))
 
     if File.file?(@mbox_file)
-      @mbox = YAML::load_file(@mbox_file)
+      @mbox = YAML.load_file(@mbox_file)
       @mbox.default_proc = Proc.new { |h, k| h[k] = [] }
     else
       FileUtils.mkdir_p File.dirname(@mbox_file)
@@ -43,7 +45,7 @@ class UserMail < YossarianPlugin
   end
 
   def usage
-    '!mail <nick> <message> - Send a message to a nick. Messages are delivered the next time the nick speaks.'
+    "!mail <nick> <message> - Send a message to a nick. Messages are delivered the next time the nick speaks."
   end
 
   def match?(cmd)

@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  code_eval.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -8,16 +10,16 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'eval-in'
+require "eval-in"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class CodeEval < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
   def usage
-    '!eval <lang> <code> - Evaluate the given code with the given language on eval.in.'
+    "!eval <lang> <code> - Evaluate the given code with the given language on eval.in."
   end
 
   def match?(cmd)
@@ -27,14 +29,12 @@ class CodeEval < YossarianPlugin
   match /eval (\S+) (.+)/, method: :code_eval, strip_colors: true
 
   def code_eval(m, lang, code)
-    begin
-      result = EvalIn.eval(lang, code)
+    result = EvalIn.eval(lang, code)
 
-      m.reply result.output.normalize_whitespace, true
-    rescue EvalIn::BadLanguageError
-      m.reply "I don\'t know #{lang}.", true
-    rescue EvalIn::ConnectionError
-      m.reply "Failure while connecting to evaluation service.", true
-    end
+    m.reply result.output.normalize_whitespace, true
+  rescue EvalIn::BadLanguageError
+    m.reply "I don\'t know #{lang}.", true
+  rescue EvalIn::ConnectionError
+    m.reply "Failure while connecting to evaluation service.", true
   end
 end

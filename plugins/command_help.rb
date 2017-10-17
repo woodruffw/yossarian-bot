@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  command_help.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,14 +9,14 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class CommandHelp < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
   def usage
-    '!help [cmd] - Display general help, or help for [cmd].'
+    "!help [cmd] - Display general help, or help for [cmd]."
   end
 
   def match?(cmd)
@@ -24,7 +26,7 @@ class CommandHelp < YossarianPlugin
   match /help$/, method: :help
 
   def help(m)
-    m.reply 'Commands: http://git.io/38F1qA - Use !help <cmd> for info.', true
+    m.reply "Commands: http://git.io/38F1qA - Use !help <cmd> for info.", true
   end
 
   match /help (\S+)/, method: :help_cmd

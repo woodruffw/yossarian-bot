@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  ctcp_version.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -8,7 +10,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class CTCPVersion < YossarianPlugin
   include Cinch::Plugin
@@ -16,13 +18,13 @@ class CTCPVersion < YossarianPlugin
 
   def initialize(*args)
     super
-    @nick = ''
-    @channel = ''
+    @nick = ""
+    @channel = ""
     @sent = false
   end
 
   def usage
-    '!ver <nick> - Send a CTCP VERSION request to <nick>. Alias: !version.'
+    "!ver <nick> - Send a CTCP VERSION request to <nick>. Alias: !version."
   end
 
   def match?(cmd)
@@ -34,9 +36,9 @@ class CTCPVersion < YossarianPlugin
   def ctcp_ver_req(m, nick)
     if m.channel.has_user?(nick)
       if nick == @bot.nick
-        m.reply 'See !botinfo version for my version.', true
+        m.reply "See !botinfo version for my version.", true
       else
-        User(nick).ctcp 'VERSION'
+        User(nick).ctcp "VERSION"
         @nick = m.user.nick
         @channel = m.channel
         @sent = true
@@ -49,13 +51,13 @@ class CTCPVersion < YossarianPlugin
   listen_to :ctcp, method: :ctcp_ver_recv
 
   def ctcp_ver_recv(m)
-    if m.ctcp_message.include?('VERSION')
+    if m.ctcp_message.include?("VERSION")
       if @sent
-        version = Sanitize(m.ctcp_message.sub('VERSION ', ''))
+        version = Sanitize(m.ctcp_message.sub("VERSION ", ""))
         Channel(@channel).send "#{@nick}: #{m.user.nick} is using #{version}."
         @sent = false
       else
-        m.reply 'See !botinfo version for my version.', true
+        m.reply "See !botinfo version for my version.", true
       end
     end
   end

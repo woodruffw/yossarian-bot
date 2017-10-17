@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  yossarian_plugin.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -10,7 +12,7 @@
 class YossarianPlugin
   # default usage stub
   def usage
-    ''
+    ""
   end
 
   #default match stub

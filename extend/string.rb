@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class String
   def normalize_whitespace
-    self.gsub(/\s+/, ' ')
+    self.gsub(/\s+/, " ")
   end
 
   def normalize_whitespace!
-    self.gsub!(/\s+/, ' ')
+    self.gsub!(/\s+/, " ")
   end
 
   # http://stackoverflow.com/q/9230663

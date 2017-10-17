@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  custom_triggers.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,9 +9,9 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'yaml'
+require "yaml"
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class CustomTriggers < YossarianPlugin
   include Cinch::Plugin
@@ -17,10 +19,10 @@ class CustomTriggers < YossarianPlugin
 
   def initialize(*args)
     super
-    @triggers_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'custom_triggers.yml'))
+    @triggers_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "custom_triggers.yml"))
 
     if File.file?(@triggers_file)
-      @triggers = YAML::load_file(@triggers_file)
+      @triggers = YAML.load_file(@triggers_file)
       @triggers.default_proc = Proc.new { |h, k| h[k] = {} }
     else
       FileUtils.mkdir_p File.dirname(@triggers_file)
@@ -35,14 +37,14 @@ class CustomTriggers < YossarianPlugin
   end
 
   def usage
-    '!trigger <command> - Manage custom triggers. Commands are add, rm, and list. Alias: !reply.'
+    "!trigger <command> - Manage custom triggers. Commands are add, rm, and list. Alias: !reply."
   end
 
   def match?(cmd)
     cmd =~ /^(!)?(trigger$)|(reply$)/
   end
 
-  match /trigger add (\S+.+) -> (.+)/, method: :add_trigger # Note: mandatory " -> " string
+  match /trigger add (\S.+) -> (.+)/, method: :add_trigger # Note: mandatory " -> " string
 
   def add_trigger(m, trigger, response)
     channel = m.channel.to_s
@@ -53,7 +55,7 @@ class CustomTriggers < YossarianPlugin
     sync_triggers_file
   end
 
-  match /trigger rm (\S+)/, method: :rm_trigger
+  match /trigger rm (\S.+)/, method: :rm_trigger
 
   def rm_trigger(m, trigger)
     channel = m.channel.to_s
@@ -73,7 +75,7 @@ class CustomTriggers < YossarianPlugin
     if @triggers.empty?
       m.reply "I don\'t currently have any triggers.", true
     else
-      m.reply @triggers[m.channel.to_s].keys.join(', '), true
+      m.reply @triggers[m.channel.to_s].keys.join(", "), true
     end
   end
 

@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  zalgo.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -15,7 +17,7 @@ class Zalgo < YossarianPlugin
   use_blacklist
 
   def usage
-    '!zalgo <text> - Summon Zalgo with the given text.'
+    "!zalgo <text> - Summon Zalgo with the given text."
   end
 
   def match?(cmd)
@@ -25,6 +27,6 @@ class Zalgo < YossarianPlugin
   match /zalgo (.+)/, method: :zalgo, strip_colors: true
 
   def zalgo(m, text)
-    m.reply ZalgoText.he_comes(text, {:up => false, :down => false}), true
+    m.reply ZalgoText.he_comes(text, {up: false, down: false}), true
   end
 end

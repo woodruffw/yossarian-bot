@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  hastebin.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,16 +9,16 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'haste'
+require "haste"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class Hastebin < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
   def usage
-    '!hb <text> - Post text to Hastebin. Aliases: !haste, !hastebin.'
+    "!hb <text> - Post text to Hastebin. Aliases: !haste, !hastebin."
   end
 
   def match?(cmd)
@@ -29,7 +31,7 @@ class Hastebin < YossarianPlugin
   def hastebin(m, text)
     haste = Haste::Uploader.new
     key = haste.upload_raw text
-    
+
     m.reply "http://hastebin.com/#{key}", true
   end
 end

@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  jerkcity.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,16 +9,16 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'open-uri'
-require 'nokogiri'
+require "open-uri"
+require "nokogiri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class Jerkcity < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'http://jerkcity.com'
+  URL = "http://jerkcity.com"
 
   def initialize(*args)
     super
@@ -25,7 +27,7 @@ class Jerkcity < YossarianPlugin
   end
 
   def usage
-    '!jerkcity - Fetch a random comic from jerkcity.com.'
+    "!jerkcity - Fetch a random comic from jerkcity.com."
   end
 
   def match?(cmd)
@@ -33,13 +35,11 @@ class Jerkcity < YossarianPlugin
   end
 
   def initialize_comic_count
-    begin
-      html = Nokogiri::HTML(open(URL).read)
-      text = html.css('div')[3].text
-      @comic_count = text.split('|')[2].strip.gsub(/(No. )|(,)/, '').to_i
-    rescue Exception => e
-      debug e.to_s
-    end
+    html = Nokogiri::HTML(open(URL).read)
+    text = html.css("div")[3].text
+    @comic_count = text.split("|")[2].strip.gsub(/(No. )|(,)/, "").to_i
+  rescue Exception => e
+    debug e.to_s
   end
 
   match /jerkcity$/, method: :jerkcity
@@ -51,7 +51,7 @@ class Jerkcity < YossarianPlugin
 
       begin
         html = Nokogiri::HTML(open(comic_url).read)
-        text_array = html.css('div')[3].text.split('|')
+        text_array = html.css("div")[3].text.split("|")
         comic_desc = text_array[0].strip
         comic_date = text_array[1].strip
 

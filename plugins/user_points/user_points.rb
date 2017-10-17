@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  user_points.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,10 +9,10 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'yaml'
-require 'fileutils'
+require "yaml"
+require "fileutils"
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class UserPoints < YossarianPlugin
   include Cinch::Plugin
@@ -18,10 +20,10 @@ class UserPoints < YossarianPlugin
 
   def initialize(*args)
     super
-    @points_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_points.yml'))
+    @points_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_points.yml"))
 
     if File.file?(@points_file)
-      @points = YAML::load_file(@points_file)
+      @points = YAML.load_file(@points_file)
       @points.default_proc = Proc.new { |h, k| h[k] = 0 }
     else
       FileUtils.mkdir_p File.dirname(@points_file)
@@ -36,7 +38,7 @@ class UserPoints < YossarianPlugin
   end
 
   def usage
-    '!point <command> <nick> - Give or take points away from a nickname. Commands are add, rm, and show.'
+    "!point <command> <nick> - Give or take points away from a nickname. Commands are add, rm, and show."
   end
 
   def match?(cmd)
@@ -71,5 +73,18 @@ class UserPoints < YossarianPlugin
 
   def show_intro(m, nick) # one downcase call, no need for extra var
     m.reply "#{nick} has #{@points[nick.downcase]} points.", true
+  end
+
+  match /point leaderboard/, method: :show_leaderboard
+
+  def show_leaderboard(m)
+    top5 = @points.max_by(5) { |_, p| p }
+
+    leaderboard = if top5.empty?
+                    "Empty"
+                  else
+                    top5.map { |u, p| "#{u}: #{p}" }.join ", "
+                  end
+    m.reply "Leaderboard: #{leaderboard}.", true
   end
 end

@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  beedogs.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -9,15 +11,15 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'open-uri'
+require "open-uri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class Beedogs < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'http://beedog.github.io'
+  URL = "http://beedog.github.io"
   COUNT_URL = "#{URL}/count"
   IMAGE_URL = "#{URL}/image%{num}.png"
 
@@ -27,7 +29,7 @@ class Beedogs < YossarianPlugin
   end
 
   def usage
-    '!beedog - Retrieve a random picture of a beedog.'
+    "!beedog - Retrieve a random picture of a beedog."
   end
 
   def match?(cmd)

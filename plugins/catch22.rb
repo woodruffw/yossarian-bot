@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  catch22.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,7 +9,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class Catch22 < YossarianPlugin
   include Cinch::Plugin
@@ -51,7 +53,7 @@ class Catch22 < YossarianPlugin
   ]
 
   def usage
-    '!c22 - Get a random Catch-22 quote. Alias: !catch22'
+    "!c22 - Get a random Catch-22 quote. Alias: !catch22"
   end
 
   def match?(cmd)

@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  rms_quotes.rb
 #  Author: Winston Weinert
 #  ------------------------
@@ -8,17 +10,17 @@
 #  This code is licensed by Winston Weinert under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class RMSQuotes < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  QUOTES_FILE = File.expand_path(File.join(File.dirname(__FILE__), 'rms_quotes.txt'))
+  QUOTES_FILE = File.expand_path(File.join(File.dirname(__FILE__), "rms_quotes.txt"))
   QUOTES = File.readlines(QUOTES_FILE)
 
   def usage
-    '!rms - Fetch a random Richard Stallman quote. Aliases: !stallman.'
+    "!rms - Fetch a random Richard Stallman quote. Aliases: !stallman."
   end
 
   def match?(cmd)

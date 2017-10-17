@@ -57,7 +57,6 @@ Command Syntax | Plugin class | Description | Working?
 `!moderator <commands>` | ChannelModerator | Configure channel moderation. [See below](#chanmod). | Yes
 `!morse <text>` | MorseCode | Convert text to Morse Code. | Yes
 `!np <commands>` | NowPlaying | Get a Last.fm user's last played track. [See below](#nowplaying). | Yes
-`!omdb <title>` | OMDB | Get information about a movie or show from [The Open Movie Database](http://www.omdbapi.com/). | Yes
 `!phoneinfo <number>` | PhoneInfo | Look up information about the given phone number via [Numverify](https://numverify.com/). | Yes
 `!ping` | Ping | Ping the bot for a timestamped response. | Yes
 `!point <command> <nick>` | UserPoints | Give or take points away from a nickname. [See below](#point). | Yes
@@ -143,8 +142,8 @@ channel in question.
 
 Subcommand | Description
 ---------- | ----------
-`add <intro>` | Set your nick's introduction message to the given intro.
-`rm` | Delete your nick's introduction message.
+`set <intro>` | Set your nick's introduction message to the given intro. (Alias: `add`)
+`clear` | Delete your nick's introduction message. (Aliases: `rm`, `remove`, `del`, `delete`)
 `show` | Show your nick's introduction message.
 
 
@@ -191,6 +190,7 @@ Subcommand | Description
 `add <nick>` | Give a point to `nick`.
 `rm <nick>` | Take a point away from `nick`.
 `show <nick>` | Show `nick`'s current points.
+`leaderboard` | Show the top 5 `nick`s and their points.
 
 
 ### `!trigger` subcommands <a name="trigger"></a>

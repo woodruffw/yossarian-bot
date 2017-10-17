@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  now_playing.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,34 +9,32 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'yaml'
-require 'fileutils'
-require 'lastfm'
+require "yaml"
+require "fileutils"
+require "lastfm"
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class NowPlaying < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  KEY = ENV['LASTFM_API_KEY']
-  SECRET = ENV['LASTFM_API_SECRET']
+  KEY = ENV["LASTFM_API_KEY"]
+  SECRET = ENV["LASTFM_API_SECRET"]
 
   def initialize(*args)
     super
 
-    @username_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'lastfm_usernames.yml'))
+    @username_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "lastfm_usernames.yml"))
 
     if File.file?(@username_file)
-      @usernames = YAML::load_file(@username_file)
+      @usernames = YAML.load_file(@username_file)
     else
       FileUtils.mkdir_p File.dirname(@username_file)
       @usernames = {}
     end
 
-    if KEY && SECRET
-      @lastfm = Lastfm.new(KEY, SECRET)
-    end
+    @lastfm = Lastfm.new(KEY, SECRET) if KEY && SECRET
   end
 
   def sync_username_file
@@ -66,12 +66,10 @@ class NowPlaying < YossarianPlugin
   match /np(?:$| )(\S*)/, method: :now_playing, strip_colors: true
 
   def now_playing(m, nick)
-    return if nick == 'link' # ew
+    return if nick == "link" # ew
 
     if @lastfm
-      if nick.empty?
-        nick = m.user.nick
-      end
+      nick = m.user.nick if nick.empty?
 
       username = @usernames[nick.downcase]
 
@@ -81,19 +79,17 @@ class NowPlaying < YossarianPlugin
 
           if info
             # APIs should always return a uniform type...
-            if info.is_a?(Array)
-              info = info.first
-            end
+            info = info.first if info.is_a?(Array)
 
-            if info['nowplaying']
-              active = 'is now playing'
-            else
-              active = 'last played'
-            end
+            active = if info["nowplaying"]
+                       "is now playing"
+                     else
+                       "last played"
+                     end
 
-            artist = info['artist']['content']
-            song = info['name']
-            album = info['album']['content']
+            artist = info["artist"]["content"]
+            song = info["name"]
+            album = info["album"]["content"]
 
             if album
               m.reply "#{username} #{active} \"#{song}\" by #{artist} on #{album}.", true

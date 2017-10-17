@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  duck_duck_go.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,9 +9,9 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'duck_duck_go'
+require "duck_duck_go"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class DuckDuckGoSearch < YossarianPlugin
   include Cinch::Plugin

@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  user_intros.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,10 +9,10 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'yaml'
-require 'fileutils'
+require "yaml"
+require "fileutils"
 
-require_relative '../yossarian_plugin'
+require_relative "../yossarian_plugin"
 
 class UserIntros < YossarianPlugin
   include Cinch::Plugin
@@ -18,10 +20,10 @@ class UserIntros < YossarianPlugin
 
   def initialize(*args)
     super
-    @intros_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, 'user_intros.yml'))
+    @intros_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_intros.yml"))
 
     if File.file?(@intros_file)
-      @intros = YAML::load_file(@intros_file)
+      @intros = YAML.load_file(@intros_file)
     else
       FileUtils.mkdir_p File.dirname(@intros_file)
       @intros = {}
@@ -35,14 +37,14 @@ class UserIntros < YossarianPlugin
   end
 
   def usage
-    '!intro <command> - Manage the intro message for your nick. Commands are add, rm, and show.'
+    "!intro <set TEXT|clear|show> - Manage the intro message for your nick."
   end
 
   def match?(cmd)
     cmd =~ /^(!)?intro$/
   end
 
-  match /intro add (.+)/, method: :set_intro
+  match /intro (?:add|set) (.+)/, method: :set_intro
 
   def set_intro(m, intro)
     intro.gsub!(/\x01/, "")
@@ -57,7 +59,7 @@ class UserIntros < YossarianPlugin
     sync_intros_file
   end
 
-  match /intro rm$/, method: :remove_intro
+  match /intro (clear|rm|remove|delete|del)$/, method: :remove_intro
 
   def remove_intro(m)
     nick = m.user.nick.downcase

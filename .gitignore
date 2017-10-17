@@ -3,6 +3,7 @@ yossarian-bot.rb.pid
 !version.yml
 !plugins.yml
 !plugins/shakespearean_insults/shakespearean_insults.yml
+!.rubocop*
 *.swp
 *~
 .bundle/

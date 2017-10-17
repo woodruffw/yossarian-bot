@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  cbsg.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,19 +9,19 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'nokogiri'
-require 'open-uri'
+require "nokogiri"
+require "open-uri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class CBSG < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = 'http://cbsg.sourceforge.net/cgi-bin/live'
+  URL = "http://cbsg.sourceforge.net/cgi-bin/live"
 
   def usage
-    '!cbsg - Spew some corporate bullshit.'
+    "!cbsg - Spew some corporate bullshit."
   end
 
   def match?(cmd)
@@ -29,12 +31,10 @@ class CBSG < YossarianPlugin
   match /cbsg$/, method: :cbsg
 
   def cbsg(m)
-    begin
-      page = Nokogiri::HTML(open(URL).read)
+    page = Nokogiri::HTML(open(URL).read)
 
-      m.reply page.css('li').first.text, true
-    rescue Exception => e
-      m.reply e.to_s, true
-    end
+    m.reply page.css("li").first.text, true
+  rescue Exception => e
+    m.reply e.to_s, true
   end
 end

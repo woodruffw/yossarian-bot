@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  decisions.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -7,7 +9,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class Decisions < YossarianPlugin
   include Cinch::Plugin

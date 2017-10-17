@@ -1,4 +1,6 @@
 #  -*- coding: utf-8 -*-
+# frozen_string_literal: true
+
 #  exchange_rates.rb
 #  Author: William Woodruff
 #  ------------------------
@@ -8,20 +10,20 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'json'
-require 'open-uri'
+require "json"
+require "open-uri"
 
-require_relative 'yossarian_plugin'
+require_relative "yossarian_plugin"
 
 class ExchangeRates < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  KEY = ENV['OEX_API_KEY']
+  KEY = ENV["OEX_API_KEY"]
   URL = "https://openexchangerates.org/api/latest.json?app_id=%{key}"
 
   def usage
-    '!rate <code [code2...]> - Get the currency exchange rate between USD and one or more currencies.'
+    "!rate <code [code2...]> - Get the currency exchange rate between USD and one or more currencies."
   end
 
   def match?(cmd)
@@ -37,11 +39,11 @@ class ExchangeRates < YossarianPlugin
 
       begin
         hash = JSON.parse(open(url).read)
-        hash['rates'].default = '?'
+        hash["rates"].default = "?"
 
         rates = codes.map do |curr|
           "USD/#{curr}: #{hash['rates'][curr]}"
-        end.join(', ')
+        end.join(", ")
 
         m.reply rates, true
       rescue Exception => e
