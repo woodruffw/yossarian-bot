@@ -45,6 +45,7 @@ plugins:
     - Magic8Ball
     - MerriamWebster
     - MorseCode
+    - MyAnimeListSearch
     - NowPlaying
     - PhoneInfo
     - Ping

@@ -17,6 +17,7 @@ Command Syntax | Plugin class | Description | Working?
 -------------- | ------------ | ----------- | -------
 `!8ball <question>` | Magic8Ball | Ask the Magic 8 Ball a question. | Yes
 `!admin <commands>` | BotAdmin | Administrate the bot. [See below](#admin). | Yes
+`!anime <query>` | MyAnimeListSearch | Search MyAnimeList for anime | Yes
 `!artist <artist>` | ArtistInfo | Get information about an artist from [Last.fm](http://last.fm). | Yes
 `!beedog` | Beedogs | Retrieve a random picture of a beedog from [beedog.github.io](http://beedog.github.io). | Yes
 `!beer <name>` | BeerSearch | Search for beer information on [BreweryDB](http://www.brewerydb.com/). | Yes
@@ -55,6 +56,7 @@ Command Syntax | Plugin class | Description | Working?
 `!luther [nick]` | LutherInsults | Get an insult from Luther's Oeuvre and direct it at a nickname if given. | Yes
 `!mail <nick> <message>` | UserMail | Send a message to a nick. Messages are delivered the next time the nick speaks. | Yes
 `!moderator <commands>` | ChannelModerator | Configure channel moderation. [See below](#chanmod). | Yes
+`!manga <query>` | MyAnimeListSearch | Search MyAnimeList for manga | Yes
 `!morse <text>` | MorseCode | Convert text to Morse Code. | Yes
 `!np <commands>` | NowPlaying | Get a Last.fm user's last played track. [See below](#nowplaying). | Yes
 `!phoneinfo <number>` | PhoneInfo | Look up information about the given phone number via [Numverify](https://numverify.com/). | Yes
