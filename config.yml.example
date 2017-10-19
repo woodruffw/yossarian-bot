@@ -1,7 +1,17 @@
 ---
 
 environment: # optional
-    FOO_API: api_key
+    WOLFRAM_ALPHA_APPID_KEY: api_key
+    WUNDERGROUND_API_KEY: api_key
+    MERRIAM_WEBSTER_API_KEY: api_key
+    YOUTUBE_API_KEY: api_key
+    LASTFM_API_KEY: api_key
+    LASTFM_API_SECRET: api_secret
+    OEX_API_KEY: api_key
+    GIPHY_API_KEY: api_key
+    GOODREADS_API_KEY: api_key
+    BREWERYDB_API_KEY: api_key
+    AIRNOW_API_KEY: api_key
 servers: # mandatory
     irc.rizon.net: # at least one server entry is mandatory
         nick: 'yossarian-bot' # optional
