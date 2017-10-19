@@ -93,7 +93,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    ruby-eval-in (0.0.5)
+    ruby-eval-in (0.0.6)
       nokogiri
     ruby-progressbar (1.9.0)
     ruby-termios (1.0.2)
