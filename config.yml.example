@@ -1,6 +1,8 @@
 ---
 
-servers:
+environment: # optional
+    FOO_API: api_key
+servers: # mandatory
     irc.rizon.net: # at least one server entry is mandatory
         nick: 'yossarian-bot' # optional
         auth: # optional, needed if the nick is registered
