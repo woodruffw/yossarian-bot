@@ -78,6 +78,11 @@ config["servers"].each do |server_name, server_info|
         conf.plugins.prefix = Regexp.new(server_info["prefix"] || /^!/)
         conf.plugins.plugins = @all_plugins.dup
         conf.plugins.plugins << Cinch::Plugins::Identify
+        conf.environment = config["environment"] || {}
+
+        conf.environment.map do |api_key_name, api_key_value|
+          ENV[api_key_name] = api_key_value
+        end
 
         if server_info.key?("auth")
           conf.plugins.options[Cinch::Plugins::Identify] = {
