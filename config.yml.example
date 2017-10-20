@@ -12,6 +12,8 @@ environment: # optional
     GOODREADS_API_KEY: api_key
     BREWERYDB_API_KEY: api_key
     AIRNOW_API_KEY: api_key
+    MAL_USERNAME: username
+    MAL_PASSWORD: password
 servers: # mandatory
     irc.rizon.net: # at least one server entry is mandatory
         nick: 'yossarian-bot' # optional
