@@ -42,6 +42,7 @@ GEM
       faraday (~> 0.9)
       json
     highline (1.7.8)
+    htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httparty (0.15.6)
@@ -77,6 +78,9 @@ GEM
     minitest (5.10.3)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    myanimelist (1.0.0)
+      rest-client (= 2.0.2)
+      xml-simple (= 1.1.5)
     net-http-digest_auth (1.4.1)
     net-http-persistent (2.9.4)
     netrc (0.11.0)
@@ -93,7 +97,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    ruby-eval-in (0.0.6)
+    ruby-eval-in (0.0.4)
       nokogiri
     ruby-progressbar (1.9.0)
     ruby-termios (1.0.2)
@@ -139,11 +143,13 @@ DEPENDENCIES
   genregen
   goodreads
   haste
+  htmlentities
   json
   lastfm
   leetspeak
   mechanize
   megahal
+  myanimelist (~> 1.0)
   nokogiri
   open_uri_redirections
   research_topicgen
