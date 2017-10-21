@@ -45,7 +45,7 @@ class MyAnimeListSearch < YossarianPlugin
     end
 
     if res&.any?
-      first = res.first
+      first = res.is_a?(Hash) ? res : res.first; # Apparently it can be a Hash if only one result??
 
       url = "http://myanimelist.net/#{type}/#{first["id"]}"
       title = first["title"].strip
@@ -54,7 +54,7 @@ class MyAnimeListSearch < YossarianPlugin
       truncated = syn[0..147].strip
       syn = "#{truncated}..." if syn != truncated
 
-      if first["english"]
+      if first["english"]&.is_a? String # Apparently it can be a {}
         english = first["english"].strip
         maybe_english = english != title ? " (#{english})" : ""
       else
