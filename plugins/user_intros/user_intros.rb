@@ -48,11 +48,11 @@ class UserIntros < YossarianPlugin
 
   def set_intro(m, intro)
     intro.gsub!(/\x01/, "")
-
+    nick = m.user.nick.downcase
     if @intros.key?(m.channel.to_s)
-      @intros[m.channel.to_s][m.user.nick] = intro
+      @intros[m.channel.to_s][nick] = intro
     else
-      @intros[m.channel.to_s] = { m.user.nick => intro }
+      @intros[m.channel.to_s] = { nick => intro }
     end
 
     m.reply "Your intro for #{m.channel.to_s} has been set to: \'#{intro}\'.", true
@@ -62,8 +62,9 @@ class UserIntros < YossarianPlugin
   match /intro (clear|rm|remove|delete|del)$/, method: :remove_intro
 
   def remove_intro(m)
-    if @intros.key?(m.channel.to_s) && @intros[m.channel.to_s].key?(m.user.nick)
-      @intros[m.channel.to_s].delete(m.user.nick)
+    nick = m.user.nick.downcase
+    if @intros.key?(m.channel.to_s) && @intros[m.channel.to_s].key?(nick)
+      @intros[m.channel.to_s].delete(nick)
       m.reply "Your intro for #{m.channel.to_s} has been removed.", true
       sync_intros_file
     else
@@ -74,8 +75,9 @@ class UserIntros < YossarianPlugin
   match /intro show$/, method: :show_intro
 
   def show_intro(m)
-    if @intros.key?(m.channel.to_s) && @intros[m.channel.to_s].key?(m.user.nick)
-      m.reply "Your intro is currently \'#{@intros[m.channel.to_s][m.user.nick]}\'.", true
+    nick = m.user.nick.downcase
+    if @intros.key?(m.channel.to_s) && @intros[m.channel.to_s].key?(nick)
+      m.reply "Your intro is currently \'#{@intros[m.channel.to_s][nick]}\'.", true
     else
       m.reply "You don't currently have an intro.", true
     end
@@ -84,8 +86,9 @@ class UserIntros < YossarianPlugin
   listen_to :join, method: :intro_user
 
   def intro_user(m)
-    if @intros.key?(m.channel.to_s) && @intros[m.channel.to_s].key?(m.user.nick)
-      m.reply "\u200B#{@intros[m.channel.to_s][m.user.nick]}"
+    nick = m.user.nick.downcase
+    if @intros.key?(m.channel.to_s) && @intros[m.channel.to_s].key?(nick)
+      m.reply "\u200B#{@intros[m.channel.to_s][nick]}"
     end
   end
 end
