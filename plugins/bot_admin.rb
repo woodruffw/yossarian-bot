@@ -164,7 +164,7 @@ class BotAdmin < YossarianPlugin
 
     @bot.blacklist.delete(nick)
 
-    @bot.blacklist.delete(host) if !host.empty?
+    @bot.blacklist.delete(host) unless host.empty?
 
     m.reply "Removed any records associated with #{nick} from the blacklist.", true
   end
@@ -186,13 +186,13 @@ class BotAdmin < YossarianPlugin
 
   match /admin say (#\S+) (.+)/, method: :bot_say
 
-  def bot_say(m, chan, msg)
+  def bot_say(_m, chan, msg)
     Channel(chan).send msg
   end
 
   match /admin act (#\S+) (.+)/, method: :bot_act
 
-  def bot_act(m, chan, msg)
+  def bot_act(_m, chan, msg)
     Channel(chan).action msg
   end
 end
