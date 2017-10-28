@@ -47,7 +47,7 @@ class UserIntros < YossarianPlugin
   match /intro (?:add|set) (.+)/, method: :set_intro
 
   def set_intro(m, intro)
-    intro.gsub!(/\x01/, "")
+    intro.delete!(/\x01/)
 
     if @intros.key?(m.channel.to_s)
       @intros[m.channel.to_s][m.user.nick] = intro

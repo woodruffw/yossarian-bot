@@ -34,7 +34,7 @@ class Dinner < YossarianPlugin
   def dinner(m)
     page = Nokogiri::HTML(open(URL).read)
 
-    food = page.css("dl").map(&:text).join.strip.gsub("\n", " ")
+    food = page.css("dl").map(&:text).join.strip.tr("\n", " ")
     link = page.css("dt")[1].css("a").first["href"]
 
     m.reply "#{food}. #{link}", true

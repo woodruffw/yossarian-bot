@@ -16,7 +16,7 @@ class YossarianPlugin
   end
 
   #default match stub
-  def match?(cmd)
+  def match?(_cmd)
     false
   end
 end

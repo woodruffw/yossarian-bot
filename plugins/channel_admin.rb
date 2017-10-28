@@ -64,7 +64,7 @@ class ChannelAdmin < YossarianPlugin
   match /channel unban (\S+)/, method: :channel_unban_nick
 
   def channel_unban_nick(m, nick)
-    matching_masks = m.channel.bans.map { |b| b.mask }.select { |m| m.nick == nick }
+    matching_masks = m.channel.bans.map { |b| b.mask }.select { |n| n.nick == nick }
 
     if matching_masks.nonempty?
       matching_masks.each { |mask| m.channel.unban mask }

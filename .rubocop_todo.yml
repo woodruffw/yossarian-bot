@@ -89,24 +89,11 @@ Lint/NonLocalExitFromIterator:
 Lint/RescueException:
   Enabled: false
 
-# Offense count: 1
-Lint/ShadowingOuterLocalVariable:
-  Exclude:
-    - 'plugins/channel_admin.rb'
-
 # Offense count: 2
 # Cop supports --auto-correct.
 Lint/StringConversionInInterpolation:
   Exclude:
     - 'plugins/user_intros/user_intros.rb'
-
-# Offense count: 3
-# Cop supports --auto-correct.
-# Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods.
-Lint/UnusedMethodArgument:
-  Exclude:
-    - 'plugins/bot_admin.rb'
-    - 'plugins/yossarian_plugin.rb'
 
 # Offense count: 19
 Lint/UriEscapeUnescape:
@@ -187,23 +174,6 @@ Performance/RegexpMatch:
   Exclude:
     - 'plugins/cstopic.rb'
 
-# Offense count: 3
-# Cop supports --auto-correct.
-Performance/StringReplacement:
-  Exclude:
-    - 'plugins/dinner.rb'
-    - 'plugins/merriam_webster.rb'
-    - 'plugins/user_intros/user_intros.rb'
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: braces, no_braces, context_dependent
-Style/BracesAroundHashParameters:
-  Exclude:
-    - 'plugins/link_titling.rb'
-    - 'plugins/zalgo/zalgo.rb'
-
 # Offense count: 5
 Style/ClassVars:
   Exclude:
@@ -240,14 +210,6 @@ Style/MutableConstant:
     - 'plugins/cute_faces.rb'
     - 'plugins/magic8ball.rb'
     - 'plugins/rainbow_text.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: both, prefix, postfix
-Style/NegatedIf:
-  Exclude:
-    - 'plugins/bot_admin.rb'
 
 # Offense count: 1
 # Cop supports --auto-correct.
