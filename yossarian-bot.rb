@@ -46,6 +46,7 @@ config["servers"].each do |server_name, server_info|
         Object.const_get(plugin)
       end
 
+      # rubocop:disable Style/TrivialAccessors
       def starttime
         @starttime
       end
@@ -65,6 +66,7 @@ config["servers"].each do |server_name, server_info|
       def all_plugins
         @all_plugins
       end
+      # rubocop:enable Style/TrivialAccessors
 
       configure do |conf|
         conf.nick = server_info["nick"] || "yossarian-bot"
