@@ -1,4 +1,3 @@
-#  -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 #  google_search.rb
@@ -40,7 +39,7 @@ class GoogleSearch < YossarianPlugin
       if hash["responseData"]["results"].nonempty?
         site = URI.unescape(hash["responseData"]["results"].first["url"])
         content = hash["responseData"]["results"].first["content"].gsub(/([\t\r\n])|(<(\/)?b>)/, "")
-        content.gsub!(/(&amp;)|(&quot;)|(&lt;)|(&gt;)|(&#39;)/, "&amp;" => "&", "&quot;" => '"', "&lt;" => "<", "&gt;" => ">", "&#39;" => '\'')
+        content.gsub!(/(&amp;)|(&quot;)|(&lt;)|(&gt;)|(&#39;)/, "&amp;" => "&", "&quot;" => '"', "&lt;" => "<", "&gt;" => ">", "&#39;" => "'")
         m.reply "#{site} - #{content}", true
       else
         m.reply "No Google results for #{search}.", true

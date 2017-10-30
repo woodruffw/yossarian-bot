@@ -1,4 +1,3 @@
-#  -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 #  jerkcity.rb
@@ -60,7 +59,7 @@ class Jerkcity < YossarianPlugin
         m.reply e.to_s, true
       end
     else
-      m.reply 'Internal error (couldn\'t get comic count).'
+      m.reply "Internal error (couldn't get comic count)."
     end
   end
 end

@@ -1,4 +1,3 @@
-#  -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 #  duck_duck_go.rb
@@ -23,7 +22,7 @@ class DuckDuckGoSearch < YossarianPlugin
   end
 
   def usage
-    '!ddg <search> - Search DuckDuckGo\'s Zero Click Info API.'
+    "!ddg <search> - Search DuckDuckGo's Zero Click Info API."
   end
 
   def match?(cmd)

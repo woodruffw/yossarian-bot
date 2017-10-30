@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-#  -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 #  start.rb

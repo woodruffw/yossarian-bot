@@ -1,4 +1,3 @@
-#  -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 #  bot_info.rb
@@ -33,7 +32,7 @@ class BotInfo < YossarianPlugin
     when /(^version$)|(^vers?$)/
       m.reply "yossarian-bot #{@bot.version} running on ruby #{RUBY_VERSION} (#{RUBY_PLATFORM})."
     when /(^source$)|(^src$)/
-      m.reply 'yossarian-bot\'s source code can be found here: http://git.io/vs65u'
+      m.reply "yossarian-bot's source code can be found here: http://git.io/vs65u"
     when /(^contrib)|(^todo$)/
       m.reply "Want to contribute? Here are some things to do: https://git.io/vwTmA"
     when /^author$/

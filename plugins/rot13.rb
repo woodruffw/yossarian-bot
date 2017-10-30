@@ -1,4 +1,3 @@
-#  -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 #  rot13.rb
@@ -16,7 +15,7 @@ class Rot13 < YossarianPlugin
   use_blacklist
 
   def usage
-    '!r13 <message> - \'Encrypt\' <message> with the ROT-13 cipher. Alias: !rot13.'
+    "!r13 <message> - 'Encrypt' <message> with the ROT-13 cipher. Alias: !rot13."
   end
 
   def match?(cmd)

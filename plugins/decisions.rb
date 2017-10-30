@@ -1,4 +1,3 @@
-#  -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 #  decisions.rb
@@ -16,7 +15,7 @@ class Decisions < YossarianPlugin
   use_blacklist
 
   def usage
-    '!decide <w OR x or y || z> - Decide between choices. Delimiters are \'OR\', \'or\', and \'||\'.'
+    "!decide <w OR x or y || z> - Decide between choices. Delimiters are 'OR', 'or', and '||'."
   end
 
   def match?(cmd)

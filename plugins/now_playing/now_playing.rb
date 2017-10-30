@@ -1,4 +1,3 @@
-#  -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 #  now_playing.rb
@@ -44,7 +43,7 @@ class NowPlaying < YossarianPlugin
   end
 
   def usage
-    '!np [nick|link <username>] - Get a Last.fm user\'s last played track. Use link to associate <username> with your nick. Alias: !nowplaying.'
+    "!np [nick|link <username>] - Get a Last.fm user's last played track. Use link to associate <username> with your nick. Alias: !nowplaying."
   end
 
   def match?(cmd)

@@ -1,4 +1,3 @@
-#  -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 #  user_mail.rb
@@ -72,7 +71,7 @@ class UserMail < YossarianPlugin
 
   def mail(m, nick, msg)
     if nick.downcase == @bot.nick.downcase
-      m.reply 'That\'s not going to work.', true
+      m.reply "That's not going to work.", true
     else
       @mbox[nick.downcase] << MboxMessageStruct.new(m.user.nick, Time.now, msg)
 

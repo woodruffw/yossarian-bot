@@ -1,4 +1,3 @@
-#  -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 #  luther_insults.rb
@@ -23,7 +22,7 @@ class LutherInsults < YossarianPlugin
   INSULTS = File.readlines(INSULTS_FILE)
 
   def usage
-    '!luther [nick] - Fetch a random insult from Martin Luther\'s oeuvre and direct it at a nickname if given.'
+    "!luther [nick] - Fetch a random insult from Martin Luther's oeuvre and direct it at a nickname if given."
   end
 
   def match?(cmd)
