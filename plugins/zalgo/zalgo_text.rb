@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+# frozen_string_literal: false
 
 #  zalgo_text.rb
 #  Author: Alex Young
