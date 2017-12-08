@@ -46,7 +46,7 @@ class UserIntros < YossarianPlugin
   match /intro (?:add|set) (.+)/, method: :set_intro
 
   def set_intro(m, intro)
-    intro.delete!(/\x01/)
+    intro = Cinch::Formatting.unformat intro
 
     if @intros.key?(m.channel.to_s)
       @intros[m.channel.to_s][m.user.nick] = intro
