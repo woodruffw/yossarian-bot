@@ -59,6 +59,7 @@ Command Syntax | Plugin class | Description | Working?
 `!manga <query>` | MyAnimeListSearch | Search MyAnimeList for manga | Yes
 `!morse <text>` | MorseCode | Convert text to Morse Code. | Yes
 `!np <commands>` | NowPlaying | Get a Last.fm user's last played track. [See below](#nowplaying). | Yes
+`!omdb <query>` | OMDB | Search for movie/show information on [The Open Movie Database](https://omdbapi.com/). | Yes
 `!phoneinfo <number>` | PhoneInfo | Look up information about the given phone number via [Numverify](https://numverify.com/). | Yes
 `!ping` | Ping | Ping the bot for a timestamped response. | Yes
 `!point <command> <nick>` | UserPoints | Give or take points away from a nickname. [See below](#point). | Yes

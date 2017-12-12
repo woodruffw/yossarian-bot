@@ -18,7 +18,8 @@ class OMDB < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = "https://www.omdbapi.com/?t=%<query>s&plot=short&r=json"
+  KEY = ENV["OMDB_API_KEY"]
+  URL = "https://www.omdbapi.com/?t=%<query>s&plot=short&r=json&apikey=%<key>s"
 
   def usage
     "!omdb <title> - Look up a movie or show on the Open Movie Database."
@@ -32,7 +33,7 @@ class OMDB < YossarianPlugin
 
   def omdb_search(m, title)
     query = URI.encode(title)
-    url = URL % { query: query }
+    url = URL % { query: query, key: KEY }
 
     begin
       hash = JSON.parse(open(url).read)

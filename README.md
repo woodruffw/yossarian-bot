@@ -37,7 +37,7 @@ If you get errors during the bundle installation process, make sure that:
 similar in your package manager)
 
 `yossarian-bot` also requires API keys for several services. Make sure that
-they are exported to the environment as follows:
+they are exported to the environment (or set in the configuration) as follows:
 
 * Wolfram|Alpha - `WOLFRAM_ALPHA_APPID_KEY`
 * Weather Underground - `WUNDERGROUND_API_KEY`
@@ -49,6 +49,7 @@ they are exported to the environment as follows:
 * Goodreads - `GOODREADS_API_KEY`
 * BreweryDB - `BREWERYDB_API_KEY`
 * AirQuality - `AIRNOW_API_KEY`
+* OMDB - `OMDB_API_KEY`
 
 Additionally, the `fortune` utility must be present in order for Unix fortunes
 to work correctly. Some package managers also provide the `fortunes`,
