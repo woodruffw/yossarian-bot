@@ -6,6 +6,7 @@ plugins:
     - BeerSearch
     - BOFHExcuses
     - BookInfo
+    - Borzoi
     - BotInfo
     - BotAdmin
     - Catch22

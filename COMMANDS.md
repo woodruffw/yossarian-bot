@@ -21,10 +21,11 @@ Command Syntax | Plugin class | Description | Working?
 `!artist <artist>` | ArtistInfo | Get information about an artist from [Last.fm](http://last.fm). | Yes
 `!beedog` | Beedogs | Retrieve a random picture of a beedog from [beedog.github.io](http://beedog.github.io). | Yes
 `!beer <name>` | BeerSearch | Search for beer information on [BreweryDB](http://www.brewerydb.com/). | Yes
-`{.!:}bots` | IBIP | Announce this bot to the channel. | Yes
 `!bofh` | BOFHExcuses | Get a random [BOFH excuse](http://pages.cs.wisc.edu/~ballard/bofh/). | Yes
 `!book <book>` | BookInfo | Get information about a book from [Goodreads](https://www.goodreads.com/). | Yes
+`!borzoi` | Borzoi | Get a random picture of a Borzoi from the [Dog CEO API](https://dog.ceo/dog-api/). | Yes
 `!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
+`{.!:}bots` | IBIP | Announce this bot to the channel. | Yes
 `!c22` | Catch22 | Get a Catch-22 quote. | Yes
 `!cbsg` | CBSG | Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live). | Yes
 `!channel <commands>` | ChannelAdmin | Administrate the current channel. [See below](#chanadmin). | Yes
