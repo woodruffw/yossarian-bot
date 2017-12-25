@@ -48,6 +48,7 @@ plugins:
     - MorseCode
     - MyAnimeListSearch
     - NowPlaying
+    - NumberFacts
     - OMDB
     - PhoneInfo
     - Ping

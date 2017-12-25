@@ -60,6 +60,7 @@ Command Syntax | Plugin class | Description | Working?
 `!manga <query>` | MyAnimeListSearch | Search MyAnimeList for manga | Yes
 `!morse <text>` | MorseCode | Convert text to Morse Code. | Yes
 `!np <commands>` | NowPlaying | Get a Last.fm user's last played track. [See below](#nowplaying). | Yes
+`!number <num>` | NumberFacts | Get a random fact about a given number from the [Numbers API](http://numbersapi.com/#42). | Yes
 `!omdb <query>` | OMDB | Search for movie/show information on [The Open Movie Database](https://omdbapi.com/). | Yes
 `!phoneinfo <number>` | PhoneInfo | Look up information about the given phone number via [Numverify](https://numverify.com/). | Yes
 `!ping` | Ping | Ping the bot for a timestamped response. | Yes
