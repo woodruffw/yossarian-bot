@@ -17,7 +17,7 @@ class CBSG < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = "https://cbsg.sourceforge.net/cgi-bin/live"
+  URL = "http://cbsg.sourceforge.io/cgi-bin/live"
 
   def usage
     "!cbsg - Spew some corporate bullshit."
