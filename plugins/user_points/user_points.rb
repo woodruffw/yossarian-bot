@@ -47,12 +47,14 @@ class UserPoints < YossarianPlugin
   match /point add (\S+)/, method: :add_point
 
   def add_point(m, nick)
-    if m.user.nick != nick
-      @points[nick] += 1
-      m.reply "#{nick} now has #{@points[nick]} points.", true
+    nickd = nick.downcase
+
+    if m.user.nick.downcase != nickd
+      @points[nickd] += 1
+      m.reply "#{nick} now has #{@points[nickd]} points.", true
     else
-      @points[nick] -= 1
-      m.reply "Nice try. You now have #{@points[nick]} points.", true
+      @points[nickd] -= 1
+      m.reply "Nice try. You now have #{@points[nickd]} points.", true
     end
 
     sync_points_file
@@ -61,15 +63,17 @@ class UserPoints < YossarianPlugin
   match /point rm (\S+)/, method: :remove_point
 
   def remove_point(m, nick)
-    @points[nick] -= 1
-    m.reply "#{nick} now has #{@points[nick]} points.", true
+    nickd = nick.downcase
+
+    @points[nickd] -= 1
+    m.reply "#{nick} now has #{@points[nickd]} points.", true
     sync_points_file
   end
 
   match /point show (\S+)/, method: :show_intro
 
   def show_intro(m, nick)
-    m.reply "#{nick} has #{@points[nick]} points.", true
+    m.reply "#{nick} has #{@points[nick.downcase]} points.", true
   end
 
   match /point leaderboard/, method: :show_leaderboard
