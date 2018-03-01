@@ -43,9 +43,11 @@ class BotInfo < YossarianPlugin
     when /^chan(nel)?s$/
       m.reply "Channels: %s" % @bot.channels.join(", ")
     when /^admins$/
-      m.user.notice "Admins: %s" % @bot.admins.join(", ") # notice to prevent highlight bans
+      # avoid mass highlights
+      m.user.notice "Admins: %s" % @bot.admins.join(", ")
     when /^ignores$/
-      m.reply "Ignored set: %s" % @bot.blacklist.to_a.join(", ")
+      # avoid mass highlights
+      m.user.notice "Ignored set: %s" % @bot.blacklist.to_a.join(", ")
     else
       m.reply "I don\'t have any information on \'#{key}\'. Try !help botinfo."
     end
