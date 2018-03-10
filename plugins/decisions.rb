@@ -27,7 +27,7 @@ class Decisions < YossarianPlugin
   def decide(m, query)
     choices = query.split(/ (?:OR|or|\|\|) /).map(&:strip).map(&:downcase).uniq
     if choices.size < 2
-      m.reply "I need more than one option to choose from.", true
+      m.reply ["Yep", "Nope."].sample, true
     else
       m.reply choices.sample, true
     end
