@@ -1,9 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.1.4)
+    activesupport (5.2.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-      i18n (~> 0.7)
+      i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.5.2)
@@ -15,7 +15,7 @@ GEM
       ffi
     cleverbot-api (0.0.4)
     concurrent-ruby (1.0.5)
-    crass (1.0.3)
+    crass (1.0.4)
     daemons (1.2.6)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
@@ -24,7 +24,7 @@ GEM
       json
     faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.18)
+    ffi (1.9.23)
     flippy (0.1.2)
       ruby-termios
       trollop
@@ -45,10 +45,10 @@ GEM
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    httparty (0.15.6)
+    httparty (0.16.2)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
-    i18n (0.9.3)
+    i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     json (2.1.0)
     lastfm (1.27.2)
@@ -65,12 +65,12 @@ GEM
       nokogiri (~> 1.6)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
-    megahal (2.0.0)
+    megahal (2.1.1)
       cld (~> 0.7)
       highline (~> 1.7)
-      ruby-progressbar (~> 1.7)
+      ruby-progressbar (~> 1.9)
       rubyzip (~> 1.1)
-      sooth (~> 2.0)
+      sooth (~> 2.1)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -91,7 +91,7 @@ GEM
     ntlm-http (0.1.1)
     oauth (0.5.4)
     open_uri_redirections (0.2.1)
-    public_suffix (3.0.1)
+    public_suffix (3.0.2)
     research_topicgen (0.1.6)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
@@ -103,21 +103,21 @@ GEM
     ruby-termios (1.0.2)
     ruby-upworthy (0.0.2)
     rubyzip (1.2.1)
-    sanitize (4.6.0)
+    sanitize (4.6.4)
       crass (~> 1.0.2)
       nokogiri (>= 1.4.4)
       nokogumbo (~> 1.4)
-    sooth (2.1.1)
+    sooth (2.2.0)
     telegraph (1.0.1)
     thread_safe (0.3.6)
     time_difference (0.7.0)
       activesupport (~> 5.1)
     trollop (2.1.2)
-    tzinfo (1.2.4)
+    tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.4)
+    unf_ext (0.0.7.5)
     webrobots (0.1.2)
     wolfram (0.2.1)
       nokogiri (>= 1.4.3)
@@ -155,7 +155,7 @@ DEPENDENCIES
   research_topicgen
   ruby-eval-in
   ruby-upworthy
-  sanitize
+  sanitize (~> 4.6.3)
   telegraph
   time_difference
   wolfram
@@ -163,4 +163,4 @@ DEPENDENCIES
   xkcd
 
 BUNDLED WITH
-   1.15.4
+   1.16.1
