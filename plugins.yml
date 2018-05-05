@@ -10,7 +10,6 @@ plugins:
     - BotInfo
     - BotAdmin
     - Catch22
-    - CBSG
     - ChannelAdmin
     - ChannelModerator
     - Clickbait

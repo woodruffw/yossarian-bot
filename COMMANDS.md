@@ -27,7 +27,6 @@ Command Syntax | Plugin class | Description | Working?
 `!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
 `{.!:}bots` | IBIP | Announce this bot to the channel. | Yes
 `!c22` | Catch22 | Get a Catch-22 quote. | Yes
-`!cbsg` | CBSG | Spew some corporate bullshit from the [Corporate Bullshit Generator](http://cbsg.sourceforge.net/cgi-bin/live). | Yes
 `!channel <commands>` | ChannelAdmin | Administrate the current channel. [See below](#chanadmin). | Yes
 `!clickbait` | Clickbait | Generate a clickbait-y title. | Yes
 `!crypto <coin> [currency]` | Crypto | Retrieve current prices for a given coin from [CoinMarketCap](https://coinmarketcap.com/api/) and optionally convert to a given currency | Yes
