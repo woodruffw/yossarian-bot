@@ -17,7 +17,7 @@ class Jerkcity < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = "http://jerkcity.com"
+  URL = "https://jerkcity.com"
 
   def initialize(*args)
     super
