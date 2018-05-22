@@ -49,7 +49,6 @@ Command Syntax | Plugin class | Description | Working?
 `!intro <command>` | UserIntros | Manage the intro message for your nick. [See below](#intro). | Yes
 `!isitup <site>` | IsItUp | Check whether or not a given site is currently online. | Yes
 `!ipinfo <ip>` | IPInfo | Perform a lookup on the given IP on [ipinfo.io](https://ipinfo.io). | Yes
-`!jerkcity` | Jerkcity | Get a random [Jerkcity](http://jerkcity.com/) comic. | Yes
 `!leet <text>` | LeetSpeak | Convert text to leetspeak. | Yes
 `!lennart` | LennartQuotes | Get a random Lennart Poettering quote. | Yes
 `!linus` | LinusQuotes | Get a random Linus Torvalds quote. | Yes
