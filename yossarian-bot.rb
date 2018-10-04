@@ -35,6 +35,7 @@ else
   abort("Fatal: Missing one of: config.yml, version.yml, plugins.yml.")
 end
 
+# rubocop:disable Metrics/BlockLength
 config["servers"].each do |server_name, server_info|
   server_threads << Thread.new do
     Cinch::Bot.new do
@@ -99,5 +100,6 @@ config["servers"].each do |server_name, server_info|
     end.start
   end
 end
+# rubocop:enable Metrics/BlockLength
 
 server_threads.each(&:join)
