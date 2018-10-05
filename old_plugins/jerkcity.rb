@@ -44,7 +44,7 @@ class Jerkcity < YossarianPlugin
   match /jerkcity$/, method: :jerkcity
 
   def jerkcity(m)
-    if @comic_count > 0
+    if @comic_count.positive?
       rand = Random.rand(1..@comic_count)
       comic_url = "#{URL}/_jerkcity#{rand}.html"
 
