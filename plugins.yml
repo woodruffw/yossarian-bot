@@ -46,6 +46,7 @@ plugins:
     - MorseCode
     - MyAnimeListSearch
     - NowPlaying
+    - NowReading
     - NumberFacts
     - OMDB
     - PhoneInfo
