@@ -42,7 +42,7 @@ class NowReading < YossarianPlugin
   end
 
   def usage
-    "!nr [nick|link <userid>] - Get a Goodreads user's current book(s). Use link to associate <userid> with your nick. Alias: !nowreading."
+    "!nr [nick|link <userid>] - Get a Goodreads user's current book(s). Use link to associate <userid> with your nick. Aliases: !nowreading, !gr."
   end
 
   def match?(cmd)
@@ -51,6 +51,7 @@ class NowReading < YossarianPlugin
 
   match /nowreading link (\S+)/, method: :link_account, strip_colors: true
   match /nr link (\S+)/, method: :link_account, strip_colors: true
+  match /gr link (\S+)/, method: :link_account, strip_colors: true
 
   def link_account(m, user_id)
     if user_id =~ /\A\d+\z/
@@ -66,6 +67,7 @@ class NowReading < YossarianPlugin
   # there really ought to be a better way to do this regex
   match /nowreading(?:$| )(\S*)/, method: :now_reading, strip_colors: true
   match /nr(?:$| )(\S*)/, method: :now_reading, strip_colors: true
+  match /gr(?:$| )(\S*)/, method: :now_reading, strip_colors: true
 
   def now_reading(m, nick)
     return if nick == "link" # ew
