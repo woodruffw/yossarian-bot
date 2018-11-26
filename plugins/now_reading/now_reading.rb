@@ -42,7 +42,7 @@ class NowReading < YossarianPlugin
   end
 
   def usage
-    "!nr [nick|link <user_id>] - Get a Goodreads user's current book(s). Use link to associate <user_id> with your nick. Alias: !nowreading."
+    "!nr [nick|link <userid>] - Get a Goodreads user's current book(s). Use link to associate <userid> with your nick. Alias: !nowreading."
   end
 
   def match?(cmd)
@@ -98,7 +98,7 @@ class NowReading < YossarianPlugin
         m.reply e.to_s, true
       end
     else
-      m.reply "I don\'t have a Goodreads account associated with #{nick}. Add one with !nr link <username>.", true
+      m.reply "I don\'t have a Goodreads account associated with #{nick}. Add one with !nr link <userid>.", true
     end
   end
 end
