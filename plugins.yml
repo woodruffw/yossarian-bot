@@ -71,6 +71,7 @@ plugins:
     - WebSearch
     - Wikipedia
     - WolframAlpha
+    - XKCDComics
     - YouTubeSearch
     - Zalgo
     - ZippyQuotes
