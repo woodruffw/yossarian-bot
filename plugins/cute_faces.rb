@@ -38,8 +38,12 @@ class CuteFaces < YossarianPlugin
   def cute(m, nick)
     if m.channel.has_user?(nick)
       if m.user.nick.downcase != nick.downcase
-        cute = FACES.sample % {user: m.user.nick, nick: nick}
-        m.reply cute
+        if @bot.nick.downcase != nick.downcase
+          cute = FACES.sample % {user: m.user.nick, nick: nick}
+          m.reply cute
+        else
+          m.reply "I am incapable of self-love.", true
+        end
       else
         m.reply "I can\'t let you do that.", true
       end
