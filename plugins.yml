@@ -45,6 +45,7 @@ plugins:
     - MerriamWebster
     - MorseCode
     - MyAnimeListSearch
+    - NewYorkerCartoons
     - NowPlaying
     - NowReading
     - NumberFacts
