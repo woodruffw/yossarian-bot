@@ -32,7 +32,11 @@ class NewYorkerCartoons < YossarianPlugin
     comic = JSON.parse(open(URL).read).first
     caption = HTMLEntities.new.decode comic["caption"]
 
-    m.reply "#{caption} - #{comic["src"]}", true
+    if caption.empty?
+      m.reply comic["src"], true
+    else
+      m.reply "#{caption} - #{comic["src"]}", true
+    end
   rescue Exception => e
     m.reply e.to_s, true
   end
