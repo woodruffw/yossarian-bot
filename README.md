@@ -66,6 +66,13 @@ $ # OR:
 $ ruby yossarian-bot.rb # not run in background
 ```
 
+### Using Docker
+
+```bash
+docker build -t yossarian-bot:latest
+docker run -v $PWD/config.yml:/config.yml yossarian-bot
+```
+
 ## Using the bot
 
 ### Configuration Options
