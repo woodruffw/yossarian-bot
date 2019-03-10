@@ -82,7 +82,6 @@ Command Syntax | Plugin class | Description | Working?
 `!turl <url>` | TinyURL | Create a short link to the given url with [TinyURL](http://tinyurl.com/). | Yes
 `!ud <query>` | UrbanDictionary | Look up the given query on [UrbanDictionary](http://www.urbandictionary.com/). | Yes
 `!ver <nick>` | CTCPVersion | Send a CTCP VERSION request to the given nick. | Yes
-`!w <location>` | Weather | Get the weather for the given location from [Wunderground](https://www.wunderground.com/). | Yes
 `!wa <query>` | WolframAlpha | Ask [Wolfram\|Alpha](http://www.wolframalpha.com/) about something. | Yes
 `!wiki <search>` | Wikipedia | Search [Wikipedia](http://en.wikipedia.org). | Yes
 `!xkcd [search]` | XKCDComics | Get a random [XKCD](http://xkcd.com/) comic, or one related to a search. | Yes

@@ -68,7 +68,6 @@ plugins:
     - UserMail
     - UserPoints
     - UrbanDictionary
-    - Weather
     - WebSearch
     - Wikipedia
     - WolframAlpha
