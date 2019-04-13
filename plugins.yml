@@ -31,7 +31,6 @@ plugins:
     - GitHubInfo
     - Giphy
     - GuineaPigs
-    - HAL
     - IBIP
     - IsItUp
     - IPInfo
