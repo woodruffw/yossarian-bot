@@ -4,7 +4,7 @@
 #  Author: William Woodruff
 #  ------------------------
 #  A Cinch plugin that provides search engine interaction for yossarian-bot.
-#  Faroo is provided as a default search engine (http://faroo.com).
+#  Google is used as the default engine.
 #  ------------------------
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
@@ -19,33 +19,41 @@ class WebSearch < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = "http://www.faroo.com/instant.json?q=%{query}&start=1&l=en&src=web&i=false&c=true"
+  URL = "https://www.googleapis.com/customsearch/v1?key=%<key>s&cx=%<cx>s&q=%<query>s"
+  KEY = ENV["GOOGLE_SEARCH_API_KEY"]
+  ENGINE_ID = ENV["GOOGLE_SEARCH_ENGINE_ID"]
 
   def usage
-    "!s <search> - Search the web."
+    "!g <search> - Search the web with Google."
   end
 
   def match?(cmd)
-    cmd =~ /^(!)?s$/
+    cmd =~ /^(!)?g$/
   end
 
-  match /s (.+)/, method: :faroo_search, strip_colors: true
+  match /g (.+)/, method: :google_search, strip_colors: true
 
-  def faroo_search(m, search)
+  def google_search(m, search)
+    unless KEY && ENGINE_ID
+      m.reply "#{self.class.name}: Internal error (missing API keys)."
+      return
+    end
+
     query = URI.encode(search)
-    url = URL % { query: query }
+    url = URL % { key: KEY, cx: ENGINE_ID, query: query }
 
     begin
-      hash = JSON.parse(open(url, "Referer" => "http://faroo.com").read)
-      result = hash["results"].first
+      hsh = JSON.parse(open(url).read)
+
+      result = hsh["items"].first
 
       if result
-        site = result["url"]
-        content = Sanitize.clean(result["content"]).normalize_whitespace
+        site = result["link"]
+        content = Sanitize.clean(result["snippet"]).normalize_whitespace
 
-        m.reply "#{site} - #{content}"
+        m.reply "#{site} - #{content}", true
       else
-        m.reply "No results for '#{search}'.", true
+        m.reply "No Google results for '#{search}'.", true
       end
     rescue Exception => e
       m.reply e.to_s, true

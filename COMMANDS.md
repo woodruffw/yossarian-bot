@@ -70,7 +70,7 @@ Command Syntax | Plugin class | Description | Working?
 `!remind <count> <unit> <message>` | Reminders | Set a reminder message for a time in the future. | Yes
 `!rms` | RMSQuotes | Get a random Richard Stallman (rms) quote. | Yes
 `!rot13 <text>` | Rot13 | "Encrypt" some text with the ROT-13 cipher. | Yes
-`!s <search>` | WebSearch | Search the web using [Faroo](http://faroo.com). | Yes
+`!g <search>` | WebSearch | Search the web using Google. | Yes
 `!seen <nick>` | LastSeen | Check the last time `yossarian-bot` saw someone. | Yes
 `!slap <nick>` | Slap | Slap someone with a large fishbot. | Yes
 `!stock <symbol>` | StockQuotes | Retrieve a stock quote for the given ticker symbol. | Yes
