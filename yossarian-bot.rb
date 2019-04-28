@@ -14,18 +14,9 @@ require "cinch"
 require "cinch/plugins/identify"
 require "yaml"
 
-Dir[File.dirname(__FILE__) + "/extend/**/*.rb"].each do |extension|
-  require extension
-end
-
-Dir[File.dirname(__FILE__) + "/plugins/**/*.rb"].each do |plugin|
-  require plugin
-end
-
 config_file = File.expand_path(File.join(File.dirname(__FILE__), "config.yml"))
 version_file = File.expand_path(File.join(File.dirname(__FILE__), "version.yml"))
 plugins_file = File.expand_path(File.join(File.dirname(__FILE__), "plugins.yml"))
-server_threads = []
 
 if File.file?(config_file) && File.file?(version_file) && File.file?(plugins_file)
   config = YAML.load_file(config_file)
@@ -34,6 +25,19 @@ if File.file?(config_file) && File.file?(version_file) && File.file?(plugins_fil
 else
   abort("Fatal: Missing one of: config.yml, version.yml, plugins.yml.")
 end
+
+# Update the environment before we load extensions and plugins.
+ENV.update(config["environment"] || {})
+
+Dir[File.dirname(__FILE__) + "/extend/**/*.rb"].each do |extension|
+  require extension
+end
+
+Dir[File.dirname(__FILE__) + "/plugins/**/*.rb"].each do |plugin|
+  require plugin
+end
+
+server_threads = []
 
 # rubocop:disable Metrics/BlockLength
 config["servers"].each do |server_name, server_info|
@@ -81,8 +85,6 @@ config["servers"].each do |server_name, server_info|
         conf.plugins.prefix = Regexp.new(server_info["prefix"] || /^!/)
         conf.plugins.plugins = @all_plugins.dup
         conf.plugins.plugins << Cinch::Plugins::Identify
-
-        ENV.update(config["environment"] || {})
 
         if server_info.key?("auth")
           conf.plugins.options[Cinch::Plugins::Identify] = {
