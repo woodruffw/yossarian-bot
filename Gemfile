@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "cinch"
+gem "grinch"
 gem "cinch-identify"
 gem "daemons"
 gem "duck-duck-go"
