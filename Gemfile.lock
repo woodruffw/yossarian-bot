@@ -32,7 +32,7 @@ GEM
       rest-client (~> 2.0)
     google-search (1.0.3)
       json
-    grinch (1.0.0)
+    grinch (1.0.1)
     hashie (2.1.2)
     haste (0.2.3)
       faraday (~> 0.9)
@@ -122,7 +122,7 @@ DEPENDENCIES
   flippy
   genregen
   goodreads
-  grinch
+  grinch (>= 1.0.1)
   haste
   htmlentities
   json
@@ -142,4 +142,4 @@ DEPENDENCIES
   xkcd
 
 BUNDLED WITH
-   1.17.2
+   2.0.1

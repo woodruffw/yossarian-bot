@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "grinch"
+gem "grinch", ">= 1.0.1"
 gem "cinch-identify"
 gem "daemons"
 gem "duck-duck-go"
