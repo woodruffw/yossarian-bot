@@ -32,6 +32,7 @@ GEM
       rest-client (~> 2.0)
     google-search (1.0.3)
       json
+    grinch (1.0.0)
     hashie (2.1.2)
     haste (0.2.3)
       faraday (~> 0.9)
@@ -115,13 +116,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cinch
   cinch-identify
   daemons
   duck-duck-go
   flippy
   genregen
   goodreads
+  grinch
   haste
   htmlentities
   json
