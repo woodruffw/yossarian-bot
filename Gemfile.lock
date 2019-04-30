@@ -6,9 +6,6 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    cinch (2.3.4)
-    cinch-identify (1.7.0)
-      cinch (~> 2.0)
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     crass (1.0.4)
@@ -33,6 +30,8 @@ GEM
     google-search (1.0.3)
       json
     grinch (1.0.1)
+    grinch-identify (1.7.1)
+      grinch (>= 1.0.1)
     hashie (2.1.2)
     haste (0.2.3)
       faraday (~> 0.9)
@@ -71,7 +70,7 @@ GEM
       rest-client (= 2.0.2)
       xml-simple (= 1.1.5)
     net-http-digest_auth (1.4.1)
-    net-http-persistent (3.0.0)
+    net-http-persistent (3.0.1)
       connection_pool (~> 2.2)
     netrc (0.11.0)
     nokogiri (1.10.3)
@@ -116,13 +115,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cinch-identify
   daemons
   duck-duck-go
   flippy
   genregen
   goodreads
   grinch (>= 1.0.1)
+  grinch-identify
   haste
   htmlentities
   json
