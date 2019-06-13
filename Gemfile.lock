@@ -86,7 +86,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    ruby-eval-in (0.0.6)
+    ruby-eval-in (0.0.7)
       nokogiri
     ruby-termios (1.0.2)
     ruby-upworthy (1.0.0)
