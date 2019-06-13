@@ -75,8 +75,8 @@ GEM
     netrc (0.11.0)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
-    nokogumbo (1.5.0)
-      nokogiri
+    nokogumbo (2.0.1)
+      nokogiri (~> 1.8, >= 1.8.4)
     ntlm-http (0.1.1)
     oauth (0.5.4)
     open_uri_redirections (0.2.1)
@@ -90,10 +90,10 @@ GEM
       nokogiri
     ruby-termios (1.0.2)
     ruby-upworthy (1.0.0)
-    sanitize (4.6.6)
+    sanitize (5.0.0)
       crass (~> 1.0.2)
-      nokogiri (>= 1.4.4)
-      nokogumbo (~> 1.4)
+      nokogiri (>= 1.8.0)
+      nokogumbo (~> 2.0)
     telegraph (1.0.1)
     thread_safe (0.3.6)
     time_difference (0.7.0)
@@ -134,7 +134,7 @@ DEPENDENCIES
   research_topicgen
   ruby-eval-in
   ruby-upworthy
-  sanitize (~> 4.6.3)
+  sanitize (~> 5.0.0)
   telegraph
   time_difference
   wolfram
