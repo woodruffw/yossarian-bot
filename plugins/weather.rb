@@ -26,8 +26,8 @@ class Weather < YossarianPlugin
   end
 
   # default to f
-  match /w (.+)/, method: :fweather, strip_colors: true
-  match /weather (.+)/, method: :fweather, strip_colors: true
+  match /w (?![fc])(.+)/, method: :fweather, strip_colors: true
+  match /weather (?![fc])(.+)/, method: :fweather, strip_colors: true
   match /w f (.+)/, method: :fweather, strip_colors: true
   match /weather f (.+)/, method: :fweather, strip_colors: true
   match /w c (.+)/, method: :cweather, strip_colors: true
@@ -35,16 +35,16 @@ class Weather < YossarianPlugin
 
   def fweather(m, location)
     if KEY
-      api = OpenWeatherMap::API.new(KEY, 'en', 'imperial')
-      cw = api.current(location)
-
-      if cw.city.name
+      begin
+        api = OpenWeatherMap::API.new(KEY, 'en', 'imperial')
+        cw = api.current(location)
+      rescue OpenWeatherMap::Exceptions::UnknownLocation
+        m.reply "Bad query for location \'#{location}\'.", true
+      else
         loc =  "#{cw.city.country}, #{cw.city.name}"
         weather = "#{cw.weather_conditions.description} #{cw.weather_conditions.emoji}"
         temp = cw.weather_conditions.temperature
         m.reply "Current temperature in #{loc} is #{temp}°F and #{weather}", true
-      else
-        m.reply "Bad query for location \'#{location}\'.", true
       end
     else
       m.reply "#{self.class.name}: Internal error (missing API key)."
@@ -53,16 +53,16 @@ class Weather < YossarianPlugin
 
   def cweather(m, location)
     if KEY
-      api = OpenWeatherMap::API.new(KEY, 'en', 'metric')
-      cw = api.current(location)
-
-      if cw.city.name
+      begin
+        api = OpenWeatherMap::API.new(KEY, 'en', 'metric')
+        cw = api.current(location)
+      rescue OpenWeatherMap::Exceptions::UnknownLocation
+        m.reply "Bad query for location \'#{location}\'.", true
+      else
         loc =  "#{cw.city.country}, #{cw.city.name}"
         weather = "#{cw.weather_conditions.description} #{cw.weather_conditions.emoji}"
         temp = cw.weather_conditions.temperature
         m.reply "Current temperature in #{loc} is #{temp}°C and #{weather}", true
-      else
-        m.reply "Bad query for location \'#{location}\'.", true
       end
     else
       m.reply "#{self.class.name}: Internal error (missing API key)."
