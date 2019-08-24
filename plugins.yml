@@ -49,6 +49,7 @@ plugins:
     - NowReading
     - NumberFacts
     - OMDB
+    - Weather
     - PhoneInfo
     - Ping
     - RainbowText

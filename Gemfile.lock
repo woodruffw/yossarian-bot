@@ -80,6 +80,7 @@ GEM
     ntlm-http (0.1.1)
     oauth (0.5.4)
     open_uri_redirections (0.2.1)
+    openweather (0.2.3)
     optimist (3.0.0)
     research_topicgen (0.1.6)
     rest-client (2.0.2)
