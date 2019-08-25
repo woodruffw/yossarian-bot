@@ -40,6 +40,8 @@ class Weather < YossarianPlugin
         cw = api.current(location)
       rescue OpenWeatherMap::Exceptions::UnknownLocation
         m.reply "Bad query for location \'#{location}\'.", true
+      rescue OpenWeatherMap::Exceptions::Unauthorized
+        m.reply "Bad query: Unauthorized", true
       else
         loc =  "#{cw.city.country}, #{cw.city.name}"
         weather = "#{cw.weather_conditions.description} #{cw.weather_conditions.emoji}"
@@ -58,6 +60,8 @@ class Weather < YossarianPlugin
         cw = api.current(location)
       rescue OpenWeatherMap::Exceptions::UnknownLocation
         m.reply "Bad query for location \'#{location}\'.", true
+      rescue OpenWeatherMap::Exceptions::Unauthorized
+        m.reply "Bad query: Unauthorized", true
       else
         loc =  "#{cw.city.country}, #{cw.city.name}"
         weather = "#{cw.weather_conditions.description} #{cw.weather_conditions.emoji}"
