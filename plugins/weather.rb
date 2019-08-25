@@ -3,70 +3,44 @@
 #  weather.rb
 #  Author: William Woodruff
 #  ------------------------
-#  A Cinch plugin that provides OpenWeather interaction for yossarian-bot.
+#  A Cinch plugin that provides APIXU weather interaction for yossarian-bot.
 #  ------------------------
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'openweathermap'
+require 'bundler/setup' # needed for apixu
+require 'apixu'
 require_relative "yossarian_plugin"
 
 class Weather < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  KEY = ENV["OPENWEATHER_API_KEY"]
+  KEY = ENV["APIXU_API_KEY"]
 
   def usage
-    "!w [c/f] <location> - Get the weather at <location>. Alias: !weather."
+    "!w <location> - Get the weather at <location>. Alias: !weather."
   end
 
   def match?(cmd)
     cmd =~ /^(!)?(weather)|(^w)$/
   end
 
-  # default to f
-  match /w (?![fc])(.+)/, method: :fweather, strip_colors: true
-  match /weather (?![fc])(.+)/, method: :fweather, strip_colors: true
-  match /w f (.+)/, method: :fweather, strip_colors: true
-  match /weather f (.+)/, method: :fweather, strip_colors: true
-  match /w c (.+)/, method: :cweather, strip_colors: true
-  match /weather c (.+)/, method: :cweather, strip_colors: true
+  match /w (.+)/, method: :weather, strip_colors: true
+  match /weather (.+)/, method: :weather, strip_colors: true
 
-  def fweather(m, location)
+  def weather(m, location)
     if KEY
       begin
-        api = OpenWeatherMap::API.new(KEY, 'en', 'imperial')
-        cw = api.current(location)
-      rescue OpenWeatherMap::Exceptions::UnknownLocation
-        m.reply "Bad query for location \'#{location}\'.", true
-      rescue OpenWeatherMap::Exceptions::Unauthorized
-        m.reply "Bad query: Unauthorized", true
+        client = Apixu::Client.new KEY
+        hash = client.current location
+      rescue Apixu::Errors::Request => e
+        m.reply e, true
       else
-        loc =  "#{cw.city.country}, #{cw.city.name}"
-        weather = "#{cw.weather_conditions.description} #{cw.weather_conditions.emoji}"
-        temp = cw.weather_conditions.temperature
-        m.reply "Current temperature in #{loc} is #{temp}°F and #{weather}", true
-      end
-    else
-      m.reply "#{self.class.name}: Internal error (missing API key)."
-    end
-  end
-
-  def cweather(m, location)
-    if KEY
-      begin
-        api = OpenWeatherMap::API.new(KEY, 'en', 'metric')
-        cw = api.current(location)
-      rescue OpenWeatherMap::Exceptions::UnknownLocation
-        m.reply "Bad query for location \'#{location}\'.", true
-      rescue OpenWeatherMap::Exceptions::Unauthorized
-        m.reply "Bad query: Unauthorized", true
-      else
-        loc =  "#{cw.city.country}, #{cw.city.name}"
-        weather = "#{cw.weather_conditions.description} #{cw.weather_conditions.emoji}"
-        temp = cw.weather_conditions.temperature
-        m.reply "Current temperature in #{loc} is #{temp}°C and #{weather}", true
+        loc = "#{hash["location"]["name"]}, #{hash["location"]["region"]}, #{hash["location"]["country"]}"
+        weather = hash["current"]["condition"]["text"]
+        temp = "#{hash["current"]["temp_c"]}°C (#{hash["current"]["temp_f"]}°F)"
+        m.reply "Current temperature in #{loc} is #{temp} and #{weather}.", true
       end
     else
       m.reply "#{self.class.name}: Internal error (missing API key)."

@@ -26,4 +26,4 @@ gem "telegraph"
 gem "time_difference"
 gem "wolfram"
 gem "xkcd"
-gem "openweathermap"
+gem 'apixu', git: 'https://github.com/apixu/apixu-ruby.git', branch: 'master'
