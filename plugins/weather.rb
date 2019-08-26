@@ -35,9 +35,15 @@ class Weather < YossarianPlugin
         client = Apixu::Client.new KEY
         hash = client.current location
       rescue Apixu::Errors::Request => e
-        m.reply e, true
+        if e.code == Apixu::Errors::NO_LOCATION_FOUND_FOR_QUERY
+          m.reply "Nothing found for location \'#{location}\'.", true
+        else
+          m.reply e, true
+        end
       else
-        loc = "#{hash["location"]["name"]}, #{hash["location"]["region"]}, #{hash["location"]["country"]}"
+        loc = hash["location"]["name"]
+        loc += ", #{hash["location"]["region"]}" if hash["location"]["region"].length > 0
+        loc += ", #{hash["location"]["country"]}"
         weather = hash["current"]["condition"]["text"]
         temp = "#{hash["current"]["temp_c"]}°C (#{hash["current"]["temp_f"]}°F)"
         m.reply "Current temperature in #{loc} is #{temp} and #{weather}.", true
