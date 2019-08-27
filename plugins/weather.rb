@@ -8,8 +8,8 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require 'bundler/setup' # needed for apixu
-require 'apixu'
+require "bundler/setup" # needed for apixu
+require "apixu"
 require_relative "yossarian_plugin"
 
 class Weather < YossarianPlugin
@@ -42,14 +42,14 @@ class Weather < YossarianPlugin
         end
       else
         loc = hash["location"]["name"]
-        loc += ", #{hash["location"]["region"]}" if hash["location"]["region"].length > 0
-        loc += ", #{hash["location"]["country"]}"
+        loc = "#{loc}, #{hash["location"]["region"]}" unless hash["location"]["region"].empty?
+        loc = "#{loc}, #{hash["location"]["country"]}"
         weather = hash["current"]["condition"]["text"]
         temp = "#{hash["current"]["temp_c"]}°C (#{hash["current"]["temp_f"]}°F)"
         m.reply "Current temperature in #{loc} is #{temp} and #{weather}.", true
       end
     else
-      m.reply "#{self.class.name}: Internal error (missing API key)."
+      m.reply "Internal error (missing API key)."
     end
   end
 end
