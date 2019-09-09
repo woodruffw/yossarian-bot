@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/apixu/apixu-ruby.git
   revision: 52d54082d672f5bf83f6a10f259058296906334e
+  ref: 52d5408
   branch: master
   specs:
     apixu (0.3.0)
@@ -98,7 +99,7 @@ GEM
       nokogiri
     ruby-termios (1.0.2)
     ruby-upworthy (1.0.0)
-    sanitize (5.0.0)
+    sanitize (5.1.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.8.0)
       nokogumbo (~> 2.0)
@@ -123,6 +124,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  apixu!
   daemons
   duck-duck-go
   flippy
@@ -142,7 +144,7 @@ DEPENDENCIES
   research_topicgen
   ruby-eval-in
   ruby-upworthy
-  sanitize (~> 5.0.0)
+  sanitize (~> 5.1.0)
   telegraph
   time_difference
   wolfram
