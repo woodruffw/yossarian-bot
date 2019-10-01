@@ -39,15 +39,15 @@ class Weather < YossarianPlugin
         uri.query = URI.encode_www_form(params)
         json = Net::HTTP.get(uri)
         hash = JSON.parse(json)
-      if hash.empty?
-          m.reply "Nothing found for location \'#{location}\'.", true
-      else
+      if hash["location"]
         loc = hash["location"]["name"]
         loc = "#{loc}, #{hash["location"]["region"]}"
         loc = "#{loc}, #{hash["location"]["country"]}"
         weather = hash["current"]["weather_descriptions"][0]
         temp = "#{hash["current"]["temperature"]}°C (#{hash["current"]["temperature"]*1.8+32}°F)"
         m.reply "Current temperature in #{loc} is #{temp} and #{weather}.", true
+      else
+        m.reply "Nothing found for location \'#{location}\'.", true
       end
     else
       m.reply "Internal error (missing API key)."
