@@ -331,7 +331,17 @@ Style/SymbolProc:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStylesForMultiline.
 # SupportedStylesForMultiline: comma, consistent_comma, no_comma
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaArrayInLiteral:
+  Exclude:
+    - 'plugins/catch22.rb'
+    - 'plugins/crypto.rb'
+    - 'plugins/magic8ball.rb'
+
+# Offense count: 4
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyleForMultiline, SupportedStylesForMultiline.
+# SupportedStylesForMultiline: comma, consistent_comma, no_comma
+Style/TrailingCommaHashInLiteral:
   Exclude:
     - 'plugins/catch22.rb'
     - 'plugins/crypto.rb'
