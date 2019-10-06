@@ -43,11 +43,13 @@ class Weather < YossarianPlugin
         loc = hash["location"]["name"]
         loc = "#{loc}, #{hash["location"]["region"]}"
         loc = "#{loc}, #{hash["location"]["country"]}"
-        weather = hash["current"]["weather_descriptions"][0]
-        temp = "#{hash["current"]["temperature"]}°C (#{hash["current"]["temperature"]*1.8+32}°F)"
+        weather = hash["current"]["weather_descriptions"].first
+        temp_c = hash["current"]["temperature"]
+        temp_f = temp_c * 1.8 + 32
+        temp = "#{temp_c}°C (#{temp_f}°F)"
         m.reply "Current temperature in #{loc} is #{temp} and #{weather}.", true
       else
-        m.reply "Nothing found for location \'#{location}\'.", true
+        m.reply "Nothing found for location '#{location}'.", true
       end
     else
       m.reply "Internal error (missing API key)."
