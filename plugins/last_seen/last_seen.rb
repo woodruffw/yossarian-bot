@@ -10,7 +10,10 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
-require_relative "yossarian_plugin"
+require "yaml"
+require "fileutils"
+
+require_relative "../yossarian_plugin"
 
 class LastSeen < YossarianPlugin
   include Cinch::Plugin
@@ -24,7 +27,20 @@ class LastSeen < YossarianPlugin
 
   def initialize(*args)
     super
-    @users = {}
+    @users_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "last_seen.yml"))
+
+    if File.file?(@users_file)
+      @users = YAML.load_file(@users_file)
+    else
+      FileUtils.mkdir_p File.dirname(@users_file)
+      @users = {}
+    end
+  end
+
+  def sync_users_file
+    File.open(@users_file, "w+") do |file|
+      file.write @users.to_yaml
+    end
   end
 
   def usage
@@ -38,7 +54,8 @@ class LastSeen < YossarianPlugin
   listen_to :channel
 
   def listen(m)
-    @users[m.user.nick.downcase] = LastSeenStruct.new(m.user.nick, m.channel, m.message, Time.now)
+    @users[m.user.nick.downcase] = LastSeenStruct.new(m.user.nick, m.channel.to_s, m.message, Time.now)
+    sync_users_file
   end
 
   match /seen (\S+)/, method: :last_seen, strip_colors: true
