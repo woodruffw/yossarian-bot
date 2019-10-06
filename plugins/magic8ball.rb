@@ -34,7 +34,7 @@ class Magic8Ball < YossarianPlugin
     "My reply is no.",
     "My sources say no.",
     "Outlook not so good.",
-    "Very doubtful."
+    "Very doubtful.",
   ]
 
   def usage

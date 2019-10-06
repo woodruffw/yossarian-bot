@@ -68,9 +68,9 @@ class Crypto < YossarianPlugin
       changes: {
         hourly: hash["percent_change_1h"],
         daily: hash["percent_change_24h"],
-        weekly: hash["percent_change_7d"]
+        weekly: hash["percent_change_7d"],
       },
-      currency: currency
+      currency: currency,
     }
   end
 

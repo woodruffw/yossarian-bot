@@ -48,7 +48,7 @@ class Catch22 < YossarianPlugin
     "There was one catch, and that was Catch-22.",
     "He was a militant idealist who crusaded against racial bigotry by growing faint in its presence.",
     "Aarfy was a dedicated fraternity man who loved cheerleading and class reunions and did not have brains enough to be afraid.",
-    "Any fool can make money these days and most of them do. But what about people with talent and brains? Name, for example, one poet who makes money."
+    "Any fool can make money these days and most of them do. But what about people with talent and brains? Name, for example, one poet who makes money.",
   ]
 
   def usage
