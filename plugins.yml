@@ -52,7 +52,6 @@ plugins:
     - Weather
     - PhoneInfo
     - Ping
-    - PingMe
     - RainbowText
     - RegexReplace
     - Reminders
