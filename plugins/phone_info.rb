@@ -32,9 +32,15 @@ class PhoneInfo < YossarianPlugin
 
   match /phoneinfo (\d+)/, method: :phone_info, strip_colors: true
 
+  def get_secret(number)
+    html = Nokogiri::HTML(open("https://numverify.com").read)
+    request_secret = html.css("[name=\"scl_request_secret\"]").first.attr "value"
+    # lol
+    Digest::MD5.hexdigest("#{number}#{request_secret}")
+  end
+
   def phone_info(m, number)
-    # some secret...
-    secret = Digest::MD5.hexdigest(Time.now.strftime "%y.%m.%d")
+    secret = get_secret number
     url = URL % { secret: secret, number: number }
 
     begin
