@@ -41,7 +41,7 @@ they are exported to the environment (or set in the configuration) as follows:
 
 * Wolfram|Alpha - `WOLFRAM_ALPHA_APPID_KEY`
 * Weather Underground - `WUNDERGROUND_API_KEY`
-* APIXU weather - `APIXU_API_KEY`
+* WeatherStack - `WEATHERSTACK_API_KEY`
 * Merriam-Webster - `MERRIAM_WEBSTER_API_KEY`
 * YouTube (v3) - `YOUTUBE_API_KEY`
 * Last.fm - `LASTFM_API_KEY`, `LASTFM_API_SECRET`
