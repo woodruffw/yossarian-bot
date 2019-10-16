@@ -2,13 +2,13 @@
 
 source "https://rubygems.org"
 
-gem "grinch", ">= 1.0.1"
-gem "grinch-identify"
 gem "daemons"
 gem "duck-duck-go"
 gem "flippy"
 gem "genregen"
 gem "goodreads"
+gem "grinch", ">= 1.0.1"
+gem "grinch-identify"
 gem "haste"
 gem "htmlentities"
 gem "json"

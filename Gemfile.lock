@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/apixu/apixu-ruby.git
-  revision: 52d54082d672f5bf83f6a10f259058296906334e
-  ref: 52d5408
-  branch: master
-  specs:
-    apixu (0.3.0)
-      rest-client (~> 2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -124,7 +115,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  apixu!
   daemons
   duck-duck-go
   flippy
