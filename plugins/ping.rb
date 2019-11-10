@@ -38,14 +38,12 @@ class Ping < YossarianPlugin
     secs = (milis / 1000).to_i
     str = ""
     if mins > 0
-      str = "#{str}#{mins}"
-      str = "#{str}#{mins == 1 ? " minute, " : " minutes, "}"
+      str = "#{str}#{mins} minute(s), "
     end
     if secs > 0
-      str = "#{str}#{secs}"
-      str = "#{str}#{secs == 1 ? " second, " : " seconds, "}"
+      str = "#{str}#{secs} second(s), "
     end
-    return "#{str}#{((milis%60000)%1000).to_i} milliseconds"
+    "#{str}#{((milis%60000)%1000).to_i} millisecond(s)"
   end
 
   match /ping$/, method: :ctcp_ping_req
