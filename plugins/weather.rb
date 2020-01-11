@@ -46,7 +46,7 @@ class Weather < YossarianPlugin
         weather = hash["current"]["weather_descriptions"].first
         temp_c = hash["current"]["temperature"]
         temp_f = temp_c * 1.8 + 32
-        temp = "#{temp_c}°C (#{temp_f}°F)"
+        temp = "#{temp_c}°C (#{temp_f.round(2)}°F)"
         m.reply "Current temperature in #{loc} is #{temp} and #{weather}.", true
       else
         m.reply "Nothing found for location '#{location}'.", true
