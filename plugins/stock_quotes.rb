@@ -9,7 +9,7 @@
 #  http://opensource.org/licenses/MIT
 
 require "open-uri"
-require "csv"
+require "json"
 
 require_relative "yossarian_plugin"
 
@@ -17,7 +17,7 @@ class StockQuotes < YossarianPlugin
   include Cinch::Plugin
   use_blacklist
 
-  URL = "https://download.finance.yahoo.com/d/quotes.csv?s=%{query}&f=snl1p2"
+  URL = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=%{ticker}&apikey=%{api_key}"
 
   def usage
     "!stock <symbol> - Retrieve a stock quote for the given ticker symbol."
@@ -30,16 +30,22 @@ class StockQuotes < YossarianPlugin
   match /stock (\w+)$/, method: :stock_quote, strip_colors: true
 
   def stock_quote(m, symbol)
-    query = URI.encode(symbol)
-    url = URL % { query: query }
+    symbol = URI.encode(symbol)
+    url = URL % { ticker: symbol, api_key: ENV["ALPHA_VANTAGE_API_KEY"] }
 
     begin
-      quote = CSV.parse(open(url).read).first
-      tick, name, trade, change = quote[0..3]
-      if name != "N/A"
-        m.reply "#{name} (#{tick}) - Trading at $#{trade} (#{change})", true
+      res = JSON.parse(open(url).read)
+
+      if res["Error Message"]
+        m.reply res["Error Message"], true
       else
-        m.reply "Could not find a quote for #{tick}.", true
+        # Format the absolutely horrible API response
+        res     = res.values.first.transform_keys! { |k| k.split(" ").last }
+        tick    = res["symbol"]
+        price   = res["price"].to_f
+        percent = res["percent"]
+
+        m.reply "#{tick} - Trading at $#{price} (#{percent})", true
       end
     rescue Exception => e
       m.reply e.to_s, true

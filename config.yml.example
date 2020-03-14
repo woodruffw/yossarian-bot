@@ -16,6 +16,7 @@ environment: # optional
     MAL_PASSWORD: password
     OMDB_API_KEY: api_key
     COINMARKETCAP_API_KEY: api_key
+    ALPHA_VANTAGE_API_KEY: api_key
 servers: # mandatory
     irc.rizon.net: # at least one server entry is mandatory
         nick: 'yossarian-bot' # optional
