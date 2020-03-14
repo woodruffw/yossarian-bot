@@ -31,7 +31,7 @@ class StockQuotes < YossarianPlugin
 
   def stock_quote(m, symbol)
     symbol = URI.encode(symbol)
-    url = URL % { ticker: symbol, api_key: ENV['ALPHA_VANTAGE_API_KEY'] }
+    url = URL % { ticker: symbol, api_key: ENV["ALPHA_VANTAGE_API_KEY"] }
 
     begin
       res = JSON.parse(open(url).read)
