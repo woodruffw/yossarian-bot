@@ -15,6 +15,7 @@ plugins:
     - Clickbait
     - CommandHelp
     - CodeEval
+    - Corona
     - Crypto
     - CSTopics
     - CTCPVersion
