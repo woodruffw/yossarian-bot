@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "covid19_data_ruby"
 require "json"
 
 require_relative "yossarian_plugin"
