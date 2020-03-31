@@ -35,7 +35,7 @@ class OMDB < YossarianPlugin
     url = URL % { query: query, key: ENV["OMDB_API_KEY"] }
 
     begin
-      hash = JSON.parse(open(url).read)
+      hash = JSON.parse(URI.open(url).read)
       hash.default = "?"
 
       if !hash.key?("Error")

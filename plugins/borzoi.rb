@@ -30,7 +30,7 @@ class Borzoi < YossarianPlugin
   match /borzoi$/, method: :borzoi
 
   def borzoi(m)
-    hsh = JSON.parse(open(URL).read)
+    hsh = JSON.parse(URI.open(URL).read)
     m.reply hsh["message"], true
   rescue Exception => e
     m.reply e.to_s, true

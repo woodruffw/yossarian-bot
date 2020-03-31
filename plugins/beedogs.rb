@@ -24,7 +24,7 @@ class Beedogs < YossarianPlugin
 
   def initialize(*args)
     super
-    @count = open(COUNT_URL).read.to_i
+    @count = URI.open(COUNT_URL).read.to_i
   end
 
   def usage

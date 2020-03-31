@@ -29,7 +29,7 @@ class NewYorkerCartoons < YossarianPlugin
   match /ny$/, method: :random_cartoon
 
   def random_cartoon(m)
-    comic = JSON.parse(open(URL).read).first
+    comic = JSON.parse(URI.open(URL).read).first
     caption = HTMLEntities.new.decode comic["caption"]
 
     if caption.empty?

@@ -34,7 +34,7 @@ class IsItUp < YossarianPlugin
     url = URL % { domain: domain }
 
     begin
-      hash = JSON.parse(open(url).read)
+      hash = JSON.parse(URI.open(url).read)
 
       response_code = hash["response_code"]
 

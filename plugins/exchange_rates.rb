@@ -37,7 +37,7 @@ class ExchangeRates < YossarianPlugin
       codes = code.upcase.split
 
       begin
-        hash = JSON.parse(open(url).read)
+        hash = JSON.parse(URI.open(url).read)
         hash["rates"].default = "?"
 
         rates = codes.map do |curr|

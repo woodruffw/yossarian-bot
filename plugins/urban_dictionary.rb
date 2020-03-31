@@ -35,7 +35,7 @@ class UrbanDictionary < YossarianPlugin
     url = URL % { query: query }
 
     begin
-      hash = JSON.parse(open(url).read)
+      hash = JSON.parse(URI.open(url).read)
 
       if hash["list"].nonempty?
         list = hash["list"].first

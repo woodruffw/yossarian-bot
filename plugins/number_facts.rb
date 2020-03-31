@@ -30,7 +30,7 @@ class NumberFacts < YossarianPlugin
 
   def number_fact(m, number)
     url = URL % { number: number }
-    fact = open(url).read
+    fact = URI.open(url).read
     m.reply fact, true
   rescue Exception => e
     m.reply e.to_s, true

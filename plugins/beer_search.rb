@@ -36,7 +36,7 @@ class BeerSearch < YossarianPlugin
       url = URL % { key: KEY, query: query }
 
       begin
-        hash = JSON.parse(open(url).read)
+        hash = JSON.parse(URI.open(url).read)
 
         if !hash["data"].nil?
           beer = hash["data"].first

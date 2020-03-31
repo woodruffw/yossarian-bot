@@ -28,7 +28,7 @@ class GuineaPigs < YossarianPlugin
   match /guinea$/, method: :guinea
 
   def guinea(m)
-    html = Nokogiri::HTML(open("https://imgur.com/r/guineapigs/").read)
+    html = Nokogiri::HTML(URI.open("https://imgur.com/r/guineapigs/").read)
     img = html.css("a[class=image-list-link]")[rand(1..60)]["href"]
     m.reply "https://imgur.com#{img}", true
   end

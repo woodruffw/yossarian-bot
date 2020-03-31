@@ -31,7 +31,7 @@ class Dinner < YossarianPlugin
   match /dinner$/, method: :dinner
 
   def dinner(m)
-    page = Nokogiri::HTML(open(URL).read)
+    page = Nokogiri::HTML(URI.open(URL).read)
 
     food = page.css("dl").map(&:text).join.strip.tr("\n", " ")
     link = page.css("dt")[1].css("a").first["href"]
