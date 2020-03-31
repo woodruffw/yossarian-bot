@@ -32,7 +32,7 @@ class TinyURL < YossarianPlugin
     url = URL % { link: URI.encode(link) }
 
     begin
-      short_link = open(url).read
+      short_link = URI.open(url).read
       m.reply short_link, true
     rescue Exception => e
       m.reply e.to_s, true

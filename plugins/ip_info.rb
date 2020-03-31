@@ -36,7 +36,7 @@ class IPInfo < YossarianPlugin
       url = URL % { ip: URI.encode(ip) }
 
       begin
-        hash = JSON.parse(open(url).read)
+        hash = JSON.parse(URI.open(url).read)
         hash.default = "?"
 
         if !hash.key?("bogon")

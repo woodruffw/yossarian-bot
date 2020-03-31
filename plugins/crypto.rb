@@ -26,7 +26,7 @@ class Crypto < YossarianPlugin
     currency ||= "USD"
     api_endpoint = "#{BASE_URL}?symbol=#{coin_name}&convert=#{currency}"
 
-    response = JSON.parse(open(
+    response = JSON.parse(URI.open(
         api_endpoint,
         "X-CMC_PRO_API_KEY" => ENV['COINMARKETCAP_API_KEY']
       ).read)

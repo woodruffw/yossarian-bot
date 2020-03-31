@@ -43,7 +43,7 @@ class WebSearch < YossarianPlugin
     url = URL % { key: KEY, cx: ENGINE_ID, query: query }
 
     begin
-      hsh = JSON.parse(open(url).read)
+      hsh = JSON.parse(URI.open(url).read)
 
       result = hsh["items"].first
 

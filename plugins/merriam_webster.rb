@@ -36,7 +36,7 @@ class MerriamWebster < YossarianPlugin
       url = URL % { query: query, key: KEY }
 
       begin
-        xml = Nokogiri::XML(open(url).read)
+        xml = Nokogiri::XML(URI.open(url).read)
 
         def_elem = xml.xpath("//entry_list/entry/def/dt").first
 

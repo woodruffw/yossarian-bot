@@ -34,7 +34,7 @@ class StockQuotes < YossarianPlugin
     url = URL % { ticker: symbol, api_key: ENV["ALPHA_VANTAGE_API_KEY"] }
 
     begin
-      res = JSON.parse(open(url).read)
+      res = JSON.parse(URI.open(url).read)
 
       if res["Error Message"]
         m.reply res["Error Message"], true

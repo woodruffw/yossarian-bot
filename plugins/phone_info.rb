@@ -33,7 +33,7 @@ class PhoneInfo < YossarianPlugin
   match /phoneinfo (\d+)/, method: :phone_info, strip_colors: true
 
   def get_secret(number)
-    html = Nokogiri::HTML(open("https://numverify.com").read)
+    html = Nokogiri::HTML(URI.open("https://numverify.com").read)
     request_secret = html.css("[name=\"scl_request_secret\"]").first.attr "value"
     # lol
     Digest::MD5.hexdigest("#{number}#{request_secret}")
@@ -44,7 +44,7 @@ class PhoneInfo < YossarianPlugin
     url = URL % { secret: secret, number: number }
 
     begin
-      hash = JSON.parse(open(url).read)
+      hash = JSON.parse(URI.open(url).read)
       hash.delete_if { |_, v| v.is_a?(String) && v.empty? }
       hash.default = "Unknown"
 

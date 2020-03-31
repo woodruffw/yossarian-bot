@@ -36,7 +36,7 @@ class Giphy < YossarianPlugin
       url = URL % { query: query, key: KEY }
 
       begin
-        hash = JSON.parse(open(url).read)
+        hash = JSON.parse(URI.open(url).read)
 
         if hash["data"].nonempty?
           gif = hash["data"].sample["images"]["original"]

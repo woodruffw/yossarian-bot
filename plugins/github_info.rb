@@ -44,7 +44,7 @@ class GitHubInfo < YossarianPlugin
     url = USER_URL % { user: URI.encode(user) }
 
     begin
-      hash = JSON.parse(open(url).read)
+      hash = JSON.parse(URI.open(url).read)
       hash.default = "?"
 
       if hash.key?("login")
@@ -66,7 +66,7 @@ class GitHubInfo < YossarianPlugin
     url = REPO_URL % { user: URI.encode(user), repo: URI.encode(repo) }
 
     begin
-      hash = JSON.parse(open(url).read)
+      hash = JSON.parse(URI.open(url).read)
       hash.default = "?"
 
       repo = hash["name"]

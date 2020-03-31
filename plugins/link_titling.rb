@@ -40,7 +40,7 @@ class LinkTitling < YossarianPlugin
 
   def generic_title(uri)
     Timeout.timeout(5) do
-      html = Nokogiri::HTML(open(uri, allow_redirections: :safe))
+      html = Nokogiri::HTML(URI.open(uri, allow_redirections: :safe))
       html.css("title").text.normalize_whitespace
     end
   rescue Exception
@@ -57,7 +57,7 @@ class LinkTitling < YossarianPlugin
       api_url = YOUTUBE_URL % { id: id, key: YOUTUBE_KEY }
 
       begin
-        hash = JSON.parse(open(api_url).read)["items"].first
+        hash = JSON.parse(URI.open(api_url).read)["items"].first
         hash["snippet"]["title"]
       rescue Exception => e
         "Unknown"
