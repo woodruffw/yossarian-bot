@@ -30,7 +30,7 @@ Command Syntax | Plugin class | Description | Working?
 `!channel <commands>` | ChannelAdmin | Administrate the current channel. [See below](#chanadmin). | Yes
 `!clickbait` | Clickbait | Generate a clickbait-y title. | Yes
 `!crypto <coin> [currency]` | Crypto | Retrieve current prices for a given coin from [CoinMarketCap](https://coinmarketcap.com/api/) and optionally convert to a given currency | Yes
-`!corona [country]` | Corona | Get the current info about corona in a country from [NovelCovid](https://github.com/NovelCOVID/API) | Yes
+`!corona [location]` | Corona | Get the current info about corona in a country/state from [NovelCovid](https://github.com/NovelCOVID/API) | Yes
 `!cute <nick>` | CuteFaces | Send a cute face to the given nick. | Yes
 `!decide <w OR x or y \|\| z>` | Decisions | Decide between choices. | Yes
 `!ddg <search>` | DuckDuckGoSearch | Search [DuckDuckGo](https://duckduckgo.com)'s Zero Click Info database. | Yes
