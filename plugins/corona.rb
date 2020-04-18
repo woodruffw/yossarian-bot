@@ -28,7 +28,7 @@ class Corona < YossarianPlugin
   match /corona (.+)/, method: :corona_state, strip_colors: true
 
   def corona_state(m, state)
-    api_endpoint = "#{BASE_URL}/states/#{URI::encode(state)}"
+    api_endpoint = "#{BASE_URL}/v2/states/#{URI::encode(state)}"
     hash = JSON.parse(URI.open(api_endpoint).read)
     m.reply "#{hash["state"]} COVID-19 stats | #{Format(:bold, "Total:")} #{hash["cases"]} cases, #{hash["deaths"]} deaths, #{hash["tests"]} tests(#{hash["testsPerOneMillion"]} per million). #{Format(:bold, "Today:")} #{hash["todayCases"]} cases, #{hash["todayDeaths"]} deaths.", true
 
@@ -39,7 +39,7 @@ class Corona < YossarianPlugin
   end
 
   def corona_country(m, country)
-    api_endpoint = "#{BASE_URL}/countries/#{URI::encode(country)}"
+    api_endpoint = "#{BASE_URL}/v2/countries/#{URI::encode(country)}"
     hash = JSON.parse(URI.open(api_endpoint).read)
     m.reply "#{hash["country"]} COVID-19 stats | #{Format(:bold, "Total:")} #{hash["cases"]} cases(#{hash["critical"]} critical), #{hash["deaths"]} deaths, #{hash["recovered"]} recovered, #{hash["tests"]} tests(#{hash["testsPerOneMillion"]} per million). #{Format(:bold, "Today:")} #{hash["todayCases"]} cases, #{hash["todayDeaths"]} deaths.", true
 
