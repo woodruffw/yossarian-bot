@@ -1,6 +1,8 @@
 yossarian-bot
 =============
 
+![license](https://raster.shields.io/badge/license-MIT%20with%20restrictions-green.png)
+
 An entertaining IRC bot that's easy to extend.
 
 ## Features:
