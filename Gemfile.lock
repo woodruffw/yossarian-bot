@@ -89,7 +89,7 @@ GEM
     ruby-eval-in (0.0.7)
       nokogiri
     ruby-termios (1.0.2)
-    ruby-upworthy (1.0.0)
+    ruby-upworthy (1.0.1)
     sanitize (5.1.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.8.0)
