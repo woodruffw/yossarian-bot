@@ -79,7 +79,10 @@ class NowReading < YossarianPlugin
     if user_id
       begin
         books = @goodreads.shelf(user_id, "currently-reading").books.map(&:book)
-        username = @goodreads.user(user_id).user_name
+        # NOTE(ww): As of 7/2/20, this API (user.show) is returning HTTP 500s, which the Goodreads
+        # gem then fails to handle correctly.
+        # See https://github.com/sosedoff/goodreads/pull/60 for the Ruby-side fix.
+        # username = @goodreads.user(user_id).user_name
 
         if books.nonempty?
           # 4 is a good limit
@@ -90,7 +93,7 @@ class NowReading < YossarianPlugin
             "#{books[i].title} (#{authors})"
           end.join ", "
 
-          m.reply "#{username} is currently reading #{reading}.", true
+          m.reply "Currently reading: #{reading}.", true
         else
           m.reply "#{nick} (#{user_id}) isn't currently reading anything.", true
         end
@@ -98,6 +101,7 @@ class NowReading < YossarianPlugin
         m.reply "I couldn't find a Goodreads user with ID: #{user_id}.", true
       rescue Exception => e
         m.reply e.to_s, true
+        raise e
       end
     else
       m.reply "I don\'t have a Goodreads account associated with #{nick}. Add one with !nr link <userid>.", true
