@@ -50,6 +50,7 @@ config["servers"].each do |server_name, server_info|
       @all_plugins = plugins.map do |plugin|
         Object.const_get(plugin)
       end
+      @server_id = server_info["server_id"] || server_name
 
       # rubocop:disable Style/TrivialAccessors
       def starttime
@@ -70,6 +71,10 @@ config["servers"].each do |server_name, server_info|
 
       def all_plugins
         @all_plugins
+      end
+
+      def server_id
+        @server_id
       end
       # rubocop:enable Style/TrivialAccessors
 

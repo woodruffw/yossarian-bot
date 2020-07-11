@@ -23,7 +23,7 @@ class NowReading < YossarianPlugin
   def initialize(*args)
     super
 
-    @username_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "goodreads_usernames.yml"))
+    @username_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.server_id, "goodreads_usernames.yml"))
 
     if File.file?(@username_file)
       @user_ids = YAML.load_file(@username_file)

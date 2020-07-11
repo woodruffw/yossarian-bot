@@ -19,7 +19,7 @@ class UserIntros < YossarianPlugin
 
   def initialize(*args)
     super
-    @intros_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_intros.yml"))
+    @intros_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.server_id, "user_intros.yml"))
 
     if File.file?(@intros_file)
       @intros = YAML.load_file(@intros_file)

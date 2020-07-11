@@ -19,7 +19,7 @@ class UserPoints < YossarianPlugin
 
   def initialize(*args)
     super
-    @points_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_points.yml"))
+    @points_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.server_id, "user_points.yml"))
 
     if File.file?(@points_file)
       @points = YAML.load_file(@points_file)

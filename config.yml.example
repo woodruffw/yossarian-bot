@@ -1,6 +1,8 @@
 ---
 
-environment: # optional
+environment:
+    # each of the following is optional, but not all plugins will function
+    # with them missing.
     WOLFRAM_ALPHA_APPID_KEY: api_key
     WUNDERGROUND_API_KEY: api_key
     MERRIAM_WEBSTER_API_KEY: api_key
@@ -17,25 +19,38 @@ environment: # optional
     OMDB_API_KEY: api_key
     COINMARKETCAP_API_KEY: api_key
     ALPHA_VANTAGE_API_KEY: api_key
-servers: # mandatory
-    irc.rizon.net: # at least one server entry is mandatory
-        nick: 'yossarian-bot' # optional
-        auth: # optional, needed if the nick is registered
+# mandatory
+servers:
+    # at least one server entry is mandatory
+    irc.rizon.net:
+        # optional, used to ensure a stable ID when the IRC server's domain or IP changes
+        server_id: irc.rizon.net
+        # optional
+        nick: 'yossarian-bot'
+        # optional, needed if the nick is registered
+        auth:
             type: 'nickserv'
             password: 'example'
-        prefix: '^!' # optional
-        admins: # optional
+        # optional
+        prefix: '^!'
+        # optional
+        admins:
             - 'cpt_yossarian'
             - 'yossarian'
-        ssl: true # optional
-        port: 6697 # optional
-        channels: # mandatory
+        # optional
+        ssl: true
+        # optional
+        port: 6697
+        # mandatory
+        channels:
             - '#yossarian-bot'
-        disabled_plugins: # mandatory - use an empty array if none
+        # mandatory - use an empty array if none
+        disabled_plugins:
             - 'LinkTitling'
             - 'UserIntros'
             - 'RegexReplace'
-        blacklist: # optional
+        # optional
+        blacklist:
             - 'spammer1'
     irc.freenode.net:
         nick: 'yossarian-bot'

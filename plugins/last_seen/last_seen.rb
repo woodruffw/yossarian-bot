@@ -27,7 +27,7 @@ class LastSeen < YossarianPlugin
 
   def initialize(*args)
     super
-    @users_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "last_seen.yml"))
+    @users_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.server_id, "last_seen.yml"))
 
     if File.file?(@users_file)
       @users = YAML.load_file(@users_file)

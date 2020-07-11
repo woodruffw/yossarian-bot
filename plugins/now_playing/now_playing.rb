@@ -24,7 +24,7 @@ class NowPlaying < YossarianPlugin
   def initialize(*args)
     super
 
-    @username_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "lastfm_usernames.yml"))
+    @username_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.server_id, "lastfm_usernames.yml"))
 
     if File.file?(@username_file)
       @usernames = YAML.load_file(@username_file)

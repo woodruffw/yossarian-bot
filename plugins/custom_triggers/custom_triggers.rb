@@ -18,7 +18,7 @@ class CustomTriggers < YossarianPlugin
 
   def initialize(*args)
     super
-    @triggers_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "custom_triggers.yml"))
+    @triggers_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.server_id, "custom_triggers.yml"))
 
     if File.file?(@triggers_file)
       @triggers = YAML.load_file(@triggers_file)

@@ -26,7 +26,7 @@ class UserMail < YossarianPlugin
 
   def initialize(*args)
     super
-    @mbox_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_mail.yml"))
+    @mbox_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.server_id, "user_mail.yml"))
 
     if File.file?(@mbox_file)
       @mbox = YAML.load_file(@mbox_file)

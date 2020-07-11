@@ -24,7 +24,7 @@ class UserQuotes < YossarianPlugin
 
   def initialize(*args)
     super
-    @quotes_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "user_quotes.yml"))
+    @quotes_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.server_id, "user_quotes.yml"))
 
     if File.file?(@quotes_file)
       @quotes = YAML.load_file(@quotes_file)

@@ -19,7 +19,7 @@ class ChannelModerator < YossarianPlugin
 
   def initialize(*args)
     super
-    @rules_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.config.server, "rules.yml"))
+    @rules_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.server_id, "rules.yml"))
 
     if File.file?(@rules_file)
       @rules = @rules = YAML.load_file(@rules_file)
