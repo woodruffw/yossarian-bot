@@ -30,7 +30,7 @@ class BotInfo < YossarianPlugin
   def bot_info(m, key)
     case key
     when /(^version$)|(^vers?$)/
-      m.reply "yossarian-bot #{@bot.version} running on ruby #{RUBY_VERSION} (#{RUBY_PLATFORM})."
+      m.reply "yossarian-bot #{@bot.version} running on grinch #{Cinch::VERSION} with ruby #{RUBY_VERSION} (#{RUBY_PLATFORM})."
     when /(^source$)|(^src$)/
       m.reply "yossarian-bot's source code can be found here: https://git.io/vs65u"
     when /(^contrib)|(^todo$)/
