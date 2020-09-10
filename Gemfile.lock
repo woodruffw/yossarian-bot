@@ -46,7 +46,7 @@ GEM
     i18n (1.8.3)
       concurrent-ruby (~> 1.0)
     json (2.3.1)
-    lastfm (1.27.3)
+    lastfm (1.27.4)
       httparty
       xml-simple
     leetspeak (0.1.1)
