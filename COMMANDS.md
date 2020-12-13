@@ -58,7 +58,6 @@ Command Syntax | Plugin class | Description | Working?
 `!manga <query>` | MyAnimeListSearch | Search MyAnimeList for manga | Yes
 `!morse <text>` | MorseCode | Convert text to Morse Code. | Yes
 `!np <commands>` | NowPlaying | Get a Last.fm user's last played track. [See below](#nowplaying). | Yes
-`!nr <commands>` | NowReading | Get a Goodreads user's current books. [See below](#nowreading). | Yes
 `!number <num>` | NumberFacts | Get a random fact about a given number from the [Numbers API](http://numbersapi.com/#42). | Yes
 `!ny` | NewYorkerCartoons | Get a random New Yorker cartoon. | Yes
 `!omdb <query>` | OMDB | Search for movie/show information on [The Open Movie Database](https://omdbapi.com/). | Yes
@@ -184,15 +183,6 @@ The `!np` command takes one of two subcommands:
 Subcommand | Description
 -----------|------------
 `link <username>` | Link the Last.fm user `<username>` to your nick.
-`[nick]` | Gets the currently playing status of `nick` (or your nick, if not provided).
-
-### `!nr` subcommands <a name="nowreading"></a>
-
-The `!nr` command takes one of two subcommands:
-
-Subcommand | Description
------------|------------
-`link <userid>` | Link the Goodreads user ID `<userid>` to your nick.
 `[nick]` | Gets the currently playing status of `nick` (or your nick, if not provided).
 
 ### `!point` subcommands <a name="point"></a>

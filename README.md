@@ -49,7 +49,6 @@ they are exported to the environment (or set in the configuration) as follows:
 * Last.fm - `LASTFM_API_KEY`, `LASTFM_API_SECRET`
 * Open Exchange Rates - `OEX_API_KEY`
 * Giphy - `GIPHY_API_KEY`
-* Goodreads - `GOODREADS_API_KEY`
 * BreweryDB - `BREWERYDB_API_KEY`
 * AirQuality - `AIRNOW_API_KEY`
 * OMDB - `OMDB_API_KEY`

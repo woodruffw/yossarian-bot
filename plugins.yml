@@ -47,7 +47,6 @@ plugins:
     - MyAnimeListSearch
     - NewYorkerCartoons
     - NowPlaying
-    - NowReading
     - NumberFacts
     - OMDB
     - Weather

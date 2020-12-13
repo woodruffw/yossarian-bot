@@ -21,18 +21,11 @@ GEM
       optimist
       ruby-termios
     genregen (0.0.8)
-    goodreads (0.8.0)
-      activesupport (>= 3.0)
-      hashie (~> 2.0)
-      i18n (>= 0.6, < 2)
-      oauth (~> 0.4)
-      rest-client (~> 2.0)
     google-search (1.0.3)
       json
     grinch (1.1.0)
     grinch-identify (1.8.0)
       grinch (~> 1.1)
-    hashie (2.1.2)
     haste (0.2.3)
       faraday (~> 0.9)
       json
@@ -78,7 +71,6 @@ GEM
     nokogumbo (2.0.2)
       nokogiri (~> 1.8, >= 1.8.4)
     ntlm-http (0.1.1)
-    oauth (0.5.4)
     open_uri_redirections (0.2.1)
     optimist (3.0.1)
     research_topicgen (0.1.6)
@@ -119,7 +111,6 @@ DEPENDENCIES
   duck-duck-go
   flippy
   genregen
-  goodreads
   grinch (~> 1.1)
   grinch-identify (~> 1.8)
   haste
