@@ -32,11 +32,10 @@ $ cd yossarian-bot
 $ bundle install
 ```
 
-If you get errors during the bundle installation process, make sure that:
-
-* You're using ruby 2.3 or greater
-* Ruby's development headers/files are installed (should be `ruby2.3-dev` or
-similar in your package manager)
+If you get errors during the bundle installation process, make sure that you're
+using Ruby 2.7 and have Ruby's development headers installed. You may need them
+from your package manager. Earlier versions of Ruby *might* work, but are
+not guaranteed or tested.
 
 `yossarian-bot` also requires API keys for several services. Make sure that
 they are exported to the environment (or set in the configuration) as follows:
