@@ -22,7 +22,6 @@ Command Syntax | Plugin class | Description | Working?
 `!beedog` | Beedogs | Retrieve a random picture of a beedog from [beedog.github.io](http://beedog.github.io). | Yes
 `!beer <name>` | BeerSearch | Search for beer information on [BreweryDB](http://www.brewerydb.com/). | Yes
 `!bofh` | BOFHExcuses | Get a random [BOFH excuse](http://pages.cs.wisc.edu/~ballard/bofh/). | Yes
-`!book <book>` | BookInfo | Get information about a book from [Goodreads](https://www.goodreads.com/). | Yes
 `!borzoi` | Borzoi | Get a random picture of a Borzoi from the [Dog CEO API](https://dog.ceo/dog-api/). | Yes
 `!botinfo <key>` | BotInfo | Retrieve information about the bot. [See below](#botinfo). | Yes
 `{.!:}bots` | IBIP | Announce this bot to the channel. | Yes
