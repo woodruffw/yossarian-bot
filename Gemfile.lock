@@ -93,7 +93,7 @@ GEM
       crass (~> 1.0.2)
       nokogiri (>= 1.8.0)
       nokogumbo (~> 2.0)
-    telegraph (1.0.1)
+    telegraph (1.0.2)
     thread_safe (0.3.6)
     time_difference (0.7.0)
       activesupport (~> 5.1)
