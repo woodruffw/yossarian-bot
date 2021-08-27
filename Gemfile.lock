@@ -11,7 +11,7 @@ GEM
     concurrent-ruby (1.1.7)
     connection_pool (2.2.5)
     crass (1.0.6)
-    daemons (1.4.0)
+    daemons (1.4.1)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     duck-duck-go (1.1.3)
