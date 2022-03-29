@@ -45,7 +45,7 @@ class WebSearch < YossarianPlugin
     begin
       hsh = JSON.parse(URI.open(url).read)
 
-      result = hsh["items"].first
+      result = hsh["items"].first || nil
 
       if result
         site = result["link"]
