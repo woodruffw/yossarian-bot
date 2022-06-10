@@ -32,7 +32,7 @@ GEM
       faraday (~> 0.9)
       json
     htmlentities (4.3.4)
-    http-cookie (1.0.4)
+    http-cookie (1.0.5)
       domain_name (~> 0.5)
     httparty (0.18.1)
       mime-types (~> 3.0)
@@ -45,7 +45,7 @@ GEM
       httparty
       xml-simple
     leetspeak (0.1.1)
-    mechanize (2.8.4)
+    mechanize (2.8.5)
       addressable (~> 2.8)
       domain_name (~> 0.5, >= 0.5.20190701)
       http-cookie (~> 1.0, >= 1.0.3)
@@ -75,7 +75,7 @@ GEM
       racc (~> 1.4)
     open_uri_redirections (0.2.1)
     optimist (3.0.1)
-    public_suffix (4.0.6)
+    public_suffix (4.0.7)
     racc (1.6.0)
     research_topicgen (0.1.6)
     rest-client (2.0.2)
@@ -98,7 +98,7 @@ GEM
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.8)
+    unf_ext (0.0.8.2)
     webrick (1.7.0)
     webrobots (0.1.2)
     wolfram (0.2.1)
