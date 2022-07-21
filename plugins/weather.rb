@@ -38,16 +38,27 @@ class Weather < YossarianPlugin
         uri = URI("http://api.weatherstack.com/current")
         uri.query = URI.encode_www_form(params)
         json = Net::HTTP.get(uri)
-        hash = JSON.parse(json)
-      if hash["location"]
-        loc = hash["location"]["name"]
-        loc = "#{loc}, #{hash["location"]["region"]}"
-        loc = "#{loc}, #{hash["location"]["country"]}"
-        weather = hash["current"]["weather_descriptions"].first
-        temp_c = hash["current"]["temperature"]
+        hsh = JSON.parse(json)
+      if hsh["location"]
+        loc = hsh["location"]["name"]
+        loc = "#{loc}, #{hsh["location"]["region"]}"
+        loc = "#{loc}, #{hsh["location"]["country"]}"
+
+        current = hsh["current"]
+        weather = current["weather_descriptions"].first
+
+        temp_c = current["temperature"]
         temp_f = temp_c * 1.8 + 32
         temp = "#{temp_c}°C (#{temp_f.round(2)}°F)"
-        m.reply "Current temperature in #{loc} is #{temp} and #{weather}.", true
+
+        feels_like_c = current["feelslike"]
+        feels_like_f = feels_like_c * 1.8 + 32
+        feels_like = "#{feels_like_c}°C (#{feels_like_f.round(2)}°F)"
+
+        humidity = current["humidity"]
+
+        m.reply "Current temperature in #{loc} is #{temp} and #{weather}; " \
+          "feels like #{feels_like} with #{humidity}\% humidity.", true
       else
         m.reply "Nothing found for location '#{location}'.", true
       end
