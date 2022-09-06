@@ -113,6 +113,6 @@ They're regularly updated with things that can be fixed, improved, and added.
 
 ## License
 
-`yossarian-bot` is licensed under the MIT License.
+`yossarian-bot` is licensed under a restricted modification of the MIT license.
 
 For the exact terms, see the [license](LICENSE) file.
