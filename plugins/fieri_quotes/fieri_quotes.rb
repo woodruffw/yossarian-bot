@@ -26,9 +26,9 @@ class FieriQuotes < YossarianPlugin
     cmd =~ /^(!)?fieri$/
   end
 
-  match /fieri$/, method: :theo_quote
+  match /fieri$/, method: :fieri_quote
 
-  def theo_quote(m)
+  def fieri_quote(m)
     m.reply QUOTES.sample
   end
 end
