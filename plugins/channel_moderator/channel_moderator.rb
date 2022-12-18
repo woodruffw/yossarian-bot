@@ -44,8 +44,6 @@ class ChannelModerator < YossarianPlugin
     cmd =~ /^(!)?moderator$/
   end
 
-  listen_to :connect, method: :initialize_rules
-
   match /moderator add \/(.+)\//, method: :moderator_add_rule, strip_colors: true
 
   def moderator_add_rule(m, regex)
