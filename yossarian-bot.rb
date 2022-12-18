@@ -91,6 +91,11 @@ config["servers"].each do |server_name, server_info|
         conf.plugins.plugins = @all_plugins.dup
         conf.plugins.plugins << Cinch::Plugins::Identify
 
+        if server_info.key? "sasl"
+          conf.sasl.username = server_info["sasl"]["password"] || conf.nick
+          conf.sasl.password = server_info["sasl"]["password"]
+        end
+
         if server_info.key?("auth")
           conf.plugins.options[Cinch::Plugins::Identify] = {
             type: server_info["auth"]["type"].to_sym,
