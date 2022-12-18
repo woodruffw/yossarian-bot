@@ -82,6 +82,7 @@ config["servers"].each do |server_name, server_info|
         conf.nick = server_info["nick"] || "yossarian-bot"
         conf.realname = "yossarian-bot"
         conf.user = "yossarian-bot"
+        conf.password = server_info["password"]
         conf.max_messages = 1
         conf.server = server_name
         conf.channels = server_info["channels"]
