@@ -89,7 +89,7 @@ GEM
     ruby-termios (1.1.0)
     ruby-upworthy (1.0.1)
     rubyntlm (0.6.3)
-    sanitize (6.0.0)
+    sanitize (6.0.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     telegraph (1.0.2)
@@ -133,7 +133,7 @@ DEPENDENCIES
   rexml
   ruby-eval-in
   ruby-upworthy
-  sanitize (~> 6.0.0)
+  sanitize (~> 6.0.1)
   telegraph
   time_difference
   wolfram
