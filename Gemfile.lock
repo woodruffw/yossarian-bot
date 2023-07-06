@@ -77,7 +77,7 @@ GEM
     open_uri_redirections (0.2.1)
     optimist (3.0.1)
     public_suffix (5.0.1)
-    racc (1.6.2)
+    racc (1.7.1)
     research_topicgen (0.1.6)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
@@ -89,7 +89,7 @@ GEM
     ruby-termios (1.1.0)
     ruby-upworthy (1.0.1)
     rubyntlm (0.6.3)
-    sanitize (6.0.1)
+    sanitize (6.0.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     telegraph (1.0.2)
@@ -133,7 +133,7 @@ DEPENDENCIES
   rexml
   ruby-eval-in
   ruby-upworthy
-  sanitize (~> 6.0.1)
+  sanitize (~> 6.0.2)
   telegraph
   time_difference
   wolfram
