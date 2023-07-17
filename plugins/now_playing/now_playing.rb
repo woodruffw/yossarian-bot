@@ -74,7 +74,9 @@ class NowPlaying < YossarianPlugin
 
       if username
         begin
-          info = @lastfm.user.get_recent_tracks(username, limit: 1, to: Time.now.utc.to_i.to_s)
+          # TODO: Send the `to` param here to avoid returning future scrobbled tracks.
+          # Something about sending it as `to: Time.now.utc.to_i` makes Last.fm unhappy.
+          info = @lastfm.user.get_recent_tracks(username, limit: 1)
 
           if info
             # APIs should always return a uniform type...
