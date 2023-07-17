@@ -74,9 +74,10 @@ class NowPlaying < YossarianPlugin
 
       if username
         begin
-          # TODO: Send the `to` param here to avoid returning future scrobbled tracks.
-          # Something about sending it as `to: Time.now.utc.to_i` makes Last.fm unhappy.
-          info = @lastfm.user.get_recent_tracks(username, limit: 1)
+          # TODO: Retrieve more recent tracks here, and filter for the one closest to the current
+          # time. Ideally we wouldn't do something so stupid, but Last.fm's API doesn't appear
+          # to respect its own `from` and `to` parameters.
+          info = @lastfm.user.get_recent_tracks(user: username, limit: 1)
 
           if info
             # APIs should always return a uniform type...
