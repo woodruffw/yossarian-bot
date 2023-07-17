@@ -74,7 +74,7 @@ class NowPlaying < YossarianPlugin
 
       if username
         begin
-          info = @lastfm.user.get_recent_tracks(username, limit: 1, to: Time.now.utc.to_i)
+          info = @lastfm.user.get_recent_tracks(username, limit: 1, to: Time.now.utc.to_i.to_s)
 
           if info
             # APIs should always return a uniform type...
