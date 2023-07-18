@@ -33,7 +33,7 @@ $ bundle install
 ```
 
 If you get errors during the bundle installation process, make sure that you're
-using Ruby 2.7 and have Ruby's development headers installed. You may need them
+using Ruby 3.0 or later and have Ruby's development headers installed. You may need them
 from your package manager. Earlier versions of Ruby *might* work, but are
 not guaranteed or tested.
 
@@ -90,7 +90,7 @@ see a complete list in the [COMMANDS](COMMANDS.md) file.
 
 ### Matches
 
-`yossarian-bot` matches all HTTP[S] links and messages the title of the linked
+`yossarian-bot` matches all HTTP(S) links and messages the title of the linked
 HTML page. This feature can be disabled by adding `LinkTitling` to the server's
 `disabled_plugins` array in `config.yml`.
 
