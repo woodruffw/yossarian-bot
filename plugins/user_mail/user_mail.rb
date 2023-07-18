@@ -29,7 +29,7 @@ class UserMail < YossarianPlugin
     @mbox_file = File.expand_path(File.join(File.dirname(__FILE__), @bot.server_id, "user_mail.yml"))
 
     if File.file?(@mbox_file)
-      @mbox = YAML.load_file(@mbox_file)
+      @mbox = YAML.load_file(@mbox_file, permitted_classes: [MboxMessageStruct, Time])
       @mbox.default_proc = Proc.new { |h, k| h[k] = [] }
     else
       FileUtils.mkdir_p File.dirname(@mbox_file)
