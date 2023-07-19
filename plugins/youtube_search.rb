@@ -8,6 +8,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "json"
 require "open-uri"
 
@@ -31,7 +32,7 @@ class YouTubeSearch < YossarianPlugin
   match /youtube (.+)/, method: :youtube_search, strip_colors: true
 
   def youtube_search(m, search)
-    query = URI.encode(search)
+    query = Addressable::URI.encode(search)
     url = URL % { query: query, key: ENV["YOUTUBE_API_KEY"] }
 
     begin

@@ -9,6 +9,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "json"
 require "open-uri"
 require "sanitize"
@@ -39,7 +40,7 @@ class WebSearch < YossarianPlugin
       return
     end
 
-    query = URI.encode(search)
+    query = Addressable::URI.encode(search)
     url = URL % { key: KEY, cx: ENGINE_ID, query: query }
 
     begin

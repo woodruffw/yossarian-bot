@@ -8,6 +8,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "json"
 require "open-uri"
 
@@ -41,7 +42,7 @@ class GitHubInfo < YossarianPlugin
   end
 
   def github_user_info(m, user)
-    url = USER_URL % { user: URI.encode(user) }
+    url = USER_URL % { user: Addressable::URI.encode(user) }
 
     begin
       hash = JSON.parse(URI.open(url).read)
@@ -63,7 +64,7 @@ class GitHubInfo < YossarianPlugin
   end
 
   def github_repo_info(m, user, repo)
-    url = REPO_URL % { user: URI.encode(user), repo: URI.encode(repo) }
+    url = REPO_URL % { user: Addressable::URI.encode(user), repo: Addressable::URI.encode(repo) }
 
     begin
       hash = JSON.parse(URI.open(url).read)

@@ -9,6 +9,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "json"
 require "open-uri"
 
@@ -31,7 +32,7 @@ class OMDB < YossarianPlugin
   match /omdb (.+)/, method: :omdb_search, strip_colors: true
 
   def omdb_search(m, title)
-    query = URI.encode(title)
+    query = Addressable::URI.encode(title)
     url = URL % { query: query, key: ENV["OMDB_API_KEY"] }
 
     begin

@@ -9,6 +9,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "resolv"
 require "json"
 require "open-uri"
@@ -33,7 +34,7 @@ class IPInfo < YossarianPlugin
 
   def ip_info(m, ip)
     if ip =~ Resolv::IPv4::Regex || ip =~ Resolv::IPv6::Regex
-      url = URL % { ip: URI.encode(ip) }
+      url = URL % { ip: Addressable::URI.encode(ip) }
 
       begin
         hash = JSON.parse(URI.open(url).read)

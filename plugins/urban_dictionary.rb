@@ -8,6 +8,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "json"
 require "open-uri"
 
@@ -31,7 +32,7 @@ class UrbanDictionary < YossarianPlugin
   match /urban (.+)/, method: :urban_dict, strip_colors: true
 
   def urban_dict(m, phrase)
-    query = URI.encode(phrase)
+    query = Addressable::URI.encode(phrase)
     url = URL % { query: query }
 
     begin

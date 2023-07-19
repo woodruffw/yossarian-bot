@@ -8,6 +8,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "open-uri"
 require "json"
 
@@ -30,7 +31,7 @@ class StockQuotes < YossarianPlugin
   match /stock (\w+)$/, method: :stock_quote, strip_colors: true
 
   def stock_quote(m, symbol)
-    symbol = URI.encode(symbol)
+    symbol = Addressable::URI.encode(symbol)
     url = URL % { ticker: symbol, api_key: ENV["ALPHA_VANTAGE_API_KEY"] }
 
     begin

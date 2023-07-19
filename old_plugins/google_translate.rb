@@ -8,6 +8,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "json"
 require "open-uri"
 
@@ -30,7 +31,7 @@ class GoogleTranslate < YossarianPlugin
   match /tr(?:anslate)? (.+)/, method: :google_translate_auto, strip_colors: true
 
   def google_translate_auto(m, msg)
-    query = URI.encode(msg)
+    query = Addressable::URI.encode(msg)
     url = URL % { query: query }
 
     begin

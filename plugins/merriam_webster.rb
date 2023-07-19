@@ -8,6 +8,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "nokogiri"
 require "open-uri"
 
@@ -32,7 +33,7 @@ class MerriamWebster < YossarianPlugin
 
   def define_word(m, word)
     if KEY
-      query = URI.encode(word)
+      query = Addressable::URI.encode(word)
       url = URL % { query: query, key: KEY }
 
       begin

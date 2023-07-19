@@ -114,6 +114,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   daemons
   duck-duck-go
   flippy
