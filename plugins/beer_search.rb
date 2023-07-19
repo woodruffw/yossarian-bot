@@ -8,6 +8,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "json"
 require "open-uri"
 
@@ -32,7 +33,7 @@ class BeerSearch < YossarianPlugin
 
   def beer_search(m, search)
     if KEY
-      query = URI.encode(search)
+      query = Addressable::URI.encode(search)
       url = URL % { key: KEY, query: query }
 
       begin

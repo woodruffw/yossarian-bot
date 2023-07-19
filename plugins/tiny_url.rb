@@ -8,6 +8,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "open-uri"
 
 require_relative "yossarian_plugin"
@@ -29,7 +30,7 @@ class TinyURL < YossarianPlugin
   match /t(?:iny)?url (#{URI.regexp(['http', 'https'])})/, method: :tinyurl, strip_colors: true
 
   def tinyurl(m, link)
-    url = URL % { link: URI.encode(link) }
+    url = URL % { link: Addressable::URI.encode(link) }
 
     begin
       short_link = URI.open(url).read

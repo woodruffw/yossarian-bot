@@ -8,6 +8,7 @@
 #  This code is licensed by slackErEhth77 under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "json"
 require "open-uri"
 
@@ -30,7 +31,7 @@ class Wikipedia < YossarianPlugin
   match /wiki (.+)/, method: :search_wiki, strip_colors: true
 
   def search_wiki(m, search)
-    query = URI.encode(search)
+    query = Addressable::URI.encode(search)
     url = URL % { query: query }
 
     begin

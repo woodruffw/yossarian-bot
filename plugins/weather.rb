@@ -8,6 +8,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "net/http"
 require "json"
 require_relative "yossarian_plugin"
@@ -36,7 +37,7 @@ class Weather < YossarianPlugin
           :query => location
         }
         uri = URI("http://api.weatherstack.com/current")
-        uri.query = URI.encode_www_form(params)
+        uri.query = Addressable::URI.encode_www_form(params)
         json = Net::HTTP.get(uri)
         hsh = JSON.parse(json)
       if hsh["location"]

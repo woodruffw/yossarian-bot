@@ -8,6 +8,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "json"
 require "open-uri"
 
@@ -30,7 +31,7 @@ class GoogleSearch < YossarianPlugin
   match /g(?:oogle)? (.+)/, method: :google_search, strip_colors: true
 
   def google_search(m, search)
-    query = URI.encode(search)
+    query = Addressable::URI.encode(search)
     url = URL % { query: query }
 
     begin

@@ -8,6 +8,7 @@
 #  This code is licensed by William Woodruff under the MIT License.
 #  http://opensource.org/licenses/MIT
 
+require "addressable/uri"
 require "json"
 require "open-uri"
 
@@ -30,7 +31,7 @@ class IsItUp < YossarianPlugin
   match /(?:isit)?up (.+)/, method: :isitup, strip_colors: true
 
   def isitup(m, site)
-    domain = URI.encode(site.gsub(/^http(?:s)?:\/\//, ""))
+    domain = Addressable::URI.encode(site.gsub(/^http(?:s)?:\/\//, ""))
     url = URL % { domain: domain }
 
     begin

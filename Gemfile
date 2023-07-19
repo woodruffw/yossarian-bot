@@ -2,6 +2,7 @@
 
 source "https://rubygems.org"
 
+gem "addressable"
 gem "daemons"
 gem "duck-duck-go"
 gem "flippy"
