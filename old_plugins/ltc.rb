@@ -36,7 +36,7 @@ class LTC < YossarianPlugin
   match /ltc$/, method: :ltc_rate
 
   def ltc_rate(m)
-    hash = JSON.parse(open(URL).read)
+    hash = JSON.parse(URI.open(URL).read)
     rate = hash["ltc_usd"]["buy"].round(2)
 
     if @last_trade.nil?

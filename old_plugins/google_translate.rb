@@ -35,7 +35,7 @@ class GoogleTranslate < YossarianPlugin
     url = URL % { query: query }
 
     begin
-      hash = JSON.parse(open(url).read)
+      hash = JSON.parse(URI.open(url).read)
       result = hash["sentences"].first["trans"]
       m.reply result, true
     rescue Exception => e

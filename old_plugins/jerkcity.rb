@@ -34,7 +34,7 @@ class Jerkcity < YossarianPlugin
   end
 
   def initialize_comic_count
-    html = Nokogiri::HTML(open(URL).read)
+    html = Nokogiri::HTML(URI.open(URL).read)
     text = html.css("div")[3].text
     @comic_count = text.split("|")[2].strip.gsub(/(No. )|(,)/, "").to_i
   rescue Exception => e
@@ -49,7 +49,7 @@ class Jerkcity < YossarianPlugin
       comic_url = "#{URL}/_jerkcity#{rand}.html"
 
       begin
-        html = Nokogiri::HTML(open(comic_url).read)
+        html = Nokogiri::HTML(URI.open(comic_url).read)
         text_array = html.css("div")[3].text.split("|")
         comic_desc = text_array[0].strip
         comic_date = text_array[1].strip

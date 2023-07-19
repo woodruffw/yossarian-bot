@@ -31,7 +31,7 @@ class WorldPopulation < YossarianPlugin
   match /(wp$)|(population$)/, method: :world_population
 
   def world_population(m)
-    hash = JSON.parse(open(URL).read)
+    hash = JSON.parse(URI.open(URL).read)
     pop = hash["world"]["population"]
     rate = hash["world"]["population_rate"]
     m.reply "World population: #{pop} (#{rate}/second)", true
