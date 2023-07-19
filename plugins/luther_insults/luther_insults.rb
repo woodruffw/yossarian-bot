@@ -10,7 +10,6 @@
 #  http://opensource.org/licenses/MIT
 
 require "nokogiri"
-require "open-uri"
 
 require_relative "../yossarian_plugin"
 

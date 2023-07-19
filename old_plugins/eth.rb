@@ -31,7 +31,7 @@ class ETH < YossarianPlugin
   match /eth$/, method: :eth_rate
 
   def eth_rate(m)
-    hash   = JSON.parse(open(URL).read)
+    hash   = JSON.parse(URI.open(URL).read)
     rate   = hash["price"]["usd"].round(2)
     change = hash["change"].to_f
 
