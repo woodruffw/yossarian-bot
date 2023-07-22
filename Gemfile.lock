@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/woodruffw-forks/wolfram.git
+  revision: 282c7d4c7361e6466473e1f8fc31e5abccdead76
+  branch: ww/fix-open-uri
+  specs:
+    wolfram (0.2.1)
+      nokogiri (>= 1.4.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -103,8 +111,6 @@ GEM
     unf_ext (0.0.8.2)
     webrick (1.8.1)
     webrobots (0.1.2)
-    wolfram (0.2.1)
-      nokogiri (>= 1.4.3)
     xkcd (1.1.1)
       google-search
       nokogiri (>= 1.5.0)
@@ -137,7 +143,7 @@ DEPENDENCIES
   sanitize (~> 6.0.2)
   telegraph
   time_difference
-  wolfram
+  wolfram!
   xkcd
 
 BUNDLED WITH
