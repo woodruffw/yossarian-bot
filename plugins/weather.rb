@@ -37,7 +37,7 @@ class Weather < YossarianPlugin
           :query => location
         }
         uri = URI("http://api.weatherstack.com/current")
-        uri.query = Addressable::URI.encode_www_form(params)
+        uri.query = URI.encode_www_form(params)
         json = Net::HTTP.get(uri)
         hsh = JSON.parse(json)
       if hsh["location"]
