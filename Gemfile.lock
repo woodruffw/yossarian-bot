@@ -92,7 +92,7 @@ GEM
     sanitize (6.1.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
-    telegraph (1.0.2)
+    telegraph (1.0.3)
     thread_safe (0.3.6)
     time_difference (0.7.0)
       activesupport (~> 5.1)
