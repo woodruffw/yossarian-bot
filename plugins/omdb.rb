@@ -32,7 +32,7 @@ class OMDB < YossarianPlugin
   match /omdb (.+)/, method: :omdb_search, strip_colors: true
 
   def omdb_search(m, title)
-    query = Addressable::URI.encode(title)
+    query = Addressable::URI.encode_component(title)
     url = URL % { query: query, key: ENV["OMDB_API_KEY"] }
 
     begin

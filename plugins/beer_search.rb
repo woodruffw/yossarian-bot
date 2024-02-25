@@ -33,7 +33,7 @@ class BeerSearch < YossarianPlugin
 
   def beer_search(m, search)
     if KEY
-      query = Addressable::URI.encode(search)
+      query = Addressable::URI.encode_component(search)
       url = URL % { key: KEY, query: query }
 
       begin

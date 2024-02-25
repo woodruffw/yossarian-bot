@@ -33,7 +33,7 @@ class Giphy < YossarianPlugin
 
   def giphy(m, search)
     if KEY
-      query = Addressable::URI.encode(search)
+      query = Addressable::URI.encode_component(search)
       url = URL % { query: query, key: KEY }
 
       begin

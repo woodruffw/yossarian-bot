@@ -42,7 +42,7 @@ class GitHubInfo < YossarianPlugin
   end
 
   def github_user_info(m, user)
-    url = USER_URL % { user: Addressable::URI.encode(user) }
+    url = USER_URL % { user: Addressable::URI.encode_component(user) }
 
     begin
       hash = JSON.parse(URI.open(url).read)
@@ -64,7 +64,7 @@ class GitHubInfo < YossarianPlugin
   end
 
   def github_repo_info(m, user, repo)
-    url = REPO_URL % { user: Addressable::URI.encode(user), repo: Addressable::URI.encode(repo) }
+    url = REPO_URL % { user: Addressable::URI.encode_component(user), repo: Addressable::URI.encode_component(repo) }
 
     begin
       hash = JSON.parse(URI.open(url).read)

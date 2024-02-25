@@ -33,7 +33,7 @@ class MerriamWebster < YossarianPlugin
 
   def define_word(m, word)
     if KEY
-      query = Addressable::URI.encode(word)
+      query = Addressable::URI.encode_component(word)
       url = URL % { query: query, key: KEY }
 
       begin

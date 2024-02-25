@@ -31,7 +31,7 @@ class IsItUp < YossarianPlugin
   match /(?:isit)?up (.+)/, method: :isitup, strip_colors: true
 
   def isitup(m, site)
-    domain = Addressable::URI.encode(site.gsub(/^http(?:s)?:\/\//, ""))
+    domain = Addressable::URI.encode_component(site.gsub(/^http(?:s)?:\/\//, ""))
     url = URL % { domain: domain }
 
     begin

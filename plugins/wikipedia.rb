@@ -31,7 +31,7 @@ class Wikipedia < YossarianPlugin
   match /wiki (.+)/, method: :search_wiki, strip_colors: true
 
   def search_wiki(m, search)
-    query = Addressable::URI.encode(search)
+    query = Addressable::URI.encode_component(search)
     url = URL % { query: query }
 
     begin

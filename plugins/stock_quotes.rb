@@ -31,7 +31,7 @@ class StockQuotes < YossarianPlugin
   match /stock (\w+)$/, method: :stock_quote, strip_colors: true
 
   def stock_quote(m, symbol)
-    symbol = Addressable::URI.encode(symbol)
+    symbol = Addressable::URI.encode_component(symbol)
     url = URL % { ticker: symbol, api_key: ENV["ALPHA_VANTAGE_API_KEY"] }
 
     begin

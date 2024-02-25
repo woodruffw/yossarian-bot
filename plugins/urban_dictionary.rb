@@ -32,7 +32,7 @@ class UrbanDictionary < YossarianPlugin
   match /urban (.+)/, method: :urban_dict, strip_colors: true
 
   def urban_dict(m, phrase)
-    query = Addressable::URI.encode(phrase)
+    query = Addressable::URI.encode_component(phrase)
     url = URL % { query: query }
 
     begin

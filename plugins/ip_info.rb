@@ -34,7 +34,7 @@ class IPInfo < YossarianPlugin
 
   def ip_info(m, ip)
     if ip =~ Resolv::IPv4::Regex || ip =~ Resolv::IPv6::Regex
-      url = URL % { ip: Addressable::URI.encode(ip) }
+      url = URL % { ip: Addressable::URI.encode_component(ip) }
 
       begin
         hash = JSON.parse(URI.open(url).read)

@@ -40,7 +40,7 @@ class WebSearch < YossarianPlugin
       return
     end
 
-    query = Addressable::URI.encode(search)
+    query = Addressable::URI.encode_component(search)
     url = URL % { key: KEY, cx: ENGINE_ID, query: query }
 
     begin
