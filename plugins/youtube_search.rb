@@ -32,7 +32,7 @@ class YouTubeSearch < YossarianPlugin
   match /youtube (.+)/, method: :youtube_search, strip_colors: true
 
   def youtube_search(m, search)
-    query = Addressable::URI.encode(search)
+    query = Addressable::URI.encode_component(search)
     url = URL % { query: query, key: ENV["YOUTUBE_API_KEY"] }
 
     begin
