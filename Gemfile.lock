@@ -86,7 +86,8 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.2.6)
+    rexml (3.2.8)
+      strscan (>= 3.0.9)
     ruby-eval-in (0.0.8)
       nokogiri
     ruby-termios (1.1.0)
@@ -95,6 +96,7 @@ GEM
     sanitize (6.1.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
+    strscan (3.1.0)
     telegraph (1.0.3)
     thread_safe (0.3.6)
     time_difference (0.7.0)
