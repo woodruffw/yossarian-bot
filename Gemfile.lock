@@ -32,7 +32,7 @@ GEM
       faraday (~> 0.9)
       json
     htmlentities (4.3.4)
-    http-cookie (1.0.5)
+    http-cookie (1.0.6)
       domain_name (~> 0.5)
     httparty (0.21.0)
       mini_mime (>= 1.0.0)
@@ -45,7 +45,7 @@ GEM
       httparty
       xml-simple
     leetspeak (0.1.1)
-    mechanize (2.10.0)
+    mechanize (2.10.1)
       addressable (~> 2.8)
       base64
       domain_name (~> 0.5, >= 0.5.20190701)
@@ -60,7 +60,7 @@ GEM
       webrobots (~> 0.1.2)
     mime-types (3.5.2)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2023.1205)
+    mime-types-data (3.2024.0604)
     mini_mime (1.1.2)
     mini_portile2 (2.8.7)
     minitest (5.16.0)
@@ -79,7 +79,7 @@ GEM
       racc (~> 1.4)
     open_uri_redirections (0.2.1)
     optimist (3.0.1)
-    public_suffix (5.0.4)
+    public_suffix (5.0.5)
     racc (1.8.0)
     research_topicgen (0.1.6)
     rest-client (2.0.2)
@@ -92,7 +92,8 @@ GEM
       nokogiri
     ruby-termios (1.1.0)
     ruby-upworthy (1.0.1)
-    rubyntlm (0.6.3)
+    rubyntlm (0.6.5)
+      base64
     sanitize (6.1.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
