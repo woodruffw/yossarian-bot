@@ -1,5 +1,4 @@
 ---
-
 plugins:
     - ArtistInfo
     - Beedogs
@@ -32,7 +31,6 @@ plugins:
     - Giphy
     - GuineaPigs
     - IBIP
-    - IsItUp
     - IPInfo
     - LastSeen
     - LeetSpeak
