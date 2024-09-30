@@ -102,7 +102,7 @@ GEM
       activesupport (~> 5.1)
     tzinfo (1.2.10)
       thread_safe (~> 0.1)
-    webrick (1.8.1)
+    webrick (1.8.2)
     webrobots (0.1.2)
     wolfram (0.3.0)
       nokogiri (~> 1, >= 1.4.3)
