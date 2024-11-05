@@ -40,7 +40,7 @@ GEM
     httpclient (2.8.3)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    json (2.7.5)
+    json (2.7.6)
     lastfm (1.27.4)
       httparty
       xml-simple
